@@ -1,0 +1,444 @@
+{
+  "site_info": {
+    "url": "https://xn--kj4b38iiva.com/",
+    "korean_domain": "이혼전문.com",
+    "title": "법무법인 신세계로 조인섭 변호사 - 이혼 전문변호사",
+    "meta_description": "이혼은 절차가 아니라 전쟁입니다. 그리고 전쟁에서 초반의 단 한 걸음은, 최종 판결까지 그림자를 드리웁니다.",
+    "og_image": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/ogtag_image.jpg",
+    "business_registration": "214-88-80810",
+    "privacy_officer": "조인섭",
+    "ad_responsible_lawyer": "조인섭",
+    "tech_stack": "WordPress + Elementor Pro + Hello Elementor Child Theme"
+  },
+  "navigation": {
+    "main_menu": [
+      "신세계로",
+      "승소사례",
+      "상담/선임 절차",
+      "게시판"
+    ],
+    "submenu": {
+      "신세계로": [
+        {
+          "label": "신세계로 소개",
+          "desc": "22년간 오직 이혼과 상속만 다뤄온 진짜 전문가 입니다.",
+          "href": "/about"
+        },
+        {
+          "label": "변호사팀",
+          "desc": "전문분야별 팀이 분업과 협업을 통해 체계적으로 대응",
+          "href": "/about/#lawyers"
+        },
+        {
+          "label": "오시는 길",
+          "desc": "판결이 도출되는 전 과정을 지휘하는 전략 설계자",
+          "href": "/about/#directions"
+        }
+      ],
+      "승소사례": [
+        {
+          "label": "승소사례",
+          "desc": "성과는 말로 꾸며지지 않으며, 기록으로 남습니다.",
+          "href": "/case-wins"
+        }
+      ],
+      "상담/선임 절차": [
+        {
+          "label": "상담/선임 절차",
+          "href": "/process/overview"
+        },
+        {
+          "label": "상담신청",
+          "href": "/process/contact"
+        }
+      ],
+      "게시판": [
+        {
+          "label": "언론/칼럼",
+          "href": "/board/media"
+        },
+        {
+          "label": "자유게시판",
+          "href": "/board/community"
+        }
+      ]
+    }
+  },
+  "section_01_hero": {
+    "headline": "대한 변호사협회가 인정한 가족법전문 1호 조인섭 변호사",
+    "sub_paragraphs": [
+      "법은 감정의 언어를 이해하지 않습니다. 법은 차갑게 정리된 사실, 정밀하게 배열된 증거, 그리고 논리로 직조된 문서를 통해서만 움직입니다. 그 무대 위에서 승부를 가르는 것은 오직 전략입니다.",
+      "이혼은 인생에서 가장 치열한 전환점입니다. 재산 분할의 비율, 자녀의 양육권 귀속, 위자료 청구의 범위 그 하나하나가 당신의 재정, 명예, 그리고 삶의 궤적을 근본적으로 바꿉니다."
+    ],
+    "highlighted_text": [
+      "논리로 직조된 문서",
+      "치열한 전환점"
+    ],
+    "cta_link": {
+      "text": "[가족법전문 1호] 조인섭 변호사 자세히보기",
+      "href": "#main_sec_02"
+    },
+    "background_video": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/main_01_sec_01_bg.mp4",
+    "images": [
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/main_01_sec_01.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/main_01_sec_01_bg_item_01.webp"
+    ]
+  },
+  "section_02_ceo_profile": {
+    "section_title": "비교 불가능한 전문성",
+    "sub_title": "의뢰인을 먼저 위하는 조인섭 변호사",
+    "key_statement": "이혼은 절차가 아니라 전쟁입니다. 그리고 전쟁에서 초반의 단 한 걸음은, 최종 판결까지 그림자를 드리웁니다.",
+    "credentials": [
+      "가족법 박사학위 취득",
+      "이화여대 로스쿨 교수",
+      "YTN 조인섭변호사의 상담소 진행 등",
+      "서울가정법원 50주년 기념 심포지엄(변호사 중 유일)"
+    ],
+    "content_paragraphs": [
+      "많은 의뢰인들이 사건의 무게 뒤늦게 깨닫고 찾아옵니다.",
+      "이미 성급히 제출한 소장 속에 불리한 문장이 남아 있고, 이미 충분히 검토되지 않은 답변서가 기록에 편철되어 있으며, 이미 감정에 치우친 의견서와 불필요한 증거자료가 재판부에 제출된 뒤입니다.",
+      "그 순간부터 사건의 흐름은 서서히 기울어집니다.",
+      "재판부는 [기록]으로 사건을 기억하고, 상대방은 그 기록을 [근거]로 전략을 세웁니다.",
+      "법은 억울한 심정을 위로하지 않습니다. 법은 오직 [논리]로 정리된 주장, [증거]로 뒷받침된 문서, 그리고 치밀하게 준비된 전략만을 기억합니다.",
+      "따라서 사건의 초입에서부터 정밀한 통제와 전략적 개입이 필요합니다.",
+      "소장의 한 문단, 준비서면의 한 줄, 답변서의 작은 누락이 당신의 재산, 자녀, 미래 좌우하는 판결로 연결되기 때문입니다."
+    ]
+  },
+  "section_03_case_wins": {
+    "section_title": "성과는 말로 꾸며지지 않습니다.",
+    "sub_title": "최신 종결사례(2025)",
+    "description": [
+      "이 모든 성과는 비식별화된 소장, 답변서, 준비서면, 판결문, 결정문으로 검증됩니다.",
+      "광고 문구는 포장될 수 있어도, 법원의 기록은 결코 거짓을 말하지 않습니다."
+    ],
+    "cta": {
+      "text": "승소사례 더보기",
+      "href": "/case-wins"
+    },
+    "cases_by_category": {
+      "상간": [
+        "상간녀위자료청구 승소",
+        "상간녀소송 위자료 2,000만원",
+        "상간자소송 위자료 8,000만원",
+        "상간자소송 위자료 6,000만원",
+        "상간남소송 위자료 1,500만원",
+        "손해배상청구 위자료 1,800만원"
+      ],
+      "이혼": [
+        "별거 후 재산분할 기여도 50% 인정",
+        "성격차이이혼 재산분할 성공",
+        "이혼 재산분할 40% 인정",
+        "외도이혼 위자료 및 재산분할 성공",
+        "유책사유 이혼 재산분할 50% 인정",
+        "고부갈등 이혼 재산분할 3억6,900만원",
+        "단기간 혼인 이혼 조정 성립",
+        "가정폭력이혼 재산분할 50% 인정",
+        "조정이혼 재산분할 40% 인정",
+        "조정이혼 재산분할 50% 인정"
+      ],
+      "상속": [
+        "유류분반환청구 협의 성립",
+        "상속재산분할 기여도 20% 인정",
+        "재혼상속재산 기여도 25% 인정",
+        "기여분심판청구 방어 성공",
+        "기여분심판청구 협의 성립",
+        "상속재산분할 협의 성립"
+      ]
+    }
+  },
+  "section_04_strategy": {
+    "content": [
+      "우리는 단순히 법정에서 목소리를 대신하는 사람이 아닙니다. 우리는 판결이 도출되는 전 과정을 지휘하는 전략 설계자입니다.",
+      "판례를 데이터화하여 사건별 유리한 패턴을 추출하고, 증거자료를 논리 구조 속에 정밀하게 배열하며, 준비서면과 답변서, 의견서를 재판부가 받아들일 수밖에 없는 언어로 번역합니다.",
+      "이것이 우리가 일반적인 변호사와 구별되는 이유입니다. 우리는 사건을 동정으로 다루지 않고, 결과로 안심시키는 집단입니다.",
+      "이혼은 협상의 형식을 띠기도 하지만, 본질적으로는 전쟁입니다. 그리고 전쟁에서 초반의 한 수는 마지막까지 따라옵니다.",
+      "준비서면의 한 문장, 의견서의 작은 누락, 답변서 한 줄의 허점, 증거자료 하나의 시기적 오류가 사건의 결과 전체를 돌이킬 수 없는 방향으로 몰고 갈 수 있습니다.",
+      "우리는 그 무게를 누구보다 깊이 압니다. 그래서 사건의 시작부터 종결까지, 모든 문서와 절차를 정밀하게 설계하고 최종 판결까지 흔들림 없이 이어갑니다."
+    ],
+    "highlighted_text": [
+      "전략 설계자",
+      "결과로 안심시키는 집단",
+      "모든 문서와 절차를 정밀하게 설계"
+    ]
+  },
+  "section_05_why_us": {
+    "headline": "중요한 선택 앞에서, 진짜 전문가를 만나십시오.",
+    "sub_headline": "당신의 재산과 자녀, 그리고 미래가 걸린 순간 이름이 아닌 실적, 수식어가 아닌 성과로 검증된 전문가와 함께해야 합니다.",
+    "content": [
+      "'이혼전문'이라는 호칭은 누구나 사용할 수 있습니다.",
+      "대한변호사협회의 전문변호사 제도는 최근 3년간 30건 남짓의 사건 처리와 일정 연수 과정을 수료하면 자격을 부여합니다.",
+      "즉, 월 1건 정도의 사건만 다루어도 '전문변호사'라는 명칭을 사용할 수 있는 구조입니다.",
+      "그러나 진정한 전문성은 단순한 등록 자격으로 완성되지 않습니다.",
+      "법무법인 신세계로는 이름뿐인 '전문'에 기대지 않습니다. 우리는 가사 사건만을 전담합니다.",
+      "대표 변호사 개인의 전문성에 머물지 않고, 로펌 전체가 오직 가족법에 집중하여 의뢰인의 재산/자녀/미래를 흔들림 없이 지켜냅니다.",
+      "가사 사건에서 전문성은 단순한 자격이 아니라, 경험의 깊이, 전략의 정밀성, 집중의 일관성으로 정의됩니다. 그리고 그 질문에 가장 확실히 답할 수 있는 곳, 바로 법무법인 신세계로입니다."
+    ],
+    "highlighted_text": [
+      "진짜 전문가",
+      "검증된 전문가",
+      "집중력",
+      "정밀하게 설계",
+      "가족법에 집중",
+      "법무법인 신세계로"
+    ],
+    "certificate_images": [
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_01.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_02.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_03.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_04.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_05.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_06.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_07.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_08.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_09.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_10.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_11.webp"
+    ]
+  },
+  "section_06_differentiators": {
+    "headline": "20년 이상 오직 이혼과 상속, 한길만 걸어온 신세계로는 다릅니다.",
+    "cards": [
+      {
+        "title": "가사 전문 로펌",
+        "description": "오직 이혼, 상속만 진행",
+        "image": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/main_01_sec_06_01.webp"
+      },
+      {
+        "title": "대표변호사 직접총괄",
+        "description": "모든 사건을 직접 관리",
+        "image": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/main_01_sec_06_02.webp"
+      },
+      {
+        "title": "투명한 수임료",
+        "description": "전관 수임료 없이 정직하게 진행",
+        "image": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/main_01_sec_06_03.webp"
+      },
+      {
+        "title": "핵심지역 집중",
+        "description": "서울/수원/대전 최상 서비스",
+        "image": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/main_01_sec_06_04.webp"
+      }
+    ]
+  },
+  "section_07_experience": {
+    "headline": "20년이상 한 우물만 판 오랜 경험에서 나오는 전문가",
+    "sub_sections": [
+      "논문 및 저서",
+      "수상 이력",
+      "주요활동"
+    ],
+    "content": [
+      "그 경험은 단순한 노하우가 아니라, 예측의 정밀성으로 다듬어진 데이터베이스입니다.",
+      "우리는 막연한 가능성을 말하지 않습니다.",
+      "사건의 구조와 증거의 배열을 근거로, 개연성과 확률에 기초한 결과의 범위를 제시합니다."
+    ],
+    "certificate_carousel_images": [
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_12.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_13.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_12-1.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_13-1.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_12-2.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_13-2.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_12-3.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_13-3.webp"
+    ]
+  },
+  "section_08_lawyers": {
+    "headline": "조인섭 변호사와 함께하는, 법무법인 신세계로 변호사들",
+    "featured_lawyers": [
+      {
+        "name": "조인섭",
+        "position": "대표 변호사",
+        "image": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_01.webp"
+      },
+      {
+        "name": "조용국",
+        "position": "(전) 대표 변호사",
+        "image": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_02.webp"
+      },
+      {
+        "name": "김미루",
+        "position": "서울총괄 변호사",
+        "image": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_04.webp"
+      },
+      {
+        "name": "류현주",
+        "position": "대전총괄 변호사",
+        "image": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_05.webp"
+      },
+      {
+        "name": "신진희",
+        "position": "수원총괄 변호사",
+        "image": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_09.webp"
+      }
+    ],
+    "all_lawyer_profile_images": [
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_01.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_02.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_03.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_04.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_05.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_06.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_07.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_08.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_09.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_10.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_11.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_12.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_13.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_14.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_15.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_16.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_17.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_18.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_19.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_20.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_21.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_22.webp"
+    ],
+    "total_lawyer_profiles": 22
+  },
+  "section_09_cta_and_reviews": {
+    "headline": "판결이 도출되는 전 과정을 지휘하는 전략 설계자",
+    "firm_intro": "신세계로는 2대에 걸쳐 사법시험을 합격한 전통적인 법조 집안입니다. 52년 전통의 법무법인 신세계로는 의뢰인을 진심으로 대합니다.",
+    "cta_button": {
+      "text": "법무법인 신세계로와 함께하기",
+      "href": "/process/contact"
+    },
+    "client_reviews": [
+      {
+        "author": "매**3",
+        "content": "처음 어디서부터 시작을 해야할 지 몰라 막연히 검색을 하다 알게 된 신세계로. 첫 예약 방문에 너무나 친절히 상담해 주신 조인섭 변호사님을 믿고 바로 변론을 부탁드렸네요. 재판 과정이 순탄치 않았고 생각보다 너무 오래 걸린 소송 진행에서 불편한 내색없이 도움을 주신 조윤용 변호사님과 신세계로 식구 모두에게 진심으로 감사드립니다. 끝이 보이지 않던 소송이 드디어 마무리 되었고 이제는 마음 편히 잠을 잘 수 있을 것 같아 너무 감사할 따름입니다."
+      },
+      {
+        "author": "하*****0",
+        "content": "15년 넘게 별거중이던 결혼생활의 종지부를 찍기위해 법무법인 신세계로를 찾았습니다. 물론 몇 곳의 로펌에서 상담을 해봤지만 믿음이 가질 않았고 조인섭대표 변호사님의 명성을 믿고 찾았던 신세계로가 제가 찾던 곳이였습니다. 대표변호사님, 믿음과 신뢰가 한번에 가더군요. 상담 받아 보시면 아실겁니다."
+      },
+      {
+        "author": "조*****4",
+        "content": "1년 11개월간, 소송이혼중 함께해주신 조인섭 대표변호사님, 류현주변호사님,손은채변호사님 대전 사무소 실장님 직원 분들께 진심으로 감사 인사드립니다. 소송진행중 하나부터 열 까지 의뢰인 입장에서 생각해주시고, 소송과정중 어려운상황이나 필요한 모든것들을 섬세하게 잘 챙겨주셔서 정말 제가 신경쓸께 없도록 잘 해주셔서 진심으로 감사드립니다."
+      },
+      {
+        "author": "suk****",
+        "content": "먼저 대표 변호사님과 제 담당변호사님께 감사인사드려요. 대표님과 상담을 하면서 천군만마를 얻어서 제가 울었던 기억 잊지 못합니다. 그렇게 제 담당변호사님과 의논하면서 끝나기까지 내일처럼 해주셨다는것에 큰 감명을 받았고 법조계에 편견을 씻으며 *신세계*라는 로펌을 머리에 각인 시켜주었습니다."
+      },
+      {
+        "author": "(anonymous)",
+        "content": "우선 대표변호사님께서 직접 상담을 해주시는 것이 굉장히 믿음이 갑니다. 플로우라고 하는 프로그램을 통해서 실시간으로 확인이 되는 프로세스를 활용하시는 것은 매우 체계적이라고 생각됩니다. 상담 당시에도 대표변호사님께서 매우 도움이 되는 조언을 해주셨고, 이후 담당변호사님과 직원분들의 피드백도 만족하고 있습니다."
+      },
+      {
+        "author": "Ru**",
+        "content": "다른 이혼전문 변호사님께서 추천해주셔서 상속 문제로 방문했는데 대표 변호사님이 직접 상담해주실 줄은 몰랐어요. 길지 않은 시간이지만 상황 파악을 빠르게 해주셨고 부모님이 걱정하시는 부분들을 잘 설명해주셨어요."
+      },
+      {
+        "author": "도*****4",
+        "content": "방문하기 전까지 인터넷으로도 엄청 찾아보고 고민하고 지인에게도 얘기해보고 했지만 결심이 섰고 합의가 안된 사항이라고 하면 전문가의 의견을 듣는게 가장 좋은 선택이자 방법이라는 생각이 들었습니다. 대표 조인섭변호사님과 상담을 진행했는데 차분하게 얘기를 들어주시고 그 포인트를 다 적으시면서 요지 결론을 정리해서 얘기해주시니 신뢰가 갑니다."
+      },
+      {
+        "author": "썸***",
+        "content": "어느날 갑자기 이혼소장이 날라오면서 너무나 당황하고 어쩔줄 몰라 마음은 급하고 정신이 없는 상황에 이혼전문변호사님 열심히 검색하다 신세계로를 알게 됐고 전화로 김실장님과 통화 후 상담예약잡고 대표 변호사님과 상담하면서 긴장된 맘을 가라앉힐수 있게 따뜻한 차를 대접해 주시고 차분하게 천천히 설명해주셔서 너무 어렵게만 생각했던게 정리가 잘 됐어요~"
+      }
+    ]
+  },
+  "contact_info": {
+    "main_phone": "1555-5961",
+    "office_phone": "02-594-2800",
+    "fax": "02-594-2830",
+    "kakao_channel": "https://pf.kakao.com/_ExcxoAu",
+    "consultation_form": "/process/contact",
+    "call_tracking_page": "/call-success"
+  },
+  "social_links": {
+    "blog": "https://m.blog.naver.com/PostList.nhn?blogId=mnjhappylife&tab=1",
+    "instagram": "https://www.instagram.com/insup_cho/",
+    "youtube_tv": "https://www.youtube.com/@divorce_story",
+    "youtube_webtoon": "https://www.youtube.com/@cho_ssglaw",
+    "personal_blog": "https://m.blog.naver.com/ssglbest?tab=1",
+    "naver_cafe_dangdang": "https://cafe.naver.com/mcpechroisencafe",
+    "naver_cafe_inheritance": "https://cafe.naver.com/kinjo74ho?tc=shared_link"
+  },
+  "footer": {
+    "company_name": "법무법인 신세계로 - 이혼 전문로펌",
+    "business_number": "214-88-80810",
+    "privacy_officer": "조인섭",
+    "ad_responsible_lawyer": "조인섭",
+    "tel": "02-594-2800",
+    "fax": "02-594-2830",
+    "offices": [
+      "서울 주사무소",
+      "대전 분사무소",
+      "수원 분사무소"
+    ],
+    "links": {
+      "about": "/about",
+      "lawyers": "/about/#lawyers",
+      "directions": "/about/#directions",
+      "media": "/board/media",
+      "privacy": "https://xn--kj4b38iiva.com/privacy/"
+    }
+  },
+  "floating_cta": {
+    "buttons": [
+      {
+        "label": "전화상담",
+        "href": "/call-success"
+      },
+      {
+        "label": "카톡상담",
+        "href": "https://pf.kakao.com/_ExcxoAu"
+      },
+      {
+        "label": "상담신청",
+        "href": "/process/contact"
+      }
+    ],
+    "floating_ceo_image": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/03/floating_ceo-1.webp"
+  },
+  "internal_pages": [
+    "/about",
+    "/about/#daejeon",
+    "/about/#directions",
+    "/about/#lawyers",
+    "/about/#seoul",
+    "/about/#suwon",
+    "/board/community",
+    "/board/media",
+    "/call-success",
+    "/case-wins",
+    "/process/contact",
+    "/process/overview"
+  ],
+  "all_images_summary": {
+    "logo": "https://xn--kj4b38iiva.com/wp-content/uploads/2023/06/logo.svg",
+    "header_icons_count": 8,
+    "hero_images_count": 2,
+    "hero_video": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/main_01_sec_01_bg.mp4",
+    "certificate_images_count": 19,
+    "differentiator_images_count": 4,
+    "lawyer_profile_images_count": 22,
+    "floating_ceo": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/03/floating_ceo-1.webp",
+    "og_image": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/ogtag_image.jpg",
+    "total_unique_images": 57
+  },
+  "seo_keywords": "이혼전문변호사,이혼변호사,서울이혼전문변호사,수원이혼전문변호사,대전이혼전문변호사,인천이혼전문변호사,부천이혼전문변호사,대구이혼전문변호사,부산이혼전문변호사,광주이혼전문변호사,창원이혼전문변호사,의정부이혼전문변호사,남양주이혼전문변호사,울산이혼전문변호사,일산이혼전문변호사,이혼소송,상간녀소송,상간녀위자료소송,상간남소송,상간남위자료소송",
+  "analytics": {
+    "google_tag": "G-7L12PVD3YB",
+    "google_ads_conversion": "AW-16809443143/vQ2yCJfmj5MbEMf-rs8-",
+    "naver_analytics": "s_2cb9a009c938",
+    "naver_site_verification": "db5c20f565221a08c0bd3d42a721ed23a393e2e3"
+  },
+  "changes_from_original_shinsegaelaw_kr": [
+    "NEW: 22 lawyer profiles (up from 19 - 3 new staff added)",
+    "NEW: CEO profile animated section with detailed strategy content",
+    "NEW: Strategy section (section 04) - entirely new content",
+    "NEW: Why Us section with 11 certificate images",
+    "NEW: 4 differentiator cards with photo backgrounds",
+    "NEW: Experience/credentials carousel with 8 certificate images",
+    "NEW: Hero video background (mp4)",
+    "NEW: Floating CEO image button in bottom-right",
+    "CHANGED: Navigation simplified to 4 main tabs (was more complex)",
+    "CHANGED: Case wins now show 2025 latest results by 3 categories",
+    "CHANGED: New WordPress/Elementor platform (was custom PHP)",
+    "NOTE: Case cards in section 03 are Elementor loop-grid rendered client-side"
+  ]
+}

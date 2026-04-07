@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>언론매체 상세 — 프로토타입</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --burgundy-500:#9B2335;--burgundy-600:#7B2D3B;--burgundy-50:#FDF2F4;
+  --gold-400:#C9A84C;--gold-500:#D4AF37;
+  --navy-800:#1A1A2E;--navy-900:#0F0F1A;
+  --cream:#faf9f7;
+}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:#111827;background:#fff;-webkit-font-smoothing:antialiased;line-height:1.6}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+
+/* Banner */
+.banner{position:relative;height:200px;background:var(--navy-900);overflow:hidden}
+@media(min-width:768px){.banner{height:260px}}
+.banner-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.banner-overlay{position:absolute;inset:0;background:rgba(0,0,0,.50)}
+.banner-inner{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:0 24px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:32px}
+@media(min-width:768px){.banner-inner{padding-left:32px;padding-right:32px}}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.3);margin-bottom:12px}
+.breadcrumb a{color:rgba(255,255,255,.3);transition:color .2s}.breadcrumb a:hover{color:rgba(255,255,255,.5)}
+.breadcrumb .sep{color:rgba(255,255,255,.2);font-size:10px}.breadcrumb .cur{color:rgba(255,255,255,.6)}
+.banner h1{font-size:24px;font-weight:700;color:#fff;letter-spacing:-.02em}
+@media(min-width:768px){.banner h1{font-size:30px}}
+.gold-bar{width:48px;height:2px;background:rgba(212,175,55,.6);margin-top:12px}
+
+/* Reveal */
+[data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+[data-reveal].visible{opacity:1;transform:translateY(0)}
+
+/* Main layout */
+.main-wrap{max-width:1280px;margin:0 auto;padding:40px 24px 48px}
+@media(min-width:768px){.main-wrap{padding:48px 32px 64px}}
+.content-grid{display:grid;grid-template-columns:1fr;gap:40px}
+@media(min-width:1024px){.content-grid{grid-template-columns:1fr 300px;gap:56px}}
+
+/* Back link */
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#9ca3af;margin-bottom:32px;transition:color .2s}
+.back-link:hover{color:#374151}
+.back-link svg{width:14px;height:14px}
+
+/* Article header */
+.article-title{font-size:22px;font-weight:700;color:#111827;line-height:1.45;letter-spacing:-.02em;margin-bottom:16px}
+@media(min-width:768px){.article-title{font-size:26px}}
+.meta-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.meta-source{font-size:13px;font-weight:600;color:var(--burgundy-500);padding:4px 12px;border-radius:20px;background:var(--burgundy-50)}
+.meta-date{font-size:12px;color:#9ca3af}
+.meta-views{font-size:12px;color:#9ca3af}
+.meta-lawyer{font-size:12px;color:#6b7280;background:var(--cream);padding:3px 10px;border-radius:6px}
+
+/* Divider */
+.divider{width:100%;height:1px;background:#e5e7eb;margin:24px 0}
+
+/* Article content */
+.article-content{font-size:15px;color:#374151;line-height:2.2;word-break:keep-all}
+@media(min-width:768px){.article-content{font-size:16px}}
+.article-content p{margin-bottom:20px}
+.article-content p:last-child{margin-bottom:0}
+
+/* Article image */
+.article-img{border-radius:10px;overflow:hidden;border:1px solid #e5e7eb;margin-bottom:24px}
+.article-img img{width:100%;height:auto}
+
+/* Lawyer quote box */
+.lawyer-box{
+  border:1px solid #e5e7eb;border-radius:10px;padding:20px;margin-top:28px;
+  border-left:3px solid var(--burgundy-500);background:var(--cream);
+}
+.lawyer-box .lb-header{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.lawyer-box .lb-img{width:48px;height:48px;border-radius:50%;overflow:hidden;background:#e5e7eb;flex-shrink:0;border:2px solid #fff}
+.lawyer-box .lb-img img{width:100%;height:100%;object-fit:cover}
+.lawyer-box .lb-name{font-size:14px;font-weight:600;color:#111827}
+.lawyer-box .lb-title{font-size:11px;color:var(--burgundy-500)}
+.lawyer-box .lb-content{font-size:13px;color:#6b7280;line-height:2}
+
+/* Related articles */
+.related-section{margin-top:40px}
+.related-title{font-size:15px;font-weight:700;color:#111827;margin-bottom:16px;display:flex;align-items:center;gap:6px}
+.related-title::before{content:'';width:3px;height:14px;background:var(--burgundy-500);border-radius:2px}
+.related-grid{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:768px){.related-grid{grid-template-columns:repeat(3,1fr)}}
+.related-card{border:1px solid #e5e7eb;border-radius:10px;padding:16px;transition:all .3s;cursor:pointer}
+.related-card:hover{border-color:rgba(155,35,53,.2);box-shadow:0 4px 16px rgba(0,0,0,.05);transform:translateY(-2px)}
+.related-card .rc-source{font-size:10px;color:var(--burgundy-500);font-weight:600;margin-bottom:4px}
+.related-card .rc-title{font-size:13px;font-weight:600;color:#111827;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.related-card:hover .rc-title{color:var(--burgundy-500)}
+.related-card .rc-date{font-size:10px;color:#9ca3af;margin-top:6px}
+
+/* Nav (prev/next) */
+.nav-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:32px}
+.nav-card{border:1px solid #e5e7eb;border-radius:10px;padding:14px 16px;transition:all .3s;cursor:pointer}
+.nav-card:hover{border-color:rgba(155,35,53,.2);box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.nav-card .nc-label{font-size:10px;color:#9ca3af;margin-bottom:4px;display:flex;align-items:center;gap:4px}
+.nav-card .nc-title{font-size:12px;font-weight:500;color:#374151;line-height:1.5;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.nav-card:hover .nc-title{color:var(--burgundy-500)}
+.nav-card.next{text-align:right}
+.nav-card.next .nc-label{justify-content:flex-end}
+
+/* Sidebar */
+.sidebar{display:flex;flex-direction:column;gap:16px}
+.sidebar-card{border:1px solid #e5e7eb;border-radius:10px;padding:20px}
+.sidebar-title{font-size:13px;font-weight:700;color:#111827;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.sidebar-title::before{content:'';width:3px;height:14px;background:var(--burgundy-500);border-radius:2px}
+
+/* Sidebar popular */
+.pop-list{display:flex;flex-direction:column;gap:10px}
+.pop-item{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.pop-item:hover .pop-title{color:var(--burgundy-500)}
+.pop-num{font-size:14px;font-weight:800;color:var(--burgundy-500);opacity:.3;min-width:20px;line-height:1}
+.pop-title{font-size:12px;color:#374151;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:color .2s}
+.pop-date{font-size:10px;color:#9ca3af;margin-top:2px}
+
+/* Sidebar CTA */
+.sidebar-cta{
+  background:linear-gradient(135deg,var(--navy-800),var(--navy-900));
+  border-radius:10px;padding:24px 20px;text-align:center;position:relative;overflow:hidden;
+}
+.sidebar-cta::after{content:'';position:absolute;top:50%;left:50%;width:200px;height:200px;background:radial-gradient(circle,rgba(155,35,53,.15),transparent 70%);transform:translate(-50%,-50%);pointer-events:none}
+.sidebar-cta .sc-title{font-size:14px;font-weight:600;color:#fff;margin-bottom:4px;position:relative;z-index:1}
+.sidebar-cta .sc-sub{font-size:12px;color:rgba(255,255,255,.45);margin-bottom:14px;position:relative;z-index:1}
+.sidebar-cta .sc-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:10px 20px;border-radius:8px;
+  background:var(--burgundy-500);color:#fff;
+  font-size:13px;font-weight:600;border:none;cursor:pointer;
+  transition:all .2s;position:relative;z-index:1;
+}
+.sidebar-cta .sc-btn:hover{background:var(--burgundy-600)}
+
+/* Share buttons */
+.share-row{display:flex;gap:6px;margin-top:20px}
+.share-btn{
+  width:36px;height:36px;border-radius:8px;border:1px solid #e5e7eb;
+  background:#fff;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .2s;color:#9ca3af;
+}
+.share-btn:hover{border-color:rgba(155,35,53,.2);color:#374151}
+.share-btn svg{width:16px;height:16px}
+
+/* CTA */
+.mobile-cta{background:linear-gradient(135deg,var(--navy-800),var(--navy-900));padding:40px 0;text-align:center}
+.mobile-cta h3{font-size:18px;font-weight:700;color:#fff;margin-bottom:6px}
+@media(min-width:768px){.mobile-cta h3{font-size:22px}}
+.mobile-cta .sub{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:24px}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:8px;background:var(--burgundy-500);color:#fff;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:all .3s}
+.cta-btn:hover{background:var(--burgundy-600);transform:translateY(-1px);box-shadow:0 4px 20px rgba(155,35,53,.25)}
+.cta-meta{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:14px;font-size:11px;color:rgba(255,255,255,.35)}
+</style>
+</head>
+<body>
+
+<!-- ===== BANNER ===== -->
+<section class="banner">
+  <img class="banner-img" src="frontend/public/images/office/banner-reviews.jpg" alt="언론매체">
+  <div class="banner-overlay"></div>
+  <div class="banner-inner">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="#">홈</a><span class="sep">›</span>
+      <a href="#">의뢰인후기</a><span class="sep">›</span>
+      <a href="prototype-press.html">언론매체</a><span class="sep">›</span>
+      <span class="cur">기사 상세</span>
+    </nav>
+    <h1>언론매체</h1>
+    <div class="gold-bar"></div>
+  </div>
+</section>
+
+<!-- ===== MAIN ===== -->
+<div class="main-wrap">
+  <div class="content-grid">
+
+    <!-- LEFT: Article -->
+    <div>
+      <!-- Back -->
+      <a href="prototype-press.html" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        목록으로 돌아가기
+      </a>
+
+      <!-- Title -->
+      <h2 class="article-title" data-reveal>여행 중 만난 아내, '명문대·전문직·부잣집' 다 거짓말…남자와 외박도</h2>
+
+      <!-- Meta -->
+      <div class="meta-row" data-reveal>
+        <span class="meta-source">뉴스1</span>
+        <span class="meta-date">2025.08.11</span>
+        <span class="meta-views">조회 1,874</span>
+        <span class="meta-lawyer">조인섭 대표변호사</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Image -->
+      <div class="article-img" data-reveal>
+        <div style="width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,var(--cream),#f0eeea);display:flex;align-items:center;justify-content:center">
+          <span style="font-size:13px;color:#9ca3af">뉴스1_1.jpg</span>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="article-content" data-reveal>
+        <p>A 씨는 일본 고베 여행 중 한 여성을 만났다. 여성은 명문대를 나온 전문직이며 부유한 집안이라고 자신을 소개했다. 6개월간 교제 끝에 둘은 결혼했다.</p>
+
+        <p>그러나 결혼 후 남편은 아내의 학력, 직업, 가정환경이 모두 거짓이었다는 사실을 알게 됐다. 아내는 성북동이 고향이라고 했지만 실제로는 지방 출신이었고, 전문직에 종사한다고 했지만 사실이 아니었으며, 부유한 집안이라는 것도 거짓이었다.</p>
+
+        <p>결혼 5년 차에 아내는 다른 남성과 외박을 하는 등의 행동을 보였고, 결국 친정으로 가버린 뒤 이혼을 요구했다.</p>
+
+        <p>이에 대해 신세계로 유혜진 변호사는 "배우자가 혼인의 중요한 의사결정 요소에 대해 거짓말을 한 경우, 재판상 이혼 사유가 될 수 있다"고 분석했다. 또한 "혼인 파탄의 유책 배우자인 아내 쪽에서는 한국 법상 유책주의 이혼 원칙에 따라 이혼을 청구할 수 없다"고 설명했다.</p>
+
+        <p>유혜진 변호사는 "배우자의 학력, 경력, 재산 상태에 대한 사기적 기망은 혼인 취소 사유가 될 수 있으며, 이를 통해 혼인 무효 또는 취소를 구할 수 있는 별도의 법적 절차도 존재한다"고 덧붙였다.</p>
+      </div>
+
+      <!-- Lawyer analysis box -->
+      <div class="lawyer-box" data-reveal>
+        <div class="lb-header">
+          <div class="lb-img">
+            <img src="frontend/public/images/attorneys/cho-inseop.jpg" alt="조인섭 변호사">
+          </div>
+          <div>
+            <div class="lb-name">조인섭 대표변호사</div>
+            <div class="lb-title">대한변협등록 가족법전문변호사</div>
+          </div>
+        </div>
+        <div class="lb-content">
+          배우자가 혼인의 중요한 의사결정 요소에 대해 거짓말을 한 경우, 이는 민법 제840조의 재판상 이혼 사유에 해당할 수 있습니다. 특히 학력, 직업, 재산 등에 대한 기망은 혼인 취소 사유가 될 수 있습니다.
+        </div>
+      </div>
+
+      <!-- Share -->
+      <div class="share-row" data-reveal>
+        <button class="share-btn" title="URL 복사">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </button>
+        <button class="share-btn" title="공유">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </button>
+        <button class="share-btn" title="인쇄">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        </button>
+      </div>
+
+      <!-- Prev/Next -->
+      <div class="nav-row" data-reveal>
+        <div class="nav-card">
+          <div class="nc-label">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+            이전 기사
+          </div>
+          <div class="nc-title">—</div>
+        </div>
+        <div class="nav-card next">
+          <div class="nc-label">
+            다음 기사
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+          <div class="nc-title">'황혼 재혼' 후 사망한 아버지, 유산 70억…"새엄마에 재산 다 뺏길판"</div>
+        </div>
+      </div>
+
+      <!-- Related -->
+      <div class="related-section" data-reveal>
+        <div class="related-title">관련 기사</div>
+        <div class="related-grid">
+          <div class="related-card">
+            <div class="rc-source">헤럴드경제</div>
+            <div class="rc-title">'황혼 재혼' 후 사망한 아버지, 유산 70억…"새엄마에 재산 다 뺏길판"</div>
+            <div class="rc-date">2025.08.11</div>
+          </div>
+          <div class="related-card">
+            <div class="rc-source">뉴시스</div>
+            <div class="rc-title">'치매母' 모시겠다는 누나…"어머니 모시고 은행·증권사는 왜 가는걸까요?"</div>
+            <div class="rc-date">2025.08.11</div>
+          </div>
+          <div class="related-card">
+            <div class="rc-source">YTN 라디오</div>
+            <div class="rc-title">[조담소] 거짓말쟁이 아내의 적반하장, 집 나간 뒤 대뜸 "이혼 하자"</div>
+            <div class="rc-date">2025.08.11</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Sidebar -->
+    <div class="sidebar">
+      <!-- Popular -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">인기 기사</div>
+        <div class="pop-list">
+          <div class="pop-item">
+            <span class="pop-num">1</span>
+            <div>
+              <div class="pop-title">여행 중 만난 아내, '명문대·전문직·부잣집' 다 거짓말…남자와 외박도</div>
+              <div class="pop-date">뉴스1 · 1,874 views</div>
+            </div>
+          </div>
+          <div class="pop-item">
+            <span class="pop-num">2</span>
+            <div>
+              <div class="pop-title">'황혼 재혼' 후 사망한 아버지, 유산 70억…"새엄마에 재산 다 뺏길판"</div>
+              <div class="pop-date">헤럴드경제 · 1,542 views</div>
+            </div>
+          </div>
+          <div class="pop-item">
+            <span class="pop-num">3</span>
+            <div>
+              <div class="pop-title">'치매母' 모시겠다는 누나…은행·증권사는 왜?</div>
+              <div class="pop-date">뉴시스 · 1,320 views</div>
+            </div>
+          </div>
+          <div class="pop-item">
+            <span class="pop-num">4</span>
+            <div>
+              <div class="pop-title">[조담소] 거짓말쟁이 아내의 적반하장</div>
+              <div class="pop-date">YTN 라디오 · 1,105 views</div>
+            </div>
+          </div>
+          <div class="pop-item">
+            <span class="pop-num">5</span>
+            <div>
+              <div class="pop-title">맞고 사는 남편 "아내가 1억 위로금 줘"</div>
+              <div class="pop-date">머니투데이 · 980 views</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== CTA ===== -->
+<section class="mobile-cta">
+  <div style="max-width:1280px;margin:0 auto;padding:0 24px">
+    <h3>지금 바로 무료상담을 신청하세요</h3>
+    <p class="sub">온라인 24시간 접수 · 비밀보장 · 무료 상담</p>
+    <button class="cta-btn">무료상담 신청하기 →</button>
+    <div class="cta-meta"><span>📞 02-594-2800</span><span>·</span><span>서울 · 대전 · 수원</span></div>
+  </div>
+</section>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)} });
+}, { threshold:.08, rootMargin:'0px 0px -30px 0px' });
+document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

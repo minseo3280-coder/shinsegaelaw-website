@@ -1,0 +1,202 @@
+
+<!--
+	2019. 03
+	Sanghoon.Park
+	OSP 등의 WebTob Error Page
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>교육의 중심 EBS</title>
+		<link rel="shortcut icon" type="image/x-icon" href="https://static.ebs.co.kr/images/bhp/favicon.ico" />
+		<link type="text/css" rel="stylesheet" href="/common/css/core/common.css?v=20171229" />
+		<link type="text/css" rel="stylesheet" href="/common/css/core/service.css" />
+		<script type="text/javascript" src="/common/js/lib/jquery-latest.min.js"></script>
+	</head>
+
+	<body class="noscript">
+
+		<div id="Document" class="main">
+
+			<div id="error_area">
+				<!-- Header -->
+				<div class="error_header">
+					<h1><a href="http://www.ebs.co.kr/main"><img src="https://static.ebs.co.kr/www/common/img/category/main/img_login_logo.gif" alt="EBS" /></a></h1>
+					<ul class="category">
+		 				<!-- <li class="first"><a href="http://www.ebs.co.kr/ebs2tv/introduce" >EBS 2</a>
+							<ul class="sub" style="display:none;">
+								<li><a href="http://www.ebs.co.kr/ebs2tv/introduce">EBS 2 소개</a></li>
+								<li><a href="http://www.ebs.co.kr/ebs2tv/watch">EBS 2 시청방법</a></li>
+								<li><a href="http://www.ebs.co.kr/ebs2tv/faq">EBS 2TV 시청자 FAQ</a></li>
+							</ul>
+						</li>-->
+						<li><a href="#" onclick="return false;">온에어</a>
+							<ul class="sub" style="display:none;">
+								<li><a href="http://www.ebs.co.kr/onair?channelCodeString=tv">EBS 1</a></li>
+								<li><a href="http://www.ebs.co.kr/onair?channelCodeString=tv2">EBS 2</a></li>
+								<li><a href="http://www.ebs.co.kr/onair?channelCodeString=ebsu">EBS KIDS</a></li>
+								<li><a href="http://www.ebs.co.kr/onair?channelCodeString=plus1">PLUS1</a></li>
+								<li><a href="http://www.ebs.co.kr/onair?channelCodeString=plus2">PLUS2</a></li>
+								<li><a href="http://www.ebs.co.kr/onair?channelCodeString=ebse">EBSe</a></li>
+								<li><a href="http://www.ebs.co.kr/onair?channelCodeString=radio">EBS FM</a></li>
+								<li><a href="http://www.ebs.co.kr/onair?channelCodeString=iradio">반디 외국어 전문</a></li>
+							</ul>
+						</li>
+						<li><a href="#" onclick="return false;">편성표</a>
+							<ul class="sub" style="display:none;">
+								<li><a href="http://www.ebs.co.kr/schedule?channelCd=tv&amp;onor=tv">EBS 1</a></li>
+								<li><a href="http://www.ebs.co.kr/schedule?channelCd=tv2&amp;onor=tv2">EBS 2</a></li>
+								<li><a href="http://www.ebs.co.kr/schedule?channelCd=EBSU&amp;onor=EBSU">EBS KIDS</a></li>
+								<li><a href="http://www.ebs.co.kr/schedule?channelCd=PLUS1&amp;onor=PLUS1">PLUS1</a></li>
+								<li><a href="http://www.ebs.co.kr/schedule?channelCd=PLUS2&amp;onor=PLUS2">PLUS2</a></li>
+								<li><a href="http://www.ebs.co.kr/schedule?channelCd=EBSE&amp;onor=EBSE">EBSe</a></li>
+								<li><a href="http://www.ebs.co.kr/schedule?channelCd=RADIO&amp;onor=RADIO">EBS FM</a></li>
+								<li><a href="http://www.ebs.co.kr/schedule?channelCd=IRADIO&onor=IRADIO">반디 외국어 전문</a></li>
+							</ul>
+						</li>
+						<li><a href="http://www.ebs.co.kr/tv/home">TV</a></li>
+						<li><a href="http://www.ebs.co.kr/radio/home">라디오</a></li>
+						<li><a href="http://www.ebs.co.kr/kids">Kids</a></li>
+						<li><a href="http://primary.ebs.co.kr">초등</a></li>
+						<li><a href="http://mid.ebs.co.kr">중학</a></li>
+						<li><a href="http://www.ebsi.co.kr" target="_blank" title="새창">고교</a></li>
+						<li><a href="http://www.ebslang.co.kr/language/main.ebs">어학</a></li>
+						<li><a href="http://www.ebs.co.kr/job">직업</a></li>
+					</ul>
+				</div>
+
+				<script type="text/javascript">
+					$(document).ready(function(e) {
+						$(".error_header .category > li").bind("mouseenter mouseleave", function (e) {
+							if(e.type == "mouseenter") {
+								$(this).find(".sub").show();
+								$(this).siblings("li").find(".sub").hide();
+							} else {
+								$(this).parent().find(".sub").hide();
+							}
+						});
+						$(".error_header .category a").bind("focusin", function (e) {
+							if(e.type == "focusin") {
+								$(this).closest(".error_header .category > li").find(".sub").show();
+								$(this).closest(".error_header .category > li").siblings("li").find(".sub").hide();
+							}
+						});
+					});
+				</script>
+
+				<!-- Content -->
+				<div class="error_content">
+					<div class="error_desc">
+						<p><span style="font-size: 24px; font-weight: 700; color: #3c73a0; font-family: 'Noto Sans KR';">서비스 이용에 불편을 드려 죄송합니다.</span></p>
+						<p><strong>죄송합니다.<br />요청하신 페이지를 찾을 수 없습니다.</strong></p>
+						<p>동일한 문제가 지속적으로 발생될 경우<br />고객센터로 문의하여 주시기 바랍니다.</p>
+						<dl>
+							<dt><a href="https://www.ebs.co.kr/customer">고객센터 바로가기</a></dt>
+							<dd>전화번호 : 1588-1580 (발신자 부담)</dd>
+							<dd>운영시간 : 월~금 08시~18시</dd>
+							<dd>휴무시간 : 점심시간 12~13시, 토·일요일·공휴일 휴무</dd>
+							<dd>E-mail : <a href="mailto:helpdesk@ebs.co.kr" target="_blank" title="새창">helpdesk@ebs.co.kr</a></dd>
+						</dl>
+						<ul class="btn">
+							<li><a href="#" onclick="history.back(-1); return false;"><img src="https://static.ebs.co.kr/www/common/img/global/button/btn_error_prev.gif" alt="이전페이지" /></a></li>
+							<li><a href="http://www.ebs.co.kr/main"><img src="https://static.ebs.co.kr/www/common/img/global/button/btn_error_home.gif" alt="홈으로" /></a></li>
+							<li><a href="http://www.ebs.co.kr/customer/introduce/usage/sitemap"><img src="https://static.ebs.co.kr/www/common/img/global/button/btn_error_sitemap.gif" alt="사이트맵" /></a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+
+			<script type="text/javascript">
+				//<![CDATA[
+				function footer_link() {
+					if($(".family_link_layer").css("display") == "none"){
+					      $(".family_link_layer").show();
+					  } else {
+					      $(".family_link_layer").hide();
+					  }
+				}
+				//]]>
+			</script>
+
+			<!-- Footer -->
+			<div id="Footer">
+
+				<div class="area_banner">
+					<ul>
+						<li><a href="http://www.ebse.co.kr/" target="_blank" title="새창"><img src="https://static.ebs.co.kr/www/common/img/category/main/footer_new_bn1.gif" alt="EBS english" /></a></li>
+						<li><a href="http://www.ebslang.co.kr" target="_blank" title="새창"><img src="https://static.ebs.co.kr/www/common/img/category/main/footer_new_bn2.gif" alt="EBS lang" /></a></li>
+						<li><a href="http://www.ebsmath.co.kr/" target="_blank" title="새창"><img src="https://static.ebs.co.kr/www/common/img/category/main/footer_new_bn3.gif" alt="EBS MATH" /></a></li>
+						<li><a href="http://www.eidf.co.kr" target="_blank" title="새창"><img src="https://static.ebs.co.kr/www/common/img/category/main/footer_new_bn5.gif" alt="EIDF 국제다큐영화제" /></a></li>
+						<li><a href="http://ebsstory.blog.me/" target="_blank" title="새창"><img src="https://static.ebs.co.kr/www/common/img/category/main/footer_new_bn6.gif" alt="EBS 스토리 기업블로그" /></a></li>
+					</ul>
+				</div>
+				<hr />
+
+				<div class="container">
+					<div id="policy" class="policy">
+						<ul>
+							<li><a href="http://about.ebs.co.kr/kor/main/index" >EBS소개</a></li>
+							<li><a href="http://about.ebs.co.kr/kor/notice/announce">EBS공고</a></li>
+							<!-- <li><a href="http://home.ebs.co.kr/copyright">저작권 침해 제보</a></li> -->
+							<li><a href="http://home.ebs.co.kr/green">사이버감사실</a></li>
+							<li><a href="http://about.ebs.co.kr/kor/business/concert"><strong>콘텐츠 구매/제휴 문의</strong></a></li>
+							<li><a href="http://about.ebs.co.kr/kor/business/sponsorship"><strong>협찬/광고문의</strong></a></li>
+							<li><a href="https://sso.ebs.co.kr/policy/termsInfo"><strong>이용약관</strong></a></li>
+							<li class="privacy"><a href=" https://sso.ebs.co.kr/policy/privacy?fsdc=">개인정보취급방침</a></li>
+						</ul>
+					</div>
+					<hr />
+					<div class="area_link">
+						<div class="family_link">
+							<button type="button" title="FAMILY SITE" class="btn_family_link" onclick="footer_link()"><span class="blind">FAMILY SITE</span></button>
+							<ul class="family_link_layer" style="display: none;" id="family_link_layer">
+
+								<!-- 패밀리사이트 통일 2020.02 -->
+								<li><a title="새창" href="https://primary.ebs.co.kr" target="_blank">EBS 초등</a></li>
+								<li><a title="새창" href="https://on.ebs.co.kr" target="_blank">EBS 초등ON</a></li>
+								<li><a title="새창" href="https://mid.ebs.co.kr" target="_blank">EBS 중학프리미엄</a></li>
+								<li><a title="새창" href="http://www.ebsi.co.kr" target="_blank">EBSi (고교)</a></li>
+								<li><a title="새창" href="https://www.ebse.co.kr" target="_blank">EBSe (영어)</a></li>
+								<li><a title="새창" href="https://www.ebsmath.co.kr" target="_blank">EBS Math (수학)</a></li>
+								<li><a title="새창" href="https://ebssw.kr" target="_blank">이솦 (소프트웨어)</a></li>
+								<li><a title="새창" href="https://book.ebs.co.kr" target="_blank">EBS eBook</a></li>
+								<li><a title="새창" href="https://www.ebs.co.kr/space" target="_blank">스페이스공감 (공연)</a></li>
+								<li><a title="새창" href="https://www.eidf.co.kr" target="_blank">EIDF (다큐영화제)</a></li>
+								<li><a title="새창" href="https://www.togetherschool.go.kr" target="_blank">함께학교</a></li>
+								<li><a title="새창" href="https://ebsmedia.kr" target="_blank">EBS 미디어</a></li>
+								<li><a title="새창" href="https://about.ebs.co.kr/kor/social/main" target="_blank">사회공헌 홈페이지</a></li>
+								<li><a title="새창" href="https://www.wecanverse.co.kr" target="_blank">위캔버스</a></li>
+		                        <!-- // 패밀리사이트 통일 2020.02 -->
+
+							</ul>
+						</div>
+						<a href="http://www.0302.co.kr" target="_blank" title="새창"><img src="https://static.ebs.co.kr/www/common/img/category/main/btn_remote.gif" alt="원격지원" /></a><a href="http://www.ebs.co.kr/customer/question/faq"><img src="https://static.ebs.co.kr/www/common/img/category/main/btn_faq.gif" alt="FAQ" /></a>
+						<div class="help"><a href="mailto:helpdesk@ebs.co.kr" target="_blank" title="새창"><img src="https://static.ebs.co.kr/www/common/img/category/main/hepldesk.gif" alt="1588-1580 helpdesk@ebs.co.kr" /></a></div>
+					</div>
+					<hr />
+					<div class="area_author">
+						<address>
+							<strong>10393</strong> 경기도 고양시 일산동구 한류월드로 281 한국방송교육공사 <span>사업자등록번호 : 229-82-01343 (한국교육방송공사사장 김유열)</span><br />
+							시청자불만전담 : <a href="mailto:hotline@ebs.co.kr" target="_blank" title="새창">hotline@ebs.co.kr</a> <span>부가통신사업신고 : 10077  통신판매업신고 : 고양일산동-1415호</span><br />
+							<strong class="copyright">Copyright © EBS. All rights reserved. Unauthorized use & AI training prohibited. (무단 전재 및 재배포, AI 학습 이용 금지)</strong>
+						</address>
+					</div>
+
+					<div class="escrow"><a href="http://www.ebs.co.kr/cp/escrow.html" onclick="window.open(this.href, '', 'width=400,height=130,scrollbars=no'); return false;" title="새창"><img src="https://static.ebs.co.kr/www/common/img/category/main/img_escrow.jpg" alt="LG U+ escrow 안전거래" /></a></div>
+					<div class="bn_footer">
+						<img src="https://static.ebs.co.kr/www/common/img/category/main/img_footer_isms.gif" alt="정보보호 관리체계 ISMS 인증" />
+						<img src="https://static.ebs.co.kr/www/common/img/category/main/img_footer_pims.gif" alt="개인정보보호 관리체계 PIMS 인증" />
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+</html>

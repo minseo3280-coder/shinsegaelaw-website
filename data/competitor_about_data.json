@@ -1,0 +1,844 @@
+{
+  "source": "https://xn--kj4b38iiva.com/about/",
+  "firm_name": "법무법인 신세계로",
+  "domain": "xn--kj4b38iiva.com",
+  "tagline": "이혼, 새로운 시작을 위한 법률입니다.",
+  "business_registration": "214-88-80810",
+
+  "sections": {
+    "sec_01_navigation": {
+      "title": "메가메뉴 / 네비게이션",
+      "nav_tabs": ["신세계로", "승소사례", "상담·선임 절차", "게시판"],
+      "sub_tabs": {
+        "신세계로": ["신세계로 소개", "변호사팀", "오시는 길"],
+        "승소사례": ["승소사례"],
+        "상담_선임_절차": ["절차 안내", "상담 신청"],
+        "게시판": ["언론/칼럼", "커뮤니티"]
+      },
+      "menu_descriptions": {
+        "신세계로_소개": "22년간 오직 이혼과 상속만 다뤄온 진짜 전문가 입니다. 수천 건의 판결과 결정 속에서 전략을 체계화해 왔습니다.",
+        "변호사팀": "전문분야별 팀이 분업과 협업을 통해 체계적으로 대응하고, 대표변호사가 직접 총괄하여 사건의 흐름을 빈틈없이 관리합니다.",
+        "오시는_길": "단순히 법정에서 목소리를 대신하는 사람이 아닙니다. 판결이 도출되는 전 과정을 지휘하는 전략 설계자입니다.",
+        "승소사례": "성과는 말로 꾸며지지 않으며, 기록으로 남습니다. 모든 성과는 비식별화된 소장, 답변서, 준비서면, 판결문, 결정문으로 검증됩니다. 광고 문구는 포장될 수 있어도, 법원의 기록은 결코 거짓을 말하지 않습니다."
+      },
+      "social_links": {
+        "naver_blog": "https://m.blog.naver.com/ssglbest?tab=1",
+        "blog_label": "가족법전문 제1호 조인섭 변호사의 다이어리"
+      }
+    },
+
+    "sec_02_leadership": {
+      "section_id": "sub_01_sec_02",
+      "title": "경험과 신뢰의 리더십",
+      "heading_line1": "신세계로를 이끈",
+      "heading_line2_highlight": "경험과 신뢰의 리더십",
+      "description": [
+        "오랜 시간 법조계에 몸담은 시간만큼, 법 체계를 누구보다 잘 이해할 수 있을거니 의뢰인에게 좋은 일입니다.",
+        "법무법인 신세계로 '조용국 변호사님(사법연수원2기)'와 '조인섭 변호사(사법연수원 33기)'는 2대에 걸쳐 사법시험을 합격하였습니다."
+      ],
+      "leaders": [
+        {
+          "name": "조인섭",
+          "position": "법무법인 신세계로 2대 (현) 대표",
+          "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_01.webp",
+          "photo_alt": "법무법인 신세계로 가족법전문 1호 조인섭 변호사",
+          "photo_dimensions": "640x784",
+          "credentials": [
+            "사시 43회",
+            "사법연수원 33기",
+            "가족법박사",
+            "변협 가족법 전문 1호 변호사",
+            "이화여자대학교 로스쿨 교수"
+          ]
+        },
+        {
+          "name": "조용국",
+          "position": "법무법인 신세계로 1대 대표",
+          "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_02.webp",
+          "photo_alt": "조인국 변호사",
+          "photo_dimensions": "640x784",
+          "credentials": [
+            "사시 12회",
+            "사법연수원 2기",
+            "서울중앙지검 특수 1,2,3부장",
+            "부산동부지청장",
+            "의정부지청장"
+          ]
+        }
+      ]
+    },
+
+    "sec_03_specialty_firm": {
+      "section_id": "sub_01_sec_03",
+      "title": "전문 이혼 로펌",
+      "heading_line1": "신세계로는 전문가가 인정한",
+      "heading_line2_highlight": "전문 이혼 로펌",
+      "heading_line2_suffix": "입니다.",
+      "description": [
+        "대한변호사협회에서는 2016년에 기존의 전문변호사 제도를 강화하였습니다.",
+        "당시 엄격한 심사와 회의를 거쳐 법무법인 신세계로의 조인섭 변호사가 '제1호 가족법 전문변호사'가 되었습니다. 2016년에 변협에서 전문성을 인정받은 건 그동안 십수년간 걸어온 길이 반영된 결과였습니다.",
+        "이후 대한변호사협회는 대한변협신문에 '조변호사에게 듣는 가족법'이라는 글을 연재하기도 했습니다."
+      ],
+      "history_cards": [
+        {
+          "title": "이혼, 상속로펌",
+          "description": "신세계로는 이혼,상속에만 집중을 합니다. 이혼전문변호사들의 역량을 오롯히 한 분야에 집중하여 최선의 결과를 이끌어내고 있습니다.",
+          "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/sub_01_sec_03__about_history_01.webp",
+          "image_dimensions": "632x486"
+        },
+        {
+          "title": "현직변호사 대상 '가사연구원'교수",
+          "description": "2004년부터 변호사로 활동을 시작한 조인섭변호사는 19년간 한 우물을 팠습니다. 이러한 전문성을 인정받아 2021년에는 현직 변호사를 대상으로 하는 서울지방변호사회 가사연수원에서 '이혼,위자료,친권'에 대해 직접 강의를 하였습니다.",
+          "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/sub_01_sec_03__about_history_02.webp",
+          "image_dimensions": "632x486"
+        },
+        {
+          "title": "하나은행과 유언신탁 업무협약 체결",
+          "description": "2020년에는 상속과 관련한 법인의 전문성을 인정받아 하나은행과 유언신탁 업무협약을 체결하였습니다.",
+          "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/sub_01_sec_03__about_history_03.webp",
+          "image_dimensions": "632x486"
+        },
+        {
+          "title": "서울가정법원과 서울지방변호사회의 법조간담회 변호사 대표로 참석",
+          "description": "2019년에는 서울가정법원과 서울지방변호사회의 법조간담회에도 변호사를 대표하여 참석하여 변호사와 법원 사이의 소통 역할을 하기도 하였습니다.",
+          "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/sub_01_sec_03__about_history_04.webp",
+          "image_dimensions": "632x486"
+        },
+        {
+          "title": "가족관계등록제도 시행10주년 성과와 과제 심포지엄 참석",
+          "description": "조인섭 변호사는 2018년 대법원에서 주최한 가족관계등록제도 시행 10주년 성과와 과제 심포지엄에서 토론자와 발표자로 참석하였습니다.",
+          "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/sub_01_sec_03__about_history_05.webp",
+          "image_dimensions": "632x486"
+        },
+        {
+          "title": "여성가족부 가정폭력 심포지엄 토론 참석",
+          "description": "2016년, 여성가족부 가정폭력 심포지엄 토론자로도 참석하였습니다.",
+          "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/sub_01_sec_03__about_history_06.webp",
+          "image_dimensions": "632x486"
+        },
+        {
+          "title": "가족법 박사학위 취득 & 이화여대 로스쿨 겸임교수 재직",
+          "description": "적극적인 활동 뿐만 아니라 학문적 연구도 병행하여, 2016년에는 '유언의 방식에 대한 연구' 논문으로 가족법 박사학위를 취득하였고, 이화여자대학교 로스쿨 겸임교수로 재직하고 있습니다.",
+          "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/sub_01_sec_03__about_history_07.webp",
+          "image_dimensions": "632x486"
+        },
+        {
+          "title": "시애틀 ABA주관 국제가족법학회 한국대표로 참석",
+          "description": "2014년에는 시애틀 ABA(미국변호사협회) 주관 국제가족법학회에 한국대표로 참석하여 '한국의 이혼제도'에 대한 주제로 발표를 하였습니다.",
+          "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/sub_01_sec_03__about_history_08.webp",
+          "image_dimensions": "632x486"
+        },
+        {
+          "title": "가정폭력 심포지엄 토론 참석",
+          "description": "2006년부터 변호사로 활동을 시작한 조인섭변호사는 19년간 한 우물을 팠습니다.",
+          "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/sub_01_sec_03__about_history_09.webp",
+          "image_dimensions": "632x486"
+        }
+      ]
+    },
+
+    "sec_04_recognition": {
+      "section_id": "sub_01_sec_04",
+      "title": "사회를 향한 따뜻한 마음, 의뢰인에 대한 따뜻한 마음으로 이어집니다.",
+      "heading_line1": "사회를 향한 따뜻한 마음,",
+      "heading_line2_highlight": "의뢰인에 대한 따뜻한 마음",
+      "heading_line2_suffix": "으로 이어집니다.",
+      "description": [
+        "신세계로의 전문성은 협회의 인증뿐 아니라 수많은 성과로 증명됩니다.",
+        "대표 변호사는 2012년 조두순 사건 국가배상 소송에서 승소하여 법의 정의를 실현한 바 있으며, 여성가족부 장관상을 수상하기도 했습니다."
+      ],
+      "gallery_certificates": [
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_13.webp",
+          "alt": "이화여자대학교 조인섭 변호사 학위기",
+          "caption": "학위",
+          "dimensions": "750x1061"
+        },
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_12-1.webp",
+          "alt": "임시",
+          "dimensions": "750x1061"
+        },
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_13-1.webp",
+          "alt": "임시",
+          "dimensions": "750x1061"
+        },
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_12-2.webp",
+          "alt": "임시",
+          "dimensions": "750x1061"
+        },
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_13-2.webp",
+          "alt": "임시",
+          "dimensions": "750x1061"
+        },
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_12-3.webp",
+          "alt": "임시",
+          "dimensions": "750x1061"
+        },
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_13-3.webp",
+          "alt": "임시",
+          "dimensions": "750x1061"
+        }
+      ]
+    },
+
+    "sec_05_certifications_carousel": {
+      "section_id": "sub_01_sec_05",
+      "title": "전문분야 등록증서",
+      "heading_line1_highlight": "한 분야만 20년 이상,",
+      "heading_line2": "깊이가 다릅니다.",
+      "description": [
+        "신세계로는 22년간 오직 이혼 하나만 파고들었습니다.",
+        "한 눈 팔지 않고, 단 하나의 분야에서 가장 깊이 있게 쌓아온 실력을 기반으로 이혼을 앞둔 의뢰인들에게 최선의 전략과 변론을 제공하고 있습니다."
+      ],
+      "carousel_settings": {
+        "slides_to_show": 5,
+        "slides_to_show_laptop": 4,
+        "slides_to_show_tablet": 3,
+        "slides_to_show_mobile": 2,
+        "autoplay": true,
+        "autoplay_speed": 2500,
+        "infinite": true,
+        "navigation": "none"
+      },
+      "certificates": [
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_01.webp",
+          "alt": "박경내 전문분야 등록증서 - 이혼",
+          "attorney": "박경내",
+          "specialty": "이혼"
+        },
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_02.webp",
+          "alt": "김미루 전문분야 등록증서 - 이혼",
+          "attorney": "김미루",
+          "specialty": "이혼"
+        },
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_03.webp",
+          "alt": "류현주 전문분야 등록증서 - 가사법",
+          "attorney": "류현주",
+          "specialty": "가사법"
+        },
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_04.webp",
+          "alt": "류현주 전문분야 등록증서 - 상속",
+          "attorney": "류현주",
+          "specialty": "상속"
+        },
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_05.webp",
+          "alt": "신진희 전문분야 등록증서 - 가사법",
+          "attorney": "신진희",
+          "specialty": "가사법"
+        },
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_06.webp",
+          "alt": "이명인 전문분야 등록증서 - 이혼",
+          "attorney": "이명인",
+          "specialty": "이혼"
+        },
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_07.webp",
+          "alt": "정두리 전문분야 등록증서 - 이혼",
+          "attorney": "정두리",
+          "specialty": "이혼"
+        },
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_08.webp",
+          "alt": "조윤용 전문분야 등록증서 - 가사법",
+          "attorney": "조윤용",
+          "specialty": "가사법"
+        },
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_09.webp",
+          "alt": "조윤용 전문분야 등록증서 - 상속",
+          "attorney": "조윤용",
+          "specialty": "상속"
+        },
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_10.webp",
+          "alt": "조인섭 전문분야 등록증서 - 가족법",
+          "attorney": "조인섭",
+          "specialty": "가족법"
+        },
+        {
+          "url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_11.webp",
+          "alt": "조인섭 전문분야 등록증서 - 상속",
+          "attorney": "조인섭",
+          "specialty": "상속"
+        }
+      ]
+    },
+
+    "sec_06_timeline": {
+      "section_id": "sub_01_sec_06",
+      "title": "연혁 타임라인",
+      "heading_line1": "언제나 함께 걸어온",
+      "heading_line2_highlight": "도전과 성취의 여정",
+      "description": [
+        "언제나 당신과 함께해온 법무법인 신세계로의 발자취를 소개합니다.",
+        "도전과 개척, 창조와 성취의 여정을 소개합니다."
+      ],
+      "year_nav_groups": ["2025", "2023~2020", "2018~2010"],
+      "timeline": [
+        { "year": 2025, "entries": ["변호사 23인 체제"] },
+        {
+          "year": 2023,
+          "entries": [
+            "YTN 라디오 <조인섭 변호사의 상담소> 진행",
+            "대전분사무소 개소",
+            "수원분사무소 개소"
+          ]
+        },
+        { "year": 2022, "entries": ["서초동 정곡빌딩 2층, 3층, 4층으로 사무소 통합(서초동 제2사무소 폐쇄)"] },
+        {
+          "year": 2021,
+          "entries": [
+            "변호사 17인 체제",
+            "현직 변호사 대상 가사연수원 '이혼,위자료,친권'강의",
+            "서초동 제2사무소 개설",
+            "대한변호사 협회 변호사 가사연수원 이혼강의"
+          ]
+        },
+        {
+          "year": 2020,
+          "entries": [
+            "변호사 14인 체제",
+            "하나은행 유언신탁 업무협약체결"
+          ]
+        },
+        {
+          "year": 2018,
+          "entries": [
+            "한국 가족법 학회이사",
+            "이화여대 로스쿨교수"
+          ]
+        },
+        {
+          "year": 2017,
+          "entries": [
+            "대한변협 인증 가족법 1호 변호사로 지정",
+            "대한변협신문 '조변호사에게 듣는 가족법' 연재",
+            "한국여성민우회 이사",
+            "변호사 12인 체제"
+          ]
+        },
+        {
+          "year": 2016,
+          "entries": [
+            "가족법 박사학위취득",
+            "변호사 8인 체제"
+          ]
+        },
+        {
+          "year": 2014,
+          "entries": [
+            "2014 시애틀 ABA 미국 변호사회 주관 국제가족법학회 주제발표: 한국의 이혼제도",
+            "서울가정법원 50주년 심포지엄 토론",
+            "변호사 5인 체제"
+          ]
+        },
+        {
+          "year": 2013,
+          "entries": [
+            "법무부 여성아동인권 가디언 위촉",
+            "서울특별시 법률/의료 전문지원단 위촉",
+            "여성가족부 성폭력근절 민/관 합동지원단 위촉"
+          ]
+        },
+        {
+          "year": 2012,
+          "entries": [
+            "여성가족부장관 표창 수상",
+            "한국여성의전화 아름다운 회원상 수상",
+            "국민대학교 법과대학 가족법 겸임교수"
+          ]
+        },
+        {
+          "year": 2011,
+          "entries": [
+            "법무법인 신세계로 설립",
+            "조두순 사건 국가배상 승소",
+            "서울지방변호사회 다문화가정 소위원회 위원장"
+          ]
+        },
+        {
+          "year": 2010,
+          "entries": [
+            "가족법 석사학위취득",
+            "한국이주여성 인권센터 이사",
+            "대한변호사협회 여성아동특별위원회 위원",
+            "한국여성민우회 여성연예인인권지원센터 운영위원"
+          ]
+        },
+        {
+          "year": 2009,
+          "entries": [
+            "대한변호사협회 인권위원",
+            "사이버대학교 가족법 강의"
+          ]
+        },
+        {
+          "year": 2008,
+          "entries": [
+            "성균관대학교 이혼법 강의",
+            "청와대 경호실 성희롱 강의"
+          ]
+        },
+        {
+          "year": 2007,
+          "entries": [
+            "LAW CNC 설립 1주년",
+            "의료분야 확장",
+            "한국 까르푸(이랜드) 상대 손해배상승소",
+            "일본 오차노미즈대학 F-GENS 프로젝트 A-1 연구팀 LAW C&C 방문"
+          ]
+        }
+      ]
+    },
+
+    "sec_07_attorneys": {
+      "section_id": "sub_01_sec_07",
+      "html_id": "lawyers",
+      "title": "변호사팀",
+      "heading_line1_highlight": "조인섭 변호사와 함께하는,",
+      "heading_line2": "법무법인 신세계로 변호사들",
+      "description": "법무법인 신세계로의 적극적인 변호 활동을 지원하는 이혼전문변호사/상속전문변호사들을 소개합니다.",
+      "total_attorneys_claimed": 23,
+      "total_photos_on_page": 22,
+      "card_layout": {
+        "columns_desktop": 5,
+        "columns_laptop": 4,
+        "columns_tablet": 2,
+        "columns_mobile": 1
+      }
+    },
+
+    "sec_08_directions": {
+      "section_id": "sub_01_sec_08",
+      "html_id": "directions",
+      "title": "오시는 길",
+      "heading_line1": "법무법인 신세계로",
+      "heading_line2_highlight": "오시는 길"
+    }
+  },
+
+  "attorneys": {
+    "대표": [
+      {
+        "order": 0,
+        "name": "조인섭",
+        "display": "조인섭 변호사",
+        "rank": "대표",
+        "position": "법무법인 신세계로 2대 (현) 대표",
+        "team_roles": [],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_01.webp",
+        "photo_alt": "법무법인 신세계로 가족법전문 1호 조인섭 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": ["가족법 (제1호)", "상속"],
+        "credentials": [
+          "사시 43회",
+          "사법연수원 33기",
+          "가족법박사",
+          "변협 가족법 전문 1호 변호사",
+          "이화여자대학교 로스쿨 교수"
+        ]
+      },
+      {
+        "order": 1,
+        "name": "조용국",
+        "display": "조용국 변호사",
+        "rank": "대표 (1대)",
+        "position": "법무법인 신세계로 1대 대표",
+        "team_roles": [],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_02.webp",
+        "photo_alt": "조인국 변호사",
+        "photo_alt_note": "alt text says 조인국 but actual name displayed is 조용국",
+        "photo_dimensions": "640x784",
+        "certifications": [],
+        "credentials": [
+          "사시 12회",
+          "사법연수원 2기",
+          "서울중앙지검 특수 1,2,3부장",
+          "부산동부지청장",
+          "의정부지청장"
+        ]
+      }
+    ],
+    "총괄": [
+      {
+        "order": 2,
+        "name": "김미루",
+        "display": "김미루 변호사",
+        "rank": "총괄",
+        "position": "서울총괄",
+        "team_roles": ["이혼소송총괄팀장"],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_04.webp",
+        "photo_alt": "김미루 서울총괄, 이혼소송총괄팀장 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": ["이혼"]
+      },
+      {
+        "order": 3,
+        "name": "류현주",
+        "display": "류현주 변호사",
+        "rank": "총괄",
+        "position": "대전총괄",
+        "team_roles": ["재산분할팀장"],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_05.webp",
+        "photo_alt": "류현주 대전총괄, 재산분할팀장 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": ["가사법", "상속"]
+      },
+      {
+        "order": 4,
+        "name": "신진희",
+        "display": "신진희 변호사",
+        "rank": "총괄",
+        "position": "수원총괄",
+        "team_roles": ["위자료팀장"],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_09.webp",
+        "photo_alt": "신진희 수원총괄, 위자료팀장 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": ["가사법"]
+      }
+    ],
+    "수석": [
+      {
+        "order": 5,
+        "name": "박경내",
+        "display": "박경내 변호사",
+        "rank": "수석",
+        "position": "수석",
+        "team_roles": ["친권양육권양육비팀장"],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_06.webp",
+        "photo_alt": "박경내 수석, 친권양육권양육비팀장 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": ["이혼"]
+      },
+      {
+        "order": 6,
+        "name": "이명인",
+        "display": "이명인 변호사",
+        "rank": "수석",
+        "position": "수석",
+        "team_roles": ["형사팀장"],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_12.webp",
+        "photo_alt": "이명인 수석, 형사팀장 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": ["이혼"]
+      },
+      {
+        "order": 7,
+        "name": "이준헌",
+        "display": "이준헌 변호사",
+        "rank": "수석",
+        "position": "수석",
+        "team_roles": ["보전처분사전처분팀장"],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_13.webp",
+        "photo_alt": "이준헌 수석, 보전처분사전처분팀장 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": []
+      },
+      {
+        "order": 8,
+        "name": "조윤용",
+        "display": "조윤용 변호사",
+        "rank": "수석",
+        "position": "수석",
+        "team_roles": ["상속팀장"],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_20.webp",
+        "photo_alt": "조윤용 수석, 상속팀장 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": ["가사법", "상속"]
+      },
+      {
+        "order": 9,
+        "name": "신고운",
+        "display": "신고운 변호사",
+        "rank": "수석",
+        "position": "수석",
+        "team_roles": [],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_08.webp",
+        "photo_alt": "신고운 수석 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": []
+      },
+      {
+        "order": 10,
+        "name": "안은경",
+        "display": "안은경 변호사",
+        "rank": "수석",
+        "position": "수석",
+        "team_roles": [],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_10.webp",
+        "photo_alt": "안은영 수석 변호사",
+        "photo_alt_note": "alt text says 안은영 but heading text says 안은경 - likely alt text typo on source site",
+        "photo_dimensions": "640x784",
+        "certifications": []
+      },
+      {
+        "order": 11,
+        "name": "우진서",
+        "display": "우진서 변호사",
+        "rank": "수석",
+        "position": "수석",
+        "team_roles": [],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_11.webp",
+        "photo_alt": "우진서 수석 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": []
+      },
+      {
+        "order": 12,
+        "name": "임경미",
+        "display": "임경미 변호사",
+        "rank": "수석",
+        "position": "수석",
+        "team_roles": [],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_15.webp",
+        "photo_alt": "임경미 수석 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": []
+      },
+      {
+        "order": 13,
+        "name": "정두리",
+        "display": "정두리 변호사",
+        "rank": "수석",
+        "position": "수석",
+        "team_roles": [],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_19.webp",
+        "photo_alt": "정두리 수석 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": ["이혼"]
+      },
+      {
+        "order": 14,
+        "name": "홍수현",
+        "display": "홍수현 변호사",
+        "rank": "수석",
+        "position": "수석",
+        "team_roles": [],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_22.webp",
+        "photo_alt": "홍수현 수석 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": []
+      }
+    ],
+    "책임": [
+      {
+        "order": 15,
+        "name": "김나희",
+        "display": "김나희 변호사",
+        "rank": "책임",
+        "position": "책임",
+        "team_roles": [],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_03.webp",
+        "photo_alt": "김나희 책임 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": []
+      },
+      {
+        "order": 16,
+        "name": "박선아",
+        "display": "박선아 변호사",
+        "rank": "책임",
+        "position": "책임",
+        "team_roles": [],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_07.webp",
+        "photo_alt": "박선아 책임 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": []
+      },
+      {
+        "order": 17,
+        "name": "이재현",
+        "display": "이재현 변호사",
+        "rank": "책임",
+        "position": "책임",
+        "team_roles": [],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_14.webp",
+        "photo_alt": "이재현 책임 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": []
+      },
+      {
+        "order": 18,
+        "name": "임수미",
+        "display": "임수미 변호사",
+        "rank": "책임",
+        "position": "책임",
+        "team_roles": [],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_16.webp",
+        "photo_alt": "임수미 책임 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": []
+      },
+      {
+        "order": 19,
+        "name": "임형창",
+        "display": "임형창 변호사",
+        "rank": "책임",
+        "position": "책임",
+        "team_roles": [],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_17.webp",
+        "photo_alt": "임형창 책임 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": []
+      },
+      {
+        "order": 20,
+        "name": "전보성",
+        "display": "전보성 변호사",
+        "rank": "책임",
+        "position": "책임",
+        "team_roles": [],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_18.webp",
+        "photo_alt": "전보성 책임 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": []
+      },
+      {
+        "order": 21,
+        "name": "정은영",
+        "display": "정은영 변호사",
+        "rank": "책임",
+        "position": "책임",
+        "team_roles": [],
+        "photo_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_21.webp",
+        "photo_alt": "정은영 책임 변호사",
+        "photo_dimensions": "640x784",
+        "certifications": []
+      }
+    ]
+  },
+
+  "offices": [
+    {
+      "name": "서울 주사무소",
+      "html_id": "seoul",
+      "address": "서울시 서초구 법원로 16, 207호 (정곡빌딩 동관)",
+      "phone": "02-594-2800",
+      "fax": "02-594-2830",
+      "business_registration": "214-88-80810",
+      "google_maps_query": "법무법인 신세계로 서울본사",
+      "subway": [
+        "2호선 서초역 8번 출구로 나와서 150m 대신빌딩에서 좌회전, 중앙지법 쪽 150m",
+        "3호선 교대역 10번 출구로 나와서 150m 서초대가에서 우회전, 중앙지법 쪽 150m"
+      ],
+      "parking": {
+        "description": "교대역에서 서초역 방면으로 서초대가를 끼고 우회전, 중앙지법 쪽 150m",
+        "options": [
+          "정곡빌딩 남관 주차장(유료)",
+          "법원주차장(무료, 차량5부제)"
+        ],
+        "note": "법원일대 주차가 여유롭지 못하니 대중교통 이용을 권해드립니다."
+      }
+    },
+    {
+      "name": "대전 분사무소",
+      "html_id": "daejeon",
+      "address": "대전광역시 서구 둔산로123번길 43 201호 (둔산동 PJ빌딩)",
+      "phone": "042-471-2833",
+      "fax": "042-471-2830",
+      "business_registration": "205-85-13446",
+      "google_maps_query": "대전광역시 서구 둔산로123번길 43",
+      "subway": [
+        "1호선 시청역 5번 출구, 대전법원 방면 도보 5분"
+      ]
+    },
+    {
+      "name": "수원 분사무소",
+      "html_id": "suwon",
+      "address": "경기도 수원시 영통구 봉영로 1605, 208호 (영통동 모던타운)",
+      "phone": "031-202-2833",
+      "fax": "031-202-2830",
+      "google_maps_query": "경기도 수원시 영통구 봉영로 1605",
+      "subway": [
+        "수인분당선 청명역 4번 출구, 청명육교 방면 도보 12분"
+      ]
+    }
+  ],
+
+  "all_image_urls": {
+    "attorney_photos": [
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_01.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_02.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_03.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_04.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_05.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_06.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_07.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_08.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_09.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_10.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_11.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_12.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_13.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_14.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_15.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_16.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_17.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_18.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_19.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_20.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_21.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/lawyer_profile_22.webp"
+    ],
+    "specialty_certificates": [
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_01.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_02.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_03.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_04.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_05.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_06.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_07.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_08.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_09.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_10.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_11.webp"
+    ],
+    "gallery_certificates": [
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_12-1.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_12-2.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_12-3.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_13.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_13-1.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_13-2.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/certificate_13-3.webp"
+    ],
+    "history_photos": [
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/sub_01_sec_03__about_history_01.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/sub_01_sec_03__about_history_02.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/sub_01_sec_03__about_history_03.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/sub_01_sec_03__about_history_04.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/sub_01_sec_03__about_history_05.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/sub_01_sec_03__about_history_06.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/sub_01_sec_03__about_history_07.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/sub_01_sec_03__about_history_08.webp",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/sub_01_sec_03__about_history_09.webp"
+    ],
+    "nav_icons": [
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2024/07/main_01_header_01_01.svg",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2024/07/main_01_header_01_02.svg",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2024/07/main_01_header_02_01.svg",
+      "https://xn--kj4b38iiva.com/wp-content/uploads/2024/07/main_01_header_03_01.svg"
+    ],
+    "logo": "https://xn--kj4b38iiva.com/wp-content/uploads/2023/06/logo.svg"
+  },
+
+  "data_notes": {
+    "attorney_count_discrepancy": "Site claims 23인 체제 (2025 timeline entry) but only 22 unique profile photos exist (lawyer_profile_01 through _22). The 2 대표 (조인섭, 조용국) + 3 총괄 + 10 수석 + 7 책임 = 22 total with photos. The 23rd attorney may be recently added without a profile photo update.",
+    "name_discrepancy_안은경": "Photo alt text says 안은영 but the heading text on page says 안은경. The heading text is authoritative.",
+    "name_discrepancy_조용국_photo": "Photo alt for 조용국 says 조인국 변호사 - likely a typo in the alt text. The displayed name is clearly 조용국.",
+    "certifications_summary": "8 attorneys have registered specialty certifications: 박경내(이혼), 김미루(이혼), 류현주(가사법+상속), 신진희(가사법), 이명인(이혼), 정두리(이혼), 조윤용(가사법+상속), 조인섭(가족법+상속) = 11 certificates total across 8 attorneys",
+    "team_structure": "7 teams identified via team leader roles: 이혼소송총괄팀(김미루), 재산분할팀(류현주), 위자료팀(신진희), 친권양육권양육비팀(박경내), 형사팀(이명인), 보전처분사전처분팀(이준헌), 상속팀(조윤용)"
+  }
+}

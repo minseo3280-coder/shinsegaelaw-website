@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>언론매체 — 프로토타입</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --burgundy-500:#9B2335;--burgundy-600:#7B2D3B;--burgundy-50:#FDF2F4;
+  --gold-400:#C9A84C;--gold-500:#D4AF37;
+  --navy-800:#1A1A2E;--navy-900:#0F0F1A;
+  --cream:#faf9f7;
+}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:#111827;background:#fff;-webkit-font-smoothing:antialiased;line-height:1.6}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+
+/* Layout */
+.mx-4xl{max-width:896px;margin:0 auto;padding:0 24px}
+.mx-7xl{max-width:1280px;margin:0 auto;padding:0 24px}
+@media(min-width:768px){.mx-4xl,.mx-7xl{padding:0 32px}}
+
+/* Banner */
+.banner{position:relative;height:200px;background:var(--navy-900);overflow:hidden}
+@media(min-width:768px){.banner{height:260px}}
+.banner-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.banner-overlay{position:absolute;inset:0;background:rgba(0,0,0,.50)}
+.banner-inner{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:0 24px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:32px}
+@media(min-width:768px){.banner-inner{padding-left:32px;padding-right:32px}}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.3);margin-bottom:12px}
+.breadcrumb a{color:rgba(255,255,255,.3);transition:color .2s}.breadcrumb a:hover{color:rgba(255,255,255,.5)}
+.breadcrumb .sep{color:rgba(255,255,255,.2);font-size:10px}.breadcrumb .cur{color:rgba(255,255,255,.6)}
+.banner h1{font-size:24px;font-weight:700;color:#fff;letter-spacing:-.02em}
+@media(min-width:768px){.banner h1{font-size:30px}}
+.gold-bar{width:48px;height:2px;background:rgba(212,175,55,.6);margin-top:12px}
+
+/* Tabs */
+.tabs{background:#fff;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:20}
+.tabs-scroll{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;overflow-x:auto;scrollbar-width:none}
+.tabs-scroll::-webkit-scrollbar{display:none}
+@media(min-width:768px){.tabs-scroll{padding:0 32px}}
+.tab{padding:16px 20px;font-size:14px;white-space:nowrap;border:none;background:none;border-bottom:2px solid transparent;color:#9ca3af;cursor:pointer;transition:all .2s;flex-shrink:0}
+.tab:hover{color:#374151}.tab.on{color:var(--burgundy-600);font-weight:500;border-bottom-color:var(--burgundy-500)}
+
+/* Reveal */
+[data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+[data-reveal].visible{opacity:1;transform:translateY(0)}
+[data-reveal-delay="1"]{transition-delay:.15s}[data-reveal-delay="2"]{transition-delay:.3s}[data-reveal-delay="3"]{transition-delay:.45s}
+@keyframes underlineGrow{from{width:0}to{width:100%}}
+.headline-underline{position:relative;display:inline}
+.headline-underline::after{content:"";position:absolute;bottom:-2px;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--burgundy-500),var(--gold-500))}
+[data-reveal].visible .headline-underline::after{animation:underlineGrow .8s ease-out .5s forwards}
+
+/* Divider */
+.divider{width:100%;height:1px;background:#e5e7eb}
+.div-wrap{padding:32px 0}@media(min-width:768px){.div-wrap{padding:40px 0}}
+
+/* ===== STATS BAR ===== */
+.stats-bar{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.stat-pill{display:flex;align-items:center;gap:6px;font-size:13px;color:#6b7280}
+.stat-pill .num{font-weight:700;color:var(--burgundy-500);font-variant-numeric:tabular-nums}
+
+/* ===== SEARCH + FILTER ===== */
+.search-bar{display:flex;gap:8px;margin-top:20px}
+.search-input{
+  flex:1;padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;
+  font-size:13px;color:#111827;background:#fff;outline:none;transition:border-color .2s;
+  font-family:inherit;
+}
+.search-input:focus{border-color:var(--burgundy-500)}
+.search-input::placeholder{color:#9ca3af}
+.search-btn{
+  padding:10px 20px;border-radius:8px;border:none;
+  background:var(--burgundy-500);color:#fff;font-size:13px;font-weight:600;
+  cursor:pointer;transition:all .2s;flex-shrink:0;font-family:inherit;
+}
+.search-btn:hover{background:var(--burgundy-600)}
+
+/* Filter pills */
+.filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.pill{
+  padding:6px 14px;border-radius:20px;font-size:12px;font-weight:500;
+  border:1px solid #e5e7eb;background:#fff;color:#6b7280;
+  cursor:pointer;transition:all .2s;white-space:nowrap;
+}
+.pill:hover{border-color:rgba(155,35,53,.2);color:#374151}
+.pill.active{border-color:var(--burgundy-500);background:var(--burgundy-50);color:var(--burgundy-500)}
+
+/* ===== ARTICLE CARDS ===== */
+.article-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:24px}
+@media(min-width:768px){.article-grid{grid-template-columns:1fr}}
+
+.article-card{
+  display:flex;gap:16px;padding:20px;
+  border:1px solid #e5e7eb;border-radius:10px;
+  transition:all .3s;cursor:pointer;
+}
+.article-card:hover{
+  border-color:rgba(155,35,53,.2);
+  box-shadow:0 4px 20px rgba(0,0,0,.06);
+  transform:translateY(-2px);
+}
+.article-card .ac-thumb{
+  width:80px;height:80px;border-radius:8px;overflow:hidden;
+  background:var(--cream);flex-shrink:0;display:flex;align-items:center;justify-content:center;
+}
+.article-card .ac-thumb img{width:100%;height:100%;object-fit:cover}
+.article-card .ac-thumb .no-img{font-size:10px;color:#9ca3af;text-align:center}
+.ac-body{flex:1;min-width:0}
+.ac-meta{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.ac-source{font-size:11px;font-weight:600;color:var(--burgundy-500)}
+.ac-date{font-size:11px;color:#9ca3af}
+.ac-lawyer{font-size:10px;color:#6b7280;background:var(--cream);padding:2px 6px;border-radius:4px}
+.ac-title{font-size:15px;font-weight:600;color:#111827;line-height:1.5;margin-bottom:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.article-card:hover .ac-title{color:var(--burgundy-500)}
+.ac-excerpt{font-size:12px;color:#9ca3af;line-height:1.7;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ===== FEATURED CARD ===== */
+.featured-card{
+  border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;
+  transition:all .3s;cursor:pointer;
+}
+.featured-card:hover{border-color:rgba(155,35,53,.2);box-shadow:0 6px 28px rgba(0,0,0,.08);transform:translateY(-2px)}
+.fc-img{width:100%;aspect-ratio:16/8;overflow:hidden;background:var(--cream);position:relative}
+.fc-img img{width:100%;height:100%;object-fit:cover}
+.fc-img .fc-badge{
+  position:absolute;top:12px;left:12px;
+  background:var(--burgundy-500);color:#fff;
+  padding:4px 10px;border-radius:6px;font-size:10px;font-weight:600;letter-spacing:.05em;
+}
+.fc-body{padding:20px 24px 24px}
+.fc-meta{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.fc-title{font-size:18px;font-weight:700;color:#111827;line-height:1.45;margin-bottom:8px;letter-spacing:-.01em}
+@media(min-width:768px){.fc-title{font-size:20px}}
+.featured-card:hover .fc-title{color:var(--burgundy-500)}
+.fc-excerpt{font-size:13px;color:#6b7280;line-height:1.9;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ===== PAGINATION ===== */
+.pagination{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:32px}
+.pg-btn{
+  width:36px;height:36px;border-radius:8px;border:1px solid #e5e7eb;
+  background:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:13px;color:#6b7280;cursor:pointer;transition:all .2s;
+}
+.pg-btn:hover{border-color:rgba(155,35,53,.2);color:#374151}
+.pg-btn.active{background:var(--burgundy-500);border-color:var(--burgundy-500);color:#fff}
+.pg-btn.disabled{opacity:.3;cursor:not-allowed}
+
+/* ===== SORT ===== */
+.sort-row{display:flex;align-items:center;justify-content:space-between;margin-top:16px;flex-wrap:wrap;gap:8px}
+.sort-row .total{font-size:13px;color:#6b7280}
+.sort-row .total .num{font-weight:700;color:var(--burgundy-500)}
+.sort-btns{display:flex;gap:4px}
+.sort-btn{font-size:12px;color:#9ca3af;background:none;border:none;cursor:pointer;padding:4px 8px;transition:color .2s;font-family:inherit}
+.sort-btn:hover{color:#374151}
+.sort-btn.active{color:var(--burgundy-500);font-weight:600}
+
+/* ===== CTA ===== */
+.mobile-cta{background:linear-gradient(135deg,var(--navy-800),var(--navy-900));padding:40px 0;text-align:center}
+.mobile-cta h3{font-size:18px;font-weight:700;color:#fff;margin-bottom:6px}
+@media(min-width:768px){.mobile-cta h3{font-size:22px}}
+.mobile-cta .sub{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:24px}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:8px;background:var(--burgundy-500);color:#fff;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:all .3s;font-family:inherit}
+.cta-btn:hover{background:var(--burgundy-600);transform:translateY(-1px);box-shadow:0 4px 20px rgba(155,35,53,.25)}
+.cta-meta{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:14px;font-size:11px;color:rgba(255,255,255,.35)}
+
+/* ===== TWO COLUMN LAYOUT ===== */
+.two-col-layout{display:grid;grid-template-columns:1fr;gap:32px}
+@media(min-width:1024px){.two-col-layout{grid-template-columns:1fr 280px}}
+
+/* Sidebar */
+.sidebar{display:flex;flex-direction:column;gap:16px}
+.sidebar-card{border:1px solid #e5e7eb;border-radius:10px;padding:20px;transition:all .3s}
+.sidebar-card:hover{border-color:rgba(155,35,53,.1)}
+.sidebar-title{font-size:13px;font-weight:700;color:#111827;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.sidebar-title::before{content:'';width:3px;height:14px;background:var(--burgundy-500);border-radius:2px}
+
+/* Popular articles in sidebar */
+.pop-list{display:flex;flex-direction:column;gap:10px}
+.pop-item{display:flex;gap:10px;align-items:flex-start;cursor:pointer;transition:all .2s}
+.pop-item:hover .pop-title{color:var(--burgundy-500)}
+.pop-num{font-size:14px;font-weight:800;color:var(--burgundy-500);opacity:.3;min-width:20px;line-height:1}
+.pop-title{font-size:12px;color:#374151;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pop-date{font-size:10px;color:#9ca3af;margin-top:2px}
+
+/* Source tags in sidebar */
+.source-tags{display:flex;flex-wrap:wrap;gap:6px}
+.source-tag{font-size:11px;padding:4px 10px;border-radius:6px;background:var(--cream);color:#6b7280;cursor:pointer;transition:all .2s}
+.source-tag:hover{background:var(--burgundy-50);color:var(--burgundy-500)}
+
+/* Sidebar CTA */
+.sidebar-cta{
+  background:linear-gradient(135deg,var(--navy-800),var(--navy-900));
+  border-radius:10px;padding:24px 20px;text-align:center;position:relative;overflow:hidden;
+}
+.sidebar-cta::after{content:'';position:absolute;top:50%;left:50%;width:200px;height:200px;background:radial-gradient(circle,rgba(155,35,53,.15),transparent 70%);transform:translate(-50%,-50%);pointer-events:none}
+.sidebar-cta p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;position:relative;z-index:1;margin-bottom:14px}
+.sidebar-cta .sc-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:10px 20px;border-radius:8px;
+  background:var(--burgundy-500);color:#fff;
+  font-size:13px;font-weight:600;border:none;cursor:pointer;
+  transition:all .2s;position:relative;z-index:1;
+}
+.sidebar-cta .sc-btn:hover{background:var(--burgundy-600)}
+</style>
+</head>
+<body>
+
+<!-- ===== BANNER ===== -->
+<section class="banner">
+  <img class="banner-img" src="frontend/public/images/office/banner-reviews.jpg" alt="언론매체">
+  <div class="banner-overlay"></div>
+  <div class="banner-inner">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="#">홈</a><span class="sep">›</span>
+      <a href="#">의뢰인후기</a><span class="sep">›</span>
+      <span class="cur">언론매체</span>
+    </nav>
+    <h1>언론매체</h1>
+    <div class="gold-bar"></div>
+  </div>
+</section>
+
+<!-- ===== TABS ===== -->
+<div class="tabs"><div class="tabs-scroll">
+  <button class="tab">전체 후기</button>
+  <button class="tab on">언론매체</button>
+</div></div>
+
+<!-- ===== HEADLINE ===== -->
+<section class="mx-7xl" style="padding-top:48px" data-reveal>
+  <p style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(155,35,53,.4);margin-bottom:12px">Press & Media</p>
+  <h2 style="font-size:24px;font-weight:700;color:#111827;letter-spacing:-.02em;line-height:1.4;word-break:keep-all">
+    신세계로의 전문성을<br>
+    <span style="color:var(--burgundy-500)" class="headline-underline">언론이 먼저 인정했습니다.</span>
+  </h2>
+  <p style="font-size:13px;color:#6b7280;line-height:2.2;margin-top:12px;max-width:500px">
+    KBS, MBC, SBS, JTBC, YTN 등 주요 언론에 소개된<br>
+    법무법인 신세계로의 전문 분석과 법률 자문 기사를 확인하세요.
+  </p>
+
+  <!-- Stats -->
+  <div class="stats-bar" style="margin-top:20px">
+    <div class="stat-pill"><span class="num">1,010</span> 건 언론보도</div>
+    <span style="color:#e5e7eb">|</span>
+    <div class="stat-pill"><span class="num">15+</span> 주요 매체</div>
+    <span style="color:#e5e7eb">|</span>
+    <div class="stat-pill"><span class="num">22</span> 년 미디어 활동</div>
+  </div>
+</section>
+
+<div class="mx-7xl div-wrap"><div class="divider"></div></div>
+
+<!-- ===== FEATURED ARTICLE ===== -->
+<section class="mx-7xl" data-reveal>
+  <p style="font-size:15px;font-weight:700;color:#111827;margin-bottom:12px">최신 주요 보도</p>
+  <div class="featured-card">
+    <div class="fc-img">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--cream),#f0eeea);display:flex;align-items:center;justify-content:center">
+        <span style="font-size:13px;color:#9ca3af">뉴스1</span>
+      </div>
+      <div class="fc-badge">LATEST</div>
+    </div>
+    <div class="fc-body">
+      <div class="fc-meta">
+        <span class="ac-source">뉴스1</span>
+        <span class="ac-date">2025.08.11</span>
+        <span class="ac-lawyer">조인섭 변호사</span>
+      </div>
+      <div class="fc-title">여행 중 만난 아내, '명문대·전문직·부잣집' 다 거짓말…남자와 외박도</div>
+      <div class="fc-excerpt">배우자의 학력, 직업, 가정환경에 대한 거짓말이 이혼 사유가 될 수 있는지에 대한 법률 전문가 분석. 대한변협등록 가족법전문변호사 조인섭 변호사가 해당 사례를 분석합니다.</div>
+    </div>
+  </div>
+</section>
+
+<div class="mx-7xl div-wrap"><div class="divider"></div></div>
+
+<!-- ===== SEARCH + FILTER ===== -->
+<section class="mx-7xl" data-reveal>
+  <div class="search-bar">
+    <input type="text" class="search-input" placeholder="기사 제목, 내용, 출처로 검색...">
+    <button class="search-btn">검색</button>
+  </div>
+  <div class="filter-row">
+    <span class="pill active"># 전체</span>
+    <span class="pill"># 이혼</span>
+    <span class="pill"># 재산분할</span>
+    <span class="pill"># 위자료</span>
+    <span class="pill"># 양육권</span>
+    <span class="pill"># 외도</span>
+    <span class="pill"># 상속</span>
+    <span class="pill"># 형사</span>
+  </div>
+</section>
+
+<!-- ===== SORT ROW ===== -->
+<section class="mx-7xl" style="margin-top:20px" data-reveal>
+  <div class="sort-row">
+    <div class="total">전체 <span class="num">1,010</span>건</div>
+    <div class="sort-btns">
+      <button class="sort-btn active">최신순</button>
+      <button class="sort-btn">조회순</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MAIN CONTENT (2-col layout) ===== -->
+<section class="mx-7xl" style="padding-top:20px;padding-bottom:48px">
+  <div class="two-col-layout">
+
+    <!-- LEFT: Articles -->
+    <div>
+      <div class="article-grid">
+        <!-- Article 1 -->
+        <div class="article-card" data-reveal>
+          <div class="ac-thumb"><div class="no-img">뉴스1</div></div>
+          <div class="ac-body">
+            <div class="ac-meta">
+              <span class="ac-source">헤럴드경제</span>
+              <span class="ac-date">2025.08.11</span>
+              <span class="ac-lawyer">조인섭 변호사</span>
+            </div>
+            <div class="ac-title">'황혼 재혼' 후 사망한 아버지, 유산 70억…"새엄마에 재산 다 뺏길판"</div>
+            <div class="ac-excerpt">아버지의 황혼 재혼 후 사망, 유산 70억 원의 상속 분쟁에 대한 법률 자문</div>
+          </div>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="article-card" data-reveal>
+          <div class="ac-thumb"><div class="no-img">뉴시스</div></div>
+          <div class="ac-body">
+            <div class="ac-meta">
+              <span class="ac-source">뉴시스</span>
+              <span class="ac-date">2025.08.11</span>
+              <span class="ac-lawyer">조인섭 변호사</span>
+            </div>
+            <div class="ac-title">'치매母' 모시겠다는 누나…"어머니 모시고 은행·증권사는 왜 가는걸까요?"</div>
+            <div class="ac-excerpt">치매 부모의 재산 관리를 둘러싼 형제간 분쟁과 법적 대응 방안</div>
+          </div>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="article-card" data-reveal>
+          <div class="ac-thumb"><div class="no-img">파이낸셜<br>뉴스</div></div>
+          <div class="ac-body">
+            <div class="ac-meta">
+              <span class="ac-source">파이낸셜뉴스</span>
+              <span class="ac-date">2025.08.11</span>
+              <span class="ac-lawyer">조인섭 변호사</span>
+            </div>
+            <div class="ac-title">'재혼' 남편 아들 입양해 키우다가 이혼했는데…"엄마니까 양육비 보내래요"</div>
+            <div class="ac-excerpt">재혼 가정에서의 입양 자녀 양육비 문제와 파양 가능성에 대한 법률 분석</div>
+          </div>
+        </div>
+
+        <!-- Article 4 -->
+        <div class="article-card" data-reveal>
+          <div class="ac-thumb"><div class="no-img">머니<br>투데이</div></div>
+          <div class="ac-body">
+            <div class="ac-meta">
+              <span class="ac-source">머니투데이</span>
+              <span class="ac-date">2025.08.11</span>
+              <span class="ac-lawyer">조인섭 변호사</span>
+            </div>
+            <div class="ac-title">맞고 사는 남편 "아내가 1억 위로금 줘"…이혼하면 위자료는 따로?</div>
+            <div class="ac-excerpt">가정폭력 피해 남성의 이혼 시 위자료 청구 가능 여부와 위로금 관계</div>
+          </div>
+        </div>
+
+        <!-- Article 5 -->
+        <div class="article-card" data-reveal>
+          <div class="ac-thumb" style="background:var(--burgundy-50)"><div class="no-img" style="color:var(--burgundy-500);font-weight:600">YTN<br>Radio</div></div>
+          <div class="ac-body">
+            <div class="ac-meta">
+              <span class="ac-source">YTN 라디오</span>
+              <span class="ac-date">2025.08.11</span>
+              <span class="ac-lawyer">조인섭 변호사</span>
+            </div>
+            <div class="ac-title">[조담소] 거짓말쟁이 아내의 적반하장, 집 나간 뒤 대뜸 "이혼 하자"</div>
+            <div class="ac-excerpt">YTN 라디오 '조인섭 변호사의 상담소' — 배우자의 거짓말과 가출 후 이혼 요구 사례</div>
+          </div>
+        </div>
+
+        <!-- Article 6 -->
+        <div class="article-card" data-reveal>
+          <div class="ac-thumb"><div class="no-img">뉴스1</div></div>
+          <div class="ac-body">
+            <div class="ac-meta">
+              <span class="ac-source">뉴스1</span>
+              <span class="ac-date">2025.07.28</span>
+              <span class="ac-lawyer">조인섭 변호사</span>
+            </div>
+            <div class="ac-title">남편 외도 상대에 위자료 1억 청구했더니…"너도 바람피운 거 안다"</div>
+            <div class="ac-excerpt">쌍방 외도 상황에서의 위자료 청구 가능성과 법원의 판단 기준</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination" data-reveal>
+        <button class="pg-btn disabled">‹</button>
+        <button class="pg-btn active">1</button>
+        <button class="pg-btn">2</button>
+        <button class="pg-btn">3</button>
+        <button class="pg-btn">4</button>
+        <button class="pg-btn">5</button>
+        <span style="font-size:12px;color:#9ca3af;padding:0 4px">···</span>
+        <button class="pg-btn">169</button>
+        <button class="pg-btn">›</button>
+      </div>
+    </div>
+
+    <!-- RIGHT: Sidebar -->
+    <div class="sidebar">
+      <!-- Popular -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">인기 기사</div>
+        <div class="pop-list">
+          <div class="pop-item">
+            <span class="pop-num">1</span>
+            <div>
+              <div class="pop-title">여행 중 만난 아내, '명문대·전문직·부잣집' 다 거짓말…남자와 외박도</div>
+              <div class="pop-date">2025.08.11 · 1,870 views</div>
+            </div>
+          </div>
+          <div class="pop-item">
+            <span class="pop-num">2</span>
+            <div>
+              <div class="pop-title">'황혼 재혼' 후 사망한 아버지, 유산 70억…"새엄마에 재산 다 뺏길판"</div>
+              <div class="pop-date">2025.08.11 · 1,542 views</div>
+            </div>
+          </div>
+          <div class="pop-item">
+            <span class="pop-num">3</span>
+            <div>
+              <div class="pop-title">'치매母' 모시겠다는 누나…"어머니 모시고 은행·증권사는 왜 가는걸까요?"</div>
+              <div class="pop-date">2025.08.11 · 1,320 views</div>
+            </div>
+          </div>
+          <div class="pop-item">
+            <span class="pop-num">4</span>
+            <div>
+              <div class="pop-title">[조담소] 거짓말쟁이 아내의 적반하장, 집 나간 뒤 대뜸 "이혼 하자"</div>
+              <div class="pop-date">2025.08.11 · 1,105 views</div>
+            </div>
+          </div>
+          <div class="pop-item">
+            <span class="pop-num">5</span>
+            <div>
+              <div class="pop-title">맞고 사는 남편 "아내가 1억 위로금 줘"…이혼하면 위자료는 따로?</div>
+              <div class="pop-date">2025.08.11 · 980 views</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sources -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">출처별 보기</div>
+        <div class="source-tags">
+          <span class="source-tag">YTN 라디오</span>
+          <span class="source-tag">뉴스1</span>
+          <span class="source-tag">머니투데이</span>
+          <span class="source-tag">헤럴드경제</span>
+          <span class="source-tag">뉴시스</span>
+          <span class="source-tag">파이낸셜뉴스</span>
+          <span class="source-tag">아이뉴스24</span>
+          <span class="source-tag">KBS</span>
+          <span class="source-tag">SBS</span>
+          <span class="source-tag">MBC</span>
+          <span class="source-tag">JTBC</span>
+          <span class="source-tag">CBS</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="mobile-cta">
+  <div class="mx-7xl">
+    <h3>지금 바로 무료상담을 신청하세요</h3>
+    <p class="sub">온라인 24시간 접수 · 비밀보장 · 무료 상담</p>
+    <button class="cta-btn">무료상담 신청하기 →</button>
+    <div class="cta-meta"><span>📞 02-594-2800</span><span>·</span><span>서울 · 대전 · 수원</span></div>
+  </div>
+</section>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)} });
+}, { threshold:.08, rootMargin:'0px 0px -30px 0px' });
+document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+
+// Pill filter toggle
+document.querySelectorAll('.pill').forEach(p => {
+  p.addEventListener('click', () => {
+    document.querySelectorAll('.pill').forEach(pp => pp.classList.remove('active'));
+    p.classList.add('active');
+  });
+});
+
+// Sort toggle
+document.querySelectorAll('.sort-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.sort-btn').forEach(bb => bb.classList.remove('active'));
+    b.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

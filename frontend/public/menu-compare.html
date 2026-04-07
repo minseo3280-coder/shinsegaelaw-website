@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>메뉴 디자인 비교</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Pretendard', -apple-system, sans-serif; background: #f0f0f0; padding: 40px 20px; }
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+
+  h2 { text-align: center; font-size: 14px; color: #666; margin-bottom: 12px; letter-spacing: 0.05em; }
+  .label { display: inline-block; background: #9B2335; color: white; font-size: 11px; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+
+  .demo-wrap {
+    margin-bottom: 60px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+
+  /* ─── Shared header base ─── */
+  .header {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    padding: 0 32px;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+  }
+  .logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: #7B2D3B;
+    margin-right: 48px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .logo small { font-size: 10px; color: #7B2D3B; opacity: 0.5; display: block; font-weight: 400; letter-spacing: 0.1em; }
+  .tabs {
+    display: flex;
+    flex: 1;
+    height: 100%;
+  }
+  .tab {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(26,26,46,0.85);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .right-utils {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 24px;
+    flex-shrink: 0;
+  }
+  .search-btn {
+    width: 40px; height: 40px; border-radius: 50%; border: none;
+    background: transparent; cursor: pointer; font-size: 16px; color: rgba(26,26,46,0.3);
+  }
+  .cta-btn {
+    padding: 10px 24px;
+    background: #9B2335;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .cta-btn:hover { background: #852030; }
+
+  /* Mega menu base */
+  .mega {
+    padding: 24px 32px 32px;
+    display: flex;
+  }
+  .mega-spacer { width: 180px; flex-shrink: 0; margin-right: 48px; }
+  .mega-cols { display: flex; flex: 1; }
+  .mega-col { flex: 1; padding: 0 16px; }
+  .mega-col:not(:last-child) { border-right: 1px solid rgba(0,0,0,0.04); }
+  .mega-col a {
+    display: block;
+    padding: 7px 12px;
+    font-size: 14px;
+    color: rgba(26,26,46,0.45);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mega-col a:hover { color: #9B2335; }
+  .mega-spacer-r { width: 170px; flex-shrink: 0; margin-left: 24px; }
+
+  /* ─── Option A: 전체 흰색 (클린) ─── */
+  .opt-a .header { background: white; }
+  .opt-a .tab:hover { color: #9B2335; font-weight: 600; }
+  .opt-a .tab::after {
+    content: '';
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #9B2335;
+    transition: width 0.3s ease;
+  }
+  .opt-a .tab:hover::after,
+  .opt-a .tab.active::after { width: 60%; }
+  .opt-a .mega { background: white; border-top: 1px solid #f0f0f0; }
+  .opt-a .mega-col a:hover { background: #f8f8f8; }
+
+  /* ─── Option B: 메가메뉴만 연한 크림 ─── */
+  .opt-b .header { background: white; }
+  .opt-b .tab:hover { color: #9B2335; font-weight: 600; }
+  .opt-b .tab::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #9B2335;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  .opt-b .tab:hover::after,
+  .opt-b .tab.active::after { transform: scaleX(1); }
+  .opt-b .mega { background: #F8F6F3; }
+  .opt-b .mega-col a:hover { background: white; }
+
+  /* ─── Option C: 탭+메가 통합 배경 (YK 스타일) ─── */
+  .opt-c .header { background: white; border-bottom: none; }
+  .opt-c .header.open { background: #F9F9F9; border-bottom: none; }
+  .opt-c .tab:hover { color: #9B2335; font-weight: 600; }
+  .opt-c .tab .dot {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #9B2335;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .opt-c .tab:hover .dot,
+  .opt-c .tab.active .dot { opacity: 1; }
+  .opt-c .mega { background: #F9F9F9; }
+  .opt-c .mega-col { border-right-color: rgba(0,0,0,0.06); }
+  .opt-c .mega-col a:hover { background: white; color: #9B2335; }
+
+  /* Hover simulation */
+  .demo-wrap:hover .mega { display: flex; }
+  .mega { display: none; }
+  .demo-wrap:hover .tab:first-child { color: #9B2335; font-weight: 600; }
+  .opt-a .demo-wrap:hover .tab:first-child::after,
+  .opt-a:hover .tab:first-child::after { width: 60%; }
+  .opt-b:hover .tab:first-child::after { transform: scaleX(1); }
+  .opt-c:hover .tab:first-child .dot { opacity: 1; }
+  .opt-c:hover .header { background: #F9F9F9; }
+
+  /* Force show mega on hover */
+  .demo-wrap:hover .mega { display: flex !important; }
+
+  .verdict {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #999;
+    padding-bottom: 16px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Option A -->
+<h2><span class="label">A</span> 전체 흰색 + 밑줄 (현재 적용)</h2>
+<div class="demo-wrap opt-a">
+  <div class="header">
+    <div class="logo">법무법인 신세계로<small>LAWFIRM SHINSEGAELAW</small></div>
+    <div class="tabs">
+      <a class="tab" href="#">신세계로</a>
+      <a class="tab" href="#">업무분야</a>
+      <a class="tab" href="#">해결사례</a>
+      <a class="tab" href="#">구성원</a>
+      <a class="tab" href="#">소식/자료</a>
+    </div>
+    <div class="right-utils">
+      <button class="search-btn">🔍</button>
+      <button class="cta-btn">상담신청</button>
+    </div>
+  </div>
+  <div class="mega">
+    <div class="mega-spacer"></div>
+    <div class="mega-cols">
+      <div class="mega-col"><a href="#">인사말</a><a href="#">52년 법조전통</a><a href="#">신세계로 시스템</a><a href="#">오시는 길</a></div>
+      <div class="mega-col"><a href="#">이혼소송</a><a href="#">상간자소송</a><a href="#">형사소송</a></div>
+      <div class="mega-col"><a href="#">승소사례</a><a href="#">의뢰인 후기</a></div>
+      <div class="mega-col"><a href="#">변호사 소개</a><a href="#">전문팀 소개</a></div>
+      <div class="mega-col"><a href="#">법률 소식</a><a href="#">언론보도</a><a href="#">유튜브</a><a href="#">법률 칼럼</a></div>
+    </div>
+    <div class="mega-spacer-r"></div>
+  </div>
+</div>
+<p class="verdict">깔끔하지만 메가메뉴와 헤더 경계가 약할 수 있음</p>
+
+<!-- Option B -->
+<h2><span class="label">B</span> 흰 헤더 + 크림 메가메뉴 + 풀와이드 밑줄</h2>
+<div class="demo-wrap opt-b">
+  <div class="header">
+    <div class="logo">법무법인 신세계로<small>LAWFIRM SHINSEGAELAW</small></div>
+    <div class="tabs">
+      <a class="tab" href="#">신세계로</a>
+      <a class="tab" href="#">업무분야</a>
+      <a class="tab" href="#">해결사례</a>
+      <a class="tab" href="#">구성원</a>
+      <a class="tab" href="#">소식/자료</a>
+    </div>
+    <div class="right-utils">
+      <button class="search-btn">🔍</button>
+      <button class="cta-btn">상담신청</button>
+    </div>
+  </div>
+  <div class="mega">
+    <div class="mega-spacer"></div>
+    <div class="mega-cols">
+      <div class="mega-col"><a href="#">인사말</a><a href="#">52년 법조전통</a><a href="#">신세계로 시스템</a><a href="#">오시는 길</a></div>
+      <div class="mega-col"><a href="#">이혼소송</a><a href="#">상간자소송</a><a href="#">형사소송</a></div>
+      <div class="mega-col"><a href="#">승소사례</a><a href="#">의뢰인 후기</a></div>
+      <div class="mega-col"><a href="#">변호사 소개</a><a href="#">전문팀 소개</a></div>
+      <div class="mega-col"><a href="#">법률 소식</a><a href="#">언론보도</a><a href="#">유튜브</a><a href="#">법률 칼럼</a></div>
+    </div>
+    <div class="mega-spacer-r"></div>
+  </div>
+</div>
+<p class="verdict">탭 밑줄이 풀와이드 3px로 강렬 + 크림 메가메뉴로 영역 구분 자연스러움</p>
+
+<!-- Option C -->
+<h2><span class="label">C</span> 통합 배경 + 점 표시 (YK 스타일)</h2>
+<div class="demo-wrap opt-c">
+  <div class="header open">
+    <div class="logo">법무법인 신세계로<small>LAWFIRM SHINSEGAELAW</small></div>
+    <div class="tabs">
+      <a class="tab" href="#">신세계로<span class="dot"></span></a>
+      <a class="tab" href="#">업무분야<span class="dot"></span></a>
+      <a class="tab" href="#">해결사례<span class="dot"></span></a>
+      <a class="tab" href="#">구성원<span class="dot"></span></a>
+      <a class="tab" href="#">소식/자료<span class="dot"></span></a>
+    </div>
+    <div class="right-utils">
+      <button class="search-btn">🔍</button>
+      <button class="cta-btn">상담신청</button>
+    </div>
+  </div>
+  <div class="mega">
+    <div class="mega-spacer"></div>
+    <div class="mega-cols">
+      <div class="mega-col"><a href="#">인사말</a><a href="#">52년 법조전통</a><a href="#">신세계로 시스템</a><a href="#">오시는 길</a></div>
+      <div class="mega-col"><a href="#">이혼소송</a><a href="#">상간자소송</a><a href="#">형사소송</a></div>
+      <div class="mega-col"><a href="#">승소사례</a><a href="#">의뢰인 후기</a></div>
+      <div class="mega-col"><a href="#">변호사 소개</a><a href="#">전문팀 소개</a></div>
+      <div class="mega-col"><a href="#">법률 소식</a><a href="#">언론보도</a><a href="#">유튜브</a><a href="#">법률 칼럼</a></div>
+    </div>
+    <div class="mega-spacer-r"></div>
+  </div>
+</div>
+<p class="verdict">헤더+메가메뉴가 같은 #F9F9F9 배경으로 한 덩어리 느낌. YK와 가장 유사</p>
+
+<div style="text-align:center; margin-top:40px; color:#999; font-size:13px;">
+  각 블록에 마우스를 올리면 메가메뉴가 펼쳐집니다
+</div>
+
+</body>
+</html>

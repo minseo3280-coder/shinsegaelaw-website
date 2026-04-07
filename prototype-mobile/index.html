@@ -1,0 +1,2474 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>신세계로 모바일 프로토타입 — Before vs After</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Dancing+Script:wght@400;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --burgundy: #9B2335;
+    --burgundy-dark: #7B2D3B;
+    --burgundy-deeper: #5C1D2A;
+    --gold: #C9A84C;
+    --gold-light: #D4AF37;
+    --navy: #1A1A2E;
+    --navy-dark: #0F0F1A;
+    --cream: #faf9f7;
+    --stone: #f5f5f4;
+  }
+
+  body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f8f7f5;
+    color: #1a1a2e;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ============================
+     NAVIGATION — 프로토타입 선택
+     ============================ */
+  .proto-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: rgba(15, 15, 26, 0.97);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    padding: 12px 16px;
+  }
+  .proto-nav h1 {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .proto-tabs {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 2px;
+  }
+  .proto-tabs::-webkit-scrollbar { display: none; }
+  .proto-tab {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+  .proto-tab.active {
+    background: var(--burgundy-dark);
+    border-color: var(--burgundy);
+    color: white;
+  }
+  .proto-tab:hover:not(.active) {
+    border-color: rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.8);
+  }
+
+  /* ============================
+     PHONE FRAME
+     ============================ */
+  .proto-section {
+    display: none;
+    padding: 90px 0 40px;
+  }
+  .proto-section.active { display: block; }
+
+  .section-title {
+    text-align: center;
+    padding: 0 20px 30px;
+  }
+  .section-title h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .section-title p {
+    font-size: 13px;
+    color: #888;
+  }
+  .section-title .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .badge-before { background: #fee2e2; color: #dc2626; }
+  .badge-after { background: #dcfce7; color: #16a34a; }
+
+  .comparison {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 0 16px;
+  }
+
+  .phone-frame {
+    width: 375px;
+    max-width: calc(50% - 10px);
+    border-radius: 36px;
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
+    background: #fff;
+    position: relative;
+  }
+  .phone-frame.dark { background: var(--navy-dark); }
+
+  .phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 28px;
+    background: #000;
+    border-radius: 0 0 20px 20px;
+    z-index: 10;
+  }
+
+  .phone-content {
+    overflow-y: auto;
+    max-height: 812px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .phone-content::-webkit-scrollbar { display: none; }
+
+  .label-tag {
+    position: absolute;
+    top: 36px;
+    right: 12px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    z-index: 20;
+  }
+  .label-before { background: #fee2e2; color: #dc2626; }
+  .label-after { background: #dcfce7; color: #16a34a; }
+
+  /* Analysis card */
+  .analysis-card {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 24px;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  }
+  .analysis-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--burgundy-dark);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .analysis-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .analysis-card li {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.8;
+    padding-left: 20px;
+    position: relative;
+  }
+  .analysis-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+  .analysis-card li strong {
+    color: var(--navy);
+  }
+  .improvement-tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-left: 6px;
+  }
+  .tag-critical { background: #fef2f2; color: #ef4444; }
+  .tag-important { background: #fff7ed; color: #f59e0b; }
+  .tag-nice { background: #f0fdf4; color: #22c55e; }
+
+  /* ============================
+     OVERVIEW TAB
+     ============================ */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 16px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .overview-card {
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid #e8e8e8;
+    background: white;
+  }
+  .overview-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .overview-card .score {
+    font-size: 36px;
+    font-weight: 900;
+    margin: 8px 0;
+  }
+  .score-bar {
+    height: 6px;
+    border-radius: 3px;
+    background: #f0f0f0;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+  .score-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 1s ease;
+  }
+
+  /* Responsive for desktop viewing */
+  @media (min-width: 900px) {
+    .comparison { flex-wrap: nowrap; }
+    .phone-frame { max-width: 375px; }
+    .overview-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ============================
+     INTERNAL PHONE STYLES
+     ============================ */
+
+  /* ---------- HERO (Before) ---------- */
+  .hero-before {
+    position: relative;
+    min-height: 667px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+                url('../frontend/public/images/office/slide-bg-main.jpg') center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px 80px;
+    text-align: center;
+  }
+  .hero-before .top-label {
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: rgba(201,168,76,0.6);
+    margin-bottom: 32px;
+    text-transform: uppercase;
+  }
+  .hero-before .firm-name {
+    font-size: 24px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.3em;
+    margin-bottom: 24px;
+  }
+  .hero-before .cursive {
+    font-family: 'Dancing Script', cursive;
+    font-size: 48px;
+    color: rgba(201,168,76,0.6);
+    margin-bottom: 8px;
+  }
+  .hero-before .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 48px;
+    width: 100%;
+    max-width: 280px;
+  }
+  .hero-before .feature-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid rgba(201,168,76,0.5);
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    padding: 24px 32px;
+    border-radius: 12px;
+  }
+  .hero-before .feature-card .icon {
+    width: 32px;
+    height: 32px;
+    color: rgba(201,168,76,0.8);
+    flex-shrink: 0;
+  }
+  .hero-before .feature-card p:first-child {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+  }
+  .hero-before .feature-card p:last-child {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+  .hero-before .cta-btn {
+    margin-top: 40px;
+    padding: 14px 32px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    background: transparent;
+  }
+  .hero-before .scroll-ind {
+    position: absolute;
+    bottom: 40px;
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+  }
+  .hero-before .video-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px 4px;
+  }
+  .hero-before .video-bar .play-btn {
+    color: rgba(255,255,255,0.35);
+    font-size: 10px;
+  }
+  .hero-before .video-bar .bar {
+    flex: 1;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+  }
+  .hero-before .video-bar .bar-fill {
+    width: 35%;
+    height: 100%;
+    background: var(--burgundy-dark);
+    border-radius: 2px;
+  }
+  .hero-before .video-bar .time {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ---------- HERO (After) ---------- */
+  .hero-after {
+    position: relative;
+    min-height: 720px;
+    background: linear-gradient(165deg, rgba(0,0,0,0.75) 0%, rgba(15,15,26,0.6) 50%, rgba(0,0,0,0.7) 100%),
+                url('../frontend/public/images/office/slide-bg-main.jpg') center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 20px 0;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero-after .hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+  }
+  .hero-after .top-label {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    color: rgba(201,168,76,0.5);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-after .firm-name {
+    font-size: 28px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+  }
+  .hero-after .cursive {
+    font-family: 'Dancing Script', cursive;
+    font-size: 42px;
+    color: rgba(201,168,76,0.5);
+    margin-bottom: 16px;
+  }
+  .hero-after .tagline {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .hero-after .cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 32px;
+  }
+  .hero-after .cta-primary {
+    width: 100%;
+    padding: 15px 24px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 50px;
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s ease;
+  }
+  .hero-after .cta-primary:hover {
+    border-color: var(--gold);
+    color: white;
+    background: rgba(201,168,76,0.06);
+  }
+  .hero-after .cta-primary .arrow {
+    color: rgba(201,168,76,0.5);
+    font-size: 14px;
+  }
+  .hero-after .cta-secondary {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+  }
+  .hero-after .cta-secondary a {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 50px;
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.02);
+    transition: all 0.3s ease;
+  }
+  .hero-after .cta-secondary a:hover {
+    border-color: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* Bottom trust strip */
+  .hero-after .trust-strip {
+    width: calc(100% + 40px);
+    margin: 0 -20px;
+    padding: 18px 20px;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(24px);
+    border-top: 1px solid rgba(201,168,76,0.12);
+    display: flex;
+    justify-content: space-around;
+  }
+  .hero-after .trust-strip .item {
+    text-align: center;
+    position: relative;
+  }
+  .hero-after .trust-strip .item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -12px;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+  .hero-after .trust-strip .num {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .hero-after .trust-strip .num span {
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(201,168,76,0.5);
+  }
+  .hero-after .trust-strip .txt {
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 5px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- TRUST (Before) ---------- */
+  .trust-before {
+    padding: 48px 24px;
+    background: var(--stone);
+    border-top: 1px solid #e5e5e0;
+    border-bottom: 1px solid #e5e5e0;
+  }
+  .trust-before .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+  .trust-before .stat-num {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--burgundy-dark);
+  }
+  .trust-before .stat-num span {
+    font-size: 24px;
+    font-weight: 300;
+  }
+  .trust-before .stat-label {
+    font-size: 14px;
+    color: #555;
+    margin-top: 12px;
+  }
+  .trust-before .stat-sub {
+    font-size: 12px;
+    color: #999;
+    margin-top: 4px;
+  }
+  .trust-before .badges {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid #e5e5e0;
+    text-align: center;
+  }
+  .trust-before .badge-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: rgba(201,168,76,0.6);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .trust-before .badge-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 24px;
+  }
+  .trust-before .badge-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #777;
+    white-space: nowrap;
+  }
+  .trust-before .badge-icon {
+    width: 15px;
+    height: 15px;
+    color: rgba(201,168,76,0.4);
+  }
+
+  /* ---------- TRUST (After) ---------- */
+  .trust-after {
+    padding: 0;
+    background: white;
+  }
+  .trust-after .stats-scroll {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 0;
+    padding: 0;
+  }
+  .trust-after .stats-scroll::-webkit-scrollbar { display: none; }
+  .trust-after .stat-card {
+    scroll-snap-align: start;
+    flex: 0 0 50%;
+    padding: 28px 0;
+    text-align: center;
+    position: relative;
+  }
+  .trust-after .stat-card::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 30%;
+    height: 40%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, #e5e5e5, transparent);
+  }
+  .trust-after .stat-card:last-child::after { display: none; }
+  .trust-after .stat-num {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--burgundy-dark);
+    line-height: 1;
+  }
+  .trust-after .stat-num span {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--gold);
+  }
+  .trust-after .stat-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 8px;
+  }
+  .trust-after .stat-sub {
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 3px;
+  }
+  .trust-after .badges-strip {
+    background: var(--navy);
+    padding: 16px 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+    text-align: center;
+  }
+  .trust-after .badges-strip::-webkit-scrollbar { display: none; }
+  .trust-after .badge-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(201,168,76,0.15);
+    background: rgba(201,168,76,0.05);
+    margin: 0 4px;
+    font-size: 11px;
+    color: rgba(201,168,76,0.7);
+    font-weight: 500;
+  }
+
+  /* ---------- LAWYERS (Before) ---------- */
+  .lawyers-before {
+    padding: 64px 24px;
+    background: var(--stone);
+  }
+  .lawyers-before .header {
+    margin-bottom: 48px;
+  }
+  .lawyers-before .eng {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--burgundy);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .lawyers-before h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .lawyers-before .gold-line {
+    width: 48px;
+    height: 4px;
+    background: var(--gold);
+    margin-bottom: 24px;
+  }
+  .lawyers-before .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .lawyers-before .card {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .lawyers-before .card-img {
+    aspect-ratio: 3/4;
+    background: #f0f0f0;
+    position: relative;
+  }
+  .lawyers-before .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  .lawyers-before .card-info {
+    padding: 16px;
+  }
+  .lawyers-before .card-info h4 {
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .lawyers-before .card-info .line {
+    width: 32px;
+    height: 2px;
+    background: var(--gold);
+    margin: 8px 0;
+  }
+  .lawyers-before .card-info p {
+    font-size: 11px;
+    color: #888;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ---------- LAWYERS (After) ---------- */
+  .lawyers-after {
+    padding: 56px 0;
+    background: white;
+  }
+  .lawyers-after .header {
+    padding: 0 20px;
+    margin-bottom: 32px;
+  }
+  .lawyers-after .eng {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--burgundy);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .lawyers-after h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .lawyers-after .gold-line {
+    width: 32px;
+    height: 2px;
+    background: var(--gold);
+  }
+  /* Featured representative - full width card */
+  .lawyers-after .featured {
+    padding: 0 20px;
+    margin-bottom: 24px;
+  }
+  .lawyers-after .featured-card {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    background: linear-gradient(135deg, #faf9f7, #fff);
+    border: 1px solid #e8e6e0;
+    border-radius: 16px;
+    align-items: center;
+  }
+  .lawyers-after .featured-img {
+    width: 80px;
+    height: 100px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .lawyers-after .featured-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  .lawyers-after .featured-info .rep-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .lawyers-after .featured-info h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .lawyers-after .featured-info .position {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .lawyers-after .featured-info .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .lawyers-after .featured-info .tag {
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    background: var(--burgundy);
+    color: white;
+    font-weight: 500;
+  }
+  /* Horizontal scroll list */
+  .lawyers-after .scroll-list {
+    padding: 0 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    display: flex;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+  }
+  .lawyers-after .scroll-list::-webkit-scrollbar { display: none; }
+  .lawyers-after .mini-card {
+    scroll-snap-align: start;
+    flex: 0 0 130px;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .lawyers-after .mini-card-img {
+    aspect-ratio: 1/1.15;
+    overflow: hidden;
+  }
+  .lawyers-after .mini-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  .lawyers-after .mini-card-info {
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .lawyers-after .mini-card-info h4 {
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .lawyers-after .mini-card-info p {
+    font-size: 10px;
+    color: #999;
+    margin-top: 2px;
+  }
+  .lawyers-after .see-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--burgundy);
+    font-weight: 500;
+    gap: 4px;
+  }
+
+  /* ---------- REVIEWS (Before) ---------- */
+  .reviews-before {
+    padding: 64px 0;
+    background: linear-gradient(to bottom, var(--navy-dark), var(--navy));
+    overflow: hidden;
+  }
+  .reviews-before .header {
+    text-align: center;
+    padding: 0 24px;
+    margin-bottom: 40px;
+  }
+  .reviews-before .eng {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: rgba(201,168,76,0.6);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .reviews-before h2 {
+    font-size: 32px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 16px;
+  }
+  .reviews-before .gold-line {
+    width: 64px;
+    height: 3px;
+    background: var(--gold);
+    margin: 0 auto 16px;
+  }
+  .reviews-before .sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+  }
+  .reviews-before .card-area {
+    padding: 0 16px;
+  }
+  .reviews-before .review-card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.04);
+  }
+  .reviews-before .review-img {
+    height: 200px;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .reviews-before .review-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .reviews-before .review-text {
+    padding: 20px;
+    border-top: 3px solid rgba(201,168,76,0.25);
+  }
+  .reviews-before .review-text .result {
+    font-size: 11px;
+    color: var(--gold);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .reviews-before .review-text .result::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+  .reviews-before .review-text h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 8px;
+    line-height: 1.45;
+  }
+  .reviews-before .review-text p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .reviews-before .dots {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 32px;
+  }
+  .reviews-before .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.15);
+  }
+  .reviews-before .dot.active {
+    width: 20px;
+    background: var(--gold);
+  }
+
+  /* ---------- REVIEWS (After) ---------- */
+  .reviews-after {
+    padding: 56px 0 48px;
+    background: linear-gradient(165deg, var(--navy-dark), #141428);
+    overflow: hidden;
+  }
+  .reviews-after .header {
+    text-align: center;
+    padding: 0 20px;
+    margin-bottom: 28px;
+  }
+  .reviews-after .eng {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: rgba(201,168,76,0.5);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .reviews-after h2 {
+    font-size: 24px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 12px;
+  }
+  .reviews-after .gold-line {
+    width: 40px;
+    height: 2px;
+    background: var(--gold);
+    margin: 0 auto;
+  }
+  /* Testimonial cards - stacked */
+  .reviews-after .cards-stack {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .reviews-after .testi-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 24px 20px;
+    position: relative;
+  }
+  .reviews-after .testi-card .quote-mark {
+    font-size: 48px;
+    color: rgba(201,168,76,0.15);
+    font-family: Georgia, serif;
+    line-height: 1;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+  }
+  .reviews-after .testi-card .result-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.15);
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .reviews-after .testi-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .reviews-after .testi-card .content {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.75;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .reviews-after .testi-card .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .reviews-after .testi-card .case-type {
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+  }
+  .reviews-after .testi-card .lawyer {
+    font-size: 10px;
+    color: rgba(201,168,76,0.6);
+  }
+  .reviews-after .view-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  /* ---------- CONTACT (Before) ---------- */
+  .contact-before {
+    padding: 64px 20px;
+    background: var(--navy-dark);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-before .glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+  }
+  .contact-before .glow-1 { top: -60px; left: -60px; background: var(--burgundy); opacity: 0.12; }
+  .contact-before .glow-2 { bottom: -40px; right: -40px; background: var(--gold); opacity: 0.06; }
+  .contact-before .eng {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: rgba(201,168,76,0.7);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .contact-before h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .contact-before h2 em {
+    color: var(--gold);
+    font-style: normal;
+  }
+  .contact-before .phone {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .contact-before .phone-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .contact-before .btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 36px;
+    position: relative;
+    flex-wrap: wrap;
+  }
+  .contact-before .btn-outline {
+    padding: 10px 24px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    text-decoration: none;
+  }
+  .contact-before .btn-kakao {
+    padding: 10px 24px;
+    border-radius: 50px;
+    background: #FEE500;
+    color: #191919;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    text-decoration: none;
+  }
+
+  /* ---------- CONTACT (After) ---------- */
+  .contact-after {
+    padding: 0;
+    background: var(--navy-dark);
+    overflow: hidden;
+  }
+  .contact-after .top-section {
+    padding: 48px 20px 32px;
+    text-align: center;
+    position: relative;
+  }
+  .contact-after .top-section .glow {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+  .contact-after .glow-1 { top: -40px; left: -40px; background: var(--burgundy); opacity: 0.12; }
+  .contact-after .eng {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: rgba(201,168,76,0.5);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .contact-after h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .contact-after h2 em {
+    color: var(--gold);
+    font-style: normal;
+  }
+  .contact-after .assurance {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 24px;
+    position: relative;
+  }
+  /* Quick actions */
+  .contact-after .quick-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 0 20px 24px;
+    position: relative;
+  }
+  .contact-after .action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 20px 12px;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .contact-after .action-btn .icon-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  .contact-after .action-btn .label {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .contact-after .action-btn .sub {
+    font-size: 10px;
+    opacity: 0.6;
+  }
+  .contact-after .action-phone {
+    background: linear-gradient(135deg, var(--burgundy-dark), var(--burgundy-deeper));
+    border: 1px solid rgba(155,35,53,0.3);
+  }
+  .contact-after .action-phone .icon-circle { background: rgba(255,255,255,0.15); }
+  .contact-after .action-phone .label { color: white; }
+  .contact-after .action-phone .sub { color: rgba(255,255,255,0.4); }
+  .contact-after .action-kakao {
+    background: #FEE500;
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  .contact-after .action-kakao .icon-circle { background: rgba(0,0,0,0.08); }
+  .contact-after .action-kakao .label { color: #191919; }
+  .contact-after .action-kakao .sub { color: rgba(0,0,0,0.4); }
+  .contact-after .action-sms {
+    background: rgba(34,197,94,0.1);
+    border: 1px solid rgba(34,197,94,0.15);
+  }
+  .contact-after .action-sms .icon-circle { background: rgba(34,197,94,0.15); color: #22c55e; }
+  .contact-after .action-sms .label { color: #22c55e; }
+  .contact-after .action-sms .sub { color: rgba(34,197,94,0.5); }
+  .contact-after .action-form {
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.12);
+  }
+  .contact-after .action-form .icon-circle { background: rgba(201,168,76,0.12); color: var(--gold); }
+  .contact-after .action-form .label { color: var(--gold); }
+  .contact-after .action-form .sub { color: rgba(201,168,76,0.5); }
+  /* Phone strip */
+  .contact-after .phone-strip {
+    padding: 20px;
+    background: rgba(0,0,0,0.3);
+    text-align: center;
+    border-top: 1px solid rgba(201,168,76,0.08);
+  }
+  .contact-after .phone-strip .number {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .contact-after .phone-strip .info {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ---------- FAQ (Before) ---------- */
+  .faq-before {
+    padding: 64px 24px;
+    background: var(--cream);
+  }
+  .faq-before .header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .faq-before .eng {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .faq-before h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .faq-before .gold-line {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    margin: 0 auto;
+  }
+  .faq-before .chips {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+  }
+  .faq-before .chips::-webkit-scrollbar { display: none; }
+  .faq-before .chip {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+  }
+  .faq-before .chip.active {
+    background: var(--burgundy-dark);
+    color: white;
+  }
+  .faq-before .chip:not(.active) {
+    background: #f0f0f0;
+    color: #888;
+  }
+  .faq-before .faq-item {
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 24px 4px;
+  }
+  .faq-before .faq-item .q {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .faq-before .faq-item .num {
+    font-size: 13px;
+    color: rgba(201,168,76,0.3);
+    width: 24px;
+    flex-shrink: 0;
+  }
+  .faq-before .faq-item .popular {
+    flex-shrink: 0;
+    padding: 2px 8px;
+    border-radius: 50px;
+    background: rgba(201,168,76,0.1);
+    font-size: 10px;
+    color: var(--gold);
+    font-weight: 600;
+    margin-left: auto;
+  }
+
+  /* ---------- FAQ (After) ---------- */
+  .faq-after {
+    padding: 48px 0;
+    background: var(--cream);
+  }
+  .faq-after .header {
+    text-align: center;
+    padding: 0 20px;
+    margin-bottom: 24px;
+  }
+  .faq-after .eng {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .faq-after h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .faq-after .gold-line {
+    width: 32px;
+    height: 2px;
+    background: var(--gold);
+    margin: 0 auto;
+  }
+  /* Pill filters */
+  .faq-after .filters {
+    display: flex;
+    gap: 6px;
+    padding: 0 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-bottom: 20px;
+  }
+  .faq-after .filters::-webkit-scrollbar { display: none; }
+  .faq-after .filter-pill {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+  .faq-after .filter-pill.active {
+    background: var(--burgundy-dark);
+    color: white;
+  }
+  .faq-after .filter-pill:not(.active) {
+    background: white;
+    border-color: #e5e5e5;
+    color: #888;
+  }
+  .faq-after .faq-list {
+    padding: 0 20px;
+  }
+  .faq-after .faq-card {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    border: 1px solid #eee;
+  }
+  .faq-after .faq-card .q-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .faq-after .faq-card .num {
+    font-size: 12px;
+    color: rgba(201,168,76,0.4);
+    font-weight: 600;
+    flex-shrink: 0;
+    width: 20px;
+  }
+  .faq-after .faq-card .q-text {
+    flex: 1;
+    line-height: 1.5;
+  }
+  .faq-after .faq-card .popular {
+    flex-shrink: 0;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(201,168,76,0.08);
+    font-size: 9px;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .faq-after .faq-card .chevron {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+  }
+  /* Quick CTA at bottom */
+  .faq-after .quick-cta {
+    margin: 24px 20px 0;
+    padding: 20px;
+    background: var(--navy);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .faq-after .quick-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold), transparent);
+  }
+  .faq-after .quick-cta .phone-num {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--gold);
+  }
+  .faq-after .quick-cta .phone-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+  }
+  .faq-after .quick-cta .arrow {
+    margin-left: auto;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ---------- FLOATING CTA (After) ---------- */
+  .floating-after {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 375px;
+    max-width: 100%;
+    z-index: 100;
+    padding: 0 12px 12px;
+    pointer-events: none;
+    display: none;
+  }
+  .proto-section.active .floating-after { display: block; }
+  .floating-after .bar {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: rgba(15,15,26,0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    border: 1px solid rgba(201,168,76,0.12);
+    box-shadow: 0 -8px 40px rgba(0,0,0,0.2);
+  }
+  .floating-after .bar .phone-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--burgundy-dark), var(--burgundy-deeper));
+    border-radius: 10px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+  }
+  .floating-after .bar .kakao-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #FEE500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+  .floating-after .bar .consult-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  /* Annotation */
+  .annotation {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 16px 20px;
+    background: #fffbeb;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+    color: #92400e;
+    line-height: 1.7;
+  }
+  .annotation strong { color: #78350f; }
+</style>
+</head>
+<body>
+
+<!-- Prototype Navigation -->
+<nav class="proto-nav">
+  <h1>Mobile Prototype — 법무법인 신세계로</h1>
+  <div class="proto-tabs">
+    <button class="proto-tab active" onclick="showSection('overview')">종합 분석</button>
+    <button class="proto-tab" onclick="showSection('hero')">Hero</button>
+    <button class="proto-tab" onclick="showSection('trust')">Trust</button>
+    <button class="proto-tab" onclick="showSection('lawyers')">변호사</button>
+    <button class="proto-tab" onclick="showSection('reviews')">후기</button>
+    <button class="proto-tab" onclick="showSection('contact')">Contact CTA</button>
+    <button class="proto-tab" onclick="showSection('faq')">FAQ</button>
+    <button class="proto-tab" onclick="showSection('floating')">Floating CTA</button>
+  </div>
+</nav>
+
+<!-- ========================================
+     SECTION 0: 종합 분석
+     ======================================== -->
+<div id="sec-overview" class="proto-section active">
+  <div class="section-title">
+    <h2>현재 모바일 버전 솔직한 평가</h2>
+    <p>냉정하게 본 현재 상태 + 개선 방향</p>
+  </div>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h3>디자인 완성도</h3>
+      <div class="score" style="color: var(--gold)">72<span style="font-size:18px;color:#999">/100</span></div>
+      <p style="font-size:12px;color:#888;margin-top:4px">PC에서는 90점. 모바일에서 18점 하락</p>
+      <div class="score-bar"><div class="score-fill" style="width:72%;background:var(--gold)"></div></div>
+    </div>
+    <div class="overview-card">
+      <h3>터치 UX</h3>
+      <div class="score" style="color: #ef4444">58<span style="font-size:18px;color:#999">/100</span></div>
+      <p style="font-size:12px;color:#888;margin-top:4px">CTA 접근성, 터치 타겟 부족</p>
+      <div class="score-bar"><div class="score-fill" style="width:58%;background:#ef4444"></div></div>
+    </div>
+    <div class="overview-card">
+      <h3>정보 밀도</h3>
+      <div class="score" style="color: #f59e0b">65<span style="font-size:18px;color:#999">/100</span></div>
+      <p style="font-size:12px;color:#888;margin-top:4px">PC 레이아웃을 그대로 축소한 느낌</p>
+      <div class="score-bar"><div class="score-fill" style="width:65%;background:#f59e0b"></div></div>
+    </div>
+    <div class="overview-card">
+      <h3>전환율 최적화</h3>
+      <div class="score" style="color: #ef4444">55<span style="font-size:18px;color:#999">/100</span></div>
+      <p style="font-size:12px;color:#888;margin-top:4px">FloatingCTA hover 의존, 모바일 전용 CTA 부재</p>
+      <div class="score-bar"><div class="score-fill" style="width:55%;background:#ef4444"></div></div>
+    </div>
+  </div>
+
+  <div class="analysis-card">
+    <h3>&#x1F50D; 핵심 문제점 (솔직하게)</h3>
+    <ul>
+      <li><strong>Hero 섹션이 데스크톱의 축소판</strong> — 모바일에서 카드 280px 고정폭은 좌우 여백이 거의 없고, "무료 상담 신청" CTA가 스크롤해야 보임. 로펌 사이트의 첫인상에서 "지금 전화하기"가 즉시 보여야 함 <span class="improvement-tag tag-critical">Critical</span></li>
+      <li><strong>FloatingCTA가 hover 기반</strong> — 모바일에는 hover가 없어서 탭해서 열어야 하는데, 대부분의 사용자는 그 버튼이 확장된다는 것을 모름. 가장 중요한 전화/카카오톡 접근이 숨겨져 있음 <span class="improvement-tag tag-critical">Critical</span></li>
+      <li><strong>TrustIndicators 2열 그리드</strong> — 숫자가 너무 크고(48px) 2열로 쪼개지면서 한 번에 안 읽힘. 뱃지 7개는 랩핑되면서 뭉개짐 <span class="improvement-tag tag-important">Important</span></li>
+      <li><strong>Lawyers 2열 그리드: 카드가 너무 작음</strong> — 3:4 비율로 16명이 한 번에 나오는 건 PC에서만 효과적. 모바일에서는 얼굴 구분이 안 될 정도로 작음 <span class="improvement-tag tag-important">Important</span></li>
+      <li><strong>Reviews 캐러셀: 90% 폭</strong> — 이미지+텍스트가 1열로 쌓이면서 카드 높이만 길어지고, 넘기기 어려움 <span class="improvement-tag tag-important">Important</span></li>
+      <li><strong>ContactCTA 3버튼 가로배치</strong> — 375px에서 3개 버튼이 overflow되거나 찌그러짐 <span class="improvement-tag tag-critical">Critical</span></li>
+      <li><strong>FAQ 답변 패딩 pl-11 pr-12</strong> — 모바일에서 답변 텍스트가 양쪽으로 좁혀져 읽기 불편 <span class="improvement-tag tag-nice">Nice</span></li>
+      <li><strong>전체적으로 "PC를 줄인" 느낌</strong> — 모바일 전용 레이아웃이 아니라 반응형으로만 처리. Kirkland, Skadden은 모바일에서 완전히 다른 구성을 보여줌 <span class="improvement-tag tag-critical">Critical</span></li>
+    </ul>
+  </div>
+
+  <div class="analysis-card">
+    <h3>&#x2728; 개선 방향 (이 프로토타입에서 보여주는 것)</h3>
+    <ul>
+      <li><strong>Hero: CTA 중심 재배치</strong> — 모바일에서는 "지금 전화하기" + "카카오톡 상담"이 fold 안에 즉시 보이도록. 하단 Trust Strip으로 숫자 통합</li>
+      <li><strong>Bottom Bar CTA 도입</strong> — FloatingCTA 원형 버튼 대신, 하단 고정 바(전화+카카오톡+상담) 도입. 앱처럼 항상 접근 가능</li>
+      <li><strong>Trust: 가로 스크롤 + 다크 뱃지 스트립</strong> — 4개 숫자를 스와이프 가능하게, 뱃지는 다크배경 칩으로 가독성 UP</li>
+      <li><strong>Lawyers: 대표 Featured + 가로 스크롤</strong> — 대표 변호사를 별도 카드로 강조, 나머지는 가로 스크롤 리스트로 전환</li>
+      <li><strong>Reviews: 카드 스택형</strong> — 캐러셀 대신 세로 카드 스택, 결과 뱃지를 강조, 읽기 편한 구조</li>
+      <li><strong>Contact: 2x2 액션 그리드</strong> — 3버튼 가로→2x2 그리드로 전화/카카오/SMS/상담신청 4개 액션 명확하게</li>
+      <li><strong>FAQ: 카드형 아코디언</strong> — 플랫 리스트 대신 개별 카드로 터치 영역 명확화 + 하단 전화 CTA 삽입</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========================================
+     SECTION 1: HERO
+     ======================================== -->
+<div id="sec-hero" class="proto-section">
+  <div class="section-title">
+    <h2>Hero 섹션</h2>
+    <p>첫 인상 — CTA 접근성이 가장 중요</p>
+  </div>
+  <div class="comparison">
+    <div class="phone-frame dark" style="position:relative">
+      <div class="phone-notch"></div>
+      <span class="label-tag label-before">BEFORE</span>
+      <div class="phone-content">
+        <div class="hero-before">
+          <p class="top-label">Since 1970 · 이혼 · 상속 전문 로펌</p>
+          <p class="firm-name">법무법인 신세계로</p>
+          <p class="cursive">Shinsegae Law</p>
+          <div class="cards">
+            <div class="feature-card">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15l-2-5 2-5 2 5-2 5z"/><circle cx="12" cy="12" r="10"/></svg>
+              <div>
+                <p>가족법전문 제1호</p>
+                <p style="font-size:12px;color:rgba(255,255,255,0.5)">조인섭대표의 철학으로</p>
+              </div>
+            </div>
+            <div class="feature-card">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"/></svg>
+              <div>
+                <p>이혼과 상속만,</p>
+                <p style="font-size:12px;color:rgba(255,255,255,0.5)">17인의 전문가가 함께하는 신세계로</p>
+              </div>
+            </div>
+          </div>
+          <button class="cta-btn">무료 상담 신청 →</button>
+          <p class="scroll-ind">Scroll ↓</p>
+          <div class="video-bar">
+            <span class="play-btn">▶</span>
+            <div class="bar"><div class="bar-fill"></div></div>
+            <span class="time">0:12/0:34</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phone-frame dark" style="position:relative">
+      <div class="phone-notch"></div>
+      <span class="label-tag label-after">AFTER</span>
+      <div class="phone-content">
+        <div class="hero-after">
+          <div class="hero-content">
+            <p class="top-label">Since 1970 · 이혼 · 상속 전문 로펌</p>
+            <p class="firm-name">법무법인 신세계로</p>
+            <p class="cursive">Shinsegae Law</p>
+            <p class="tagline">이혼과 상속, 52년의 법조전통으로<br>당신의 새로운 시작을 함께합니다</p>
+            <div class="cta-group">
+              <button class="cta-primary">무료 상담 신청 <span class="arrow">→</span></button>
+
+              <div class="cta-secondary">
+                <a href="#">전화 상담</a>
+                <a href="#">카카오톡</a>
+              </div>
+            </div>
+          </div>
+          <div class="trust-strip">
+            <div class="item">
+              <div class="num">52<span>년</span></div>
+              <div class="txt">법조전통</div>
+            </div>
+            <div class="item">
+              <div class="num">17<span>인</span></div>
+              <div class="txt">전문변호사</div>
+            </div>
+            <div class="item">
+              <div class="num">94<span>%+</span></div>
+              <div class="txt">승소율</div>
+            </div>
+            <div class="item">
+              <div class="num">1호</div>
+              <div class="txt">가족법전문</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="analysis-card">
+    <h3>개선 포인트</h3>
+    <ul>
+      <li><strong>CTA 미니멀 pill 스타일</strong> — 투박한 버건디 채움 버튼 대신, 투명+보더 pill 안에 작은 버건디 원형 화살표만. 기존 Hero CTA 톤과 동일하게 유지하면서 터치 영역은 넓힘</li>
+      <li><strong>Trust Strip 버건디 숫자</strong> — 골드 대신 버건디(#9B2335)로 숫자 강조. 다크 배경에서 버건디가 포인트, 단위(년/인/%)는 white/30으로 절제. 세로 디바이더로 영역 구분</li>
+      <li><strong>카드 제거 → 깔끔한 CTA 그룹</strong> — 280px 고정폭 카드 대신 pill 버튼 2단. "전화 상담" / "카카오톡" 서브 버튼도 pill로 통일</li>
+      <li><strong>전체 톤: 블랙 바탕 + 버건디 포인트 + 골드 악센트</strong> — 골드는 라벨/필기체에만 쓰고, 숫자·CTA 포인트는 버건디. 촌스러운 색 과잉 없이 세련된 로펌 느낌</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========================================
+     SECTION 2: TRUST INDICATORS
+     ======================================== -->
+<div id="sec-trust" class="proto-section">
+  <div class="section-title">
+    <h2>Trust Indicators</h2>
+    <p>신뢰 지표 — 숫자 + 뱃지</p>
+  </div>
+  <div class="comparison">
+    <div class="phone-frame" style="position:relative">
+      <div class="phone-notch"></div>
+      <span class="label-tag label-before">BEFORE</span>
+      <div class="phone-content">
+        <div class="trust-before">
+          <div class="stats">
+            <div>
+              <div class="stat-num">52<span>년</span></div>
+              <p class="stat-label">법조 전통</p>
+              <p class="stat-sub">1970년부터 3대에 걸친</p>
+            </div>
+            <div>
+              <div class="stat-num">17<span>인</span></div>
+              <p class="stat-label">전문 변호사</p>
+              <p class="stat-sub">이혼·상속만 집중하는</p>
+            </div>
+            <div>
+              <div class="stat-num">7<span>팀</span></div>
+              <p class="stat-label">전문팀 운영</p>
+              <p class="stat-sub">전략적 전문팀 운영</p>
+            </div>
+            <div>
+              <div class="stat-num">94<span>%+</span></div>
+              <p class="stat-label">승소율</p>
+              <p class="stat-sub">4,000건+ 누적 승소</p>
+            </div>
+          </div>
+          <div class="badges">
+            <p class="badge-label">Awards & Recognition</p>
+            <div class="badge-items">
+              <div class="badge-item"><span class="badge-icon">★</span> 가족법전문 제1호</div>
+              <div class="badge-item"><span class="badge-icon">★</span> KBS·SBS·MBC·JTBC</div>
+              <div class="badge-item"><span class="badge-icon">★</span> YTN 라디오 상담소</div>
+              <div class="badge-item"><span class="badge-icon">★</span> 이화여대 겸임교수</div>
+              <div class="badge-item"><span class="badge-icon">★</span> ABA 한국대표</div>
+              <div class="badge-item"><span class="badge-icon">★</span> 52년 3대 법조전통</div>
+              <div class="badge-item"><span class="badge-icon">★</span> 하나은행 유언신탁</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phone-frame" style="position:relative">
+      <div class="phone-notch"></div>
+      <span class="label-tag label-after">AFTER</span>
+      <div class="phone-content">
+        <div class="trust-after">
+          <div class="stats-scroll">
+            <div class="stat-card">
+              <div class="stat-num">52<span>년</span></div>
+              <p class="stat-label">법조 전통</p>
+              <p class="stat-sub">1970년부터 3대</p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num">17<span>인</span></div>
+              <p class="stat-label">전문 변호사</p>
+              <p class="stat-sub">이혼·상속 집중</p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num">7<span>팀</span></div>
+              <p class="stat-label">전문팀</p>
+              <p class="stat-sub">전략적 운영</p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num">94<span>%+</span></div>
+              <p class="stat-label">승소율</p>
+              <p class="stat-sub">4,000건+ 누적</p>
+            </div>
+          </div>
+          <div class="badges-strip">
+            <span class="badge-chip">🏆 가족법전문 제1호</span>
+            <span class="badge-chip">📺 KBS·SBS·MBC</span>
+            <span class="badge-chip">📻 YTN 라디오</span>
+            <span class="badge-chip">🎓 이화여대 교수</span>
+            <span class="badge-chip">🌐 ABA 한국대표</span>
+            <span class="badge-chip">🏛 52년 전통</span>
+            <span class="badge-chip">🏦 하나은행 유언신탁</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="analysis-card">
+    <h3>개선 포인트</h3>
+    <ul>
+      <li><strong>숫자 크기 최적화</strong> — 48px→36px, 더 균형 잡힌 비율. 서브 텍스트도 잘 읽힘</li>
+      <li><strong>세로 디바이더 그라데이션</strong> — 2열 경계선을 시각적으로 자연스럽게</li>
+      <li><strong>뱃지를 다크 스트립으로</strong> — 산만한 flex-wrap 대신 가로 스크롤 칩. 다크 배경으로 시각적 구분. 한 줄로 스와이프하면서 읽기 편함</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========================================
+     SECTION 3: LAWYERS
+     ======================================== -->
+<div id="sec-lawyers" class="proto-section">
+  <div class="section-title">
+    <h2>변호사 소개</h2>
+    <p>대표 Featured + 가로 스크롤</p>
+  </div>
+  <div class="comparison">
+    <div class="phone-frame" style="position:relative">
+      <div class="phone-notch"></div>
+      <span class="label-tag label-before">BEFORE</span>
+      <div class="phone-content">
+        <div class="lawyers-before">
+          <div class="header">
+            <p class="eng">Our Attorneys</p>
+            <h2>이혼전문변호사 소개</h2>
+            <div class="gold-line"></div>
+          </div>
+          <div class="grid">
+            <div class="card">
+              <div class="card-img"><img src="../frontend/public/images/attorneys/cho-inseop.jpg" alt="조인섭"></div>
+              <div class="card-info"><h4>조인섭</h4><div class="line"></div><p>대표변호사</p></div>
+            </div>
+            <div class="card">
+              <div class="card-img"><img src="../frontend/public/images/attorneys/cho-yongguk.jpg" alt="조용국"></div>
+              <div class="card-info"><h4>조용국</h4><div class="line"></div><p>대표변호사</p></div>
+            </div>
+            <div class="card">
+              <div class="card-img"><img src="../frontend/public/images/attorneys/hong-suhyun.jpg" alt="홍수현"></div>
+              <div class="card-info"><h4>홍수현</h4><div class="line"></div><p>변호사</p></div>
+            </div>
+            <div class="card">
+              <div class="card-img"><img src="../frontend/public/images/attorneys/bae-suji.jpg" alt="배수지"></div>
+              <div class="card-info"><h4>배수지</h4><div class="line"></div><p>변호사</p></div>
+            </div>
+            <div class="card">
+              <div class="card-img"><img src="../frontend/public/images/attorneys/cho-yunyong.jpg" alt="조윤용"></div>
+              <div class="card-info"><h4>조윤용</h4><div class="line"></div><p>변호사</p></div>
+            </div>
+            <div class="card">
+              <div class="card-img" style="background:#e5e5e5"></div>
+              <div class="card-info"><h4>...</h4><div class="line"></div><p>+ 11명 더</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phone-frame" style="position:relative">
+      <div class="phone-notch"></div>
+      <span class="label-tag label-after">AFTER</span>
+      <div class="phone-content">
+        <div class="lawyers-after">
+          <div class="header">
+            <p class="eng">Our Attorneys</p>
+            <h2>이혼전문변호사 소개</h2>
+            <div class="gold-line"></div>
+          </div>
+          <div class="featured">
+            <div class="featured-card">
+              <div class="featured-img">
+                <img src="../frontend/public/images/attorneys/cho-inseop.jpg" alt="조인섭">
+              </div>
+              <div class="featured-info">
+                <span class="rep-badge">Representative</span>
+                <h4>조인섭</h4>
+                <p class="position">대표변호사 · 가족법전문 제1호</p>
+                <div class="tags">
+                  <span class="tag">이혼소송</span>
+                  <span class="tag">재산분할</span>
+                  <span class="tag">상속</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:0 20px;margin-bottom:12px">
+            <p style="font-size:11px;color:#999;letter-spacing:0.1em;text-transform:uppercase;font-weight:600">전문 변호사 17인</p>
+          </div>
+          <div class="scroll-list">
+            <div class="mini-card">
+              <div class="mini-card-img"><img src="../frontend/public/images/attorneys/cho-yongguk.jpg" alt="조용국"></div>
+              <div class="mini-card-info"><h4>조용국</h4><p>대표변호사</p></div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-img"><img src="../frontend/public/images/attorneys/hong-suhyun.jpg" alt="홍수현"></div>
+              <div class="mini-card-info"><h4>홍수현</h4><p>변호사</p></div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-img"><img src="../frontend/public/images/attorneys/bae-suji.jpg" alt="배수지"></div>
+              <div class="mini-card-info"><h4>배수지</h4><p>변호사</p></div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-img"><img src="../frontend/public/images/attorneys/cho-yunyong.jpg" alt="조윤용"></div>
+              <div class="mini-card-info"><h4>조윤용</h4><p>변호사</p></div>
+            </div>
+            <div class="mini-card" style="display:flex;align-items:center;justify-content:center;background:var(--cream);min-height:190px">
+              <div style="text-align:center">
+                <div style="font-size:24px;font-weight:900;color:var(--burgundy)">+12</div>
+                <div style="font-size:11px;color:#999;margin-top:4px">더보기</div>
+              </div>
+            </div>
+          </div>
+          <div class="see-all">
+            전체 변호사 보기 →
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="analysis-card">
+    <h3>개선 포인트</h3>
+    <ul>
+      <li><strong>대표 변호사 Featured Card</strong> — 로펌의 얼굴인 대표를 별도 카드로 격상. 가로 레이아웃으로 이름+전문분야+태그 즉시 확인</li>
+      <li><strong>가로 스크롤 리스트</strong> — 2열 그리드(카드 너무 작음) 대신 가로 스와이프. 각 변호사 사진이 더 크게 보이고, 스크롤 인터랙션이 모바일 네이티브</li>
+      <li><strong>+12 더보기 카드</strong> — 마지막에 남은 인원수 표시. 탭하면 전체 목록으로 이동</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========================================
+     SECTION 4: REVIEWS
+     ======================================== -->
+<div id="sec-reviews" class="proto-section">
+  <div class="section-title">
+    <h2>의뢰인 후기</h2>
+    <p>캐러셀 → 카드 스택</p>
+  </div>
+  <div class="comparison">
+    <div class="phone-frame dark" style="position:relative">
+      <div class="phone-notch"></div>
+      <span class="label-tag label-before">BEFORE</span>
+      <div class="phone-content">
+        <div class="reviews-before">
+          <div class="header">
+            <p class="eng">Client Reviews</p>
+            <h2>의뢰인 후기</h2>
+            <div class="gold-line"></div>
+            <p class="sub">신세계로와 함께한 의뢰인분들의 이야기</p>
+          </div>
+          <div class="card-area">
+            <div class="review-card">
+              <div class="review-img">
+                <img src="../frontend/public/images/reviews/review-01.jpg" alt="후기" onerror="this.parentElement.style.background='#1a1a2e'">
+              </div>
+              <div class="review-text">
+                <p class="result">이혼소송 승소</p>
+                <h4>양육권과 재산분할 모두 의뢰인 측에 유리하게 조정 완료</h4>
+                <p>3년간 고민하다 찾아갔는데, 처음 상담부터 마지막 판결까지 정말 든든했습니다. 변호사님이 제 상황을 정확히 파악하고...</p>
+              </div>
+            </div>
+          </div>
+          <div class="dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phone-frame dark" style="position:relative">
+      <div class="phone-notch"></div>
+      <span class="label-tag label-after">AFTER</span>
+      <div class="phone-content">
+        <div class="reviews-after">
+          <div class="header">
+            <p class="eng">Client Reviews</p>
+            <h2>의뢰인 후기</h2>
+            <div class="gold-line"></div>
+          </div>
+          <div class="cards-stack">
+            <div class="testi-card">
+              <span class="quote-mark">"</span>
+              <div class="result-badge">✓ 이혼소송 승소</div>
+              <h4>양육권과 재산분할 모두 유리하게 조정 완료</h4>
+              <p class="content">3년간 고민하다 찾아갔는데, 처음 상담부터 마지막 판결까지 정말 든든했습니다. 변호사님이 제 상황을 정확히 파악하고...</p>
+              <div class="meta">
+                <span class="case-type">이혼소송</span>
+                <span class="lawyer">담당: 조인섭 변호사</span>
+              </div>
+            </div>
+            <div class="testi-card">
+              <span class="quote-mark">"</span>
+              <div class="result-badge">✓ 재산분할 승소</div>
+              <h4>부동산·퇴직금 포함 7억 재산분할 성공</h4>
+              <p class="content">남편이 숨긴 재산까지 찾아내주셨습니다. 전문팀이 체계적으로 준비해주셔서 기대 이상의 결과를 받았습니다...</p>
+              <div class="meta">
+                <span class="case-type">재산분할</span>
+                <span class="lawyer">담당: 조용국 변호사</span>
+              </div>
+            </div>
+            <div class="testi-card">
+              <span class="quote-mark">"</span>
+              <div class="result-badge">✓ 양육권 확보</div>
+              <h4>아이 둘 모두 양육권 확보, 양육비 월 350만원</h4>
+              <p class="content">아이들 문제가 가장 걱정이었는데, 아이들의 복지를 최우선으로 준비해주셔서 감사합니다...</p>
+              <div class="meta">
+                <span class="case-type">양육권</span>
+                <span class="lawyer">담당: 홍수현 변호사</span>
+              </div>
+            </div>
+          </div>
+          <div class="view-all">
+            의뢰인 후기 전체보기 (90건) →
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="analysis-card">
+    <h3>개선 포인트</h3>
+    <ul>
+      <li><strong>캐러셀 → 스택</strong> — 모바일에서 캐러셀은 숨겨진 컨텐츠. 3개만 보여주고 "전체보기"로 유도하는 게 더 효과적</li>
+      <li><strong>결과 뱃지 강조</strong> — "이혼소송 승소"가 첫 줄에 눈에 띄게. 의뢰인이 가장 궁금한 건 결과</li>
+      <li><strong>이미지 제거</strong> — 모바일에서 후기 이미지는 공간만 차지. 텍스트 중심으로 핵심만 전달</li>
+      <li><strong>담당 변호사 표시</strong> — 어떤 변호사가 담당했는지 즉시 확인 → 변호사 상세 페이지 연결 가능</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========================================
+     SECTION 5: CONTACT CTA
+     ======================================== -->
+<div id="sec-contact" class="proto-section">
+  <div class="section-title">
+    <h2>Contact CTA</h2>
+    <p>상담 전환 — 가장 중요한 섹션</p>
+  </div>
+  <div class="comparison">
+    <div class="phone-frame dark" style="position:relative">
+      <div class="phone-notch"></div>
+      <span class="label-tag label-before">BEFORE</span>
+      <div class="phone-content">
+        <div class="contact-before">
+          <div class="glow glow-1"></div>
+          <div class="glow glow-2"></div>
+          <p class="eng">Free Consultation</p>
+          <h2>혼자서 오래 고민하셨다면,<br><em>이제는 함께 해결할 차례입니다.</em></h2>
+          <div style="width:48px;height:2px;background:rgba(201,168,76,0.3);margin:24px auto"></div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.4);margin-bottom:8px;position:relative">딱 1분, 나에게 맞는 이혼 전략을 제시해드립니다</p>
+          <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:32px;position:relative">무료 · 비밀보장 · 24시간 내 회신</p>
+          <a class="phone" style="display:block;text-decoration:none">02-594-2800</a>
+          <p class="phone-sub">대표번호 1555-5961 · 평일 09:00 – 18:00</p>
+          <div class="btns">
+            <a class="btn-outline" href="#">📞 전화 상담</a>
+            <a class="btn-kakao" href="#">💬 카카오톡</a>
+            <a class="btn-outline" href="#">📄 서류작성 도우미</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phone-frame dark" style="position:relative">
+      <div class="phone-notch"></div>
+      <span class="label-tag label-after">AFTER</span>
+      <div class="phone-content">
+        <div class="contact-after">
+          <div class="top-section">
+            <div class="glow glow-1"></div>
+            <p class="eng">Free Consultation</p>
+            <h2>혼자 고민하지 마세요.<br><em>지금 바로 연락하세요.</em></h2>
+            <p class="assurance">무료 · 비밀보장 · 24시간 내 회신</p>
+          </div>
+          <div class="quick-actions">
+            <a href="tel:02-594-2800" class="action-btn action-phone">
+              <div class="icon-circle">📞</div>
+              <span class="label">전화 상담</span>
+              <span class="sub">바로 연결</span>
+            </a>
+            <a href="#" class="action-btn action-kakao">
+              <div class="icon-circle">💬</div>
+              <span class="label">카카오톡</span>
+              <span class="sub">실시간 채팅</span>
+            </a>
+            <a href="sms:02-594-2800" class="action-btn action-sms">
+              <div class="icon-circle">✉️</div>
+              <span class="label">SMS 문의</span>
+              <span class="sub">문자로 간편하게</span>
+            </a>
+            <a href="#" class="action-btn action-form">
+              <div class="icon-circle">📋</div>
+              <span class="label">상담 신청서</span>
+              <span class="sub">온라인 접수</span>
+            </a>
+          </div>
+          <div class="phone-strip">
+            <div class="number">1555-5961</div>
+            <div class="info">대표번호 · 평일 09:00 – 18:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="analysis-card">
+    <h3>개선 포인트</h3>
+    <ul>
+      <li><strong>3버튼 가로→2x2 그리드</strong> — overflow 문제 해결 + 각 액션에 아이콘/설명이 달려 직관적</li>
+      <li><strong>카드형 액션 버튼</strong> — 각각 다른 색상으로 시각적 구분. 터치 영역 훨씬 넓음(80px+)</li>
+      <li><strong>전화번호 하단 스트립</strong> — 항상 보이는 위치에 대표번호. 카피 간소화</li>
+      <li><strong>폼 생략</strong> — 모바일에서 폼 작성은 전환율이 낮음. 전화/카카오톡으로 즉시 행동 유도 후, 필요 시 상담신청서로</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========================================
+     SECTION 6: FAQ
+     ======================================== -->
+<div id="sec-faq" class="proto-section">
+  <div class="section-title">
+    <h2>FAQ 섹션</h2>
+    <p>카드형 아코디언 + CTA 통합</p>
+  </div>
+  <div class="comparison">
+    <div class="phone-frame" style="position:relative">
+      <div class="phone-notch"></div>
+      <span class="label-tag label-before">BEFORE</span>
+      <div class="phone-content">
+        <div class="faq-before">
+          <div class="header">
+            <p class="eng">FAQ</p>
+            <h2>자주 묻는 질문</h2>
+            <div class="gold-line"></div>
+          </div>
+          <div class="chips">
+            <button class="chip active">전체</button>
+            <button class="chip">비용·절차</button>
+            <button class="chip">이혼·재산</button>
+            <button class="chip">상담·기타</button>
+          </div>
+          <div class="faq-item">
+            <div class="q">
+              <span class="num">01</span>
+              <span>상담 비용이 있나요?</span>
+              <span class="popular">인기</span>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="q">
+              <span class="num">02</span>
+              <span>이혼소송 기간은 얼마나 걸리나요?</span>
+              <span class="popular">인기</span>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="q">
+              <span class="num">03</span>
+              <span>재산분할 비율은 어떻게 되나요?</span>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="q">
+              <span class="num">04</span>
+              <span>상간자 소송도 가능한가요?</span>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="q">
+              <span class="num">05</span>
+              <span>변호사 선임 후 절차가 어떻게 되나요?</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phone-frame" style="position:relative">
+      <div class="phone-notch"></div>
+      <span class="label-tag label-after">AFTER</span>
+      <div class="phone-content">
+        <div class="faq-after">
+          <div class="header">
+            <p class="eng">FAQ</p>
+            <h2>자주 묻는 질문</h2>
+            <div class="gold-line"></div>
+          </div>
+          <div class="filters">
+            <button class="filter-pill active">전체</button>
+            <button class="filter-pill">비용·절차</button>
+            <button class="filter-pill">이혼·재산</button>
+            <button class="filter-pill">상담·기타</button>
+          </div>
+          <div class="faq-list">
+            <div class="faq-card">
+              <div class="q-row">
+                <span class="num">01</span>
+                <span class="q-text">상담 비용이 있나요?</span>
+                <span class="popular">인기</span>
+                <span class="chevron">▸</span>
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="q-row">
+                <span class="num">02</span>
+                <span class="q-text">이혼소송 기간은 얼마나 걸리나요?</span>
+                <span class="popular">인기</span>
+                <span class="chevron">▸</span>
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="q-row">
+                <span class="num">03</span>
+                <span class="q-text">재산분할 비율은 어떻게 되나요?</span>
+                <span class="chevron">▸</span>
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="q-row">
+                <span class="num">04</span>
+                <span class="q-text">상간자 소송도 가능한가요?</span>
+                <span class="chevron">▸</span>
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="q-row">
+                <span class="num">05</span>
+                <span class="q-text">변호사 선임 후 절차는?</span>
+                <span class="chevron">▸</span>
+              </div>
+            </div>
+          </div>
+          <div class="quick-cta">
+            <div>
+              <div class="phone-num">1555-5961</div>
+              <div class="phone-label">더 궁금한 점이 있으시면</div>
+            </div>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="analysis-card">
+    <h3>개선 포인트</h3>
+    <ul>
+      <li><strong>카드형 아코디언</strong> — 플랫 border-bottom 대신 개별 카드. 터치 영역이 명확하고, 열린 상태에서 배경색으로 구분</li>
+      <li><strong>필터 pill 스타일 변경</strong> — 완전 둥근 pill 대신 rounded-[10px]. 좀 더 모던하고 터치 영역이 넓어 보임</li>
+      <li><strong>하단 CTA 통합</strong> — FAQ 끝에 전화번호 CTA. "더 궁금하면 전화하세요" 자연스러운 플로우</li>
+      <li><strong>패딩 최적화</strong> — 답변 영역 pl-11 pr-12 → 모바일에 맞게 줄인 패딩</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========================================
+     SECTION 7: FLOATING CTA
+     ======================================== -->
+<div id="sec-floating" class="proto-section">
+  <div class="section-title">
+    <h2>Floating CTA → Bottom Bar</h2>
+    <p>hover 기반 → 항상 보이는 하단 바</p>
+  </div>
+  <div class="comparison">
+    <div class="phone-frame dark" style="position:relative">
+      <div class="phone-notch"></div>
+      <span class="label-tag label-before">BEFORE</span>
+      <div class="phone-content">
+        <div style="min-height:667px;background:linear-gradient(to bottom,var(--navy-dark),var(--navy));display:flex;align-items:center;justify-content:center;padding:40px 24px;position:relative">
+          <div style="text-align:center">
+            <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:16px">현재: 우하단 원형 버튼</p>
+            <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.8;max-width:280px">
+              hover하면 4개 버튼이 위로 확장됩니다.<br><br>
+              <strong style="color:#ef4444">문제:</strong> 모바일에서 hover가 없어서 탭해야 하는데, 사용자 대부분이 확장 가능한 것을 인지하지 못합니다.
+            </p>
+          </div>
+          <!-- Simulated current floating CTA -->
+          <div style="position:absolute;bottom:24px;right:24px;display:flex;flex-direction:column;align-items:flex-end;gap:12px">
+            <div style="display:flex;align-items:center;gap:8px;opacity:0.3">
+              <span style="font-size:12px;color:#666;background:white;border-radius:20px;padding:6px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.1)">상담신청</span>
+              <div style="width:48px;height:48px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:18px">📋</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;opacity:0.3">
+              <span style="font-size:12px;color:#666;background:white;border-radius:20px;padding:6px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.1)">카카오톡</span>
+              <div style="width:48px;height:48px;border-radius:50%;background:#FEE500;display:flex;align-items:center;justify-content:center;font-size:18px">💬</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;opacity:0.3">
+              <span style="font-size:12px;color:#666;background:white;border-radius:20px;padding:6px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.1)">SMS</span>
+              <div style="width:48px;height:48px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:18px">✉️</div>
+            </div>
+            <div style="position:relative">
+              <div style="position:absolute;inset:0;border-radius:50%;background:rgba(155,35,53,0.3);animation:ping 1.5s infinite"></div>
+              <div style="width:56px;height:56px;border-radius:50%;background:var(--burgundy);display:flex;align-items:center;justify-content:center;font-size:22px;position:relative;box-shadow:0 4px 20px rgba(0,0,0,0.3)">📞</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phone-frame dark" style="position:relative">
+      <div class="phone-notch"></div>
+      <span class="label-tag label-after">AFTER</span>
+      <div class="phone-content">
+        <div style="min-height:667px;background:linear-gradient(to bottom,var(--navy-dark),var(--navy));display:flex;flex-direction:column;padding-bottom:72px">
+          <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:40px 24px">
+            <div style="text-align:center">
+              <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:16px">변경: 하단 고정 바</p>
+              <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.8;max-width:280px">
+                항상 보이는 하단 바로 전화/카카오톡/상담 즉시 접근 가능.<br><br>
+                <strong style="color:#22c55e">장점:</strong> hover 불필요, 앱 네이티브 UX, 전환율 2-3배 향상 기대
+              </p>
+            </div>
+          </div>
+          <!-- Bottom bar -->
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:12px;z-index:10">
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(15,15,26,0.95);backdrop-filter:blur(20px);border-radius:16px;border:1px solid rgba(201,168,76,0.12);box-shadow:0 -8px 40px rgba(0,0,0,0.2)">
+              <a href="#" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:12px;background:linear-gradient(135deg,var(--burgundy-dark),var(--burgundy-deeper));border-radius:10px;color:white;font-size:13px;font-weight:600;text-decoration:none">📞 전화 상담</a>
+              <a href="#" style="width:44px;height:44px;border-radius:10px;background:#FEE500;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;text-decoration:none">💬</a>
+              <a href="#" style="width:44px;height:44px;border-radius:10px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;text-decoration:none;color:var(--gold)">📋</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="analysis-card">
+    <h3>개선 포인트</h3>
+    <ul>
+      <li><strong>항상 보이는 CTA</strong> — 스크롤 위치와 관계없이 전화/카카오톡/상담 즉시 접근</li>
+      <li><strong>전화가 메인</strong> — 가장 넓은 버튼으로 "전화 상담" 배치. 로펌 모바일의 #1 전환 액션</li>
+      <li><strong>카카오톡 아이콘 버튼</strong> — 브랜드 컬러로 즉시 인지. 젊은 층 대응</li>
+      <li><strong>글래스모피즘 바</strong> — 투명+블러 효과로 콘텐츠 가리지 않으면서 프리미엄 느낌 유지</li>
+      <li><strong>기존 FloatingCTA 대체</strong> — 모바일에서만 이 Bottom Bar 사용, 데스크톱은 기존 FloatingCTA 유지 (md: breakpoint 분기)</li>
+    </ul>
+  </div>
+
+  <div class="annotation">
+    <strong>구현 참고:</strong> 이 Bottom Bar는 모바일(md 미만)에서만 표시하고, 기존 FloatingCTA는 md 이상에서 유지합니다. <code>className="md:hidden"</code>과 <code>className="hidden md:flex"</code>로 분기하면 기존 코드에 영향 없이 추가할 수 있습니다.
+  </div>
+</div>
+
+<style>
+  @keyframes ping {
+    0% { transform: scale(1); opacity: 0.8; }
+    75% { transform: scale(1.8); opacity: 0; }
+    100% { transform: scale(1.8); opacity: 0; }
+  }
+</style>
+
+<script>
+function showSection(id) {
+  // Hide all sections
+  document.querySelectorAll('.proto-section').forEach(s => s.classList.remove('active'));
+  // Show target
+  document.getElementById('sec-' + id).classList.add('active');
+  // Update tabs
+  document.querySelectorAll('.proto-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>

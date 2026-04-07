@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>업무분야 FINAL — 재산분할 + 재판이혼</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Pretendard Variable',sans-serif;background:#fff;color:#1a1a1a}
+:root{--bg:#9B2335;--bd:#7B2D3B;--bl:#FDF2F4;--g:#C9A84C;--gl:#D4AF37;--cr:#faf9f7;--t:#1a1a1a;--ts:#555;--tm:#999}
+
+.page-sep{max-width:1080px;margin:0 auto;padding:80px 24px 16px;border-top:3px solid var(--bg)}
+.page-sep h1{font-size:12px;color:var(--bg);font-weight:700;letter-spacing:0.15em}
+.page-sep p{font-size:13px;color:#888;margin-top:2px}
+.page-gap{height:60px;background:#f0eeea}
+
+/* 배너 */
+.bn{position:relative;height:220px;overflow:hidden;background:linear-gradient(135deg,#0a0a14,#1a0a10 60%,rgba(155,35,53,0.15))}
+.bn-ov{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,20,0.95),rgba(10,10,20,0.7),rgba(155,35,53,0.1))}
+.bn-c{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:0 24px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:24px}
+.bn-bc{font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:8px}
+.bn-en{font-size:10px;color:rgba(201,168,76,0.6);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:4px}
+.bn h1{font-size:28px;font-weight:700;color:#fff}
+.bn .gl{width:40px;height:2px;background:linear-gradient(to right,var(--g),var(--gl));margin-top:10px}
+
+/* 탭 간략 */
+.tb{background:#fff;border-bottom:1px solid #e5e5e5}
+.tb-i{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;overflow-x:auto;gap:0}
+.tb-i::-webkit-scrollbar{display:none}
+.ti{padding:12px 16px;font-size:13px;color:#bbb;border:none;border-bottom:2px solid transparent;background:none;cursor:pointer;white-space:nowrap}
+.ti.a{color:var(--bd);font-weight:600;border-bottom-color:var(--bd)}
+
+/* 통계밴드 */
+.sb{background:linear-gradient(135deg,var(--bl),#faf7f5 50%,var(--cr));border-bottom:1px solid rgba(155,35,53,0.06)}
+.sb-i{max-width:1080px;margin:0 auto;padding:24px;display:flex}
+.si{flex:1;text-align:center;position:relative}
+.si+.si::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:28px;background:rgba(155,35,53,0.08)}
+.si-n{font-size:26px;font-weight:800;color:var(--bg)}
+.si-n span{font-size:13px;font-weight:400;opacity:0.5}
+.si-l{font-size:11px;color:var(--tm);margin-top:2px}
+
+/* 컨테이너 */
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.content{max-width:720px}
+
+/* 페이지헤더 */
+.ph{padding:48px 0 40px;border-bottom:1px solid #f0f0ee;margin-bottom:40px}
+.ph-en{font-size:10px;color:var(--g);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:6px}
+.ph h2{font-size:26px;font-weight:700;color:var(--t);line-height:1.4;white-space:pre-line}
+.ph .gb{width:12px;height:12px;border-radius:50%;border:2px solid var(--g);margin-top:14px}
+.ph>p{font-size:15px;color:var(--ts);line-height:1.9;margin-top:16px;max-width:560px}
+
+/* 키포인트 */
+.kpg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:48px}
+.kpc{padding:24px 20px;border-radius:14px;border:1px solid #eee;background:#fff;transition:all 0.3s;position:relative;overflow:hidden;text-align:center}
+.kpc:hover{border-color:rgba(155,35,53,0.15);box-shadow:0 6px 24px rgba(0,0,0,0.05);transform:translateY(-2px)}
+.kpc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--bg),var(--g));opacity:0;transition:opacity 0.3s}
+.kpc:hover::before{opacity:1}
+.kpc-ic{width:48px;height:48px;border-radius:14px;background:var(--bl);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.kpc-ic svg{width:22px;height:22px;color:var(--bg)}
+.kpc h4{font-size:15px;font-weight:700;color:var(--t);margin-bottom:6px}
+.kpc p{font-size:12px;color:var(--ts);line-height:1.55}
+
+/* 법률섹션 */
+.ls{margin-bottom:36px}
+.ls h2{font-size:18px;font-weight:700;color:var(--t);margin-bottom:12px;padding-left:16px;position:relative}
+.ls h2 .br{position:absolute;left:0;top:4px;bottom:4px;width:3px;border-radius:2px;background:linear-gradient(to bottom,var(--bg),var(--g))}
+.ls h3{font-size:15px;font-weight:600;color:var(--bd);margin:18px 0 8px}
+.ls p{font-size:15px;color:var(--ts);line-height:2.0;margin-bottom:6px}
+
+/* 리스트 카드 */
+.list-card{background:var(--bl);border:1px solid rgba(155,35,53,0.06);border-radius:14px;padding:20px 24px;margin:14px 0}
+.list-card ul{list-style:none;padding:0}
+.list-card li{display:flex;align-items:flex-start;gap:10px;padding:5px 0;font-size:14px;color:var(--ts);line-height:1.65}
+.list-card li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--bg);flex-shrink:0;margin-top:8px}
+
+/* 이미지 카드 — 큰 다이어그램 */
+.img-card{margin:32px 0;border-radius:16px;overflow:hidden;border:1px solid #eee;background:#faf9f7;max-width:560px}
+.img-card img{width:100%;height:auto;display:block}
+.img-card .caption{padding:10px 16px;font-size:11px;color:var(--tm);text-align:center;border-top:1px solid #eee}
+/* 이미지 카드 — 작은 마크/아이콘 */
+.img-card.sm{max-width:280px}
+
+/* 인용밴드 */
+.hb{background:linear-gradient(135deg,var(--cr),#f8f5f2);border-top:1px solid rgba(155,35,53,0.04);border-bottom:1px solid rgba(155,35,53,0.04);margin:48px 0;padding:0}
+.hb-i{max-width:1080px;margin:0 auto;padding:40px 24px;display:flex;gap:32px;align-items:center}
+.hq{flex:1;max-width:560px}
+.hq .bm{font-size:48px;color:rgba(155,35,53,0.12);line-height:1;margin-bottom:6px}
+.hq p{font-size:16px;color:var(--t);line-height:1.9;font-weight:500}
+.hq .au{font-size:13px;color:var(--bg);font-weight:600;margin-top:12px}
+.hq .au-sub{font-size:11px;color:var(--tm);margin-top:2px}
+.hs{width:180px;flex-shrink:0;text-align:center;padding:24px;background:#fff;border-radius:16px;border:1px solid #eee;box-shadow:0 4px 16px rgba(0,0,0,0.03)}
+.hs .hn{font-size:36px;font-weight:800;color:var(--bg)}
+.hs .hn span{font-size:18px;color:var(--g)}
+.hs .hl{font-size:11px;color:var(--tm);margin-top:4px}
+
+/* 팀카드 */
+.tc{border:1px solid #eee;border-radius:16px;padding:28px 32px;display:flex;align-items:center;gap:20px;transition:all 0.3s;background:linear-gradient(135deg,var(--cr),#fff)}
+.tc:hover{border-color:rgba(155,35,53,0.15);box-shadow:0 6px 24px rgba(0,0,0,0.05)}
+.tc-bar{width:4px;height:52px;border-radius:2px;background:linear-gradient(to bottom,var(--bg),var(--g));flex-shrink:0}
+.tc-c{flex:1}
+.tc-lb{font-size:10px;color:var(--g);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:4px}
+.tc h3{font-size:17px;font-weight:700;color:var(--t);margin-bottom:3px}
+.tc p{font-size:13px;color:var(--ts);line-height:1.5}
+.tc-btn{display:inline-flex;align-items:center;gap:5px;flex-shrink:0;padding:11px 22px;border-radius:10px;background:#fff;border:1.5px solid rgba(155,35,53,0.15);color:var(--bd);font-size:13px;font-weight:600;cursor:pointer;transition:all 0.25s;text-decoration:none}
+.tc-btn:hover{border-color:var(--bg);color:var(--bg);box-shadow:0 2px 8px rgba(155,35,53,0.08)}
+.tc-btn svg{width:14px;height:14px}
+
+/* 승소사례 */
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.cc{border:1px solid #eee;border-radius:14px;padding:20px;transition:all 0.3s;position:relative;overflow:hidden;cursor:pointer;background:#fff}
+.cc:hover{border-color:rgba(155,35,53,0.15);box-shadow:0 6px 20px rgba(0,0,0,0.05);transform:translateY(-2px)}
+.cc .lb{position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--bg);opacity:0.1;transition:opacity 0.3s}
+.cc:hover .lb{opacity:1}
+.cb{display:inline-block;font-size:10px;padding:2px 8px;background:var(--bl);color:var(--bg);font-weight:600;border-radius:100px}
+.cc h4{font-size:14px;font-weight:600;color:var(--t);margin-top:10px;line-height:1.45}
+.cr{margin-top:10px;font-size:22px;font-weight:800;color:var(--bg)}
+.cr span{font-size:13px;color:var(--g)}
+.cr .crl{font-size:11px;font-weight:500;color:var(--tm);margin-left:4px}
+
+/* 하단CTA */
+.bcta{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 28px;margin-top:40px;margin-bottom:60px;background:#fff;border:1px solid #eee;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.02)}
+.bcta h3{font-size:16px;font-weight:700;color:var(--t);margin-bottom:3px}
+.bcta div>p{font-size:13px;color:var(--ts)}
+.ob{display:inline-flex;align-items:center;gap:5px;flex-shrink:0;padding:11px 24px;border-radius:10px;background:#fff;color:var(--bd);font-size:14px;font-weight:600;border:1.5px solid rgba(123,45,59,0.2);cursor:pointer;transition:all 0.25s;white-space:nowrap}
+.ob:hover{border-color:var(--bg);color:var(--bg)}
+.ob svg{width:14px;height:14px;transition:transform 0.2s}
+.ob:hover svg{transform:translateX(3px)}
+
+/* 하단 크림섹션 */
+.bottom-section{background:linear-gradient(180deg,var(--cr) 0%,#fff 100%);border-top:1px solid #f0f0ee;padding:48px 0 60px}
+
+.arr{fill:none;stroke:currentColor;stroke-width:2}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ 재산분할 ═══════════════ -->
+<div class="page-sep"><h1>EXAMPLE 1</h1><p>재산분할 — 이미지 없는 페이지의 최고 퀄리티</p></div>
+
+<div class="bn"><div class="bn-ov"></div><div class="bn-c"><div class="bn-bc">홈 › 이혼소송 › 재산분할</div><p class="bn-en">Property Division</p><h1>재산분할</h1><div class="gl"></div></div></div>
+
+<!-- 탭 -->
+<div class="tb"><div class="tb-i">
+<button class="ti">이혼준비 가이드</button><button class="ti">협의이혼</button><button class="ti">재판이혼</button><button class="ti">위자료</button><button class="ti a">재산분할</button><button class="ti">자녀문제</button><button class="ti">부정행위</button><button class="ti">가정폭력</button><button class="ti">가족관계</button><button class="ti">국제이혼</button>
+</div></div>
+
+<!-- 통계밴드 -->
+<div class="sb"><div class="sb-i"><div class="si"><div class="si-n">261<span>건+</span></div><div class="si-l">재산분할 승소사례</div></div><div class="si"><div class="si-n">52<span>년</span></div><div class="si-l">법조 전통</div></div><div class="si"><div class="si-n">94<span>%+</span></div><div class="si-l">의뢰인 만족도</div></div><div class="si"><div class="si-n">전담팀</div><div class="si-l">재산분할팀 · 류현주 팀장</div></div></div></div>
+
+<!-- 본문 -->
+<div class="wrap"><div class="content">
+  <div class="ph">
+    <p class="ph-en">Property Division</p>
+    <h2>재산분할, 정확한 전략이
+결과를 바꿉니다</h2>
+    <div class="gb"></div>
+    <p>단순한 절반 나누기가 아닌, 기여도·특유재산·은닉재산까지 고려한 전략적 접근이 필요합니다.</p>
+  </div>
+
+  <!-- 키포인트 4열 -->
+  <div class="kpg">
+    <div class="kpc"><div class="kpc-ic"><svg viewBox="0 0 24 24" class="arr"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h4>부동산·주택</h4><p>아파트, 토지, 상가 등 전수 분석</p></div>
+    <div class="kpc"><div class="kpc-ic"><svg viewBox="0 0 24 24" class="arr"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h4>금융자산·주식</h4><p>예금, 보험, 주식, 퇴직금 추적</p></div>
+    <div class="kpc"><div class="kpc-ic"><svg viewBox="0 0 24 24" class="arr"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><h4>법인·사업체</h4><p>법인 지분, 영업권 산정</p></div>
+    <div class="kpc"><div class="kpc-ic"><svg viewBox="0 0 24 24" class="arr"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h4>은닉재산 추적</h4><p>차명계좌, 해외자산 가압류</p></div>
+  </div>
+
+  <!-- 법률 콘텐츠 (상단 섹션들) -->
+  <div class="ls"><h2><span class="br"></span>재산분할이란</h2><p>이혼을 하면 이혼한 부부의 일방이 다른 일방에 대해 재산을 나누어 가질 것을 청구할 수 있고, 이것을 재산분할 청구권이라고 합니다.</p><p>재산분할의 대상이 되는 재산은 부부가 혼인 중 형성한 재산입니다. 혼인 전에 취득한 재산이나 혼인 중에도 상속받은 재산 등은 분할 대상에서 원칙적으로 제외됩니다.</p></div>
+
+  <div class="ls"><h2><span class="br"></span>분할 대상 재산</h2><p>부부의 재산이 분할대상이 되므로 시부모님 명의로 되어 있는 재산은 재산분할 대상이 되지 않습니다.</p>
+    <div class="list-card"><ul>
+      <li>부동산 (아파트, 주택, 토지, 상가)</li>
+      <li>예금, 적금, 보험, 주식 등 금융자산</li>
+      <li>퇴직금, 국민연금</li>
+      <li>사업체, 법인 지분, 영업권</li>
+      <li>자동차, 귀금속 등 동산</li>
+    </ul></div>
+  </div>
+
+  <div class="ls"><h2><span class="br"></span>유책배우자의 재산분할청구</h2><p>외도를 하거나 폭력을 행사한 유책배우자도 재산분할 청구가 가능합니다. 재산분할은 위자료와 달리 혼인 중 형성한 재산에 대한 청산이므로, 유책 여부와 무관하게 인정됩니다.</p></div>
+</div></div>
+
+<!-- 인용밴드 (풀 와이드, 콘텐츠 중간) -->
+<div class="hb"><div class="hb-i"><div class="hq"><div class="bm">&ldquo;</div><p>재산분할은 단순한 나눔이 아닙니다. 아파트, 주식, 퇴직금, 법인 지분까지 — 복잡한 자산을 전략적으로 배분합니다.</p><p class="au">재산분할팀 류현주 팀장</p><p class="au-sub">고액자산 분할 전략과 특유재산 분쟁 전문</p></div><div class="hs"><div class="hn">50<span>억</span></div><div class="hl">최대 분할 성공 금액</div></div></div></div>
+
+<!-- 나머지 콘텐츠 -->
+<div class="wrap"><div class="content">
+  <div class="ls"><h2><span class="br"></span>채무(빚)의 분할</h2><p>혼인 중에 부부 공동생활을 위해 발생한 채무도 재산분할의 대상이 됩니다. 다만, 도박채무나 개인 소비에 의한 채무는 그 채무를 발생시킨 사람이 책임져야 합니다.</p></div>
+  <div class="ls"><h2><span class="br"></span>재산분할 기준 시점</h2><p>재산분할의 기준 시점은 원칙적으로 이혼소송의 사실심 변론종결시입니다. 소송 중이나 직전에 처분한 재산도 존재하는 것으로 보고 분할합니다.</p></div>
+  <div class="ls"><h2><span class="br"></span>양도소득세</h2><p>재산분할로 부동산 소유권이 이전되는 경우 양도소득세가 부과되지 않습니다. 다만 위자료로 이전받는 경우에는 부과될 수 있으므로 구분이 중요합니다.</p></div>
+  <div class="ls"><h2><span class="br"></span>사해행위 취소</h2><p>상대방이 재산을 빼돌리기 위해 제3자에게 증여하거나 헐값에 매도한 경우, 사해행위취소의 소를 제기하여 취소시킬 수 있습니다.</p></div>
+</div></div>
+
+<!-- 하단 크림 섹션 -->
+<div class="bottom-section"><div class="wrap"><div class="content">
+  <!-- 팀카드 -->
+  <div class="tc"><div class="tc-bar"></div><div class="tc-c"><p class="tc-lb">Specialized Team</p><h3>재산분할팀이 전담합니다</h3><p>고액자산 분할 전략과 특유재산 분쟁에 강한 실무 전문가 · 류현주 팀장</p></div><a class="tc-btn" href="#">팀 상세보기 <svg viewBox="0 0 24 24" class="arr"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+
+  <!-- 승소사례 -->
+  <div style="margin-top:40px"><div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:16px"><div><h3 style="font-size:17px;font-weight:700;color:#1a1a1a">관련 승소사례</h3><div style="width:28px;height:2px;background:#C9A84C;margin-top:6px"></div></div><a href="#" style="font-size:12px;color:#9B2335;font-weight:500;text-decoration:none">전체보기 →</a></div>
+  <div class="cg">
+    <div class="cc"><div class="lb"></div><span class="cb">재산분할</span><h4>특유재산 포함 50억 분할 조정 성립</h4><div class="cr">50<span>억</span><span class="crl">분할 성공</span></div></div>
+    <div class="cc"><div class="lb"></div><span class="cb">재산분할</span><h4>의사 남편 병원 자산 기여도 45%</h4><div class="cr">45<span>%</span><span class="crl">기여도 인정</span></div></div>
+    <div class="cc"><div class="lb"></div><span class="cb">재산분할</span><h4>1심 마이너스 뒤집고 은닉재산 10억+</h4><div class="cr">10<span>억+</span><span class="crl">은닉재산 발견</span></div></div>
+    <div class="cc"><div class="lb"></div><span class="cb">재산분할</span><h4>해외 스타트업 주식 기여도 30%</h4><div class="cr">30<span>%</span><span class="crl">기여도 인정</span></div></div>
+  </div></div>
+
+  <!-- CTA -->
+  <div class="bcta"><div><h3>재산분할, 전문가와 먼저 점검하세요.</h3><p>자산 구조 분석부터 기여도 산정까지 무료로 상담해 드립니다.</p></div><button class="ob">무료상담 신청 <svg viewBox="0 0 24 24" class="arr"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+</div></div></div>
+
+<div class="page-gap"></div>
+
+<!-- ═══════════════ 재판이혼 (이미지 있는 페이지) ═══════════════ -->
+<div class="page-sep"><h1>EXAMPLE 2</h1><p>재판이혼 — 원본 사이트 이미지 포함 페이지</p></div>
+
+<div class="bn"><div class="bn-ov"></div><div class="bn-c"><div class="bn-bc">홈 › 이혼소송 › 재판이혼</div><p class="bn-en">Trial Divorce</p><h1>재판이혼</h1><div class="gl"></div></div></div>
+
+<div class="tb"><div class="tb-i">
+<button class="ti">이혼준비 가이드</button><button class="ti">협의이혼</button><button class="ti a">재판이혼</button><button class="ti">위자료</button><button class="ti">재산분할</button><button class="ti">자녀문제</button><button class="ti">부정행위</button><button class="ti">가정폭력</button><button class="ti">가족관계</button><button class="ti">국제이혼</button>
+</div></div>
+
+<div class="sb"><div class="sb-i"><div class="si"><div class="si-n">6<span>가지</span></div><div class="si-l">재판상 이혼사유</div></div><div class="si"><div class="si-n">조정→판결</div><div class="si-l">2단계 절차</div></div><div class="si"><div class="si-n">사전처분</div><div class="si-l">생활비·접근금지·면접교섭</div></div><div class="si"><div class="si-n">1,053<span>건+</span></div><div class="si-l">누적 승소사례</div></div></div></div>
+
+<div class="wrap"><div class="content">
+  <div class="ph">
+    <p class="ph-en">Trial Divorce</p>
+    <h2>재판이혼, 증거와 전략이
+승패를 결정합니다</h2>
+    <div class="gb"></div>
+    <p>협의가 불가능할 때, 민법 제840조에 따른 이혼사유를 입증하여 법원의 판결로 이혼이 성립됩니다.</p>
+  </div>
+
+  <div class="kpg">
+    <div class="kpc"><div class="kpc-ic"><svg viewBox="0 0 24 24" class="arr"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>사전처분</h4><p>생활비·접근금지 소송 중 보호</p></div>
+    <div class="kpc"><div class="kpc-ic"><svg viewBox="0 0 24 24" class="arr"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h4>가사조사관</h4><p>법원 지정 가정환경 조사</p></div>
+    <div class="kpc"><div class="kpc-ic"><svg viewBox="0 0 24 24" class="arr"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div><h4>조정이혼</h4><p>합의에 의한 분쟁 해결</p></div>
+    <div class="kpc"><div class="kpc-ic"><svg viewBox="0 0 24 24" class="arr"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h4>유책배우자</h4><p>파탄주의 판례 변화</p></div>
+  </div>
+
+  <!-- 이미지 카드! 원본 사이트 다이어그램 -->
+  <div class="img-card">
+    <img src="https://www.shinsegaelaw.kr/data/editor/2311/20231109193217_trial-object.png" alt="재판이혼 절차 다이어그램">
+    <div class="caption">재판이혼 절차 — 소장 접수부터 판결까지</div>
+  </div>
+
+  <div class="ls"><h2><span class="br"></span>재판상 이혼사유</h2><p>협의이혼을 할 때는 '그냥 살기 싫어졌다'는 것만으로도 이혼을 할 수 있고, 이혼의 사유에는 아무런 제한이 없습니다. 그러나 재판상 이혼을 하기 위해서는 민법 제840조에서 정한 이혼사유가 있어야 합니다.</p>
+    <div class="list-card"><ul>
+      <li>배우자에게 부정한 행위가 있었을 때</li>
+      <li>배우자가 악의로 다른 일방을 유기한 때</li>
+      <li>배우자 또는 그 직계존속으로부터 심히 부당한 대우를 받았을 때</li>
+      <li>자기의 직계존속이 배우자로부터 심히 부당한 대우를 받았을 때</li>
+      <li>배우자의 생사가 3년 이상 분명하지 아니한 때</li>
+      <li>기타 혼인을 계속하기 어려운 중대한 사유가 있을 때</li>
+    </ul></div>
+  </div>
+
+  <div class="ls"><h2><span class="br"></span>유책배우자의 이혼청구</h2><p>우리나라 법원은 혼인파탄의 책임이 있는 배우자가 이혼을 청구하는 것은 받아들여주지 않습니다. 그러나 요즘 법원의 추세는 파탄주의로 가고 있으며, 상대방도 속으로는 혼인을 계속할 의사가 없으면서 오직 오기나 보복적인 감정 때문에 혼인을 계속할 것을 고집하고 있는 경우에는 이혼을 인정해줍니다.</p></div>
+
+  <div class="ls"><h2><span class="br"></span>조정이혼</h2><p>이혼에 대한 증거가 별달리 없는 경우에도 당사자간의 합의로 이혼이 가능하다는 점에서 소송과는 차이가 있습니다. 법관이나 학식과 덕망이 높은 사회 저명인사로 구성된 조정위원이 조정을 주재하게 됩니다.</p></div>
+
+  <!-- 간통 관련 이미지 -->
+  <div class="img-card sm">
+    <img src="https://www.shinsegaelaw.kr/data/editor/2311/20231109190725_trial-object01.png" alt="간통과 이혼">
+    <div class="caption">간통과 이혼 — 부정행위와 상간자 손해배상</div>
+  </div>
+
+  <div class="ls"><h2><span class="br"></span>간통과 이혼</h2><h3>간통죄와 부정행위</h3><p>간통죄는 위헌결정을 받았고 없어졌습니다. 그러나 이혼사유에 해당하는 부정행위는 매우 넓은 개념입니다. 성관계 정도의 증거가 아니더라도 이혼이 가능하며 위자료 청구도 할 수 있습니다.</p></div>
+
+  <!-- 경찰 임시조치 이미지 -->
+  <div class="img-card sm">
+    <img src="https://www.shinsegaelaw.kr/data/editor/2311/20231109190733_trial-object02.png" alt="경찰의 임시조치">
+    <div class="caption">가정폭력 시 경찰의 응급조치 및 임시조치</div>
+  </div>
+
+  <div class="ls"><h2><span class="br"></span>가정폭력에 대하여</h2><p>가정폭력이란 가족구성원 사이의 신체적, 정신적, 또는 재산상 피해를 수반하는 행위를 말합니다.</p></div>
+</div></div>
+
+<!-- 하단 크림 섹션 -->
+<div class="bottom-section"><div class="wrap"><div class="content">
+  <div class="tc"><div class="tc-bar"></div><div class="tc-c"><p class="tc-lb">Specialized Team</p><h3>이혼소송총괄팀이 전담합니다</h3><p>소장부터 판결까지 전체 전략을 설계하는 사령탑 · 김미루 팀장</p></div><a class="tc-btn" href="#">팀 상세보기 <svg viewBox="0 0 24 24" class="arr"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+  <div class="bcta"><div><h3>재판이혼, 증거 수집이 가장 중요합니다.</h3><p>전문 변호사가 무료로 사건을 분석해 드립니다.</p></div><button class="ob">무료상담 신청 <svg viewBox="0 0 24 24" class="arr"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+</div></div></div>
+
+<div style="height:100px"></div>
+</body>
+</html>

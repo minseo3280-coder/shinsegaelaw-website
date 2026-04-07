@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "source": "https://xn--kj4b38iiva.com/",
+    "korean_domain": "이혼전문.com",
+    "description": "법무법인 신세계로 구글 사이트 (이혼전문.com) 전체 크롤링 데이터",
+    "crawled_at": "2026-04-01",
+    "total_images_downloaded": 103,
+    "total_pages_crawled": 12
+  },
+  "data_files": {
+    "homepage": {
+      "file": "ihon_homepage_extracted.json",
+      "description": "메인 페이지 전체 데이터 (9개 섹션: Hero, CEO 프로필, 승소사례, 전략, WhyUs, 차별화, 경력, 변호사, CTA+후기)",
+      "key_data": ["네비게이션 구조", "CEO 프로필 7단락", "승소사례 22건(3카테고리)", "차별화 4카드", "의뢰인 후기 8건", "히어로 영상(mp4)", "SEO 키워드"]
+    },
+    "about": {
+      "file": "competitor_about_data.json",
+      "description": "소개 페이지 전체 데이터 (리더십, 전문로펌, 인증서, 연혁, 변호사 22명, 사무소 3곳)",
+      "key_data": ["변호사 22명 전원 프로필(이름/직급/팀역할/사진/자격증)", "연혁 2007-2025(16년)", "인증서 11개", "사무소 3곳(서울/대전/수원 주소/전화/교통)", "7개 전문팀(이혼총괄/재산분할/친권양육권/상속/위자료/형사/신청사건)"]
+    },
+    "case_wins": {
+      "file": "competitor_casewins.json",
+      "description": "승소사례 전체 30건 (5페이지 + 카테고리페이지)",
+      "key_data": ["이혼 16건", "상간자소송 9건", "상속 5건", "각 건별 제목/카테고리/서브카테고리/결과/이미지"]
+    },
+    "other_pages": {
+      "file": "competitor_crawl_pages.json",
+      "description": "기타 페이지 (상담절차, 상담폼, 언론/칼럼, 자유게시판, 개인정보처리방침)",
+      "key_data": ["6단계 상담절차", "7개 전문팀 상세(tagline/intro/description/leader/process)", "언론기사 6건", "자유게시판 7건", "상담폼 필드 구조"]
+    }
+  },
+  "image_directories": {
+    "lawyers": {
+      "path": "public/images/ihon-site/lawyers/",
+      "count": 22,
+      "format": "webp (640x784)",
+      "naming": "lawyer_profile_01~22.webp"
+    },
+    "cases": {
+      "path": "public/images/ihon-site/cases/",
+      "count": 30,
+      "format": "webp",
+      "naming": "case-wins__{category}_{number}.webp"
+    },
+    "certificates": {
+      "path": "public/images/ihon-site/certificates/",
+      "count": 19,
+      "format": "webp",
+      "naming": "certificate_01~13.webp (일부 -1, -2, -3 변형)"
+    },
+    "main": {
+      "path": "public/images/ihon-site/main/",
+      "count": 12,
+      "description": "히어로 이미지, 배경 영상(mp4), 차별화 섹션 사진, 플로팅 CEO, 헤더 SVG",
+      "includes_video": true
+    },
+    "about": {
+      "path": "public/images/ihon-site/about/",
+      "count": 9,
+      "format": "webp (632x486)",
+      "naming": "sub_01_sec_03__about_history_01~09.webp"
+    },
+    "process": {
+      "path": "public/images/ihon-site/process/",
+      "count": 4,
+      "format": "webp",
+      "naming": "sub_03-1_sec_03-01~04.webp"
+    },
+    "board": {
+      "path": "public/images/ihon-site/board/",
+      "count": 5,
+      "format": "webp",
+      "naming": "board_thumb_99~103.webp"
+    },
+    "og": {
+      "path": "public/images/ihon-site/og/",
+      "count": 2,
+      "files": ["logo.svg", "ogtag_image.jpg"]
+    }
+  },
+  "key_differences_from_shinsegaelaw_kr": [
+    "변호사 22명 (기존 19명 → 3명 추가: 김나희, 박선아, 이재현, 임수미, 임형창, 전보성, 정은영 등 책임급 신규)",
+    "WordPress + Elementor 기반 (기존 PHP 커스텀)",
+    "히어로 배경 영상(mp4) 추가",
+    "CEO 프로필 섹션 대폭 강화 (전략 서술 7단락)",
+    "전문분야 등록증서 11개 전시",
+    "차별화 4카드 섹션 신규 (가사전문/대표직접총괄/투명수임료/핵심지역)",
+    "의뢰인 후기 8건 메인 노출",
+    "연혁 2007-2025 (16년 상세)",
+    "보전처분사전처분팀 → 신청사건팀 명칭 변경 없음(이 사이트에서는 보전처분사전처분팀장으로 표기)",
+    "네비게이션 4탭 단순화 (기존 5탭)",
+    "승소사례 30건 별도 (기존 1,053건과 별개 데이터)"
+  ]
+}

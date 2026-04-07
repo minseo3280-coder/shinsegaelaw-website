@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전문팀 상세 - 프로토타입 v2</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+  :root {
+    --burgundy-50: #FDF2F4;
+    --burgundy-100: #fce4e8;
+    --burgundy-500: #9B2335;
+    --burgundy-600: #7B2D3B;
+    --burgundy-700: #5a1e2b;
+    --gold-400: #D4AF37;
+    --gold-500: #C9A84C;
+    --navy-800: #1A1A2E;
+    --navy-900: #0F0F1A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Pretendard Variable', 'Pretendard', system-ui, -apple-system, sans-serif;
+    color: #1a1a1a;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Banner ── */
+  .banner {
+    position: relative;
+    height: 280px;
+    background: linear-gradient(135deg, #0a0a14 0%, #1a1a2e 60%, #3a1520 100%);
+    overflow: hidden;
+  }
+  .banner::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="80" cy="20" r="40" fill="rgba(155,35,53,0.08)"/></svg>') no-repeat right top;
+    background-size: 500px;
+  }
+  .banner-inner {
+    position: relative; z-index: 2;
+    max-width: 960px; margin: 0 auto; padding: 0 2rem;
+    height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 2.5rem;
+  }
+  .breadcrumb { font-size: 12px; color: rgba(255,255,255,0.3); margin-bottom: 12px; }
+  .breadcrumb a { color: rgba(255,255,255,0.3); text-decoration: none; }
+  .breadcrumb a:hover { color: rgba(255,255,255,0.5); }
+  .breadcrumb span.sep { margin: 0 6px; }
+  .banner-label { font-size: 10px; color: rgba(212,175,55,0.7); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 8px; }
+  .banner h1 { font-size: 32px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+  .banner .gold-line { width: 48px; height: 2px; background: rgba(212,175,55,0.5); margin-top: 12px; border-radius: 1px; }
+
+  /* ── Tabs ── */
+  .tabs-bar {
+    border-bottom: 1px solid #e5e5e5;
+    background: #fff;
+    position: sticky; top: 0; z-index: 20;
+  }
+  .tabs-inner {
+    max-width: 960px; margin: 0 auto; padding: 0 2rem;
+    display: flex; gap: 0; overflow-x: auto;
+  }
+  .tab-group-label { font-size: 11px; font-weight: 700; color: #ccc; display: flex; align-items: center; padding: 0 8px; }
+  .tab-group-label.active { color: var(--navy-800); }
+  .tab-item {
+    padding: 14px 16px; font-size: 13px; color: #999; white-space: nowrap; border-bottom: 2px solid transparent;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .tab-item:hover { color: #666; }
+  .tab-item.active { color: var(--burgundy-600); font-weight: 600; border-color: var(--burgundy-600); }
+  .tab-divider { width: 1px; height: 20px; background: #e5e5e5; align-self: center; margin: 0 8px; }
+
+  /* ── Container ── */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
+
+  /* ── Divider ── */
+  .gradient-divider {
+    height: 1px; max-width: 960px; margin: 0 auto;
+    background: linear-gradient(to right, transparent, rgba(123,45,59,0.1), transparent);
+  }
+
+  /* ══════ SECTION 1: Tagline (골드 바 + 숫자) ══════ */
+  .tagline-section {
+    padding: 56px 0 48px;
+  }
+  .tagline-inner {
+    display: flex; gap: 32px; align-items: stretch;
+  }
+  .tagline-bar {
+    width: 3px; flex-shrink: 0;
+    background: linear-gradient(to bottom, var(--gold-400), var(--burgundy-500));
+    border-radius: 2px;
+  }
+  .tagline-content { flex: 1; }
+  .tagline-content .eyebrow {
+    font-size: 10px; color: var(--gold-500); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .tagline-content h2 {
+    font-size: 28px; font-weight: 700; color: #1a1a1a; letter-spacing: -0.02em; line-height: 1.4;
+    margin-bottom: 14px;
+  }
+  .tagline-content .desc {
+    font-size: 15px; color: #888; line-height: 1.8; margin-bottom: 24px;
+  }
+  .tagline-stats {
+    display: flex; gap: 32px; padding: 20px 24px 0; margin-top: 4px;
+    border-top: 1px solid rgba(155,35,53,0.08);
+  }
+  .tagline-stat .num {
+    font-size: 28px; font-weight: 800; color: var(--burgundy-500); letter-spacing: -0.02em;
+  }
+  .tagline-stat .num span { font-size: 16px; color: var(--gold-500); font-weight: 600; }
+  .tagline-stat .label { font-size: 11px; color: #aaa; margin-top: 2px; }
+  @media (max-width: 768px) {
+    .tagline-stats { gap: 20px; }
+    .tagline-stat .num { font-size: 22px; }
+  }
+
+  /* ══════ SECTION 2: Leader (2컬럼 — 변화 없이 유지) ══════ */
+  .leader-section { padding: 56px 0; }
+  .leader-section .section-label {
+    font-size: 10px; color: var(--burgundy-500); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 6px;
+  }
+  .leader-section h2 { font-size: 24px; font-weight: 700; color: #1a1a1a; margin-bottom: 32px; }
+
+  .leader-grid {
+    display: grid; grid-template-columns: 240px 1fr; gap: 40px;
+    align-items: start;
+  }
+  @media (max-width: 768px) { .leader-grid { grid-template-columns: 1fr; } }
+
+  .leader-photo {
+    position: relative; border-radius: 16px; overflow: hidden;
+    aspect-ratio: 3/4; background: #f5f3f0;
+  }
+  .leader-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .leader-photo .overlay {
+    position: absolute; bottom: 0; left: 0; right: 0; padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  }
+  .leader-photo .overlay .name { font-size: 18px; font-weight: 700; color: #fff; }
+  .leader-photo .overlay .pos { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 2px; }
+  .leader-badge {
+    position: absolute; top: -8px; right: -8px; width: 48px; height: 48px;
+    border-radius: 50%; background: linear-gradient(135deg, var(--gold-400), #b8963a);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 12px rgba(201,168,76,0.3);
+  }
+  .leader-badge svg { width: 20px; height: 20px; fill: #fff; }
+
+  .leader-info .label-tag {
+    display: inline-block; font-size: 10px; color: var(--burgundy-500); letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .leader-info .name { font-size: 22px; font-weight: 700; color: #1a1a1a; margin-bottom: 2px; }
+  .leader-info .name .en { font-size: 13px; color: #aaa; font-weight: 400; margin-left: 8px; }
+  .leader-info .position { font-size: 13px; color: #888; margin-bottom: 20px; }
+
+  .credential-item {
+    display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px;
+  }
+  .credential-icon {
+    width: 22px; height: 22px; border-radius: 50%; background: var(--burgundy-50);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
+  }
+  .credential-icon svg { width: 12px; height: 12px; }
+  .credential-text { font-size: 13px; color: #555; line-height: 1.5; }
+
+  .specialty-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0 20px; }
+  .specialty-tag {
+    padding: 3px 12px; border-radius: 100px; font-size: 11px;
+    background: #f8f5f6; color: var(--burgundy-600); font-weight: 500;
+  }
+
+  .cta-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 20px; border-radius: 8px;
+    background: var(--burgundy-500); color: #fff; font-size: 13px; font-weight: 500;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--burgundy-600); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 20px; border-radius: 8px;
+    border: 1px solid #e0e0e0; color: #555; font-size: 13px; font-weight: 500;
+    text-decoration: none; transition: all 0.2s; background: transparent;
+  }
+  .btn-outline:hover { border-color: rgba(155,35,53,0.3); }
+
+  /* ══════ SECTION 3: Description (풀와이드 인용 밴드) ══════ */
+  .desc-section {
+    padding: 56px 0;
+    border-top: 1px solid #f0f0f0;
+  }
+  .desc-two-col {
+    display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: start;
+  }
+  @media (max-width: 768px) { .desc-two-col { grid-template-columns: 1fr; gap: 24px; } }
+  .desc-left .eyebrow { font-size: 10px; color: var(--burgundy-500); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 6px; }
+  .desc-left h2 { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
+  .desc-left .highlight-quote {
+    font-size: 15px; color: var(--burgundy-600); font-weight: 500; line-height: 1.7;
+    padding-left: 16px; border-left: 2px solid var(--gold-400);
+  }
+  .desc-right p { font-size: 15px; line-height: 2.0; margin-bottom: 12px; }
+  .desc-right p:first-child { color: #333; }
+  .desc-right p:not(:first-child) { color: #777; }
+
+  /* ══════ SECTION 4: Specialties (크림 + 2컬럼 변형) ══════ */
+  .specialties-section {
+    padding: 56px 0;
+    background: #faf9f7;
+  }
+  .spec-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; }
+  .spec-header .eyebrow { font-size: 10px; color: var(--burgundy-500); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 6px; }
+  .spec-header h2 { font-size: 24px; font-weight: 700; }
+  .spec-header .count { font-size: 13px; color: #999; }
+
+  .specialties-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  }
+  @media (max-width: 768px) { .specialties-grid { grid-template-columns: 1fr; } }
+
+  .specialty-card {
+    background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 20px;
+    transition: all 0.3s; cursor: default; position: relative; overflow: hidden;
+  }
+  .specialty-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 0; height: 2px;
+    background: linear-gradient(to right, var(--burgundy-500), var(--gold-400));
+    transition: width 0.4s ease;
+  }
+  .specialty-card:hover::before { width: 100%; }
+  .specialty-card:hover { border-color: rgba(155,35,53,0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+  .specialty-card .num { font-size: 11px; color: var(--burgundy-500); font-weight: 700; margin-bottom: 8px; letter-spacing: 0.05em; opacity: 0.6; }
+  .specialty-card .text { font-size: 14px; font-weight: 600; color: #333; line-height: 1.5; margin-bottom: 4px; }
+  .specialty-card .sub { font-size: 12px; color: #aaa; line-height: 1.5; }
+
+  /* ══════ SECTION 5: Process (가로 카드 타임라인) ══════ */
+  .process-section { padding: 56px 0; }
+  .process-section .eyebrow { font-size: 10px; color: var(--burgundy-500); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 6px; }
+  .process-section h2 { font-size: 24px; font-weight: 700; margin-bottom: 36px; }
+
+  .process-timeline {
+    position: relative;
+  }
+  .process-timeline::before {
+    content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(to bottom, var(--burgundy-500) 0%, rgba(155,35,53,0.1) 100%);
+  }
+  @media (max-width: 768px) { .process-timeline::before { left: 16px; } }
+
+  .timeline-item {
+    display: flex; gap: 24px; margin-bottom: 20px; position: relative;
+  }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-dot {
+    width: 42px; height: 42px; border-radius: 12px; flex-shrink: 0;
+    background: var(--burgundy-50); border: 2px solid rgba(155,35,53,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 800; color: var(--burgundy-500);
+    position: relative; z-index: 2; transition: all 0.3s;
+  }
+  .timeline-item:hover .timeline-dot {
+    background: var(--burgundy-500); color: #fff;
+    box-shadow: 0 0 0 4px rgba(155,35,53,0.08);
+  }
+  .timeline-card {
+    flex: 1; background: #faf9f7; border: 1px solid #f0eeea; border-radius: 12px;
+    padding: 18px 22px; transition: all 0.3s;
+  }
+  .timeline-item:hover .timeline-card {
+    border-color: rgba(155,35,53,0.12); box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  }
+  .timeline-card .step-name { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 4px; }
+  .timeline-card .step-desc { font-size: 12px; color: #999; line-height: 1.6; }
+
+  /* ══════ SECTION 6: Cases (피쳐드 + 일반) ══════ */
+  .cases-section {
+    padding: 56px 0;
+    background: #faf9f7;
+    border-top: 1px solid #f0f0f0;
+  }
+  .cases-section .section-head {
+    display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px;
+  }
+  .cases-section .eyebrow { font-size: 10px; color: var(--burgundy-500); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 6px; }
+  .cases-section h2 { font-size: 24px; font-weight: 700; }
+
+  /* Case card */
+  .case-card {
+    background: #fff; border: 1px solid #eee; border-radius: 14px;
+    padding: 28px 28px; margin-bottom: 16px;
+    transition: all 0.3s; position: relative; overflow: hidden;
+  }
+  .case-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: rgba(155,35,53,0.12); border-radius: 0; transition: all 0.4s;
+  }
+  .case-card:hover::before { background: var(--burgundy-500); width: 4px; }
+  .case-card:hover { border-color: rgba(155,35,53,0.1); box-shadow: 0 6px 24px rgba(0,0,0,0.04); }
+
+  .case-card .case-number {
+    font-size: 10px; font-weight: 700; color: var(--burgundy-500); letter-spacing: 0.15em;
+    text-transform: uppercase; margin-bottom: 10px; opacity: 0.6;
+  }
+  .case-header {
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 16px;
+  }
+  .case-title { font-size: 16px; font-weight: 700; color: #1a1a1a; line-height: 1.5; flex: 1; }
+  .case-result-badge {
+    flex-shrink: 0;
+    padding: 6px 16px; border-radius: 100px;
+    background: var(--burgundy-50); border: 1px solid rgba(155,35,53,0.1);
+    font-size: 12px; font-weight: 600; color: var(--burgundy-500);
+  }
+
+  .case-details { padding-left: 0; }
+  .case-detail-item {
+    display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px;
+    padding: 6px 0;
+  }
+  .case-detail-num {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: rgba(155,35,53,0.06); color: var(--burgundy-500);
+    font-size: 10px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .case-detail-text { font-size: 13px; color: #666; line-height: 1.65; }
+
+  /* ══════ SECTION 7: Trust Signal (의뢰인 한마디) ══════ */
+  .trust-section {
+    padding: 48px 0;
+    background: linear-gradient(135deg, #fdf5f6 0%, #faf7f5 50%, #f8f5f2 100%);
+    border-top: 1px solid rgba(155,35,53,0.06);
+    border-bottom: 1px solid rgba(155,35,53,0.06);
+  }
+  .trust-inner {
+    text-align: center; max-width: 640px; margin: 0 auto;
+  }
+  .trust-inner .quote-mark {
+    font-size: 48px; color: var(--burgundy-500); font-weight: 300; line-height: 1; margin-bottom: 12px; opacity: 0.25;
+  }
+  .trust-inner .quote-text {
+    font-size: 17px; color: #555; line-height: 1.9; font-weight: 400; margin-bottom: 16px;
+  }
+  .trust-inner .quote-divider {
+    width: 32px; height: 2px; background: var(--burgundy-500); opacity: 0.3; margin: 0 auto 16px;
+  }
+  .trust-inner .quote-author {
+    font-size: 13px; color: #aaa;
+  }
+  .trust-inner .quote-author strong { color: var(--burgundy-600); font-weight: 600; }
+
+  /* ══════ SECTION 8: Other Teams ══════ */
+  .other-teams-section { padding: 48px 0; }
+  .other-teams-section .eyebrow { font-size: 10px; color: var(--burgundy-500); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 6px; }
+  .other-teams-section h2 { font-size: 24px; font-weight: 700; margin-bottom: 32px; }
+
+  .teams-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 768px) { .teams-grid { grid-template-columns: 1fr; } }
+
+  .team-card {
+    border: 1px solid #eee; border-left: 3px solid rgba(155,35,53,0.15); border-radius: 12px; padding: 20px;
+    transition: all 0.3s; text-decoration: none; display: block; color: inherit;
+  }
+  .team-card:hover { border-color: rgba(155,35,53,0.2); border-left-color: var(--burgundy-500); box-shadow: 0 4px 20px rgba(0,0,0,0.04); transform: translateY(-2px); }
+  .team-card .top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .team-card .avatar { width: 36px; height: 36px; border-radius: 50%; background: #f0eeea; border: 1px solid #e5e5e5; overflow: hidden; flex-shrink: 0; }
+  .team-card .team-name { font-size: 14px; font-weight: 700; color: #333; }
+  .team-card .team-leader { font-size: 11px; color: #aaa; }
+  .team-card .team-desc { font-size: 12px; color: #888; line-height: 1.6; margin-bottom: 10px; }
+  .team-card .link { font-size: 11px; color: var(--burgundy-500); font-weight: 500; }
+
+  /* ══════ SECTION 9: Bottom CTA ══════ */
+  .bottom-cta { padding: 48px 0 56px; }
+  .bottom-cta-card {
+    background: #fafaf9; border-radius: 16px; border: 1px solid #e8e8e6; overflow: hidden;
+  }
+  .bottom-cta-card .top-line {
+    height: 2px;
+    background: linear-gradient(to right, var(--burgundy-500), var(--gold-400), transparent);
+  }
+  .bottom-cta-card .inner {
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    padding: 28px 36px;
+  }
+  @media (max-width: 768px) { .bottom-cta-card .inner { flex-direction: column; align-items: flex-start; padding: 24px; } }
+
+  .bottom-cta-card .phone-area { display: flex; align-items: center; gap: 14px; }
+  .bottom-cta-card .phone-icon {
+    width: 42px; height: 42px; border-radius: 12px;
+    background: linear-gradient(135deg, rgba(155,35,53,0.07), rgba(212,175,55,0.07));
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .bottom-cta-card .phone-icon svg { width: 19px; height: 19px; stroke: var(--burgundy-500); fill: none; stroke-width: 2; }
+  .bottom-cta-card .phone-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 2px; }
+  .bottom-cta-card .phone-label { font-size: 11px; color: #999; font-weight: 500; }
+  .bottom-cta-card .phone-hours { font-size: 10px; color: #bbb; background: #fff; padding: 2px 8px; border-radius: 4px; }
+  .bottom-cta-card .phone-number {
+    font-size: 26px; font-weight: 800; color: #1a1a1a; letter-spacing: -0.02em;
+    text-decoration: none; transition: color 0.2s;
+  }
+  .bottom-cta-card .phone-number:hover { color: var(--burgundy-500); }
+
+  .bottom-cta-card .btn-area { display: flex; gap: 10px; }
+  .btn-neutral {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: 10px;
+    border: 1.5px solid #e0e0e0; background: transparent;
+    font-size: 13px; font-weight: 600; color: #333;
+    text-decoration: none; transition: all 0.2s; cursor: pointer;
+  }
+  .btn-neutral:hover { border-color: rgba(155,35,53,0.3); color: var(--burgundy-600); background: rgba(155,35,53,0.01); }
+  .btn-neutral-muted {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: 10px;
+    border: 1.5px solid #e8e8e8; background: transparent;
+    font-size: 13px; font-weight: 600; color: #999;
+    text-decoration: none; transition: all 0.2s; cursor: pointer;
+  }
+  .btn-neutral-muted:hover { border-color: #ccc; color: #555; }
+
+  /* ══════ Inline CTA band ══════ */
+  .inline-cta {
+    padding: 0 0 56px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════
+     HERO BANNER
+════════════════════════════════════ -->
+<section class="banner">
+  <div class="banner-inner">
+    <div class="breadcrumb">
+      <a href="#">홈</a><span class="sep">›</span>
+      <a href="#">변호사 소개</a><span class="sep">›</span>
+      <span style="color:rgba(255,255,255,0.6)">이혼소송총괄팀</span>
+    </div>
+    <div class="banner-label">SPECIALIZED TEAM</div>
+    <h1>이혼소송총괄팀</h1>
+    <div class="gold-line"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     TABS
+════════════════════════════════════ -->
+<div class="tabs-bar">
+  <div class="tabs-inner">
+    <span class="tab-group-label active">변호사</span>
+    <div class="tab-item">변호사 소개</div>
+    <div class="tab-item active">이혼소송총괄팀</div>
+    <div class="tab-item">재산분할팀</div>
+    <div class="tab-item">위자료팀</div>
+    <div class="tab-item">친권·양육권팀</div>
+    <div class="tab-divider"></div>
+    <div class="tab-item">가족관계팀</div>
+    <div class="tab-item">형사사건팀</div>
+    <div class="tab-item">신청사건팀</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     1. TAGLINE (골드 바 + 핵심 숫자)
+════════════════════════════════════ -->
+<section class="tagline-section">
+  <div class="container">
+    <div class="tagline-inner">
+      <div class="tagline-bar"></div>
+      <div class="tagline-content">
+        <div class="eyebrow">MISSION</div>
+        <h2>모든 쟁점을 하나의 전략으로 통합하는<br>이혼소송의 사령탑</h2>
+        <p class="desc">모든 사건의 맥을 잡는 전략본부입니다. 각 전문팀과 유기적으로 협업하여, 재산·자녀·위자료 등 복합 쟁점을 하나의 승소 전략으로 엮어냅니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     2. TEAM LEADER
+════════════════════════════════════ -->
+<section class="leader-section">
+  <div class="container">
+    <div class="section-label">TEAM LEADER</div>
+    <h2>팀장 소개</h2>
+
+    <div class="leader-grid">
+      <div style="position:relative">
+        <div class="leader-photo">
+          <div style="width:100%;height:100%;background:#e8e4df;display:flex;align-items:center;justify-content:center">
+            <span style="font-size:48px;color:#ccc;font-weight:700">김</span>
+          </div>
+          <div class="overlay">
+            <div class="name">김미루</div>
+            <div class="pos">서울총괄 변호사 · 이혼소송총괄팀 팀장</div>
+          </div>
+        </div>
+        <div class="leader-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.5H21l-5 4 2 6.5L12 15l-6 4 2-6.5-5-4h6z"/></svg>
+        </div>
+      </div>
+
+      <div class="leader-info">
+        <div class="label-tag">SENIOR ATTORNEY · TEAM LEADER</div>
+        <div class="name">김미루 <span class="en">Kim Miru</span></div>
+        <div class="position">서울총괄 변호사 · 이혼소송총괄팀 팀장</div>
+
+        <div style="margin-bottom: 16px;">
+          <div class="credential-item">
+            <div class="credential-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#9B2335" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="credential-text">1,000건 이상 복합 쟁점 사건 수행</div>
+          </div>
+          <div class="credential-item">
+            <div class="credential-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#9B2335" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="credential-text">재판 전략 중심의 실무 총괄</div>
+          </div>
+          <div class="credential-item">
+            <div class="credential-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#9B2335" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="credential-text">민사·가사 전 분야 재판 실무 정통</div>
+          </div>
+        </div>
+
+        <div class="specialty-tags">
+          <span class="specialty-tag">이혼소송</span>
+          <span class="specialty-tag">재산분할</span>
+          <span class="specialty-tag">양육권</span>
+          <span class="specialty-tag">위자료</span>
+        </div>
+
+        <div class="cta-buttons">
+          <a href="#" class="btn-primary">프로필 보기 →</a>
+          <a href="#" class="btn-outline">📞 02-594-2800</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<!-- ════════════════════════════════════
+     3. TEAM DESCRIPTION (2컬럼: 왼쪽 인용 / 오른쪽 본문)
+════════════════════════════════════ -->
+<section class="desc-section">
+  <div class="container">
+    <div class="desc-two-col">
+      <div class="desc-left">
+        <div class="eyebrow">ABOUT THIS TEAM</div>
+        <h2>이혼소송총괄팀<br>소개</h2>
+        <div class="highlight-quote">
+          "이혼소송은 단일 이슈가 아닌<br>종합전략 싸움입니다.<br>우리는 그 전체의 맥을<br>설계하고 조율합니다."
+        </div>
+      </div>
+      <div class="desc-right">
+        <p>법무법인 신세계로 이혼소송총괄팀은 '재산', '자녀', '위자료', '사전처분' 등 각각의 쟁점을 법정에서 승소할 수 있는 '하나의 이야기'로 엮어내는 총괄 전략팀입니다.</p>
+        <p>소송에서 진짜 중요한 건 단순히 '누가 잘못했느냐'보다 '어떤 구조로, 어떤 흐름으로, 언제 무슨 주장을 펼칠지'입니다.</p>
+        <p>이혼소송총괄팀은 모든 쟁점별 전문팀과 협업하여 소장 작성부터 기일 전략, 증거배치, 재판 대응 흐름까지 의뢰인의 상황을 가장 효과적으로 전달할 수 있도록 전체 로드맵을 설계합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     4. SPECIALTIES (넘버링 + 호버 탑라인)
+════════════════════════════════════ -->
+<section class="specialties-section">
+  <div class="container">
+    <div class="spec-header">
+      <div>
+        <div class="eyebrow">EXPERTISE</div>
+        <h2>전문 분야</h2>
+      </div>
+      <div class="count">5개 핵심 분야</div>
+    </div>
+    <div class="specialties-grid">
+      <div class="specialty-card">
+        <div class="num">01</div>
+        <div class="text">소장 구조 설계</div>
+        <div class="sub">전략적 주장 배치와 스토리라인 구성</div>
+      </div>
+      <div class="specialty-card">
+        <div class="num">02</div>
+        <div class="text">주요 쟁점 배치 전략</div>
+        <div class="sub">공격·방어 우선순위 최적화</div>
+      </div>
+      <div class="specialty-card">
+        <div class="num">03</div>
+        <div class="text">재판 절차 흐름 설계</div>
+        <div class="sub">기일별 대응 시나리오 수립</div>
+      </div>
+      <div class="specialty-card">
+        <div class="num">04</div>
+        <div class="text">조정/판결 대응 시나리오</div>
+        <div class="sub">상황별 분기 전략과 즉시 대응</div>
+      </div>
+      <div class="specialty-card">
+        <div class="num">05</div>
+        <div class="text">쟁점 간 연계 전략 기획</div>
+        <div class="sub">7개 전문팀 cross-functional 협업</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     5. PROCESS (세로 타임라인 — 원형 넘버링 탈피)
+════════════════════════════════════ -->
+<section class="process-section">
+  <div class="container">
+    <div class="eyebrow">PROCESS</div>
+    <h2>업무 진행 프로세스</h2>
+    <div class="process-timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">01</div>
+        <div class="timeline-card">
+          <div class="step-name">사건 접수 및 분석</div>
+          <div class="step-desc">사실관계 파악, 쟁점 분류, 우선순위 설정. 의뢰인 상황에 맞는 최적의 전략 방향을 도출합니다.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">02</div>
+        <div class="timeline-card">
+          <div class="step-name">전략 수립</div>
+          <div class="step-desc">전문팀 배정, 공격·방어 시나리오 설계. 각 쟁점별 담당팀과의 협업 구조를 확정합니다.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">03</div>
+        <div class="timeline-card">
+          <div class="step-name">소장·증거 작성</div>
+          <div class="step-desc">주장 구조화, 증거 배치 최적화. 법정에서 가장 효과적으로 전달될 수 있는 형태로 정리합니다.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">04</div>
+        <div class="timeline-card">
+          <div class="step-name">재판 대응</div>
+          <div class="step-desc">기일별 전략 조율, 실시간 대응. 상대방 주장에 대한 즉각적인 반박 전략을 수립합니다.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">05</div>
+        <div class="timeline-card">
+          <div class="step-name">결과·사후관리</div>
+          <div class="step-desc">판결 분석, 집행·항소 여부 자문. 판결 이후에도 의뢰인의 권익을 끝까지 보호합니다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     6. CASES (피쳐드 1개 + 일반 1개)
+════════════════════════════════════ -->
+<section class="cases-section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">CASE RESULTS</div>
+        <h2>주요 성과</h2>
+      </div>
+    </div>
+
+    <!-- Case 1 -->
+    <div class="case-card">
+      <div class="case-number">CASE 01</div>
+      <div class="case-header">
+        <div class="case-title">상간/폭력/아동학대/양육비미지급/고액재산/면접교섭 관련</div>
+        <div class="case-result-badge">종합 전략 승소</div>
+      </div>
+      <div class="case-details">
+        <div class="case-detail-item"><span class="case-detail-num">1</span><span class="case-detail-text">가압류, 사전처분 제기</span></div>
+        <div class="case-detail-item"><span class="case-detail-num">2</span><span class="case-detail-text">상간자 별도 소 제기</span></div>
+        <div class="case-detail-item"><span class="case-detail-num">3</span><span class="case-detail-text">아동학대 신고, 임시조치, 피해자보호명령 등으로 분리조치</span></div>
+        <div class="case-detail-item"><span class="case-detail-num">4</span><span class="case-detail-text">자녀들 안정 후 재산분할 집중 — 35%~50%까지 확보</span></div>
+        <div class="case-detail-item"><span class="case-detail-num">5</span><span class="case-detail-text">양육비 미지급에 대한 과태료부과신청. 판결시 담보제공명령, 추후 이행명령</span></div>
+        <div class="case-detail-item"><span class="case-detail-num">6</span><span class="case-detail-text">자녀의 의사 반영한 면접교섭만 인정될 수 있도록 방어</span></div>
+      </div>
+    </div>
+
+    <!-- Case 2 -->
+    <div class="case-card">
+      <div class="case-number">CASE 02</div>
+      <div class="case-header">
+        <div class="case-title">명백한 폭력이나 상간 등 사유 없는 이혼 관련</div>
+        <div class="case-result-badge">조기 종료 성공</div>
+      </div>
+      <div class="case-details">
+        <div class="case-detail-item"><span class="case-detail-num">1</span><span class="case-detail-text">여러 사정을 통한 구체적인 진술에 대한 신빙성 확보</span></div>
+        <div class="case-detail-item"><span class="case-detail-num">2</span><span class="case-detail-text">가사조사 및 상담 절차 등을 통한 쌍방 진정한 의사 확인</span></div>
+        <div class="case-detail-item"><span class="case-detail-num">3</span><span class="case-detail-text">가사조사 단계나, 조정단계에서 종결될 수 있는 합의점 도출</span></div>
+        <div class="case-detail-item"><span class="case-detail-num">4</span><span class="case-detail-text">재판부에 상대방의 내심의 이혼의사 현출</span></div>
+        <div class="case-detail-item"><span class="case-detail-num">5</span><span class="case-detail-text">조기 종료하여 의뢰인의 정서적 소모 최소화 및 시간과 비용 절약</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     7. TRUST SIGNAL (의뢰인 한마디 — 감정적 요소)
+════════════════════════════════════ -->
+<section class="trust-section">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="quote-mark">"</div>
+      <div class="quote-text">
+        복잡한 상황이었는데, 모든 쟁점을 하나하나 정리해주시고<br>
+        전체 흐름을 설계해주셔서 재판 내내 불안하지 않았습니다.
+      </div>
+      <div class="quote-divider"></div>
+      <div class="quote-author">
+        <strong>이혼소송총괄팀 의뢰인</strong> · 재산분할+양육권 복합 사건
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     8. OTHER TEAMS
+════════════════════════════════════ -->
+<section class="other-teams-section">
+  <div class="container">
+    <div class="eyebrow">OTHER TEAMS</div>
+    <h2>다른 전문팀 보기</h2>
+    <div class="teams-grid">
+      <a href="#" class="team-card">
+        <div class="top">
+          <div class="avatar"></div>
+          <div><div class="team-name">재산분할팀</div><div class="team-leader">류현주 팀장</div></div>
+        </div>
+        <div class="team-desc">재산분할의 기준을 잡고, 하나도 놓치지 않는 실익 추적팀</div>
+        <div class="link">자세히 보기 →</div>
+      </a>
+      <a href="#" class="team-card">
+        <div class="top">
+          <div class="avatar"></div>
+          <div><div class="team-name">위자료팀</div><div class="team-leader">신진희 팀장</div></div>
+        </div>
+        <div class="team-desc">잘못한 사람이 대가를 치르게 만드는 정의 실현팀</div>
+        <div class="link">자세히 보기 →</div>
+      </a>
+      <a href="#" class="team-card">
+        <div class="top">
+          <div class="avatar"></div>
+          <div><div class="team-name">친권·양육권팀</div><div class="team-leader">박경내 팀장</div></div>
+        </div>
+        <div class="team-desc">아이를 지키는 건 전략이 아니라 진심이어야 합니다</div>
+        <div class="link">자세히 보기 →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     9. INLINE CTA BAND
+════════════════════════════════════ -->
+<section class="inline-cta">
+  <div class="container">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:18px 24px; background:#faf8f6; border:1px solid #ece8e4; border-radius:12px; flex-wrap:wrap;">
+      <p style="font-size:14px; color:#888; margin:0;">
+        <strong style="color:#1a1a1a;">어떤 결과를 받을 수 있는지,</strong>
+        <span style="margin-left:4px;">먼저 분석해드립니다.</span>
+      </p>
+      <a href="#" style="display:inline-flex; align-items:center; gap:6px; padding:10px 20px; border:1.5px solid #ddd; color:#555; font-size:13px; font-weight:600; border-radius:8px; text-decoration:none; white-space:nowrap; transition:all 0.2s; background:transparent;" onmouseover="this.style.borderColor='rgba(155,35,53,0.3)';this.style.color='#7B2D3B'" onmouseout="this.style.borderColor='#ddd';this.style.color='#555'">
+        무료상담 신청 →
+      </a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

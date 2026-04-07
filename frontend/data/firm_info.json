@@ -1,0 +1,73 @@
+{
+  "firm_name": "법무법인 신세계로",
+  "firm_name_en": "Shinsegae Law",
+  "slogan": "열정과 전문성으로 당신의 권리를 지켜드리겠습니다",
+  "sub_slogan": "이혼은 다시 행복할 권리입니다",
+  "hero_headline": "대한민국 이혼의 기준",
+  "established": 1970,
+  "tradition_years": 52,
+  "total_lawyers": 18,
+  "specialty_teams": 7,
+  "description": "이혼과 상속만, 18인의 전문가가 함께하는 신세계로. 1970년부터 52년 법조전통을 이어온 이혼·상속 전문 로펌입니다.",
+  "hero_stats": {
+    "tradition_years": 52, "tradition_label": "년 법조전통",
+    "lawyers_count": 18, "lawyers_label": "인 전문변호사",
+    "teams_count": 7, "teams_label": "개 전문팀 운영",
+    "win_rate": 94, "win_label": "%+ 승소율"
+  },
+  "mission": "이혼은 다시 행복할 권리라는 개념으로 의뢰인의 심리적 지원과 법률 서비스를 병행합니다.",
+  "philosophy": "열정과 전문성으로 당신의 권리를 지켜드리겠습니다",
+  "representative": "조인섭 대표변호사",
+  "greeting": [
+    "이혼이라는 단어를 입에 담기조차 어려워했던 시절이 있었습니다. 당시에 이혼은 개인의 실패이자 가족의 치부 였으니까요. 그래서인지 제대로 된 '이혼 전문가'조차 없었죠.",
+    "이혼은 실패도 어쩔 수 없는 것도 아닌 '존엄한 선택'인데 왜 존중받지 못할까?",
+    "우리가 진짜로 원하는 건 단지 '이기는 것'이 아닙니다. 우리는 이혼을 겪는 모든 사람에게 새 삶의 기준을 제시하는 것입니다.",
+    "당신이 새로운 삶을 시작할 때, 가장 먼저 신뢰할 수 있는 이름, 그것이 바로 신세계로입니다."
+  ],
+  "teams": [
+    { "name": "이혼소송총괄팀", "leader": "김미루", "leader_title": "수석변호사, 서울본부장" },
+    { "name": "재산분할팀", "leader": "류현주", "leader_title": "대전본부장" },
+    { "name": "위자료팀", "leader": "신진희", "leader_title": "수원본부장" },
+    { "name": "형사팀", "leader": "이명인", "leader_title": "수석변호사, 형사팀장" },
+    { "name": "보전처분사전처분팀", "leader": "이준헌", "leader_title": "수석변호사" },
+    { "name": "상속팀", "leader": "조윤용", "leader_title": "수석변호사, 상속팀장" },
+    { "name": "상간자소송팀", "leader": "조인섭", "leader_title": "대표변호사" }
+  ],
+  "social_channels": {
+    "blog": true,
+    "youtube": true,
+    "instagram": true,
+    "kakaotalk": true,
+    "naver_cafe": true
+  },
+  "offices": [
+    {
+      "name": "서울본사",
+      "address": "서울시 서초구 법원로 16, 207호",
+      "phone": "02-594-2800",
+      "fax": "02-594-2830",
+      "business_number": "214-88-80810"
+    },
+    {
+      "name": "대전지사",
+      "address": "대전광역시 서구 둔산로123번길 43 (둔산동) 201호",
+      "phone": "042-471-2833",
+      "fax": "042-471-2830",
+      "business_number": "205-85-13446"
+    },
+    {
+      "name": "수원지사",
+      "address": "경기도 수원시 영통구 봉영로 1605, 208호",
+      "phone": "031-202-2833",
+      "fax": "031-202-2830"
+    }
+  ],
+  "main_phone": "1555-5961",
+  "website": "https://www.shinsegaelaw.kr",
+  "ad_responsible": "조인섭",
+  "privacy_manager": {
+    "name": "조인섭",
+    "phone": "02-594-2800",
+    "email": "chois-1975@hanmail.net"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "title": "조변호사의 이혼사건 다이어리",
+    "description": "조인섭 변호사가 이혼전문 변호사로 경험한 것을 인스타그램에 연재하고 있는 카툰입니다.",
+    "instagram": "https://www.instagram.com/insup_cho/",
+    "total": 5,
+    "crawledAt": "2026-03-26T03:00:00.000Z"
+  },
+  "episodes": [
+    {
+      "id": 1,
+      "k_id": 773,
+      "title": "태극권 모임",
+      "date": "2025.07.29",
+      "image": "/images/etc/webtoon/webtoon-01.jpg",
+      "originalImage": "/data/board/kr_webtoonboard/2025072915060517537691659563.jpg",
+      "instagram_url": "https://www.instagram.com/insup_cho/",
+      "panelCount": 14
+    },
+    {
+      "id": 2,
+      "k_id": 774,
+      "title": "그놈의 땅타령 (1)",
+      "date": "2025.07.30",
+      "image": "/images/etc/webtoon/webtoon-02.jpg",
+      "originalImage": "/data/board/kr_webtoonboard/2025073013040417538482444119.jpg",
+      "instagram_url": "https://www.instagram.com/insup_cho/"
+    },
+    {
+      "id": 3,
+      "k_id": 775,
+      "title": "그놈의 땅타령 (2)",
+      "date": "2025.07.30",
+      "image": "/images/etc/webtoon/webtoon-03.jpg",
+      "originalImage": "/data/board/kr_webtoonboard/2025073013052017538483201633.jpg",
+      "instagram_url": "https://www.instagram.com/insup_cho/"
+    },
+    {
+      "id": 4,
+      "k_id": 776,
+      "title": "그놈의 땅타령 (3)",
+      "date": "2025.07.30",
+      "image": "/images/etc/webtoon/webtoon-04.jpg",
+      "originalImage": "/data/board/kr_webtoonboard/2025073013061517538483758563.jpg",
+      "instagram_url": "https://www.instagram.com/insup_cho/"
+    },
+    {
+      "id": 5,
+      "k_id": 777,
+      "title": "그놈의 땅타령 (4)",
+      "date": "2025.07.30",
+      "image": "/images/etc/webtoon/webtoon-05.jpg",
+      "originalImage": "/data/board/kr_webtoonboard/2025073013073317538484531271.jpg",
+      "instagram_url": "https://www.instagram.com/insup_cho/"
+    }
+  ]
+}

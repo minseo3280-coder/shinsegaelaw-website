@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>업무분야 WOW 프로토타입 — 재산분할</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Pretendard Variable', sans-serif; background: #fff; color: #1a1a1a; }
+  :root {
+    --burgundy: #9B2335; --burgundy-dark: #7B2D3B; --burgundy-light: #FDF2F4;
+    --gold: #C9A84C; --gold-light: #D4AF37;
+    --navy: #0F0F1A; --navy-light: #1A1A2E;
+    --cream: #faf9f7; --text: #1a1a1a; --text-sec: #666; --text-muted: #999;
+  }
+
+  /* ─── 배너 ─── */
+  .banner { position: relative; height: 240px; overflow: hidden; background: linear-gradient(135deg, #0a0a14 0%, #1a0a10 60%, rgba(155,35,53,0.15) 100%); }
+  .banner-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,10,20,0.95), rgba(10,10,20,0.7), rgba(155,35,53,0.1)); }
+  .banner-content { position: relative; z-index: 2; max-width: 960px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 28px; }
+  .breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.3); margin-bottom: 10px; }
+  .breadcrumb a { color: rgba(255,255,255,0.3); text-decoration: none; }
+  .banner-en { font-size: 11px; color: rgba(201,168,76,0.6); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 6px; }
+  .banner h1 { font-size: 30px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+  .banner .gold-line { width: 48px; height: 2px; background: linear-gradient(to right, var(--gold), var(--gold-light)); margin-top: 12px; }
+
+  /* ─── Tabs (간략) ─── */
+  .tabs { background: #fff; border-bottom: 1px solid #f0f0ee; }
+  .tabs-inner { max-width: 960px; margin: 0 auto; padding: 0 24px; display: flex; }
+  .tab-item { padding: 14px 20px; font-size: 14px; color: #bbb; border: none; background: none; cursor: pointer; }
+  .tab-item.active { color: var(--text); font-weight: 700; }
+  .tabs2 { background: #fff; border-bottom: 1px solid #e5e5e5; }
+  .tabs2-inner { max-width: 960px; margin: 0 auto; padding: 0 24px; display: flex; overflow-x: auto; }
+  .tabs2-inner::-webkit-scrollbar { display: none; }
+  .tab2-item { padding: 13px 16px; font-size: 14px; color: #aaa; border: none; border-bottom: 2px solid transparent; background: none; cursor: pointer; white-space: nowrap; }
+  .tab2-item.active { color: var(--burgundy-dark); font-weight: 600; border-bottom-color: var(--burgundy-dark); }
+
+  /* ─── 1. 핵심 통계 밴드 ─── */
+  .stat-band {
+    background: linear-gradient(135deg, var(--burgundy-light) 0%, #faf7f5 50%, var(--cream) 100%);
+    border-bottom: 1px solid rgba(155,35,53,0.06);
+  }
+  .stat-band-inner { max-width: 960px; margin: 0 auto; padding: 28px 24px; display: flex; gap: 0; }
+  .stat-item { flex: 1; text-align: center; position: relative; }
+  .stat-item + .stat-item::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 32px; background: rgba(155,35,53,0.1); }
+  .stat-num { font-size: 28px; font-weight: 800; color: var(--burgundy); letter-spacing: -0.02em; }
+  .stat-num span { font-size: 16px; font-weight: 400; color: var(--burgundy); opacity: 0.5; }
+  .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+  /* ─── 2. 본문 컨테이너 ─── */
+  .body-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .content-area { max-width: 680px; padding: 48px 0 0; }
+
+  /* 섹션 헤더 */
+  .page-header { margin-bottom: 36px; }
+  .page-header-en { font-size: 10px; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 6px; }
+  .page-header h2 { font-size: 24px; font-weight: 700; color: var(--text); letter-spacing: -0.01em; line-height: 1.35; }
+  .page-header .gold-bar { width: 40px; height: 2px; background: linear-gradient(to right, var(--gold), var(--gold-light)); margin-top: 12px; }
+  .page-header p { font-size: 15px; color: var(--text-sec); line-height: 1.8; margin-top: 16px; }
+
+  /* ─── 3. 키포인트 카드 그리드 ─── */
+  .keypoint-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 32px 0; }
+  .keypoint-card {
+    padding: 20px; border-radius: 14px; border: 1px solid #eee;
+    background: #fff; transition: all 0.25s; position: relative; overflow: hidden;
+  }
+  .keypoint-card:hover { border-color: rgba(155,35,53,0.15); box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
+  .keypoint-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--burgundy), var(--gold)); opacity: 0; transition: opacity 0.3s; }
+  .keypoint-card:hover::before { opacity: 1; }
+  .kp-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(155,35,53,0.06); display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+  .kp-icon svg { width: 18px; height: 18px; color: var(--burgundy); }
+  .keypoint-card h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .keypoint-card p { font-size: 13px; color: var(--text-sec); line-height: 1.6; }
+
+  /* ─── 4. 법률 콘텐츠 섹션 ─── */
+  .legal-section { margin-bottom: 40px; }
+  .legal-section h2 {
+    font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 14px; padding-left: 14px; position: relative;
+  }
+  .legal-section h2 .bar { position: absolute; left: 0; top: 3px; bottom: 3px; width: 3px; border-radius: 2px; background: linear-gradient(to bottom, var(--burgundy), var(--gold)); }
+  .legal-section h3 { font-size: 15px; font-weight: 600; color: var(--burgundy-dark); margin: 20px 0 8px; }
+  .legal-section p { font-size: 15px; color: var(--text-sec); line-height: 2.0; margin-bottom: 8px; }
+  .legal-list { list-style: none; padding: 0; margin: 12px 0; }
+  .legal-list li { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; font-size: 14px; color: var(--text-sec); line-height: 1.65; }
+  .legal-list li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--burgundy); flex-shrink: 0; margin-top: 9px; }
+
+  /* 법조문 카드 */
+  .law-card {
+    background: var(--burgundy-light); border-left: 3px solid var(--burgundy); border-radius: 0 14px 14px 0;
+    padding: 20px 24px; margin: 16px 0;
+  }
+  .law-card .law-title { font-size: 13px; font-weight: 700; color: var(--burgundy); margin-bottom: 8px; }
+  .law-card p { font-size: 14px; color: var(--burgundy-dark); line-height: 1.8; margin: 0; }
+
+  /* ─── 5. 인용/강조 밴드 (풀 와이드) ─── */
+  .highlight-band {
+    background: linear-gradient(135deg, var(--cream) 0%, #f8f5f2 100%);
+    border-top: 1px solid rgba(155,35,53,0.04); border-bottom: 1px solid rgba(155,35,53,0.04);
+    margin: 48px 0; padding: 0;
+  }
+  .highlight-band-inner {
+    max-width: 960px; margin: 0 auto; padding: 40px 24px;
+    display: flex; gap: 32px; align-items: center;
+  }
+  .highlight-quote { flex: 1; }
+  .highlight-quote .big-mark { font-size: 48px; color: rgba(155,35,53,0.15); line-height: 1; margin-bottom: 8px; }
+  .highlight-quote p { font-size: 16px; color: var(--text); line-height: 1.9; font-weight: 500; }
+  .highlight-quote .author { font-size: 13px; color: var(--burgundy); font-weight: 600; margin-top: 12px; }
+  .highlight-stat {
+    width: 200px; flex-shrink: 0; text-align: center;
+    padding: 24px; background: #fff; border-radius: 16px; border: 1px solid #eee;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  }
+  .highlight-stat .hs-num { font-size: 36px; font-weight: 800; color: var(--burgundy); }
+  .highlight-stat .hs-num span { font-size: 18px; color: var(--gold); }
+  .highlight-stat .hs-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .highlight-stat .hs-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  /* ─── 6. 전문팀 연결 카드 ─── */
+  .team-connect {
+    background: var(--navy); border-radius: 16px; padding: 28px 32px; margin: 48px 0;
+    display: flex; align-items: center; gap: 24px; overflow: hidden; position: relative;
+  }
+  .team-connect .tc-glow { position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; background: radial-gradient(circle, var(--burgundy), transparent 70%); opacity: 0.1; }
+  .team-connect-content { position: relative; z-index: 1; flex: 1; }
+  .team-connect .tc-label { font-size: 10px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; opacity: 0.8; }
+  .team-connect h3 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .team-connect p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+  .team-connect-btn {
+    position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;
+    padding: 11px 22px; border-radius: 10px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: all 0.25s; text-decoration: none;
+  }
+  .team-connect-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(201,168,76,0.3); color: #fff; }
+  .team-connect-btn svg { width: 14px; height: 14px; }
+
+  /* ─── 7. 승소사례 카드 (개선) ─── */
+  .cases-section { margin-top: 48px; padding-top: 32px; border-top: 1px solid #eee; }
+  .cases-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; }
+  .cases-header h3 { font-size: 18px; font-weight: 700; color: var(--text); }
+  .cases-header a { font-size: 13px; color: var(--burgundy); font-weight: 500; text-decoration: none; }
+  .cases-header a:hover { text-decoration: underline; }
+  .cases-header .gold-bar { width: 32px; height: 2px; background: var(--gold); margin-top: 6px; }
+
+  .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .case-card-v2 {
+    border: 1px solid #eee; border-radius: 14px; padding: 20px; transition: all 0.25s;
+    position: relative; overflow: hidden; cursor: pointer;
+  }
+  .case-card-v2:hover { border-color: rgba(155,35,53,0.15); box-shadow: 0 4px 16px rgba(0,0,0,0.04); transform: translateY(-2px); }
+  .case-card-v2 .cc-left-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--burgundy); opacity: 0.15; transition: opacity 0.25s; }
+  .case-card-v2:hover .cc-left-bar { opacity: 1; }
+  .case-badge { display: inline-block; font-size: 11px; padding: 2px 10px; background: var(--burgundy-light); color: var(--burgundy); font-weight: 600; border-radius: 100px; }
+  .case-card-v2 h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-top: 10px; line-height: 1.5; }
+  .case-result {
+    display: inline-flex; align-items: center; gap: 4px; margin-top: 10px;
+    font-size: 20px; font-weight: 800; color: var(--burgundy); letter-spacing: -0.02em;
+  }
+  .case-result .cr-label { font-size: 12px; font-weight: 500; color: var(--text-muted); }
+
+  /* ─── 8. 하단 CTA (B1 개선) ─── */
+  .bottom-cta {
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    padding: 24px 28px; margin-top: 48px; margin-bottom: 64px;
+    background: var(--cream); border: 1px solid #eee; border-radius: 14px;
+  }
+  .bottom-cta h3 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .bottom-cta p { font-size: 13px; color: var(--text-sec); margin: 0; }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;
+    padding: 11px 24px; border-radius: 10px;
+    background: #fff; color: var(--burgundy-dark); font-size: 14px; font-weight: 600;
+    border: 1.5px solid rgba(123,45,59,0.2); cursor: pointer; transition: all 0.25s; white-space: nowrap;
+  }
+  .btn-outline:hover { border-color: var(--burgundy); color: var(--burgundy); }
+  .btn-outline svg { width: 14px; height: 14px; transition: transform 0.2s; }
+  .btn-outline:hover svg { transform: translateX(3px); }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ BANNER ═══════════════ -->
+<div class="banner">
+  <div class="banner-overlay"></div>
+  <div class="banner-content">
+    <div class="breadcrumb"><a>홈</a> <span>›</span> <a>이혼소송</a> <span>›</span> <span style="color:rgba(255,255,255,0.6)">재산분할</span></div>
+    <p class="banner-en">Property Division</p>
+    <h1>재산분할</h1>
+    <div class="gold-line"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ TABS ═══════════════ -->
+<div class="tabs">
+  <div class="tabs-inner">
+    <button class="tab-item active"><span style="font-size:10px;color:#aaa;letter-spacing:0.12em;margin-right:6px">Divorce</span>이혼소송</button>
+    <button class="tab-item"><span style="font-size:10px;color:#d0d0d0;letter-spacing:0.12em;margin-right:6px">Adultery</span>상간자소송</button>
+    <button class="tab-item"><span style="font-size:10px;color:#d0d0d0;letter-spacing:0.12em;margin-right:6px">Criminal</span>가사관련 형사소송</button>
+  </div>
+</div>
+<div class="tabs2">
+  <div class="tabs2-inner">
+    <button class="tab2-item">이혼준비 가이드</button>
+    <button class="tab2-item">협의이혼</button>
+    <button class="tab2-item">재판이혼</button>
+    <button class="tab2-item">위자료</button>
+    <button class="tab2-item active">재산분할</button>
+    <button class="tab2-item">자녀문제</button>
+    <button class="tab2-item">부정행위</button>
+    <button class="tab2-item">가정폭력</button>
+    <button class="tab2-item">가족관계</button>
+    <button class="tab2-item">국제이혼</button>
+  </div>
+</div>
+
+<!-- ═══════════════ 1. 핵심 통계 밴드 ═══════════════ -->
+<div class="stat-band">
+  <div class="stat-band-inner">
+    <div class="stat-item">
+      <div class="stat-num">261<span>건+</span></div>
+      <div class="stat-label">재산분할 승소사례</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">52<span>년</span></div>
+      <div class="stat-label">법조 전통</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">94<span>%+</span></div>
+      <div class="stat-label">의뢰인 만족도</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">전담팀<span> 운영</span></div>
+      <div class="stat-label">재산분할팀 · 류현주 팀장</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ 2. 본문 시작 ═══════════════ -->
+<div class="body-wrap">
+  <div class="content-area">
+
+    <!-- 페이지 헤더 -->
+    <div class="page-header">
+      <p class="page-header-en">Property Division</p>
+      <h2>재산분할, 정확한 전략이<br>결과를 바꿉니다</h2>
+      <div class="gold-bar"></div>
+      <p>이혼 시 부부가 혼인 중 형성한 재산을 나누는 것을 재산분할이라 합니다. 단순한 절반 나누기가 아닌, 기여도·특유재산·은닉재산까지 고려한 전략적 접근이 필요합니다.</p>
+    </div>
+
+    <!-- 키포인트 카드 -->
+    <div class="keypoint-grid">
+      <div class="keypoint-card">
+        <div class="kp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h4>부동산·주택</h4>
+        <p>아파트, 토지, 상가 등 혼인 중 취득한 부동산 전수 분석</p>
+      </div>
+      <div class="keypoint-card">
+        <div class="kp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h4>금융자산·주식</h4>
+        <p>예금, 보험, 주식, 코인, 퇴직금, 연금 등 금융자산 추적</p>
+      </div>
+      <div class="keypoint-card">
+        <div class="kp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h4>법인·사업체</h4>
+        <p>법인 지분, 사업체 가치평가, 영업권 산정</p>
+      </div>
+      <div class="keypoint-card">
+        <div class="kp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h4>은닉재산 추적</h4>
+        <p>차명계좌, 해외자산, 가상자산 등 은닉재산 가압류</p>
+      </div>
+    </div>
+
+    <!-- 법률 콘텐츠 -->
+    <div class="legal-section">
+      <h2><span class="bar"></span>재산분할이란</h2>
+      <p>이혼을 하면 이혼한 부부의 일방이 다른 일방에 대해 재산을 나누어 가질 것을 청구할 수 있고, 이것을 재산분할 청구권이라고 합니다.</p>
+      <p>재산분할의 대상이 되는 재산은 부부가 혼인 중 형성한 재산입니다. 그러니 혼인 전에 취득한 재산이나 혼인 중에도 상속받은 재산 등은 분할 대상에서 원칙적으로 제외됩니다.</p>
+
+      <div class="law-card">
+        <p class="law-title">특유재산 (분할 대상 제외)</p>
+        <p>혼인 전 취득 재산, 상속·증여받은 재산은 원칙적으로 분할 대상이 아닙니다. 다만, 상대방의 기여로 그 재산의 유지·증식에 기여한 경우에는 분할 대상에 포함될 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <h2><span class="bar"></span>유책배우자의 재산분할 청구</h2>
+      <p>외도를 하거나 폭력을 행사한 유책배우자도 재산분할 청구가 가능합니다. 재산분할은 위자료와 달리 혼인 중 형성한 재산에 대한 청산이므로, 유책 여부와 무관하게 인정됩니다.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2><span class="bar"></span>채무(빚)의 분할</h2>
+      <p>혼인 중에 부부 공동생활을 위해 발생한 채무도 재산분할의 대상이 됩니다. 다만, 개인적인 도박채무나 사치 등 개인 소비에 의한 채무는 그 채무를 발생시킨 사람이 책임져야 합니다.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ 5. 인용 밴드 (풀 와이드) ═══════════════ -->
+<div class="highlight-band">
+  <div class="highlight-band-inner">
+    <div class="highlight-quote">
+      <div class="big-mark">&ldquo;</div>
+      <p>재산분할은 단순한 나눔이 아닙니다. 아파트, 주식, 퇴직금, 법인 지분, 상속재산까지 — 신세계로 재산분할팀은 복잡한 자산을 전략적으로 배분합니다.</p>
+      <p class="author">재산분할팀 류현주 팀장</p>
+    </div>
+    <div class="highlight-stat">
+      <div class="hs-num">50<span>억</span></div>
+      <div class="hs-label">최대 분할 성공 금액</div>
+      <div class="hs-sub">특유재산 포함 조정 성립</div>
+    </div>
+  </div>
+</div>
+
+<!-- 나머지 법률 콘텐츠 -->
+<div class="body-wrap">
+  <div class="content-area">
+    <div class="legal-section">
+      <h2><span class="bar"></span>재산분할 기준 시점</h2>
+      <p>재산분할의 기준 시점은 원칙적으로 이혼소송의 사실심 변론종결일입니다. 따라서 별거 이후에 일방이 재산을 처분하거나 새로 형성한 재산은 상황에 따라 판단이 달라질 수 있습니다.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2><span class="bar"></span>양도소득세</h2>
+      <p>재산분할로 부동산의 소유권이 이전되는 경우에는 양도소득세가 부과되지 않습니다. 다만 위자료로 부동산을 이전받는 경우에는 양도소득세가 부과될 수 있으므로 구분이 중요합니다.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2><span class="bar"></span>사해행위 취소</h2>
+      <p>상대방 배우자가 이혼 전 재산을 빼돌리기 위해 재산을 제3자에게 증여하거나 헐값에 매도한 경우, 사해행위취소의 소를 제기하여 그 행위를 취소시킬 수 있습니다.</p>
+    </div>
+
+    <!-- ═══════════════ 6. 전문팀 연결 ═══════════════ -->
+    <div class="team-connect">
+      <div class="tc-glow"></div>
+      <div class="team-connect-content">
+        <p class="tc-label">Specialized Team</p>
+        <h3>재산분할팀이 전담합니다</h3>
+        <p>고액자산 분할 전략과 특유재산 분쟁에 강한 실무 전문가 · 류현주 팀장</p>
+      </div>
+      <a href="#" class="team-connect-btn">
+        팀 상세보기
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <!-- ═══════════════ 7. 관련 승소사례 ═══════════════ -->
+    <div class="cases-section">
+      <div class="cases-header">
+        <div>
+          <h3>관련 승소사례</h3>
+          <div class="gold-bar"></div>
+        </div>
+        <a href="#">전체보기 →</a>
+      </div>
+      <div class="case-grid">
+        <div class="case-card-v2">
+          <div class="cc-left-bar"></div>
+          <span class="case-badge">재산분할</span>
+          <h4>특유재산 포함 50억 분할<br>조정 성립</h4>
+          <div class="case-result">
+            50<span style="font-size:14px;color:#C9A84C">억</span>
+            <span class="cr-label">분할 성공</span>
+          </div>
+        </div>
+        <div class="case-card-v2">
+          <div class="cc-left-bar"></div>
+          <span class="case-badge">재산분할</span>
+          <h4>의사 남편 병원 자산 포함<br>기여도 45% 인정</h4>
+          <div class="case-result">
+            45<span style="font-size:14px;color:#C9A84C">%</span>
+            <span class="cr-label">기여도 인정</span>
+          </div>
+        </div>
+        <div class="case-card-v2">
+          <div class="cc-left-bar"></div>
+          <span class="case-badge">재산분할</span>
+          <h4>1심 마이너스 평가 뒤집고<br>은닉재산 10억+ 발견</h4>
+          <div class="case-result">
+            10<span style="font-size:14px;color:#C9A84C">억+</span>
+            <span class="cr-label">은닉재산 발견</span>
+          </div>
+        </div>
+        <div class="case-card-v2">
+          <div class="cc-left-bar"></div>
+          <span class="case-badge">재산분할</span>
+          <h4>해외 스타트업 주식 가치 반영<br>기여도 30% 인정</h4>
+          <div class="case-result">
+            30<span style="font-size:14px;color:#C9A84C">%</span>
+            <span class="cr-label">기여도 인정</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════ 8. 하단 CTA ═══════════════ -->
+    <div class="bottom-cta">
+      <div>
+        <h3>재산분할, 전문가와 먼저 점검하세요.</h3>
+        <p>자산 구조 분석부터 기여도 산정까지 무료로 상담해 드립니다.</p>
+      </div>
+      <button class="btn-outline">
+        무료상담 신청
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

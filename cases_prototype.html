@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>승소사례 — 법무법인 신세계로 (v2 프로토타입)</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  color: #1a1a1a; background: #fff; -webkit-font-smoothing: antialiased; line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* ─── Tokens (메인페이지 동일) ─── */
+:root {
+  --burgundy-50: #fdf2f4;
+  --burgundy-100: #f5dce1;
+  --burgundy-500: #9B2335;
+  --burgundy-600: #7B2D3B;
+  --burgundy-700: #5C1D2A;
+  --gold-400: #C9A84C;
+  --gold-500: #D4AF37;
+  --navy-800: #1A1A2E;
+  --navy-900: #0F0F1A;
+  --stone-50: #fafaf9;
+  --cream: #faf9f7;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+}
+
+/* ═══════════════════════════════════════════
+   BANNER — 변호사탭과 동일한 스타일
+   ═══════════════════════════════════════════ */
+.banner {
+  position: relative; height: 200px; overflow: hidden; background: var(--navy-900);
+}
+@media (min-width: 768px) { .banner { height: 260px; } }
+.banner-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1400&q=80') center/cover;
+}
+.banner-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.50); }
+.banner-content {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 32px;
+}
+@media (min-width: 768px) { .banner-content { padding-left: 32px; padding-right: 32px; } }
+.breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: rgba(255,255,255,0.3); margin-bottom: 12px;
+}
+.breadcrumb a:hover { color: rgba(255,255,255,0.5); transition: color 0.2s; }
+.breadcrumb .sep { font-size: 10px; color: rgba(255,255,255,0.2); }
+.breadcrumb .current { color: rgba(255,255,255,0.6); }
+.banner h1 {
+  font-size: 24px; font-weight: 700; color: #fff; letter-spacing: -0.02em;
+}
+@media (min-width: 768px) { .banner h1 { font-size: 30px; } }
+.banner-line { width: 48px; height: 2px; background: rgba(212,175,55,0.6); margin-top: 12px; }
+
+/* ═══════════════════════════════════════════
+   STICKY TABS — CasesTabs와 동일
+   ═══════════════════════════════════════════ */
+.tabs-bar {
+  background: #fff; border-bottom: 1px solid var(--gray-200);
+  position: sticky; top: 0; z-index: 30;
+}
+.tabs-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; gap: 0; overflow-x: auto;
+  -ms-overflow-style: none; scrollbar-width: none;
+}
+.tabs-inner::-webkit-scrollbar { display: none; }
+.tabs-group {
+  display: flex; align-items: stretch; flex-shrink: 0;
+}
+.tabs-group-divider {
+  display: flex; align-items: center; padding: 0 12px;
+}
+.tabs-group-divider-line {
+  width: 1px; height: 20px; background: var(--gray-200);
+}
+.tabs-group-label {
+  display: flex; align-items: center; padding-right: 4px; flex-shrink: 0;
+}
+.tabs-group-label span {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.02em;
+  transition: color 0.2s;
+  color: var(--gray-300);
+}
+.tabs-group.group-active .tabs-group-label span {
+  color: var(--navy-800);
+}
+.tab-btn {
+  padding: 16px 16px; font-size: 14px; white-space: nowrap;
+  color: var(--gray-400); font-weight: 400;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s; flex-shrink: 0;
+}
+.tab-btn:hover { color: var(--gray-600); }
+.tab-btn.active {
+  color: var(--burgundy-600); font-weight: 600;
+  border-bottom-color: var(--burgundy-600);
+}
+
+/* ═══════════════════════════════════════════
+   TRUST INDICATORS — 메인페이지 그대로
+   bg-stone-50, 버건디 숫자, border-r 구분선
+   ═══════════════════════════════════════════ */
+.trust-section {
+  background: var(--stone-50); border-top: 1px solid var(--gray-200); border-bottom: 1px solid #e8e6e0;
+}
+.trust-inner {
+  max-width: 1200px; margin: 0 auto; padding: 48px 24px;
+}
+@media (min-width: 768px) { .trust-inner { padding: 64px 32px; } }
+.trust-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
+}
+@media (min-width: 768px) { .trust-grid { grid-template-columns: repeat(4, 1fr); gap: 48px; } }
+.trust-item {
+  text-align: center; padding: 16px 0;
+  border-right: 1px solid var(--gray-200);
+}
+.trust-item:nth-child(2) { border-right: none; }
+@media (min-width: 768px) { .trust-item:nth-child(2) { border-right: 1px solid var(--gray-200); } }
+.trust-item:last-child { border-right: none; }
+.trust-number {
+  font-size: 48px; font-weight: 700; color: var(--burgundy-600); letter-spacing: -0.02em; line-height: 1;
+}
+@media (min-width: 768px) { .trust-number { font-size: 64px; } }
+.trust-suffix { font-size: 24px; font-weight: 300; color: var(--burgundy-600); margin-left: 4px; }
+.trust-label {
+  font-size: 14px; font-weight: 500; color: var(--gray-700); margin-top: 12px; letter-spacing: 0.02em;
+}
+.trust-sub { font-size: 12px; color: var(--gray-500); margin-top: 4px; }
+
+/* ═══════════════════════════════════════════
+   INTRO TEXT — 변호사탭과 동일 패턴
+   ═══════════════════════════════════════════ */
+.intro-section {
+  max-width: 960px; margin: 0 auto; padding: 40px 24px 32px;
+}
+@media (min-width: 768px) { .intro-section { padding: 56px 32px 40px; } }
+.intro-text {
+  font-size: 15px; color: var(--gray-500); line-height: 1.8;
+}
+@media (min-width: 768px) { .intro-text { font-size: 16px; } }
+.intro-text .accent { color: var(--burgundy-500); font-weight: 700; }
+
+/* ═══════════════════════════════════════════
+   CONTENT AREA (2-column, 변호사탭 max-w-960 대신 1200)
+   ═══════════════════════════════════════════ */
+.content-area {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  display: grid; grid-template-columns: 1fr; gap: 0;
+}
+@media (min-width: 1024px) {
+  .content-area { grid-template-columns: 240px 1fr; gap: 48px; padding: 0 32px; }
+}
+
+/* ═══ Sidebar ═══ */
+.sidebar { display: none; padding-top: 8px; padding-bottom: 60px; }
+@media (min-width: 1024px) { .sidebar { display: block; } }
+
+.sidebar-title {
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gray-400); font-weight: 600; margin-bottom: 14px;
+  padding-bottom: 10px; border-bottom: 1px solid var(--gray-200);
+}
+.category-list { list-style: none; }
+.category-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 9px 12px; margin-bottom: 1px; border-radius: 8px;
+  font-size: 14px; color: var(--gray-600); cursor: pointer;
+  transition: all 0.2s;
+}
+.category-item:hover { background: var(--gray-50); color: var(--gray-800); }
+.category-item.active {
+  background: var(--burgundy-50); color: var(--burgundy-600); font-weight: 600;
+}
+.category-count {
+  font-size: 11px; color: var(--gray-400); font-weight: 500;
+}
+.category-item.active .category-count { color: var(--burgundy-500); font-weight: 600; }
+
+/* Bottom Consultation CTA — /reviews 하단과 동일 */
+.consultation-cta {
+  background: var(--cream); border-top: 1px solid var(--gray-200);
+}
+.consultation-cta-inner {
+  max-width: 1200px; margin: 0 auto; padding: 80px 24px; text-align: center;
+}
+@media (min-width: 768px) { .consultation-cta-inner { padding: 96px 32px; } }
+.consultation-label {
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(155,35,53,0.4); margin-bottom: 12px;
+}
+.consultation-title {
+  font-size: 20px; font-weight: 700; color: var(--gray-900); margin-bottom: 8px;
+}
+.consultation-desc {
+  font-size: 14px; color: var(--gray-500); margin-bottom: 32px;
+}
+.consultation-buttons {
+  display: flex; flex-direction: column; gap: 12px;
+  justify-content: center; align-items: center;
+}
+@media (min-width: 640px) { .consultation-buttons { flex-direction: row; } }
+.consultation-phone {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 12px 24px; border-radius: 999px; font-size: 14px;
+  border: 1px solid var(--gray-200); color: var(--gray-700);
+  transition: all 0.2s;
+}
+.consultation-phone:hover { background: #fff; border-color: rgba(155,35,53,0.3); }
+.consultation-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 12px 24px; border-radius: 999px; font-size: 14px; font-weight: 500;
+  background: var(--burgundy-500); color: #fff;
+  transition: all 0.3s;
+}
+.consultation-btn:hover { background: var(--burgundy-600); }
+
+/* ═══ Main Column ═══ */
+.main-col { padding-bottom: 60px; }
+
+/* Mobile category (horizontal pill scroll) */
+.mobile-filters {
+  display: flex; gap: 8px; overflow-x: auto; padding-bottom: 20px;
+  -ms-overflow-style: none; scrollbar-width: none;
+}
+.mobile-filters::-webkit-scrollbar { display: none; }
+@media (min-width: 1024px) { .mobile-filters { display: none; } }
+.mobile-filter-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 500;
+  white-space: nowrap; border: 1px solid var(--gray-200); color: var(--gray-500);
+  transition: all 0.3s; flex-shrink: 0;
+}
+.mobile-filter-btn:hover { border-color: var(--burgundy-100); color: var(--burgundy-600); }
+.mobile-filter-btn.active {
+  background: var(--burgundy-50); color: var(--burgundy-600); border-color: var(--burgundy-200);
+  font-weight: 600;
+}
+
+/* Controls bar */
+.controls {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--gray-200);
+}
+.result-count { font-size: 13px; color: var(--gray-500); }
+.result-count strong { color: var(--burgundy-600); font-weight: 700; }
+.controls-right { display: flex; align-items: center; gap: 8px; }
+.search-box { position: relative; }
+.search-input {
+  background: #fff; border: 1px solid var(--gray-200); border-radius: 8px;
+  padding: 7px 12px 7px 34px; font-size: 13px; color: var(--gray-700);
+  width: 160px; outline: none; font-family: inherit; transition: all 0.2s;
+}
+@media (min-width: 768px) { .search-input { width: 200px; } }
+.search-input:focus { border-color: var(--burgundy-500); box-shadow: 0 0 0 3px rgba(155,35,53,0.06); }
+.search-icon {
+  position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+  color: var(--gray-400); pointer-events: none;
+}
+.sort-select {
+  background: #fff; border: 1px solid var(--gray-200); border-radius: 8px;
+  padding: 7px 28px 7px 12px; font-size: 13px; color: var(--gray-700);
+  appearance: none; outline: none; font-family: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 8px center;
+  transition: all 0.2s;
+}
+.sort-select:focus { border-color: var(--burgundy-500); }
+
+/* ═══════════════════════════════════════════
+   CASE CARDS — 메인페이지 Cases 섹션 스타일 적용
+   좌측 버건디 보더 + hover 확장 + burgundy-50 bg
+   ═══════════════════════════════════════════ */
+.cases-grid {
+  display: grid; grid-template-columns: 1fr; gap: 14px;
+}
+@media (min-width: 768px) { .cases-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+
+.case-card {
+  display: block;
+  padding: 24px 28px; border-radius: 16px;
+  border: 1px solid var(--gray-100);
+  border-left: 4px solid var(--burgundy-500);
+  background: #fff;
+  transition: all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.case-card:hover {
+  border-left-width: 8px;
+  border-left-color: var(--burgundy-600);
+  background: rgba(253,242,244,0.5); /* burgundy-50/50 */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+
+.case-card-badges { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.badge-cat {
+  display: inline-flex; padding: 3px 12px; border-radius: 999px;
+  font-size: 10px; font-weight: 600;
+  background: var(--burgundy-500); color: #fff;
+}
+.badge-type {
+  display: inline-flex; padding: 3px 10px; border-radius: 999px;
+  font-size: 10px; font-weight: 500;
+  border: 1px solid var(--gray-200); color: var(--gray-500);
+}
+
+.case-card-title {
+  font-size: 16px; font-weight: 700; color: var(--navy-900);
+  line-height: 1.5; letter-spacing: -0.02em; margin-bottom: 10px;
+  transition: color 0.3s;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.case-card:hover .case-card-title { color: var(--burgundy-600); }
+
+.case-card-summary {
+  font-size: 13px; color: var(--gray-500); line-height: 1.7; margin-bottom: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+.case-card-result {
+  font-size: 13px; font-weight: 600; color: var(--burgundy-600); margin-bottom: 14px;
+  line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+.case-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.tag {
+  font-size: 10px; padding: 4px 12px; border-radius: 999px;
+  background: var(--burgundy-50); color: var(--burgundy-700);
+}
+
+.case-card-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 12px; border-top: 1px solid var(--gray-100);
+}
+.case-card-lawyer { font-size: 12px; color: var(--gray-500); }
+.case-card-lawyer strong { color: var(--gray-700); font-weight: 600; }
+.case-card-meta { display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--gray-400); }
+.case-card-views { display: flex; align-items: center; gap: 3px; }
+
+/* ═══════════════════════════════════════════
+   PAGINATION — 깔끔한 숫자 스타일
+   ═══════════════════════════════════════════ */
+.pagination {
+  display: flex; align-items: center; justify-content: center;
+  gap: 4px; margin-top: 40px; padding-top: 28px;
+}
+.page-btn {
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 500; color: var(--gray-500);
+  transition: all 0.2s;
+}
+.page-btn:hover { background: var(--gray-50); color: var(--gray-700); }
+.page-btn.active {
+  background: var(--burgundy-500); color: #fff; font-weight: 700;
+}
+.page-btn.nav-arrow { color: var(--gray-400); }
+.page-btn.nav-arrow:hover { background: var(--gray-50); color: var(--gray-700); }
+.page-dots { width: 36px; text-align: center; color: var(--gray-400); letter-spacing: 2px; font-size: 12px; }
+
+/* ═══════════════════════════════════════════
+   BOTTOM BAR — 변호사탭 하단과 동일
+   ═══════════════════════════════════════════ */
+.bottom-bar {
+  max-width: 960px; margin: 0 auto; padding: 0 24px;
+}
+.bottom-bar-inner {
+  border-top: 1px solid var(--gray-200); padding: 20px 0;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+}
+.bottom-bar-text { font-size: 10px; color: var(--gray-400); }
+.bottom-bar-phone {
+  font-size: 14px; font-weight: 700; color: var(--gray-900);
+  transition: color 0.2s;
+}
+.bottom-bar-phone:hover { color: var(--burgundy-500); }
+.bottom-bar-divider { width: 1px; height: 12px; background: var(--gray-200); }
+.bottom-bar-link {
+  font-size: 11px; color: var(--burgundy-500); font-weight: 500;
+  transition: color 0.2s;
+}
+.bottom-bar-link:hover { color: var(--burgundy-700); }
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+[data-reveal] {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.6s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+[data-reveal].visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ═══ BANNER (변호사탭과 동일) ═══ -->
+<div class="banner">
+  <div class="banner-bg"></div>
+  <div class="banner-overlay"></div>
+  <div class="banner-content">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="#">홈</a>
+      <span class="sep">›</span>
+      <span class="current">승소사례</span>
+    </nav>
+    <h1>승소 사례</h1>
+    <div class="banner-line"></div>
+  </div>
+</div>
+
+<!-- ═══ STICKY TABS ═══ -->
+<div class="tabs-bar">
+  <div class="tabs-inner">
+    <!-- 승소사례 group -->
+    <div class="tabs-group group-active" data-group="cases">
+      <div class="tabs-group-label"><span>승소사례</span></div>
+      <button class="tab-btn active">전체 승소사례</button>
+      <button class="tab-btn">이혼</button>
+      <button class="tab-btn">재산분할</button>
+      <button class="tab-btn">상간</button>
+      <button class="tab-btn">양육권</button>
+      <button class="tab-btn">상속</button>
+    </div>
+
+    <!-- Divider -->
+    <div class="tabs-group-divider"><div class="tabs-group-divider-line"></div></div>
+
+    <!-- 의뢰인후기 group -->
+    <div class="tabs-group" data-group="reviews">
+      <div class="tabs-group-label"><span>의뢰인후기</span></div>
+      <button class="tab-btn">전체 후기</button>
+      <button class="tab-btn">언론매체</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TRUST INDICATORS (메인페이지 그대로) ═══ -->
+<section class="trust-section" data-reveal>
+  <div class="trust-inner">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <p class="trust-number">1,061<span class="trust-suffix">건+</span></p>
+        <p class="trust-label">승소사례</p>
+        <p class="trust-sub">검증된 실전 승소 기록</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-number">94<span class="trust-suffix">%+</span></p>
+        <p class="trust-label">승소율</p>
+        <p class="trust-sub">4,000건+ 누적 승소</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-number">52<span class="trust-suffix">년</span></p>
+        <p class="trust-label">법조 전통</p>
+        <p class="trust-sub">1970년부터 3대에 걸친</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-number">17<span class="trust-suffix">명</span></p>
+        <p class="trust-label">전문 변호사</p>
+        <p class="trust-sub">이혼·상속만 집중하는</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INTRO TEXT (변호사탭 패턴) ═══ -->
+<section class="intro-section" data-reveal>
+  <p class="intro-text">
+    <span class="accent">법무법인 신세계로</span>는 52년 법조전통의 가족법 전문 로펌으로서,
+    1,061건 이상의 승소사례를 보유하고 있습니다. 아래에서 분야별 주요 승소사례를 확인하세요.
+  </p>
+</section>
+
+<!-- ═══ CONTENT AREA (sidebar + main) ═══ -->
+<div class="content-area">
+
+  <!-- Sidebar (desktop) -->
+  <aside class="sidebar">
+    <div>
+      <h3 class="sidebar-title">분야별 사례</h3>
+      <ul class="category-list">
+        <li class="category-item active">
+          <span>전체</span>
+          <span class="category-count">1,053</span>
+        </li>
+        <li class="category-item">
+          <span>양육권</span>
+          <span class="category-count">320</span>
+        </li>
+        <li class="category-item">
+          <span>이혼</span>
+          <span class="category-count">290</span>
+        </li>
+        <li class="category-item">
+          <span>재산분할</span>
+          <span class="category-count">223</span>
+        </li>
+        <li class="category-item">
+          <span>상간</span>
+          <span class="category-count">172</span>
+        </li>
+        <li class="category-item">
+          <span>상속</span>
+          <span class="category-count">48</span>
+        </li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <!-- Main column -->
+  <div class="main-col">
+
+    <!-- Mobile category filter -->
+    <div class="mobile-filters">
+      <button class="mobile-filter-btn active">전체 1,053</button>
+      <button class="mobile-filter-btn">양육권 320</button>
+      <button class="mobile-filter-btn">이혼 290</button>
+      <button class="mobile-filter-btn">재산분할 223</button>
+      <button class="mobile-filter-btn">상간 172</button>
+      <button class="mobile-filter-btn">상속 48</button>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <div class="result-count">
+        전체 사례 <strong>1,053건</strong>
+      </div>
+      <div class="controls-right">
+        <div class="search-box">
+          <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" class="search-input" placeholder="사례 검색...">
+        </div>
+        <select class="sort-select">
+          <option>최신순</option>
+          <option>인기순</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- ═══ Cases Grid (메인 Cases 섹션 카드 스타일) ═══ -->
+    <div class="cases-grid" data-reveal>
+
+      <!-- Card 1 -->
+      <a href="#" class="case-card">
+        <div class="case-card-badges">
+          <span class="badge-cat">양육권</span>
+          <span class="badge-type">판결</span>
+        </div>
+        <h4 class="case-card-title">1심 이혼기각을 항소심에서 뒤집고 이혼 및 특유재산 주장을 관철하여 재산분할에서 승리한 사례</h4>
+        <p class="case-card-summary">법무법인 신세계로는 상대방의 공격적인 태도를 역이용하여 혼인 유지 의사가 진심이 아님을 강조하여 1심 기각을 뒤집었습니다.</p>
+        <p class="case-card-result">승소 (항소심 역전) — 재산분할 2억6800만원</p>
+        <div class="case-card-tags">
+          <span class="tag">이혼</span>
+          <span class="tag">재산분할</span>
+          <span class="tag">항소심</span>
+        </div>
+        <div class="case-card-footer">
+          <span class="case-card-lawyer">담당: <strong>조인섭, 이준헌</strong> 변호사</span>
+          <span class="case-card-meta">
+            <span>2025.09</span>
+            <span class="case-card-views">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              227
+            </span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="#" class="case-card">
+        <div class="case-card-badges">
+          <span class="badge-cat">양육권</span>
+          <span class="badge-type">조정</span>
+        </div>
+        <h4 class="case-card-title">해외장기 면접교섭 확보한 이혼조정승소사례</h4>
+        <p class="case-card-summary">조정 끝에 의뢰인 명의로 파크하비오 오피스텔을 이전받아 한국 방문 시 주거지를 확보하는 데 성공했습니다.</p>
+        <p class="case-card-result">이혼 | 부동산 명의이전 | 양육비 월 180만원</p>
+        <div class="case-card-tags">
+          <span class="tag">이혼조정</span>
+          <span class="tag">면접교섭</span>
+          <span class="tag">해외</span>
+        </div>
+        <div class="case-card-footer">
+          <span class="case-card-lawyer">담당: <strong>조인섭</strong> 변호사</span>
+          <span class="case-card-meta">
+            <span>2025.09</span>
+            <span class="case-card-views">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              118
+            </span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="#" class="case-card">
+        <div class="case-card-badges">
+          <span class="badge-cat">재산분할</span>
+          <span class="badge-type">판결</span>
+        </div>
+        <h4 class="case-card-title">해외 주식 및 비트코인을 재산분할 대상에 포함시키고, 기여분을 인정받아 60% 유리한 배분을 이끌어 낸 사례</h4>
+        <p class="case-card-summary">상대방이 해외에 은닉한 가상자산과 주식을 전수 추적하여 재산분할 대상에 포함시켰습니다.</p>
+        <p class="case-card-result">재산분할 비율 60:40 확정, 약 5억 2천만원 추가 확보</p>
+        <div class="case-card-tags">
+          <span class="tag">재산분할</span>
+          <span class="tag">해외자산</span>
+          <span class="tag">가상자산</span>
+        </div>
+        <div class="case-card-footer">
+          <span class="case-card-lawyer">담당: <strong>조인섭</strong> 변호사</span>
+          <span class="case-card-meta">
+            <span>2025.08</span>
+            <span class="case-card-views">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              389
+            </span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card 4 -->
+      <a href="#" class="case-card">
+        <div class="case-card-badges">
+          <span class="badge-cat">이혼</span>
+          <span class="badge-type">판결</span>
+        </div>
+        <h4 class="case-card-title">배우자의 숨긴 재산을 금융조회로 밝혀내고, 유책사유를 입증하여 이혼 및 위자료 3,000만원을 받은 사례</h4>
+        <p class="case-card-summary">배우자가 은닉한 금융자산을 법원 금융조회를 통해 밝혀내고, 이를 기반으로 유책사유를 입증했습니다.</p>
+        <p class="case-card-result">이혼 인용 + 위자료 3,000만원 + 재산분할 55%</p>
+        <div class="case-card-tags">
+          <span class="tag">이혼</span>
+          <span class="tag">위자료</span>
+          <span class="tag">재산은닉</span>
+        </div>
+        <div class="case-card-footer">
+          <span class="case-card-lawyer">담당: <strong>조용국</strong> 변호사</span>
+          <span class="case-card-meta">
+            <span>2025.07</span>
+            <span class="case-card-views">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              512
+            </span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card 5 -->
+      <a href="#" class="case-card">
+        <div class="case-card-badges">
+          <span class="badge-cat">상간</span>
+          <span class="badge-type">판결</span>
+        </div>
+        <h4 class="case-card-title">상간소송에서 불륜 증거를 체계적으로 확보하여 상간녀에게 위자료 5,000만원 전액 승소한 사례</h4>
+        <p class="case-card-summary">SNS 대화 기록, 신용카드 사용내역, GPS 위치정보를 통해 불륜 관계를 체계적으로 입증했습니다.</p>
+        <p class="case-card-result">위자료 5,000만원 전액 인용</p>
+        <div class="case-card-tags">
+          <span class="tag">상간소송</span>
+          <span class="tag">위자료</span>
+          <span class="tag">증거확보</span>
+        </div>
+        <div class="case-card-footer">
+          <span class="case-card-lawyer">담당: <strong>이준헌</strong> 변호사</span>
+          <span class="case-card-meta">
+            <span>2025.06</span>
+            <span class="case-card-views">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              445
+            </span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card 6 -->
+      <a href="#" class="case-card">
+        <div class="case-card-badges">
+          <span class="badge-cat">양육권</span>
+          <span class="badge-type">조정</span>
+        </div>
+        <h4 class="case-card-title">아버지 측 양육권 확보가 어려운 상황에서 친권·양육권 모두 획득한 사례</h4>
+        <p class="case-card-summary">통계적으로 불리한 아버지 측에서 양육 환경, 자녀 의사를 적극 소명하여 친권·양육권을 모두 획득했습니다.</p>
+        <p class="case-card-result">친권·양육권 아버지 지정, 양육비 월 150만원</p>
+        <div class="case-card-tags">
+          <span class="tag">양육권</span>
+          <span class="tag">친권</span>
+          <span class="tag">아버지</span>
+        </div>
+        <div class="case-card-footer">
+          <span class="case-card-lawyer">담당: <strong>박선영</strong> 변호사</span>
+          <span class="case-card-meta">
+            <span>2025.05</span>
+            <span class="case-card-views">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              298
+            </span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card 7 -->
+      <a href="#" class="case-card">
+        <div class="case-card-badges">
+          <span class="badge-cat">상속</span>
+          <span class="badge-type">판결</span>
+        </div>
+        <h4 class="case-card-title">유류분 반환 청구에서 부동산·주식 등 상속재산 전체에 대한 유류분을 인정받아 4억원 확보한 사례</h4>
+        <p class="case-card-summary">피상속인이 사전에 증여한 부동산과 주식을 유류분 산정 기초재산에 포함시키는 데 성공했습니다.</p>
+        <p class="case-card-result">유류분 반환 4억원 확정 판결</p>
+        <div class="case-card-tags">
+          <span class="tag">상속</span>
+          <span class="tag">유류분</span>
+          <span class="tag">부동산</span>
+        </div>
+        <div class="case-card-footer">
+          <span class="case-card-lawyer">담당: <strong>조인섭</strong> 변호사</span>
+          <span class="case-card-meta">
+            <span>2025.04</span>
+            <span class="case-card-views">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              178
+            </span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card 8 -->
+      <a href="#" class="case-card">
+        <div class="case-card-badges">
+          <span class="badge-cat">이혼</span>
+          <span class="badge-type">조정</span>
+        </div>
+        <h4 class="case-card-title">15년 혼인관계에서 전업주부 기여분을 최대한 인정받아 재산분할 7:3 비율을 확보한 황혼이혼 사례</h4>
+        <p class="case-card-summary">전업주부로서의 가사노동 기여를 경제적 가치로 환산하여 법원에 적극 주장했습니다.</p>
+        <p class="case-card-result">재산분할 7:3 비율 확보, 총 8억 3천만원</p>
+        <div class="case-card-tags">
+          <span class="tag">황혼이혼</span>
+          <span class="tag">재산분할</span>
+          <span class="tag">기여분</span>
+        </div>
+        <div class="case-card-footer">
+          <span class="case-card-lawyer">담당: <strong>조용국</strong> 변호사</span>
+          <span class="case-card-meta">
+            <span>2025.03</span>
+            <span class="case-card-views">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              267
+            </span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card 9 -->
+      <a href="#" class="case-card">
+        <div class="case-card-badges">
+          <span class="badge-cat">상간</span>
+          <span class="badge-type">판결</span>
+        </div>
+        <h4 class="case-card-title">SNS 메시지와 CCTV를 통해 불법행위를 입증, 상간남에게 위자료 7,000만원 승소한 사례</h4>
+        <p class="case-card-summary">복합적인 디지털 증거를 법원에 체계적으로 제출하여 불법행위를 입증했습니다.</p>
+        <p class="case-card-result">위자료 7,000만원 인용 (청구액 대비 93%)</p>
+        <div class="case-card-tags">
+          <span class="tag">상간소송</span>
+          <span class="tag">디지털증거</span>
+          <span class="tag">위자료</span>
+        </div>
+        <div class="case-card-footer">
+          <span class="case-card-lawyer">담당: <strong>이준헌</strong> 변호사</span>
+          <span class="case-card-meta">
+            <span>2025.01</span>
+            <span class="case-card-views">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              334
+            </span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card 10 -->
+      <a href="#" class="case-card">
+        <div class="case-card-badges">
+          <span class="badge-cat">재산분할</span>
+          <span class="badge-type">판결</span>
+        </div>
+        <h4 class="case-card-title">사업체 지분 및 퇴직금 산정에서 유리한 감정결과를 이끌어내어 추가 재산분할금 3억원을 확보한 사례</h4>
+        <p class="case-card-summary">사업체 가치 감정에서 유리한 결과를 이끌어내어 상대방의 과소평가 주장을 배척했습니다.</p>
+        <p class="case-card-result">추가 재산분할금 3억원 확보</p>
+        <div class="case-card-tags">
+          <span class="tag">재산분할</span>
+          <span class="tag">사업체</span>
+          <span class="tag">감정</span>
+        </div>
+        <div class="case-card-footer">
+          <span class="case-card-lawyer">담당: <strong>김민수</strong> 변호사</span>
+          <span class="case-card-meta">
+            <span>2024.12</span>
+            <span class="case-card-views">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              156
+            </span>
+          </span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <button class="page-btn nav-arrow" disabled>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">4</button>
+      <button class="page-btn">5</button>
+      <span class="page-dots">···</span>
+      <button class="page-btn">88</button>
+      <button class="page-btn nav-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ CONSULTATION CTA (/reviews 하단과 동일) ═══ -->
+<section class="consultation-cta" data-reveal>
+  <div class="consultation-cta-inner">
+    <p class="consultation-label">Consultation</p>
+    <p class="consultation-title">법률 상담이 필요하신가요?</p>
+    <p class="consultation-desc">전문 변호사가 무료로 상담해드립니다.</p>
+    <div class="consultation-buttons">
+      <a href="tel:02-594-2800" class="consultation-phone">02-594-2800</a>
+      <a href="#" class="consultation-btn">상담 예약하기</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ JS ═══ -->
+<script>
+// Tab switching with group active state (MediaTabs style)
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tabs-group').forEach(g => g.classList.remove('group-active'));
+    btn.classList.add('active');
+    btn.closest('.tabs-group').classList.add('group-active');
+  });
+});
+
+// Category sidebar
+document.querySelectorAll('.category-item').forEach(item => {
+  item.addEventListener('click', () => {
+    document.querySelectorAll('.category-item').forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+  });
+});
+
+// Mobile filter
+document.querySelectorAll('.mobile-filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.mobile-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// Page navigation
+document.querySelectorAll('.page-btn:not(.nav-arrow)').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

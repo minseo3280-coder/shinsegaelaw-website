@@ -1,0 +1,199 @@
+{
+  "channels": [
+    {
+      "name": "이혼전문변호사 조인섭변호사 TV",
+      "handle": "@divorce_story",
+      "url": "https://www.youtube.com/@divorce_story",
+      "description": "'법무법인 신세계로' 조인섭 대표변호사가 이혼·상속의 이야기를 알기쉽게 전해드려요!"
+    },
+    {
+      "name": "이혼전문변호사 조인섭변호사 웹툰",
+      "handle": "@cho_ssglaw",
+      "url": "https://www.youtube.com/@cho_ssglaw",
+      "description": "'법무법인 신세계로' 조인섭 대표변호사가 이혼·상속의 이야기를 알기쉽게 전해드려요!"
+    }
+  ],
+  "featured_video": {
+    "id": "AmCWtDzGLfA",
+    "title": "폐비 윤씨가 2026년 가정법원에 온다면? [이혼전문변호사 시점]",
+    "embed_url": "https://www.youtube.com/embed/AmCWtDzGLfA",
+    "thumbnail": "/images/etc/youtube/ds-video-01.jpg",
+    "date": null
+  },
+  "recent_videos": [
+    {
+      "id": "LApXf8pWH8Y",
+      "title": "허위 사실로 인한 혼인 취소와 위자료에 대하여... [이혼전문변호사 토크]",
+      "thumbnail": "/images/etc/youtube/ds-video-02.jpg",
+      "date": null
+    },
+    {
+      "id": "i6mGSDXwoT8",
+      "title": "15년 전 끝낸 재산분할, 재결합 후 이혼할 때 다시 받을 수 있을까?",
+      "thumbnail": "/images/etc/youtube/ds-video-03.jpg",
+      "date": null
+    },
+    {
+      "id": "KUM59EMxPq0",
+      "title": "주식하다 5천 손실… 남편 책임 어디까지?! [이혼전문변호사 상담]",
+      "thumbnail": "/images/etc/youtube/ds-video-04.jpg",
+      "date": null
+    },
+    {
+      "id": "U_Zfe079aKc",
+      "title": "테스형! 아내한테는 대체 왜그래? [이혼전문변호사 시점]",
+      "thumbnail": "/images/etc/youtube/ds-video-05.jpg",
+      "date": null
+    },
+    {
+      "id": "UxLioKBzSBM",
+      "title": "바람피는 배우자... 정당한 자료 확보를 하려면?",
+      "thumbnail": "/images/etc/youtube/ds-video-06.jpg",
+      "date": null
+    },
+    {
+      "id": "lW5RQK7GIt4",
+      "title": "어머니 남친의 사실혼 주장… 지킬 수 있을까[이혼전문변호사 토크]",
+      "thumbnail": "/images/etc/youtube/ds-video-07.jpg",
+      "date": null
+    },
+    {
+      "id": "sg2r9Xfqw7g",
+      "title": "단종과 왕후의 비극적 이별.. [이혼전문변호사 시점]",
+      "thumbnail": "/images/etc/youtube/ds-video-08.jpg",
+      "date": null
+    },
+    {
+      "id": "Dk2dJMPwILI",
+      "title": "금고 속 아버지의 메모... 그 진실은? | YTN 조담소 비하인드",
+      "thumbnail": "/images/etc/youtube/ds-video-09.jpg",
+      "date": null
+    },
+    {
+      "id": "GInIlo7PhlI",
+      "title": "명절 뒤 찾아온 이혼 고민 \"시댁과 선 긋는 아내\"",
+      "thumbnail": "/images/etc/youtube/ds-video-10.jpg",
+      "date": null
+    },
+    {
+      "id": "YMYNMegpw6M",
+      "title": "이혼하려고 나라 종교를 바꾼 남자, 헨리 8세의 충격 소송 [이혼전문변호사 시점]",
+      "thumbnail": "/images/etc/youtube/ds-video-11.jpg",
+      "date": null
+    },
+    {
+      "id": "0KK-QqMKwXM",
+      "title": "\"파혼했다며?\" 눈물 연기에 속아 상간남 된 사연 [이혼전문변호사 토크]",
+      "thumbnail": "/images/etc/youtube/ds-video-12.jpg",
+      "date": null
+    },
+    {
+      "id": "tukNDOi_3Go",
+      "title": "전여친과 문자, 유책 사유 되나요? [이혼전문변호사 상담]",
+      "thumbnail": "/images/etc/youtube/ds-video-13.jpg",
+      "date": null
+    },
+    {
+      "id": "nOGK9GSfwjE",
+      "title": "햄버거가 쏘아 올린 이혼의 공... 양육권 뺏기면 어쩌죠? [이혼전문변호사 토크]",
+      "thumbnail": "/images/etc/youtube/ds-video-14.jpg",
+      "date": null
+    },
+    {
+      "id": "rt1kFlV-0tw",
+      "title": "이제 인천에서도 '신세계로'가 열립니다 [이혼전문변호사 조인섭]",
+      "thumbnail": "/images/etc/youtube/ds-video-15.jpg",
+      "date": null
+    },
+    {
+      "id": "am3YjncKyUk",
+      "title": "세종대왕도 포기한 막장 스캔들…  [이혼전문변호사 시점]",
+      "thumbnail": "/images/etc/youtube/ds-video-16.jpg",
+      "date": null
+    },
+    {
+      "id": "cGS1Pxyu7ic",
+      "title": "돌 지난 아기 면접교섭... 항상 조부모가 동행한다면? [이혼전문변호사 상담]",
+      "thumbnail": "/images/etc/youtube/ds-video-17.jpg",
+      "date": null
+    },
+    {
+      "id": "ZnHJfZWeSsM",
+      "title": "조선시대에도 동성 불륜이? 실록이 증명한 역대급 사건 [이혼전문변호사 시점]",
+      "thumbnail": "/images/etc/youtube/ds-video-18.jpg",
+      "date": null
+    },
+    {
+      "id": "oTpo_sLpP4M",
+      "title": "배우자 카톡, 몰래 보면 역고소 당한다고요? [이혼전문변호사 상담]",
+      "thumbnail": "/images/etc/youtube/ds-video-19.jpg",
+      "date": null
+    },
+    {
+      "id": "8mFD_6L_fyo",
+      "title": "유부남이 모텔에? \"잠만 잤다\"는 남편의 변명[이혼전문변호사 상담, AI 드라마]",
+      "thumbnail": "/images/etc/youtube/ds-video-20.jpg",
+      "date": null
+    },
+    {
+      "id": "9a_5T1HnO68",
+      "title": "남편과의 동침이 공포가 된 이유...[이혼전문변호사 시점 #AI드라마 #AI재연]",
+      "thumbnail": "/images/etc/youtube/ds-video-21.jpg",
+      "date": null
+    },
+    {
+      "id": "G0lHEqzy5pc",
+      "title": "군인 남편과 재산분할... 10년의 군관사 생활｜이혼전문변호사의 답변은...",
+      "thumbnail": "/images/etc/youtube/ds-video-22.jpg",
+      "date": null
+    },
+    {
+      "id": "lEEbDhVDVlc",
+      "title": "DNA가 없던 시대... 내 아이인지 의심된다면?｜이혼전문변호사 시점...",
+      "thumbnail": "/images/etc/youtube/ds-video-23.jpg",
+      "date": null
+    },
+    {
+      "id": "2IkA9-00-KQ",
+      "title": "남편 밥 안 해주면 이혼 시 불리한가요? 이혼전문변호사의 답변은...",
+      "thumbnail": "/images/etc/youtube/ds-video-24.jpg",
+      "date": null
+    },
+    {
+      "id": "XVHlFs2hRMs",
+      "title": "재혼했는데 실종 남편 돌아옴...｜이혼전문변호사 시점[AI드라마, 이혼드라마]",
+      "thumbnail": "/images/etc/youtube/ds-video-25.jpg",
+      "date": null
+    },
+    {
+      "id": "B81UiGkn0BE",
+      "title": "[이혼전문변호사 조변의 이혼사전] EP.37 면접교섭권 A to Z｜조부모·형제·해외 사례 까지!",
+      "thumbnail": "/images/etc/youtube/ds-video-26.jpg",
+      "date": null
+    },
+    {
+      "id": "xFfz1U-JU5A",
+      "title": "[이혼전문변호사 조변의 이혼사전] Ep36 부부간 작성 서류 효력 있을까?",
+      "thumbnail": "/images/etc/youtube/ds-video-27.jpg",
+      "date": null
+    },
+    {
+      "id": "nBjE6Y-vptI",
+      "title": "[이혼전문변호사 조변의 이혼사전] EP.35 이혼 시 연금분할 완전정복｜국민연금·공무원연금·군인연금 총정리",
+      "thumbnail": "/images/etc/youtube/ds-video-28.jpg",
+      "date": null
+    },
+    {
+      "id": "6yAmrf4Iu8k",
+      "title": "[이혼전문변호사 조변의 이혼사전] EP.34 유책 배우자 재산분할｜재산분할\\u0026위자료 이렇게 반영됩니다!",
+      "thumbnail": "/images/etc/youtube/ds-video-29.jpg",
+      "date": null
+    },
+    {
+      "id": "Ds7zKu-bJYA",
+      "title": "[조변의 법률 브이로그] EP.11 정신과 진료 기록, 이혼소송에 불리할까요? ｜이혼전문변호사의 답변은?",
+      "thumbnail": "/images/etc/youtube/ds-video-30.jpg",
+      "date": null
+    }
+  ]
+}

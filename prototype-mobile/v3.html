@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신세계로 v3 — 밝기 리듬 + PC 변호사 캐러셀</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@200;300;400;500;600;700;900&family=Dancing+Script:wght@400;700&family=Noto+Serif+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --burgundy-50: #FDF2F4;
+    --burgundy-500: #9B2335;
+    --burgundy-600: #7B2D3B;
+    --burgundy-700: #5C1D2A;
+    --gold-400: #D4AF37;
+    --gold-500: #C9A84C;
+    --navy-800: #1A1A2E;
+    --navy-900: #0F0F1A;
+    --cream: #faf9f7;
+    --cases-dark: #16162a;
+  }
+
+  body {
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    background: #0a0a12;
+    -webkit-font-smoothing: antialiased;
+    color: var(--navy-800);
+  }
+
+  /* ===== TOGGLE ===== */
+  .toggle-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: rgba(10,10,18,0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .toggle-bar h1 {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--gold-500);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-right: 16px;
+  }
+  .toggle-btn {
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: transparent;
+    color: rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .toggle-btn.active {
+    background: var(--burgundy-600);
+    border-color: var(--burgundy-500);
+    color: white;
+  }
+
+  /* ===== VIEWS ===== */
+  .view { display: none; padding-top: 56px; }
+  .view.active { display: block; }
+
+  /* ===== SHARED SECTION STYLES ===== */
+  .sec-label {
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .sec-label.burgundy { color: var(--burgundy-500); }
+  .sec-label.gold { color: var(--gold-500); }
+  .sec-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  .sec-gold-line {
+    width: 28px;
+    height: 2px;
+    background: var(--gold-500);
+  }
+
+  /* ================================================================
+     MOBILE VIEW
+     ================================================================ */
+  .mobile-center { display: flex; justify-content: center; padding: 20px 0 60px; }
+
+  .device {
+    width: 375px;
+    background: #000;
+    border-radius: 44px;
+    padding: 12px;
+    position: relative;
+    box-shadow: 0 0 0 2px #2a2a2a, 0 40px 100px rgba(0,0,0,0.6);
+  }
+  .device-screen {
+    width: 351px;
+    height: 760px;
+    border-radius: 34px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #fff;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+  .device-screen::-webkit-scrollbar { display: none; }
+  .notch {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 126px;
+    height: 34px;
+    background: #000;
+    border-radius: 0 0 22px 22px;
+    z-index: 100;
+  }
+
+  /* --- Mobile Header --- */
+  .m-header {
+    position: sticky; top: 0; z-index: 80;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 20px;
+    background: rgba(0,0,0,0.01);
+    backdrop-filter: blur(0px);
+    transition: all 0.4s;
+  }
+  .m-header.scrolled {
+    background: rgba(15,15,26,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+  }
+  .m-header .logo { font-size: 14px; font-weight: 700; color: white; }
+  .m-header .logo span { color: var(--gold-500); font-weight: 300; }
+  .m-header .menu-btn { width: 22px; display: flex; flex-direction: column; gap: 5px; }
+  .m-header .menu-btn i { display: block; height: 1.5px; background: rgba(255,255,255,0.7); border-radius: 1px; }
+  .m-header .menu-btn i:last-child { width: 60%; margin-left: auto; }
+
+  /* --- Mobile Hero --- */
+  .m-hero {
+    position: relative; height: 660px; margin-top: -50px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 35%, rgba(0,0,0,0.4) 65%, rgba(15,15,26,0.9) 100%),
+      url('../frontend/public/images/office/slide-bg-main.jpg') center/cover;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 0 24px; text-align: center;
+  }
+  .m-hero .content { display: flex; flex-direction: column; align-items: center; }
+  .m-hero .lbl { font-size: 9px; letter-spacing: 0.4em; color: rgba(201,168,76,0.45); text-transform: uppercase; margin-bottom: 20px; animation: fu 1s 0.3s ease forwards; opacity: 0; }
+  .m-hero .ttl { font-family: 'Noto Serif KR', serif; font-size: 26px; font-weight: 300; color: rgba(255,255,255,0.92); letter-spacing: 0.08em; margin-bottom: 10px; animation: fu 1s 0.5s ease forwards; opacity: 0; }
+  .m-hero .cur { font-family: 'Dancing Script', cursive; font-size: 38px; color: rgba(201,168,76,0.4); margin-bottom: 24px; animation: fu 1s 0.7s ease forwards; opacity: 0; }
+  .m-hero .tag { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.8; margin-bottom: 32px; animation: fu 1s 0.9s ease forwards; opacity: 0; }
+  .m-hero .cta-row { display: flex; align-items: center; gap: 12px; animation: fu 1s 1.1s ease forwards; opacity: 0; }
+  .m-hero .cta-main { padding: 13px 28px; border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; color: rgba(255,255,255,0.8); font-size: 12px; letter-spacing: 0.1em; background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); }
+  .m-hero .cta-tel { font-size: 11px; color: rgba(255,255,255,0.35); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+  .m-hero .cta-tel::before { content: ''; width: 3px; height: 3px; border-radius: 50%; background: rgba(201,168,76,0.4); }
+  .m-hero .scroll-area { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); text-align: center; animation: fu 1s 1.5s ease forwards; opacity: 0; }
+  .m-hero .scroll-area span { font-size: 8px; letter-spacing: 0.5em; color: rgba(255,255,255,0.2); text-transform: uppercase; }
+  .m-hero .scroll-line { width: 1px; height: 28px; background: linear-gradient(to bottom, rgba(201,168,76,0.3), transparent); margin: 8px auto 0; animation: sp 2.5s ease-in-out infinite; }
+
+  /* --- Trust Strip --- */
+  .m-trust {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    background: var(--navy-900); border-bottom: 1px solid rgba(201,168,76,0.06);
+  }
+  .m-trust .it { text-align: center; padding: 20px 4px; position: relative; }
+  .m-trust .it:not(:last-child)::after { content: ''; position: absolute; right: 0; top: 25%; height: 50%; width: 1px; background: rgba(255,255,255,0.06); }
+  .m-trust .n { font-size: 22px; font-weight: 900; color: var(--gold-400); line-height: 1; }
+  .m-trust .n .u { font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.25); margin-left: 1px; }
+  .m-trust .t { font-size: 9px; color: rgba(255,255,255,0.3); margin-top: 6px; }
+
+  /* --- Mobile Section base (shared) --- */
+  .m-sec { padding: 56px 24px; }
+  .m-sec .sec-title { font-size: 22px; color: var(--navy-800); }
+  .m-sec .sec-gold-line { margin-bottom: 28px; }
+
+  /* Light sections */
+  .m-whyus { background: var(--cream); }
+  .m-ceo { background: white; }
+  /* Cases — DARK (새로운 리듬) */
+  .m-cases { background: var(--cases-dark); }
+  .m-cases .sec-title { color: white; }
+  .m-cases .sec-label { color: var(--gold-500); }
+  /* Lawyers — light */
+  .m-lawyers { background: var(--cream); padding: 56px 0; }
+  .m-lawyers .header-area { padding: 0 24px; margin-bottom: 24px; }
+  /* Reviews — DARK */
+  .m-reviews { background: var(--navy-900); position: relative; overflow: hidden; }
+  .m-reviews::before { content: ''; position: absolute; bottom: -60px; right: -60px; width: 200px; height: 200px; border-radius: 50%; background: var(--burgundy-500); opacity: 0.06; filter: blur(80px); }
+  .m-reviews .sec-title { color: white; }
+  /* FAQ — DARK (리듬 변경!) */
+  .m-faq { background: var(--navy-800); }
+  .m-faq .sec-title { color: white; }
+  /* Contact — DARK */
+  .m-contact { background: var(--navy-900); text-align: center; position: relative; overflow: hidden; }
+  .m-contact::before { content: ''; position: absolute; top: -40px; left: -40px; width: 200px; height: 200px; border-radius: 50%; background: var(--burgundy-500); opacity: 0.1; filter: blur(80px); }
+
+  /* --- WhyUs cards --- */
+  .wu-cards { display: flex; flex-direction: column; gap: 16px; }
+  .wu-card { display: flex; gap: 14px; }
+  .wu-num { font-size: 28px; font-weight: 200; color: rgba(201,168,76,0.2); font-family: 'Noto Serif KR', serif; flex-shrink: 0; width: 32px; line-height: 1; }
+  .wu-card h4 { font-size: 14px; font-weight: 600; color: var(--navy-800); margin-bottom: 4px; }
+  .wu-card p { font-size: 12px; color: #888; line-height: 1.7; }
+
+  /* --- CEO --- */
+  .m-ceo-img { width: 100%; aspect-ratio: 4/3; border-radius: 12px; overflow: hidden; position: relative; margin-top: 24px; }
+  .m-ceo-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .m-ceo-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,15,26,0.7), transparent 50%); }
+  .m-ceo-over { position: absolute; bottom: 0; left: 0; padding: 20px; z-index: 2; }
+  .m-ceo-over .rb { font-size: 9px; letter-spacing: 0.2em; color: var(--gold-500); text-transform: uppercase; font-weight: 500; margin-bottom: 4px; }
+  .m-ceo-over h3 { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 600; color: white; }
+  .m-ceo-over .pos { font-size: 11px; color: rgba(255,255,255,0.5); }
+  .m-ceo-quote { margin-top: 20px; padding: 18px; background: var(--cream); border-radius: 10px; border-left: 3px solid var(--gold-500); position: relative; }
+  .m-ceo-quote::before { content: '"'; font-family: Georgia, serif; font-size: 48px; color: rgba(201,168,76,0.15); position: absolute; top: 2px; right: 14px; line-height: 1; }
+  .m-ceo-quote p { font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 300; color: var(--burgundy-600); line-height: 1.8; font-style: italic; }
+  .m-ceo-creds { margin-top: 16px; display: flex; flex-direction: column; gap: 6px; list-style: none; }
+  .m-ceo-creds li { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: #666; line-height: 1.5; }
+  .m-ceo-creds li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: rgba(201,168,76,0.4); flex-shrink: 0; margin-top: 6px; }
+
+  /* --- Cases DARK --- */
+  .m-case-cards { display: flex; flex-direction: column; gap: 12px; }
+  .m-case-card {
+    padding: 20px; border-radius: 12px;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+    border-left: 3px solid var(--burgundy-500);
+  }
+  .m-case-card:active { background: rgba(155,35,53,0.08); }
+  .m-case-badges { display: flex; gap: 6px; margin-bottom: 10px; }
+  .m-case-badge { font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 4px; }
+  .m-case-badge.cat { background: var(--burgundy-500); color: white; }
+  .m-case-badge.res { background: rgba(201,168,76,0.12); color: var(--gold-500); }
+  .m-case-card h4 { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.9); line-height: 1.5; margin-bottom: 6px; }
+  .m-case-card .sum { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .m-more { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 20px; font-size: 13px; font-weight: 500; text-decoration: none; }
+  .m-more.gold { color: var(--gold-500); }
+  .m-more.burg { color: var(--burgundy-500); }
+  .m-more.white { color: rgba(255,255,255,0.5); }
+
+  /* --- Lawyers (mobile — same as v2) --- */
+  .m-rep-card {
+    margin: 0 24px 20px; display: flex; align-items: center; gap: 16px;
+    padding: 20px; background: white; border-radius: 14px; border: 1px solid #eee;
+  }
+  .m-rep-card .ph { width: 72px; height: 90px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .m-rep-card .ph img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .m-rep-card .badge { font-size: 8px; letter-spacing: 0.15em; color: var(--gold-500); text-transform: uppercase; font-weight: 700; margin-bottom: 3px; }
+  .m-rep-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 1px; }
+  .m-rep-card .pos { font-size: 11px; color: #999; margin-bottom: 8px; }
+  .m-rep-card .tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .m-rep-card .tg { font-size: 9px; padding: 3px 8px; border-radius: 4px; background: var(--burgundy-500); color: white; font-weight: 500; }
+
+  .m-law-scroll { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 24px; scrollbar-width: none; }
+  .m-law-scroll::-webkit-scrollbar { display: none; }
+  .m-law-mini { scroll-snap-align: start; flex: 0 0 110px; text-align: center; }
+  .m-law-mini .ph { width: 110px; height: 132px; border-radius: 10px; overflow: hidden; margin-bottom: 8px; background: #eee; }
+  .m-law-mini .ph img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .m-law-mini h5 { font-size: 13px; font-weight: 600; }
+  .m-law-mini .pos { font-size: 10px; color: #aaa; margin-top: 1px; }
+
+  /* --- Reviews (with images) --- */
+  .m-rv-cards { display: flex; flex-direction: column; gap: 14px; position: relative; }
+  .m-rv-card { border-radius: 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); overflow: hidden; }
+  .m-rv-img { width: 100%; height: 160px; overflow: hidden; position: relative; }
+  .m-rv-img img { width: 100%; height: 100%; object-fit: cover; }
+  .m-rv-img::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(to top, var(--navy-900), transparent); }
+  .m-rv-body { padding: 16px 20px 20px; }
+  .m-rv-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 6px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.1); font-size: 11px; color: var(--gold-500); font-weight: 500; margin-bottom: 10px; }
+  .m-rv-card h4 { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.88); line-height: 1.55; margin-bottom: 12px; }
+  .m-rv-div { width: 20px; height: 1px; background: rgba(201,168,76,0.15); margin-bottom: 10px; }
+  .m-rv-meta { display: flex; justify-content: space-between; align-items: center; }
+  .m-rv-meta .ct { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.7); }
+  .m-rv-meta .lw { font-size: 10px; color: rgba(201,168,76,0.5); }
+
+  /* --- FAQ DARK --- */
+  .m-faq-filters { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; margin-bottom: 20px; }
+  .m-faq-filters::-webkit-scrollbar { display: none; }
+  .m-faq-pill { flex-shrink: 0; padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 500; border: 1px solid transparent; cursor: pointer; }
+  .m-faq-pill.active { background: var(--burgundy-600); color: white; border-color: var(--burgundy-600); }
+  .m-faq-pill:not(.active) { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: rgba(255,255,255,0.4); }
+  .m-faq-list { display: flex; flex-direction: column; gap: 6px; }
+  .m-faq-item {
+    padding: 16px; background: rgba(255,255,255,0.03); border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 12px; cursor: pointer;
+  }
+  .m-faq-item:active { border-color: var(--burgundy-500); background: rgba(155,35,53,0.08); }
+  .m-faq-item .num { font-size: 11px; color: rgba(201,168,76,0.3); font-weight: 600; flex-shrink: 0; }
+  .m-faq-item .q { flex: 1; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.7); line-height: 1.5; }
+  .m-faq-item .hot { flex-shrink: 0; padding: 2px 7px; border-radius: 4px; background: rgba(201,168,76,0.08); font-size: 9px; color: var(--gold-500); font-weight: 700; }
+  .m-faq-item .arr { flex-shrink: 0; color: rgba(255,255,255,0.15); font-size: 14px; }
+  .m-faq-cta {
+    margin-top: 20px; padding: 18px; background: rgba(0,0,0,0.3); border-radius: 12px;
+    display: flex; align-items: center; gap: 12px; border: 1px solid rgba(201,168,76,0.06);
+  }
+  .m-faq-cta .pn { font-size: 18px; font-weight: 900; color: var(--gold-400); }
+  .m-faq-cta .pl { font-size: 11px; color: rgba(255,255,255,0.3); }
+  .m-faq-cta .ar { margin-left: auto; color: rgba(255,255,255,0.2); }
+
+  /* --- Contact --- */
+  .m-contact .msg { font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 6px; position: relative; }
+  .m-contact .msg em { color: var(--gold-400); font-style: normal; font-weight: 400; }
+  .m-contact .sub { font-size: 12px; color: rgba(255,255,255,0.3); margin-bottom: 28px; position: relative; }
+  .m-cg { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; position: relative; }
+  .m-cb { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 22px 12px; border-radius: 14px; text-decoration: none; border: 1px solid transparent; }
+  .m-cb .ic { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .m-cb .nm { font-size: 13px; font-weight: 600; }
+  .m-cb .ds { font-size: 10px; margin-top: -4px; }
+  .cb-ph { background: rgba(155,35,53,0.12); border-color: rgba(155,35,53,0.1); }
+  .cb-ph .ic { background: rgba(155,35,53,0.2); }
+  .cb-ph .nm { color: rgba(255,255,255,0.85); }
+  .cb-ph .ds { color: rgba(255,255,255,0.3); }
+  .cb-kk { background: rgba(254,229,0,0.08); border-color: rgba(254,229,0,0.1); }
+  .cb-kk .ic { background: rgba(254,229,0,0.2); }
+  .cb-kk .nm { color: #FEE500; }
+  .cb-kk .ds { color: rgba(254,229,0,0.3); }
+  .cb-sm { background: rgba(34,197,94,0.06); border-color: rgba(34,197,94,0.08); }
+  .cb-sm .ic { background: rgba(34,197,94,0.15); color: #22c55e; }
+  .cb-sm .nm { color: rgba(34,197,94,0.8); }
+  .cb-sm .ds { color: rgba(34,197,94,0.3); }
+  .cb-fm { background: rgba(201,168,76,0.06); border-color: rgba(201,168,76,0.08); }
+  .cb-fm .ic { background: rgba(201,168,76,0.15); color: var(--gold-500); }
+  .cb-fm .nm { color: var(--gold-500); }
+  .cb-fm .ds { color: rgba(201,168,76,0.3); }
+  .m-contact .big-ph { font-size: 28px; font-weight: 900; color: var(--gold-400); position: relative; margin-bottom: 4px; }
+  .m-contact .ph-info { font-size: 11px; color: rgba(255,255,255,0.25); position: relative; }
+
+  /* --- Bottom Bar --- */
+  .m-bb {
+    position: sticky; bottom: 0; z-index: 80;
+    padding: 8px 12px; background: rgba(15,15,26,0.95); backdrop-filter: blur(24px);
+    border-top: 1px solid rgba(201,168,76,0.06);
+  }
+  .m-bb-inner { display: flex; align-items: center; gap: 8px; }
+  .m-bb-phone { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 16px; background: var(--burgundy-600); border-radius: 12px; color: white; font-size: 13px; font-weight: 600; text-decoration: none; }
+  .m-bb-kk { width: 46px; height: 46px; border-radius: 12px; background: #FEE500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; text-decoration: none; }
+  .m-bb-cs { width: 46px; height: 46px; border-radius: 12px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; text-decoration: none; color: var(--gold-500); }
+
+  /* --- Footer --- */
+  .m-footer { padding: 32px 24px 100px; background: #08080f; border-top: 1px solid rgba(201,168,76,0.05); }
+  .m-footer .fn { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.7); margin-bottom: 2px; }
+  .m-footer .si { font-size: 10px; color: rgba(201,168,76,0.3); letter-spacing: 0.15em; margin-bottom: 16px; }
+  .m-footer .of { font-size: 11px; color: rgba(255,255,255,0.3); margin-bottom: 6px; }
+  .m-footer .of b { color: rgba(255,255,255,0.45); font-weight: 600; margin-right: 8px; }
+  .m-footer .cp { font-size: 9px; color: rgba(255,255,255,0.15); line-height: 1.8; margin-top: 16px; }
+
+  /* --- Rhythm indicator --- */
+  .rhythm-bar {
+    position: fixed; left: 20px; top: 56px; bottom: 0; width: 6px; z-index: 50;
+    display: flex; flex-direction: column;
+  }
+  .rb-seg { transition: all 0.3s; }
+  .rb-light { background: rgba(255,255,255,0.08); }
+  .rb-dark { background: rgba(201,168,76,0.15); }
+  @media (max-width: 800px) { .rhythm-bar { display: none; } }
+
+  /* ================================================================
+     PC VIEW — 변호사 캐러셀 데모
+     ================================================================ */
+  .pc-demo { max-width: 1200px; margin: 0 auto; padding: 20px 40px 80px; }
+
+  .pc-lawyers {
+    padding: 80px 0;
+    background: var(--cream);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e8e8e8;
+  }
+  .pc-lawyers .inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+  .pc-lawyers .sec-title { font-size: 36px; color: var(--navy-800); margin-bottom: 8px; }
+  .pc-lawyers .sec-gold-line { margin-bottom: 40px; }
+  .pc-lawyers .desc { font-size: 15px; color: #888; margin-bottom: 48px; }
+
+  /* Carousel track */
+  .pc-carousel { position: relative; overflow: hidden; }
+  .pc-track {
+    display: flex; gap: 20px;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .pc-card {
+    flex: 0 0 calc(25% - 15px);
+    background: white; border: 1px solid #eee; border-radius: 12px; overflow: hidden;
+    cursor: pointer; transition: all 0.4s;
+  }
+  .pc-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); border-color: rgba(155,35,53,0.15); }
+  .pc-card .img { aspect-ratio: 3/4; overflow: hidden; position: relative; background: #f0f0f0; }
+  .pc-card .img img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s; }
+  .pc-card:hover .img img { transform: scale(1.03); }
+  /* Hover overlay */
+  .pc-card .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(123,45,59,0.9) 0%, rgba(123,45,59,0.5) 40%, transparent 100%);
+    opacity: 0; transition: opacity 0.4s;
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 20px;
+  }
+  .pc-card:hover .overlay { opacity: 1; }
+  .pc-card .overlay .pos { font-size: 11px; color: rgba(212,175,55,0.8); margin-bottom: 4px; }
+  .pc-card .overlay .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+  .pc-card .overlay .tag { font-size: 10px; padding: 3px 8px; border-radius: 20px; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); }
+  .pc-card .overlay .creds { font-size: 11px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+  .pc-card .overlay .see { font-size: 11px; color: var(--gold-400); margin-top: 12px; font-weight: 500; }
+  .pc-card .info { padding: 16px 20px; }
+  .pc-card .info h4 { font-size: 16px; font-weight: 700; color: var(--navy-800); margin-bottom: 4px; }
+  .pc-card .info .gl { width: 28px; height: 2px; background: var(--gold-500); margin-bottom: 6px; }
+  .pc-card .info p { font-size: 12px; color: #999; }
+
+  /* Nav arrows */
+  .pc-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 32px; }
+  .pc-arrow {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 1px solid #ddd; background: white;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.3s; font-size: 18px; color: #999;
+  }
+  .pc-arrow:hover { border-color: var(--gold-500); color: var(--gold-500); }
+  .pc-dots { display: flex; gap: 6px; }
+  .pc-dot { width: 6px; height: 6px; border-radius: 3px; background: #ddd; transition: all 0.3s; cursor: pointer; }
+  .pc-dot.active { width: 20px; background: var(--gold-500); }
+
+  /* Rhythm guide for PC */
+  .pc-rhythm {
+    max-width: 1100px; margin: 40px auto 0; padding: 0 40px;
+  }
+  .pc-rhythm h3 { font-size: 16px; font-weight: 700; color: white; margin-bottom: 16px; }
+  .rhythm-visual {
+    display: flex; gap: 2px; height: 40px; border-radius: 8px; overflow: hidden;
+  }
+  .rv-seg {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    font-size: 8px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .rv-dark { background: var(--navy-800); color: rgba(255,255,255,0.35); }
+  .rv-light { background: #e8e6e0; color: rgba(0,0,0,0.35); }
+  .rv-mid { background: var(--cases-dark); color: rgba(201,168,76,0.5); }
+
+  /* Annotations */
+  .pc-anno {
+    max-width: 1100px; margin: 24px auto 0; padding: 20px 40px;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+  }
+  .pc-anno h4 { font-size: 14px; font-weight: 700; color: var(--gold-500); margin-bottom: 10px; }
+  .pc-anno li { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.9; list-style: none; padding-left: 14px; position: relative; }
+  .pc-anno li::before { content: ''; position: absolute; left: 0; top: 9px; width: 4px; height: 4px; border-radius: 50%; background: var(--gold-500); opacity: 0.4; }
+  .pc-anno li strong { color: rgba(255,255,255,0.8); }
+
+  /* ================================================================
+     PC FULL PAGE STYLES
+     ================================================================ */
+  .pc-full { max-width: 100%; }
+  .p-inner { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+
+  /* PC Hero */
+  .p-hero {
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45) 70%, rgba(15,15,26,0.9) 100%),
+      url('../frontend/public/images/office/slide-bg-main.jpg') center/cover; text-align: center; position: relative;
+  }
+  .p-hero-lbl { font-size: 12px; letter-spacing: 0.4em; color: rgba(201,168,76,0.5); text-transform: uppercase; margin-bottom: 28px; }
+  .p-hero-ttl { font-family: 'Noto Serif KR', serif; font-size: 48px; font-weight: 300; color: rgba(255,255,255,0.92); letter-spacing: 0.1em; margin-bottom: 12px; }
+  .p-hero-cur { font-family: 'Dancing Script', cursive; font-size: 72px; color: rgba(201,168,76,0.4); margin-bottom: 28px; }
+  .p-hero-tag { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.8; margin-bottom: 40px; }
+  .p-hero-cta { display: flex; align-items: center; gap: 16px; justify-content: center; }
+  .p-cta-main { padding: 15px 36px; border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; color: rgba(255,255,255,0.8); font-size: 14px; letter-spacing: 0.1em; background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); cursor: pointer; }
+  .p-cta-tel { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; }
+  .p-hero-scroll { position: absolute; bottom: 32px; text-align: center; }
+  .p-hero-scroll span { font-size: 9px; letter-spacing: 0.5em; color: rgba(255,255,255,0.2); text-transform: uppercase; display: block; margin-bottom: 8px; }
+  .p-scr-line { width: 1px; height: 36px; background: linear-gradient(to bottom, rgba(201,168,76,0.3), transparent); margin: 0 auto; animation: sp 2.5s ease-in-out infinite; }
+
+  /* PC Trust */
+  .p-trust { background: var(--navy-900); border-bottom: 1px solid rgba(201,168,76,0.06); }
+  .p-trust-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); }
+  .p-trust-item { text-align: center; padding: 40px 20px; position: relative; }
+  .p-trust-item:not(:last-child)::after { content: ''; position: absolute; right: 0; top: 25%; height: 50%; width: 1px; background: rgba(255,255,255,0.06); }
+  .p-tn { font-size: 48px; font-weight: 900; color: var(--gold-400); line-height: 1; }
+  .p-tn span { font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.25); }
+  .p-tt { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.6); margin-top: 12px; }
+  .p-ts { font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 4px; }
+
+  /* PC WhyUs */
+  .p-whyus { padding: 100px 0; background: var(--cream); }
+  .p-wu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .p-wu-card { display: grid; grid-template-columns: 1fr 1fr; border-radius: 12px; overflow: hidden; background: white; border: 1px solid #eee; }
+  .p-wu-img { aspect-ratio: 4/3; overflow: hidden; }
+  .p-wu-img img { width: 100%; height: 100%; object-fit: cover; }
+  .p-wu-text { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+  .p-wu-num { font-size: 36px; font-weight: 200; color: rgba(201,168,76,0.2); font-family: 'Noto Serif KR', serif; line-height: 1; }
+  .p-wu-label { font-size: 11px; letter-spacing: 0.2em; color: var(--gold-500); font-weight: 600; margin-top: 4px; margin-bottom: 8px; text-transform: uppercase; }
+  .p-wu-text h4 { font-size: 18px; font-weight: 600; color: var(--navy-800); margin-bottom: 4px; }
+  .p-wu-line { width: 28px; height: 2px; background: var(--gold-500); margin: 8px 0 12px; }
+  .p-wu-text p { font-size: 13px; color: #888; line-height: 1.7; }
+
+  /* PC CEO */
+  .p-ceo { padding: 100px 0; background: white; }
+  .p-ceo-layout { display: flex; gap: 64px; align-items: center; max-width: 900px; margin: 0 auto; }
+  .p-ceo-photo { width: 320px; flex-shrink: 0; aspect-ratio: 3/4; border-radius: 12px; overflow: hidden; }
+  .p-ceo-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .p-ceo-info { flex: 1; }
+  .p-ceo-creds { list-style: none; margin-bottom: 24px; }
+  .p-ceo-creds li { font-size: 14px; color: #666; line-height: 2; padding-left: 16px; position: relative; }
+  .p-ceo-creds li::before { content: ''; position: absolute; left: 0; top: 11px; width: 5px; height: 5px; border-radius: 50%; background: rgba(201,168,76,0.4); }
+  .p-ceo-quote { padding: 20px 24px; background: var(--cream); border-radius: 10px; border-left: 3px solid var(--gold-500); }
+  .p-ceo-quote p { font-family: 'Noto Serif KR', serif; font-size: 16px; font-weight: 300; color: var(--burgundy-600); line-height: 1.8; font-style: italic; }
+
+  /* PC Cases DARK */
+  .p-cases { padding: 100px 0; background: var(--cases-dark); position: relative; overflow: hidden; }
+  .p-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .p-case-card { padding: 28px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-left: 3px solid var(--burgundy-500); }
+  .p-case-card:hover { background: rgba(155,35,53,0.06); }
+  .p-case-badges { display: flex; gap: 8px; margin-bottom: 12px; }
+  .p-cb { font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 4px; }
+  .p-cb.cat { background: var(--burgundy-500); color: white; }
+  .p-cb.res { background: rgba(201,168,76,0.12); color: var(--gold-500); }
+  .p-case-card h4 { font-size: 16px; font-weight: 600; color: rgba(255,255,255,0.9); line-height: 1.5; margin-bottom: 8px; }
+  .p-case-card p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; }
+
+  /* PC Lawyers */
+  .p-lawyers-sec { padding: 100px 0; background: var(--cream); }
+
+  /* PC Reviews DARK */
+  .p-reviews { padding: 100px 0; background: var(--navy-900); position: relative; overflow: hidden; }
+  .p-reviews::before { content: ''; position: absolute; bottom: -80px; right: -80px; width: 300px; height: 300px; border-radius: 50%; background: var(--burgundy-500); opacity: 0.06; filter: blur(100px); }
+  .p-rv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: left; }
+  .p-rv-card { border-radius: 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); overflow: hidden; }
+  .p-rv-img { height: 200px; overflow: hidden; position: relative; }
+  .p-rv-img img { width: 100%; height: 100%; object-fit: cover; }
+  .p-rv-img::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(to top, var(--navy-900), transparent); }
+  .p-rv-body { padding: 20px; }
+
+  /* PC FAQ DARK */
+  .p-faq { padding: 100px 0; background: var(--navy-800); }
+  .p-faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }
+  .p-faq-item { display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 10px; cursor: pointer; transition: all 0.2s; }
+  .p-faq-item:hover { border-color: rgba(155,35,53,0.2); background: rgba(155,35,53,0.05); }
+  .p-fq-num { font-size: 13px; color: rgba(201,168,76,0.3); font-weight: 600; flex-shrink: 0; }
+  .p-fq-q { flex: 1; font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.7); }
+  .p-fq-hot { flex-shrink: 0; padding: 3px 10px; border-radius: 4px; background: rgba(201,168,76,0.08); font-size: 10px; color: var(--gold-500); font-weight: 700; }
+  .p-fq-arr { flex-shrink: 0; color: rgba(255,255,255,0.15); font-size: 18px; }
+
+  /* PC Contact DARK */
+  .p-contact { padding: 100px 0; background: var(--navy-900); position: relative; overflow: hidden; }
+  .p-contact::before { content: ''; position: absolute; top: -60px; left: -60px; width: 300px; height: 300px; border-radius: 50%; background: var(--burgundy-500); opacity: 0.1; filter: blur(100px); }
+
+  /* PC Footer */
+  .p-footer { padding: 48px 0; background: #08080f; border-top: 1px solid rgba(201,168,76,0.05); }
+
+  @keyframes fu { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes sp { 0%,100% { opacity: 0.3; transform: scaleY(1); } 50% { opacity: 0.7; transform: scaleY(1.3); } }
+</style>
+</head>
+<body>
+
+<!-- Toggle -->
+<div class="toggle-bar">
+  <h1>v3 Prototype</h1>
+  <button class="toggle-btn active" onclick="showView('mobile')">Mobile 리듬</button>
+  <button class="toggle-btn" onclick="showView('pc')">PC 변호사 캐러셀</button>
+</div>
+
+<!-- ================================================================
+     MOBILE VIEW
+     ================================================================ -->
+<div id="view-mobile" class="view active">
+  <!-- Rhythm indicator -->
+  <div class="rhythm-bar">
+    <div class="rb-seg rb-dark" style="flex:2" title="Hero+Trust DARK"></div>
+    <div class="rb-seg rb-light" style="flex:1.5" title="WhyUs+CEO LIGHT"></div>
+    <div class="rb-seg rb-dark" style="flex:1" title="Cases DARK"></div>
+    <div class="rb-seg rb-light" style="flex:1" title="Lawyers LIGHT"></div>
+    <div class="rb-seg rb-dark" style="flex:3" title="Reviews+FAQ+Contact DARK"></div>
+  </div>
+
+  <div class="mobile-center">
+    <div class="device">
+      <div class="notch"></div>
+      <div class="device-screen" id="screen">
+        <!-- Header -->
+        <div class="m-header" id="mheader">
+          <div class="logo">신세계로 <span>LAW</span></div>
+          <div class="menu-btn"><i></i><i></i><i></i></div>
+        </div>
+
+        <!-- HERO — DARK -->
+        <section class="m-hero">
+          <div class="content">
+            <p class="lbl">Since 1970 · Divorce & Inheritance</p>
+            <h1 class="ttl">법무법인 신세계로</h1>
+            <p class="cur">Shinsegae Law</p>
+            <p class="tag">이혼과 상속, 52년의 법조전통으로<br>당신의 새로운 시작을 함께합니다</p>
+            <div class="cta-row">
+              <button class="cta-main">무료 상담 신청</button>
+              <a href="#" class="cta-tel">1555-5961</a>
+            </div>
+          </div>
+          <div class="scroll-area"><span>Scroll</span><div class="scroll-line"></div></div>
+        </section>
+
+        <!-- TRUST — DARK -->
+        <div class="m-trust">
+          <div class="it"><div class="n">52<span class="u">년</span></div><div class="t">법조 전통</div></div>
+          <div class="it"><div class="n">17<span class="u">인</span></div><div class="t">전문 변호사</div></div>
+          <div class="it"><div class="n">7<span class="u">팀</span></div><div class="t">전문팀</div></div>
+          <div class="it"><div class="n">94<span class="u">%+</span></div><div class="t">승소율</div></div>
+        </div>
+
+        <!-- WHYUS — LIGHT -->
+        <section class="m-sec m-whyus">
+          <p class="sec-label burgundy">Why Shinsegae Law</p>
+          <h2 class="sec-title">신세계로를<br>선택하는 이유</h2>
+          <div class="sec-gold-line"></div>
+          <div class="wu-cards">
+            <div class="wu-card"><span class="wu-num">01</span><div><h4>이혼·상속만 52년</h4><p>1970년부터 3대에 걸쳐 가족법만 다뤄온 전통. 오직 이혼과 상속에만 집중합니다.</p></div></div>
+            <div class="wu-card"><span class="wu-num">02</span><div><h4>가족법전문 제1호</h4><p>대한변호사협회 가족법전문 제1호. 1,600명 이상이 신뢰한 전문성입니다.</p></div></div>
+            <div class="wu-card"><span class="wu-num">03</span><div><h4>7개 전문팀 시스템</h4><p>이혼총괄·재산분할·위자료·형사·보전·상속·상간자 각 분야 전담팀이 전략을 설계합니다.</p></div></div>
+            <div class="wu-card"><span class="wu-num">04</span><div><h4>의뢰인 중심 철학</h4><p>"이혼은 다시 행복할 권리." 법률을 넘어 심리적 지원까지 병행합니다.</p></div></div>
+          </div>
+        </section>
+
+        <!-- CEO — LIGHT -->
+        <section class="m-sec m-ceo">
+          <p class="sec-label gold">Representative Attorney</p>
+          <h2 class="sec-title">대표변호사</h2>
+          <div class="sec-gold-line"></div>
+          <div style="position:relative">
+            <div class="m-ceo-img">
+              <img src="../frontend/public/images/attorneys/cho-inseop.jpg" alt="조인섭">
+              <div class="m-ceo-over">
+                <p class="rb">Representative</p>
+                <h3>조인섭</h3>
+                <p class="pos">대표변호사 · 법학박사</p>
+              </div>
+            </div>
+          </div>
+          <div class="m-ceo-quote"><p>이혼은 실패가 아닌,<br>다시 행복할 수 있는 권리입니다.</p></div>
+          <ul class="m-ceo-creds">
+            <li>대한변호사협회 가족법전문 제1호 변호사</li>
+            <li>YTN 라디오 '조인섭변호사의 상담소' 진행</li>
+            <li>이화여자대학교 로스쿨 가족법 겸임교수</li>
+            <li>하나은행 유언신탁 업무협약 체결</li>
+          </ul>
+        </section>
+
+        <!-- CASES — DARK (리듬 변경!) -->
+        <section class="m-sec m-cases">
+          <p class="sec-label gold">Winning Cases</p>
+          <h2 class="sec-title">승소 사례</h2>
+          <div class="sec-gold-line"></div>
+          <div class="m-case-cards">
+            <div class="m-case-card">
+              <div class="m-case-badges"><span class="m-case-badge cat">이혼</span><span class="m-case-badge res">전부승소</span></div>
+              <h4>양육권·재산분할 모두 의뢰인측 유리하게 판결</h4>
+              <p class="sum">배우자의 유책 사유를 입증하여 양육권과 재산분할 양측 모두에서 승소</p>
+            </div>
+            <div class="m-case-card">
+              <div class="m-case-badges"><span class="m-case-badge cat">재산분할</span><span class="m-case-badge res">대폭 증액</span></div>
+              <h4>부동산·퇴직금 포함 7억 재산분할 성공</h4>
+              <p class="sum">은닉 재산 추적으로 당초 예상 2배 이상의 분할을 이끌어냄</p>
+            </div>
+            <div class="m-case-card">
+              <div class="m-case-badges"><span class="m-case-badge cat">양육권</span><span class="m-case-badge res">완전 확보</span></div>
+              <h4>자녀 2명 양육권 확보 + 양육비 월 350만원</h4>
+              <p class="sum">가사조사관 면담부터 최종변론까지 전략적으로 대응하여 완전한 양육권 확보</p>
+            </div>
+          </div>
+          <a href="#" class="m-more gold" style="margin-top:20px">승소사례 1,053건 전체보기 →</a>
+        </section>
+
+        <!-- LAWYERS — LIGHT -->
+        <section class="m-sec m-lawyers">
+          <div class="header-area">
+            <p class="sec-label burgundy">Our Attorneys</p>
+            <h2 class="sec-title">전문 변호사</h2>
+            <div class="sec-gold-line"></div>
+          </div>
+          <div class="m-rep-card">
+            <div class="ph"><img src="../frontend/public/images/attorneys/cho-inseop.jpg" alt="조인섭"></div>
+            <div>
+              <p class="badge">Representative</p>
+              <h4>조인섭</h4>
+              <p class="pos">대표변호사 · 가족법전문 제1호</p>
+              <div class="tags"><span class="tg">이혼소송</span><span class="tg">재산분할</span><span class="tg">상속</span></div>
+            </div>
+          </div>
+          <div style="padding:0 24px;margin-bottom:12px"><p style="font-size:10px;color:#999;letter-spacing:0.1em;text-transform:uppercase;font-weight:600">전문 변호사 17인 →</p></div>
+          <div class="m-law-scroll">
+            <div class="m-law-mini"><div class="ph"><img src="../frontend/public/images/attorneys/cho-yongguk.jpg" alt="조용국"></div><h5>조용국</h5><p class="pos">대표변호사</p></div>
+            <div class="m-law-mini"><div class="ph"><img src="../frontend/public/images/attorneys/kim-miru.jpg" alt="김미루"></div><h5>김미루</h5><p class="pos">수석변호사</p></div>
+            <div class="m-law-mini"><div class="ph"><img src="../frontend/public/images/attorneys/ryu-hyunju.jpg" alt="류현주"></div><h5>류현주</h5><p class="pos">수석변호사</p></div>
+            <div class="m-law-mini"><div class="ph"><img src="../frontend/public/images/attorneys/shin-jinhee.jpg" alt="신진희"></div><h5>신진희</h5><p class="pos">수석변호사</p></div>
+            <div class="m-law-mini"><div class="ph"><img src="../frontend/public/images/attorneys/lee-myungin.jpg" alt="이명인"></div><h5>이명인</h5><p class="pos">수석변호사</p></div>
+            <div class="m-law-mini"><div class="ph"><img src="../frontend/public/images/attorneys/hong-suhyun.jpg" alt="홍수현"></div><h5>홍수현</h5><p class="pos">변호사</p></div>
+            <div class="m-law-mini" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:160px;background:white;border-radius:10px;border:1px solid #eee">
+              <div style="font-size:20px;font-weight:900;color:var(--burgundy-500)">+10</div>
+              <div style="font-size:10px;color:#999;margin-top:2px">전체보기</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- REVIEWS — DARK -->
+        <section class="m-sec m-reviews">
+          <p class="sec-label gold">Client Reviews</p>
+          <h2 class="sec-title">의뢰인 후기</h2>
+          <div class="sec-gold-line" style="margin-bottom:24px"></div>
+          <div class="m-rv-cards">
+            <div class="m-rv-card">
+              <div class="m-rv-img"><img src="../frontend/public/images/reviews/review-01-2.png" alt="후기" onerror="this.parentElement.style.display='none'"></div>
+              <div class="m-rv-body">
+                <div class="m-rv-pill">&#10003; 이혼기각 · 완전승소</div>
+                <h4>이혼기각 판결 받아낸 의뢰인의 기쁜 감사인사</h4>
+                <div class="m-rv-div"></div>
+                <div class="m-rv-meta"><span class="ct">이혼</span><span class="lw">조인섭 대표변호사</span></div>
+              </div>
+            </div>
+            <div class="m-rv-card">
+              <div class="m-rv-img"><img src="../frontend/public/images/reviews/review-02.png" alt="후기" onerror="this.parentElement.style.display='none'"></div>
+              <div class="m-rv-body">
+                <div class="m-rv-pill">&#10003; 양육비 방어 · 대폭 감액</div>
+                <h4>양육비증액청구를 상당히 방어해낸 의뢰인의 감사인사</h4>
+                <div class="m-rv-div"></div>
+                <div class="m-rv-meta"><span class="ct">이혼</span><span class="lw">조인섭 대표변호사</span></div>
+              </div>
+            </div>
+            <div class="m-rv-card">
+              <div class="m-rv-img"><img src="../frontend/public/images/reviews/review-03.png" alt="후기" onerror="this.parentElement.style.display='none'"></div>
+              <div class="m-rv-body">
+                <div class="m-rv-pill">&#10003; 재산분할 · 대폭 증액</div>
+                <h4>재산분할에서 예상보다 훨씬 많은 금액을 받게 되었습니다</h4>
+                <div class="m-rv-div"></div>
+                <div class="m-rv-meta"><span class="ct">재산분할</span><span class="lw">김미루 수석변호사</span></div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="m-more gold" style="margin-top:20px">의뢰인 후기 전체보기 (90건) →</a>
+        </section>
+
+        <!-- FAQ — DARK (변경!) -->
+        <section class="m-sec m-faq">
+          <p class="sec-label gold">FAQ</p>
+          <h2 class="sec-title">자주 묻는 질문</h2>
+          <div class="sec-gold-line" style="margin-bottom:20px"></div>
+          <div class="m-faq-filters">
+            <button class="m-faq-pill active">전체</button>
+            <button class="m-faq-pill">비용·절차</button>
+            <button class="m-faq-pill">이혼·재산</button>
+            <button class="m-faq-pill">상담·기타</button>
+          </div>
+          <div class="m-faq-list">
+            <div class="m-faq-item"><span class="num">01</span><span class="q">상담 비용이 있나요?</span><span class="hot">인기</span><span class="arr">&#8250;</span></div>
+            <div class="m-faq-item"><span class="num">02</span><span class="q">이혼소송 기간은 얼마나 걸리나요?</span><span class="hot">인기</span><span class="arr">&#8250;</span></div>
+            <div class="m-faq-item"><span class="num">03</span><span class="q">재산분할 비율은 어떻게 되나요?</span><span class="arr">&#8250;</span></div>
+            <div class="m-faq-item"><span class="num">04</span><span class="q">상간자 소송도 가능한가요?</span><span class="arr">&#8250;</span></div>
+            <div class="m-faq-item"><span class="num">05</span><span class="q">변호사 선임 후 절차는?</span><span class="arr">&#8250;</span></div>
+          </div>
+          <div class="m-faq-cta">
+            <div><div class="pn">1555-5961</div><div class="pl">더 궁금한 점이 있으시면</div></div>
+            <span class="ar">→</span>
+          </div>
+        </section>
+
+        <!-- CONTACT — DARK -->
+        <section class="m-sec m-contact">
+          <p class="sec-label gold">Free Consultation</p>
+          <p class="msg">혼자 고민하지 마세요.<br><em>이제는 함께</em> 해결할 차례입니다.</p>
+          <p class="sub">무료 · 비밀보장 · 24시간 내 회신</p>
+          <div class="m-cg">
+            <a href="#" class="m-cb cb-ph"><div class="ic" style="color:var(--burgundy-500)">&#9742;</div><span class="nm">전화 상담</span><span class="ds">바로 연결</span></a>
+            <a href="#" class="m-cb cb-kk"><div class="ic">💬</div><span class="nm">카카오톡</span><span class="ds">실시간 채팅</span></a>
+            <a href="#" class="m-cb cb-sm"><div class="ic">&#9993;</div><span class="nm">SMS 문의</span><span class="ds">문자로 간편하게</span></a>
+            <a href="#" class="m-cb cb-fm"><div class="ic">&#9997;</div><span class="nm">상담 신청서</span><span class="ds">온라인 접수</span></a>
+          </div>
+          <div class="big-ph">1555-5961</div>
+          <p class="ph-info">대표번호 · 평일 09:00 – 18:00</p>
+        </section>
+
+        <!-- Footer -->
+        <div class="m-footer">
+          <p class="fn">법무법인 신세계로</p>
+          <p class="si">Since 1970</p>
+          <p class="of"><b>서울</b>02-594-2800</p>
+          <p class="of"><b>대전</b>042-471-2833</p>
+          <p class="of"><b>수원</b>031-202-2833</p>
+          <p class="cp">법무법인 신세계로 | 대표 조인섭 | 서울시 서초구 법원로 16, 207호<br>사업자등록번호 214-88-80810 | 광고책임변호사: 조인섭</p>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="m-bb">
+          <div class="m-bb-inner">
+            <a href="#" class="m-bb-phone">&#9742; 전화 상담</a>
+            <a href="#" class="m-bb-kk"><svg viewBox="0 0 24 24" width="20" height="20" fill="#3C1E1E"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.83 1.82 5.32 4.56 6.73l-.94 3.49c-.07.26.22.46.44.3l4.12-2.73c.59.06 1.19.09 1.82.09 5.5 0 10-3.58 10-8s-4.5-8-10-8z"/></svg></a>
+            <a href="#" class="m-bb-cs">&#9997;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     PC VIEW — 변호사 캐러셀
+     ================================================================ -->
+<div id="view-pc" class="view">
+  <div class="pc-full">
+
+    <!-- PC HERO — DARK -->
+    <section class="p-hero">
+      <div class="p-hero-inner">
+        <p class="p-hero-lbl">Since 1970 · Divorce & Inheritance</p>
+        <h1 class="p-hero-ttl">법무법인 신세계로</h1>
+        <p class="p-hero-cur">Shinsegae Law</p>
+        <p class="p-hero-tag">이혼과 상속, 52년의 법조전통으로 당신의 새로운 시작을 함께합니다</p>
+        <div class="p-hero-cta">
+          <button class="p-cta-main">무료 상담 신청</button>
+          <a href="#" class="p-cta-tel">· 1555-5961</a>
+        </div>
+      </div>
+      <div class="p-hero-scroll"><span>Scroll</span><div class="p-scr-line"></div></div>
+    </section>
+
+    <!-- PC TRUST — DARK -->
+    <section class="p-trust">
+      <div class="p-trust-inner">
+        <div class="p-trust-item"><div class="p-tn">52<span>년</span></div><div class="p-tt">법조 전통</div><div class="p-ts">1970년부터 3대에 걸친</div></div>
+        <div class="p-trust-item"><div class="p-tn">17<span>인</span></div><div class="p-tt">전문 변호사</div><div class="p-ts">이혼·상속만 집중하는</div></div>
+        <div class="p-trust-item"><div class="p-tn">7<span>팀</span></div><div class="p-tt">전문팀 운영</div><div class="p-ts">전략적 전문팀 운영</div></div>
+        <div class="p-trust-item"><div class="p-tn">94<span>%+</span></div><div class="p-tt">승소율</div><div class="p-ts">4,000건+ 누적 승소</div></div>
+      </div>
+    </section>
+
+    <!-- PC WHYUS — LIGHT -->
+    <section class="p-whyus">
+      <div class="p-inner">
+        <p class="sec-label burgundy">Why Shinsegae Law</p>
+        <h2 class="sec-title" style="font-size:36px">신세계로를 선택하는 이유</h2>
+        <div class="sec-gold-line" style="margin-bottom:48px"></div>
+        <div class="p-wu-grid">
+          <div class="p-wu-card"><div class="p-wu-img"><img src="../frontend/public/images/office/slide-01.jpg" alt=""></div><div class="p-wu-text"><span class="p-wu-num">01</span><p class="p-wu-label">Tradition</p><h4>이혼·상속만 52년</h4><div class="p-wu-line"></div><p>1970년부터 3대에 걸쳐 가족법만을 다뤄온 전통. 다른 분야 없이 오직 이혼과 상속에만 집중합니다.</p></div></div>
+          <div class="p-wu-card"><div class="p-wu-img"><img src="../frontend/public/images/office/slide-02.jpg" alt=""></div><div class="p-wu-text"><span class="p-wu-num">02</span><p class="p-wu-label">No.1 Specialist</p><h4>가족법전문 제1호</h4><div class="p-wu-line"></div><p>대한변호사협회 가족법전문 제1호. 1,600명 이상의 의뢰인이 신뢰한 전문성입니다.</p></div></div>
+          <div class="p-wu-card"><div class="p-wu-img"><img src="../frontend/public/images/office/slide-03.jpg" alt=""></div><div class="p-wu-text"><span class="p-wu-num">03</span><p class="p-wu-label">7 Teams</p><h4>7개 전문팀 시스템</h4><div class="p-wu-line"></div><p>이혼총괄·재산분할·위자료·형사·보전처분·상속·상간자 — 각 분야 전담팀이 전략을 설계합니다.</p></div></div>
+          <div class="p-wu-card"><div class="p-wu-img"><img src="../frontend/public/images/office/slide-04.jpg" alt=""></div><div class="p-wu-text"><span class="p-wu-num">04</span><p class="p-wu-label">Client First</p><h4>의뢰인 중심 철학</h4><div class="p-wu-line"></div><p>"이혼은 다시 행복할 권리." 법률 서비스를 넘어 심리적 지원까지 병행합니다.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PC CEO — LIGHT -->
+    <section class="p-ceo">
+      <div class="p-inner">
+        <div class="p-ceo-layout">
+          <div class="p-ceo-photo"><img src="../frontend/public/images/attorneys/cho-inseop.jpg" alt="조인섭"></div>
+          <div class="p-ceo-info">
+            <p class="sec-label gold">Representative Attorney</p>
+            <h2 class="sec-title" style="font-size:32px">대표변호사</h2>
+            <div class="sec-gold-line" style="margin-bottom:24px"></div>
+            <h3 style="font-size:24px;font-weight:700;margin-bottom:4px">조인섭</h3>
+            <p style="font-size:14px;color:#999;margin-bottom:20px">대표변호사 · 법학박사</p>
+            <ul class="p-ceo-creds">
+              <li>대한변호사협회 가족법전문 제1호 변호사</li>
+              <li>YTN 라디오 '조인섭변호사의 상담소' 진행</li>
+              <li>이화여자대학교 로스쿨 가족법 겸임교수</li>
+              <li>하나은행 유언신탁 업무협약 체결</li>
+              <li>서울지방변호사협회 가사연수원 강의</li>
+            </ul>
+            <div class="p-ceo-quote">
+              <p>"이혼은 실패가 아닌, 다시 행복할 수 있는 권리입니다."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PC CASES — DARK -->
+    <section class="p-cases">
+      <div class="p-inner">
+        <p class="sec-label gold">Winning Cases</p>
+        <h2 class="sec-title" style="font-size:36px;color:white">승소 사례</h2>
+        <div class="sec-gold-line" style="margin-bottom:48px"></div>
+        <div class="p-case-grid">
+          <div class="p-case-card"><div class="p-case-badges"><span class="p-cb cat">이혼</span><span class="p-cb res">전부승소</span></div><h4>양육권·재산분할 모두 의뢰인측 유리하게 판결</h4><p>배우자의 유책 사유를 입증하여 양육권과 재산분할 양측 모두에서 승소하였습니다.</p></div>
+          <div class="p-case-card"><div class="p-case-badges"><span class="p-cb cat">재산분할</span><span class="p-cb res">대폭 증액</span></div><h4>부동산·퇴직금 포함 7억 재산분할 성공</h4><p>상대방이 은닉한 재산을 추적하여 당초 예상보다 2배 이상의 분할을 이끌어냈습니다.</p></div>
+          <div class="p-case-card"><div class="p-case-badges"><span class="p-cb cat">양육권</span><span class="p-cb res">완전 확보</span></div><h4>자녀 2명 양육권 확보 + 양육비 월 350만원</h4><p>가사조사관 면담부터 법정 최종변론까지 전략적으로 대응하여 완전한 양육권을 확보했습니다.</p></div>
+          <div class="p-case-card"><div class="p-case-badges"><span class="p-cb cat">상간자</span><span class="p-cb res">위자료 승소</span></div><h4>상간자 상대 위자료 3,000만원 전액 인용</h4><p>증거 확보부터 법정 전략까지 전담팀이 체계적으로 대응한 결과입니다.</p></div>
+        </div>
+        <a href="#" class="m-more gold" style="margin-top:32px">승소사례 1,053건 전체보기 →</a>
+      </div>
+    </section>
+
+    <!-- PC LAWYERS — LIGHT (캐러셀) -->
+    <section class="p-lawyers-sec">
+      <div class="p-inner">
+        <p class="sec-label burgundy">Our Attorneys</p>
+        <h2 class="sec-title" style="font-size:36px">이혼전문변호사 소개</h2>
+        <div class="sec-gold-line" style="margin-bottom:16px"></div>
+        <p style="font-size:15px;color:#888;margin-bottom:40px">열정과 전문성으로 당신의 권리를 지켜드리겠습니다.</p>
+        <div class="pc-carousel">
+          <div class="pc-track" id="pcTrack">
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/cho-inseop.jpg" alt="조인섭"><div class="overlay"><p class="pos">대표변호사</p><div class="tags"><span class="tag">이혼소송</span><span class="tag">재산분할</span><span class="tag">상속</span></div><p class="creds">· 가족법전문 제1호<br>· YTN 라디오 상담소</p><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>조인섭</h4><div class="gl"></div><p>대표변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/cho-yongguk.jpg" alt="조용국"><div class="overlay"><p class="pos">대표변호사</p><div class="tags"><span class="tag">이혼</span><span class="tag">상속</span></div><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>조용국</h4><div class="gl"></div><p>대표변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/kim-miru.jpg" alt="김미루"><div class="overlay"><p class="pos">수석변호사 · 서울본부장</p><div class="tags"><span class="tag">이혼총괄</span><span class="tag">재산분할</span></div><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>김미루</h4><div class="gl"></div><p>수석변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/ryu-hyunju.jpg" alt="류현주"><div class="overlay"><p class="pos">수석변호사 · 대전본부장</p><div class="tags"><span class="tag">재산분할</span></div><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>류현주</h4><div class="gl"></div><p>수석변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/shin-jinhee.jpg" alt="신진희"><div class="overlay"><p class="pos">수석변호사 · 수원본부장</p><div class="tags"><span class="tag">위자료</span></div><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>신진희</h4><div class="gl"></div><p>수석변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/lee-myungin.jpg" alt="이명인"><div class="overlay"><p class="pos">수석변호사 · 형사팀장</p><div class="tags"><span class="tag">형사</span></div><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>이명인</h4><div class="gl"></div><p>수석변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/lee-junheon.jpg" alt="이준헌"><div class="overlay"><p class="pos">수석변호사</p><div class="tags"><span class="tag">보전처분</span></div><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>이준헌</h4><div class="gl"></div><p>수석변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/cho-yunyong.jpg" alt="조윤용"><div class="overlay"><p class="pos">수석변호사 · 상속팀장</p><div class="tags"><span class="tag">상속</span></div><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>조윤용</h4><div class="gl"></div><p>수석변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/hong-suhyun.jpg" alt="홍수현"><div class="overlay"><p class="pos">변호사</p><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>홍수현</h4><div class="gl"></div><p>변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/bae-suji.jpg" alt="배수지"><div class="overlay"><p class="pos">변호사</p><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>배수지</h4><div class="gl"></div><p>변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/kim-nahee.jpg" alt="김나희"><div class="overlay"><p class="pos">변호사</p><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>김나희</h4><div class="gl"></div><p>변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/kim-sujin.jpg" alt="김수진"><div class="overlay"><p class="pos">변호사</p><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>김수진</h4><div class="gl"></div><p>변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/park-suna.jpg" alt="박선아"><div class="overlay"><p class="pos">변호사</p><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>박선아</h4><div class="gl"></div><p>변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/shin-goun.jpg" alt="신고운"><div class="overlay"><p class="pos">변호사</p><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>신고운</h4><div class="gl"></div><p>변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/woo-jinseo.jpg" alt="우진서"><div class="overlay"><p class="pos">변호사</p><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>우진서</h4><div class="gl"></div><p>변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/jung-eunyoung.jpg" alt="정은영"><div class="overlay"><p class="pos">변호사</p><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>정은영</h4><div class="gl"></div><p>변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/lim-hyungchang.jpg" alt="임형창"><div class="overlay"><p class="pos">변호사</p><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>임형창</h4><div class="gl"></div><p>변호사</p></div></div>
+            <div class="pc-card"><div class="img"><img src="../frontend/public/images/attorneys/lim-kyungmi.jpg" alt="임경미"><div class="overlay"><p class="pos">변호사</p><p class="see">자세히 보기 →</p></div></div><div class="info"><h4>임경미</h4><div class="gl"></div><p>변호사</p></div></div>
+          </div>
+        </div>
+        <div class="pc-nav">
+          <div class="pc-arrow" onclick="pcPrev()">&#8249;</div>
+          <div class="pc-dots" id="pcDots"></div>
+          <div class="pc-arrow" onclick="pcNext()">&#8250;</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PC REVIEWS — DARK -->
+    <section class="p-reviews">
+      <div class="p-inner" style="text-align:center">
+        <p class="sec-label gold">Client Reviews</p>
+        <h2 class="sec-title" style="font-size:36px;color:white">의뢰인 후기</h2>
+        <div class="sec-gold-line" style="margin:0 auto 48px"></div>
+        <div class="p-rv-grid">
+          <div class="p-rv-card"><div class="p-rv-img"><img src="../frontend/public/images/reviews/review-01-2.png" alt="" onerror="this.parentElement.style.background='#1a1a2e'"></div><div class="p-rv-body"><div class="m-rv-pill">&#10003; 이혼기각 · 완전승소</div><h4>이혼기각 판결 받아낸 의뢰인의 기쁜 감사인사</h4><div class="m-rv-div"></div><div class="m-rv-meta"><span class="ct">이혼</span><span class="lw">조인섭 대표변호사</span></div></div></div>
+          <div class="p-rv-card"><div class="p-rv-img"><img src="../frontend/public/images/reviews/review-02.png" alt="" onerror="this.parentElement.style.background='#1a1a2e'"></div><div class="p-rv-body"><div class="m-rv-pill">&#10003; 양육비 방어 · 감액</div><h4>양육비증액청구를 방어해낸 의뢰인의 감사인사</h4><div class="m-rv-div"></div><div class="m-rv-meta"><span class="ct">이혼</span><span class="lw">조인섭 대표변호사</span></div></div></div>
+          <div class="p-rv-card"><div class="p-rv-img"><img src="../frontend/public/images/reviews/review-03.png" alt="" onerror="this.parentElement.style.background='#1a1a2e'"></div><div class="p-rv-body"><div class="m-rv-pill">&#10003; 재산분할 · 대폭 증액</div><h4>재산분할에서 예상보다 훨씬 많은 금액</h4><div class="m-rv-div"></div><div class="m-rv-meta"><span class="ct">재산분할</span><span class="lw">김미루 수석변호사</span></div></div></div>
+        </div>
+        <a href="#" class="m-more gold" style="margin-top:32px">의뢰인 후기 전체보기 (90건) →</a>
+      </div>
+    </section>
+
+    <!-- PC FAQ — DARK -->
+    <section class="p-faq">
+      <div class="p-inner">
+        <div style="text-align:center;margin-bottom:48px">
+          <p class="sec-label gold">FAQ</p>
+          <h2 class="sec-title" style="font-size:36px;color:white">자주 묻는 질문</h2>
+          <div class="sec-gold-line" style="margin:0 auto"></div>
+        </div>
+        <div class="p-faq-list">
+          <div class="p-faq-item"><span class="p-fq-num">01</span><span class="p-fq-q">상담 비용이 있나요?</span><span class="p-fq-hot">인기</span><span class="p-fq-arr">&#8250;</span></div>
+          <div class="p-faq-item"><span class="p-fq-num">02</span><span class="p-fq-q">이혼소송 기간은 얼마나 걸리나요?</span><span class="p-fq-hot">인기</span><span class="p-fq-arr">&#8250;</span></div>
+          <div class="p-faq-item"><span class="p-fq-num">03</span><span class="p-fq-q">재산분할 비율은 어떻게 되나요?</span><span class="p-fq-arr">&#8250;</span></div>
+          <div class="p-faq-item"><span class="p-fq-num">04</span><span class="p-fq-q">상간자 소송도 가능한가요?</span><span class="p-fq-arr">&#8250;</span></div>
+          <div class="p-faq-item"><span class="p-fq-num">05</span><span class="p-fq-q">변호사 선임 후 절차가 어떻게 되나요?</span><span class="p-fq-arr">&#8250;</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PC CONTACT — DARK -->
+    <section class="p-contact">
+      <div class="p-inner" style="text-align:center;max-width:600px">
+        <p class="sec-label gold">Free Consultation</p>
+        <p style="font-family:'Noto Serif KR',serif;font-size:28px;font-weight:300;color:rgba(255,255,255,0.85);line-height:1.6;margin-bottom:8px">혼자 고민하지 마세요.<br><em style="color:var(--gold-400);font-style:normal;font-weight:400">이제는 함께</em> 해결할 차례입니다.</p>
+        <p style="font-size:14px;color:rgba(255,255,255,0.3);margin-bottom:32px">무료 · 비밀보장 · 24시간 내 회신</p>
+        <div style="font-size:44px;font-weight:900;color:var(--gold-400);margin-bottom:8px">1555-5961</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.25);margin-bottom:32px">대표번호 · 평일 09:00 – 18:00</p>
+        <div style="display:flex;gap:12px;justify-content:center">
+          <a href="#" style="padding:14px 32px;border-radius:50px;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);font-size:14px;text-decoration:none">전화 상담</a>
+          <a href="#" style="padding:14px 32px;border-radius:50px;background:#FEE500;color:#191919;font-size:14px;font-weight:500;text-decoration:none">카카오톡</a>
+          <a href="#" style="padding:14px 32px;border-radius:50px;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);font-size:14px;text-decoration:none">온라인 상담</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PC FOOTER -->
+    <footer class="p-footer">
+      <div class="p-inner" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px">
+        <div><p style="font-size:16px;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:4px">법무법인 신세계로</p><p style="font-size:10px;color:rgba(201,168,76,0.3);letter-spacing:0.15em">Since 1970</p></div>
+        <div style="display:flex;gap:32px;font-size:12px;color:rgba(255,255,255,0.3)">
+          <div><b style="color:rgba(255,255,255,0.5)">서울본사</b><br>02-594-2800</div>
+          <div><b style="color:rgba(255,255,255,0.5)">대전지사</b><br>042-471-2833</div>
+          <div><b style="color:rgba(255,255,255,0.5)">수원지사</b><br>031-202-2833</div>
+        </div>
+        <p style="font-size:10px;color:rgba(255,255,255,0.15);flex-basis:100%">법무법인 신세계로 | 대표 조인섭 | 서울시 서초구 법원로 16, 207호 | 사업자등록번호 214-88-80810 | 광고책임변호사: 조인섭</p>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<script>
+// View toggle
+function showView(v) {
+  document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+  document.getElementById('view-' + v).classList.add('active');
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// Mobile header scroll
+const scr = document.getElementById('screen');
+const mh = document.getElementById('mheader');
+scr.addEventListener('scroll', () => {
+  mh.classList.toggle('scrolled', scr.scrollTop > 60);
+});
+
+// PC Carousel
+let pcPos = 0;
+const cardW = 25; // 25% per card
+const totalCards = 18;
+const visibleCards = 4;
+const maxPos = Math.ceil((totalCards - visibleCards) / visibleCards);
+
+function updatePcCarousel() {
+  const track = document.getElementById('pcTrack');
+  const offset = pcPos * visibleCards * (cardW);
+  track.style.transform = `translateX(-${offset}%)`;
+  renderDots();
+}
+
+function pcNext() {
+  if (pcPos < maxPos) { pcPos++; updatePcCarousel(); }
+}
+function pcPrev() {
+  if (pcPos > 0) { pcPos--; updatePcCarousel(); }
+}
+
+function renderDots() {
+  const container = document.getElementById('pcDots');
+  container.innerHTML = '';
+  for (let i = 0; i <= maxPos; i++) {
+    const d = document.createElement('div');
+    d.className = 'pc-dot' + (i === pcPos ? ' active' : '');
+    d.onclick = () => { pcPos = i; updatePcCarousel(); };
+    container.appendChild(d);
+  }
+}
+renderDots();
+</script>
+</body>
+</html>

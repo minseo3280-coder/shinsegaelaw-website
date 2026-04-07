@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>승소사례 상세 — 법무법인 신세계로</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+:root {
+  --burgundy: #9B2335;
+  --burgundy-light: #FDF2F4;
+  --burgundy-dark: #7B2D3B;
+  --gold: #C9A84C;
+  --navy: #0F0F1A;
+  --cream: #faf9f7;
+  --g50: #f9fafb; --g100: #f3f4f6; --g200: #e5e7eb;
+  --g300: #d1d5db; --g400: #9ca3af; --g500: #6b7280;
+  --g600: #4b5563; --g700: #374151; --g900: #111827;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Pretendard Variable', -apple-system, sans-serif;
+  color: var(--g900); background: #fff;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'ss01';
+}
+
+/* ══ BANNER ══ */
+.banner {
+  position: relative; height: 220px;
+  background: var(--navy); overflow: hidden;
+}
+@media(min-width:768px){ .banner { height: 280px; } }
+.banner img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; opacity: .3;
+}
+.banner-ov {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(15,15,26,.5), rgba(15,15,26,.82));
+}
+.banner-in {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+  height: 100%; display: flex; flex-direction: column;
+  justify-content: flex-end; padding-bottom: 2.25rem;
+}
+.crumb {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: rgba(255,255,255,.3); margin-bottom: 12px;
+}
+.crumb a { color: rgba(255,255,255,.3); text-decoration: none; }
+.crumb a:hover { color: rgba(255,255,255,.55); }
+.crumb svg { width: 11px; height: 11px; }
+.banner-in .en {
+  font-size: 11px; letter-spacing: .25em; text-transform: uppercase;
+  color: rgba(201,168,76,.55); font-weight: 600; margin-bottom: 6px;
+}
+.banner-in h1 { font-size: 28px; font-weight: 700; color: #fff; }
+@media(min-width:768px){ .banner-in h1 { font-size: 32px; } }
+.banner-in .line {
+  width: 40px; height: 2px; margin-top: 14px;
+  background: var(--gold); opacity: .45; border-radius: 1px;
+}
+
+/* ══ TABS ══ */
+.tabs { border-bottom: 1px solid var(--g200); position: sticky; top: 0; z-index: 40; background: #fff; }
+.tabs-in { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; overflow-x: auto; }
+.tabs-in::-webkit-scrollbar { display: none; }
+.tg { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--g900); padding: 13px 14px 13px 0; }
+.ti { padding: 13px 18px; font-size: 13px; font-weight: 500; color: var(--g400); border-bottom: 2px solid transparent; cursor: pointer; white-space: nowrap; }
+.ti.active { color: var(--burgundy); font-weight: 600; border-bottom-color: var(--burgundy); }
+.td { width: 1px; height: 18px; background: var(--g200); align-self: center; margin: 0 6px; }
+
+/* ══ LAYOUT ══ */
+.wrap { max-width: 1200px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
+.grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+@media(min-width:1024px){ .grid { grid-template-columns: 1fr 280px; gap: 4.5rem; } }
+
+/* back */
+.back {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 13px; color: var(--g400); text-decoration: none;
+  margin-bottom: 2.5rem; transition: color .2s;
+}
+.back:hover { color: var(--burgundy); }
+.back svg { width: 15px; height: 15px; }
+
+/* ══ ARTICLE HEADER ══ */
+.a-cat {
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 18px;
+}
+.a-cat .primary {
+  font-size: 12px; font-weight: 700; color: var(--burgundy);
+  letter-spacing: .02em;
+}
+.a-cat .sep { color: var(--g300); font-size: 10px; }
+.a-cat .sub { font-size: 12px; color: var(--g400); }
+
+.a-title {
+  font-size: 28px; font-weight: 800;
+  line-height: 1.45; letter-spacing: -.03em;
+  color: var(--g900);
+  margin-bottom: 24px;
+  word-break: keep-all;
+}
+@media(min-width:768px){ .a-title { font-size: 34px; line-height: 1.4; } }
+
+.a-info {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+  font-size: 13px; color: var(--g400);
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--g100);
+  margin-bottom: 40px;
+}
+.a-info .lawyer {
+  display: flex; align-items: center; gap: 5px;
+  color: var(--g700); font-weight: 600;
+}
+.a-info .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--burgundy); }
+
+/* ══ RESULT — 본문 안에 녹인 형태 ══ */
+.result-block {
+  margin-bottom: 48px;
+}
+.result-amount-row {
+  display: flex; align-items: baseline; gap: 12px;
+  margin-bottom: 8px;
+}
+.result-label {
+  font-size: 13px; font-weight: 600; color: var(--burgundy);
+  letter-spacing: .02em;
+}
+.result-amount {
+  font-size: 40px; font-weight: 800;
+  color: var(--g900); letter-spacing: -.02em;
+  line-height: 1;
+}
+@media(min-width:768px){ .result-amount { font-size: 48px; } }
+.result-amount .unit {
+  font-size: 18px; font-weight: 500; color: var(--g400); margin-left: 2px;
+}
+.result-list {
+  display: flex; flex-wrap: wrap; gap: 6px 20px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--g100);
+}
+.result-list li {
+  list-style: none;
+  display: flex; align-items: center; gap: 6px;
+  font-size: 14px; color: var(--g600); line-height: 1.7;
+}
+.result-list li svg { width: 14px; height: 14px; color: var(--burgundy); flex-shrink: 0; opacity: .6; }
+
+/* ══ MAIN IMAGE + sub images ══ */
+.hero-img {
+  margin-bottom: 8px;
+  border-radius: 6px; overflow: hidden;
+  aspect-ratio: 16/10;
+  background: var(--g100);
+}
+.hero-img img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.sub-imgs {
+  display: flex; gap: 8px;
+  margin-bottom: 48px;
+}
+.sub-imgs .thumb {
+  flex: 1; aspect-ratio: 4/3;
+  border-radius: 4px; overflow: hidden;
+  background: var(--g100); cursor: pointer;
+  position: relative;
+}
+.sub-imgs .thumb img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .3s ease;
+}
+.sub-imgs .thumb:hover img { transform: scale(1.03); }
+.sub-imgs .more {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 600; color: #fff;
+  letter-spacing: .02em;
+}
+
+/* ══ BODY TEXT ══ */
+.quote-block {
+  margin-bottom: 48px;
+  padding: 24px 24px 24px 22px;
+  border-left: 3px solid var(--burgundy);
+  background: var(--cream);
+  border-radius: 0 8px 8px 0;
+}
+.quote-block .who {
+  font-size: 12px; font-weight: 700; color: var(--burgundy);
+  margin-bottom: 12px; letter-spacing: .01em;
+}
+.quote-block p {
+  font-size: 15.5px; line-height: 1.9;
+  color: var(--g600);
+}
+
+.body-sec { margin-bottom: 40px; }
+.body-sec h3 {
+  font-size: 18px; font-weight: 700; color: var(--g900);
+  margin-bottom: 16px;
+  padding-left: 14px;
+  position: relative;
+  letter-spacing: -.01em;
+}
+.body-sec h3::before {
+  content: '';
+  position: absolute; left: 0; top: 3px; bottom: 3px;
+  width: 3px; background: var(--burgundy);
+  border-radius: 2px;
+}
+.body-sec p {
+  font-size: 15.5px; line-height: 1.95;
+  color: var(--g600);
+  margin-bottom: 1em;
+  word-break: keep-all;
+}
+.body-sec .hl { color: var(--burgundy); font-weight: 600; }
+.body-sec strong { color: var(--g900); font-weight: 600; }
+
+.hr { height: 1px; background: var(--g100); margin: 48px 0; }
+
+/* ══ INLINE CTA ══ */
+.icta {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 18px 22px;
+  border: 1px solid var(--g200);
+  border-radius: 8px;
+  margin-bottom: 48px;
+}
+@media(max-width:640px){ .icta { flex-direction: column; text-align: center; } }
+.icta .t { font-size: 14px; color: var(--g500); }
+.icta .t b { color: var(--g900); }
+.icta a {
+  padding: 9px 20px;
+  background: var(--burgundy); color: #fff;
+  font-size: 13px; font-weight: 600;
+  border-radius: 6px; text-decoration: none;
+  white-space: nowrap; transition: all .2s;
+}
+.icta a:hover { background: var(--burgundy-dark); }
+
+/* ══ PREV/NEXT ══ */
+.pn { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 56px; }
+.pn a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--g100); border-radius: 8px;
+  text-decoration: none; transition: all .2s;
+}
+.pn a:hover { border-color: var(--g300); background: var(--g50); }
+.pn .lbl { font-size: 11px; color: var(--g400); }
+.pn .ttl {
+  font-size: 13px; color: var(--g700); font-weight: 500;
+  line-height: 1.45;
+  display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+.pn .nx { text-align: right; justify-content: flex-end; }
+.pn svg { width: 16px; height: 16px; color: var(--g300); flex-shrink: 0; }
+
+/* ══ RELATED ══ */
+.rel h3 {
+  font-size: 16px; font-weight: 700; color: var(--g900);
+  margin-bottom: 4px;
+}
+.rel .sub { font-size: 13px; color: var(--g400); margin-bottom: 16px; }
+.rel-list { border-top: 1px solid var(--g100); }
+.ri {
+  display: block; text-decoration: none;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--g100);
+  transition: all .15s;
+}
+.ri:hover { padding-left: 8px; }
+.ri:first-child {
+  padding: 20px 0;
+}
+.ri:first-child .rt {
+  font-size: 16px; font-weight: 600;
+}
+.ri .rc { font-size: 11px; font-weight: 600; color: var(--burgundy); margin-bottom: 3px; }
+.ri .rt {
+  font-size: 14.5px; font-weight: 500; color: var(--g700);
+  line-height: 1.55; margin-bottom: 5px;
+  display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+.ri:hover .rt { color: var(--g900); }
+.ri .rm { font-size: 12px; color: var(--g400); }
+
+/* ══ SIDEBAR ══ */
+.side { display: none; }
+@media(min-width:1024px){ .side { display: block; } }
+.side-in { position: sticky; top: 72px; display: flex; flex-direction: column; gap: 16px; }
+
+.sc {
+  border: 1px solid var(--g100);
+  border-radius: 10px;
+  padding: 18px;
+}
+.sc-t {
+  font-size: 11px; font-weight: 700; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--g400);
+  margin-bottom: 12px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--g100);
+}
+
+/* sidebar lawyer */
+.sl {
+  display: flex; align-items: center; gap: 10px;
+  padding: 7px 0; text-decoration: none;
+  transition: all .15s;
+}
+.sl:hover { padding-left: 4px; }
+.sl + .sl { border-top: 1px solid var(--g50); }
+.sl-av {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--g100); overflow: hidden; flex-shrink: 0;
+}
+.sl-av img { width: 100%; height: 100%; object-fit: cover; }
+.sl-nm { font-size: 13.5px; font-weight: 600; color: var(--g900); }
+.sl-rl { font-size: 11px; color: var(--g400); margin-top: 1px; }
+
+/* sidebar summary */
+.ss .row {
+  display: flex; justify-content: space-between;
+  padding: 8px 0; font-size: 13px;
+  border-bottom: 1px solid var(--g50);
+}
+.ss .row:last-child { border-bottom: none; }
+.ss .k { color: var(--g400); }
+.ss .v { font-weight: 600; color: var(--g700); text-align: right; }
+.ss .v.ac { color: var(--burgundy); }
+
+/* sidebar phone - 사건요약 내부에 병합 */
+.ss .phone-row {
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid var(--g100);
+  text-align: center;
+}
+.ss .phone-row a {
+  font-size: 17px; font-weight: 700; color: var(--burgundy);
+  text-decoration: none; letter-spacing: .01em;
+}
+.ss .phone-row .ph-sub {
+  font-size: 11px; color: var(--g400); margin-top: 2px;
+}
+
+/* ══ MOBILE CTA ══ */
+.mcta { display: block; margin-top: 2rem; }
+@media(min-width:1024px){ .mcta { display: none; } }
+.mcta-in {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 14px 18px;
+  border: 1px solid var(--g200); border-radius: 8px;
+}
+.mcta-in .t { font-size: 14px; font-weight: 600; color: var(--g700); }
+.mcta-in .t span { color: var(--burgundy); }
+.mcta-in a {
+  padding: 9px 18px; background: var(--burgundy); color: #fff;
+  font-size: 13px; font-weight: 600; border-radius: 6px;
+  text-decoration: none; white-space: nowrap;
+}
+
+.ft { background: var(--navy); padding: 2rem; text-align: center; font-size: 12px; color: rgba(255,255,255,.2); }
+
+/* anim */
+@keyframes fi { from { opacity:0; transform: translateY(14px); } to { opacity:1; transform: translateY(0); } }
+.fi { animation: fi .45s ease forwards; opacity: 0; }
+.d1 { animation-delay: .05s; }
+.d2 { animation-delay: .1s; }
+.d3 { animation-delay: .15s; }
+.d4 { animation-delay: .2s; }
+@media(prefers-reduced-motion:reduce){ .fi { animation:none; opacity:1; } }
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<section class="banner">
+  <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80" alt="">
+  <div class="banner-ov"></div>
+  <div class="banner-in">
+    <nav class="crumb">
+      <a href="#">홈</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      <span style="color:rgba(255,255,255,.55)">승소사례</span>
+    </nav>
+    <p class="en">Winning Cases</p>
+    <h1>승소사례</h1>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tabs-in">
+    <span class="tg">승소사례</span>
+    <div class="ti active">전체 승소사례</div>
+    <div class="td"></div>
+    <span class="tg">의뢰인후기</span>
+    <div class="ti">전체 후기</div>
+    <div class="ti">언론매체</div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="wrap">
+  <div class="grid">
+    <article>
+
+      <a href="#" class="back fi">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        목록으로 돌아가기
+      </a>
+
+      <!-- Header -->
+      <div class="fi d1">
+        <div class="a-cat">
+          <span class="primary">이혼</span>
+          <span class="sep">·</span>
+          <span class="sub">재산분할</span>
+          <span class="sep">·</span>
+          <span class="sub">양육권</span>
+        </div>
+        <h2 class="a-title">1심 이혼기각을 항소심에서 뒤집고 이혼 및 특유재산 주장을 관철하여 재산분할에서 승리한 사례</h2>
+        <div class="a-info">
+          <span class="lawyer"><span class="dot"></span> 조인섭 대표변호사</span>
+          <span class="lawyer"><span class="dot" style="background:var(--gold)"></span> 이준헌 수석변호사</span>
+          <span style="color:var(--g200)">|</span>
+          <span>2025.09.01</span>
+          <span>조회 242</span>
+        </div>
+      </div>
+
+      <!-- Result — 본문 흐름에 녹인 형태 -->
+      <div class="result-block fi d2">
+        <p class="result-label">판결 결과</p>
+        <div class="result-amount-row">
+          <span class="result-amount">2억 6,800<span class="unit">만원 확보</span></span>
+        </div>
+        <ul class="result-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            1심 기각 → 항소심 이혼 인용
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            공동명의 지분 정리
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            자녀 친권·양육권 지정
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            양육비 월 100만원 확정
+          </li>
+        </ul>
+      </div>
+
+      <!-- Main Image + Thumbnails -->
+      <div class="fi d2">
+        <div class="hero-img">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&q=80" alt="">
+        </div>
+        <div class="sub-imgs">
+          <div class="thumb">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&q=80" alt="">
+          </div>
+          <div class="thumb">
+            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=400&q=80" alt="">
+            <div class="more">+1</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Attorney Quote -->
+      <div class="quote-block fi d3">
+        <p class="who">담당변호사 재판 후기</p>
+        <p>법무법인 신세계로는 상대방의 공격적인 태도를 역이용하여 혼인 유지 의사가 진심이 아님을 강조하여 1심 기각을 뒤집고 항소심에서 이혼 인용 판결을 받았습니다. 또한, 아파트 3채 중 1개 아파트에 대한 타인 소유 주장이 인정되어 재산분할 대상에서 제외되었습니다. 최종적으로 의뢰인이 재산분할금을 지급받는 성공적인 결과로 사건이 잘 마무리 되었습니다.</p>
+      </div>
+
+      <!-- Body -->
+      <div class="body-sec fi d3">
+        <h3>사건 개요</h3>
+        <p>의뢰인(원고)은 이혼을 청구했으나 1심에서 이혼 기각 판결을 받았습니다. 이에 법무법인 신세계로에 항소심 대리를 의뢰하였으며, 상대방은 항소심에서도 여전히 1심 판결처럼 이혼 기각을 주장하며 공격적인 태도를 보였습니다.</p>
+      </div>
+
+      <div class="body-sec fi d4">
+        <h3>신세계로의 전략</h3>
+        <p>주요 쟁점은 <span class="hl">1심 이혼 기각 판결을 뒤집어 항소심에서 이혼을 인용받을 수 있는지</span>가 가장 중요했고, 이혼에 따른 재산분할 중 의뢰인이 주장하는 아파트 3채 중 타인 소유로 주장하는 재산을 특유재산으로 인정받아 재산분할 대상에서 제외할 수 있는지였습니다.</p>
+        <p>법무법인 신세계로는 상대방이 항소심에서 보인 <strong>공격적이고 비협조적인 태도를 전략적으로 활용</strong>하여, 이것이 오히려 혼인 유지 의사의 진정성이 없음을 방증한다고 법원에 적극 주장하였습니다.</p>
+      </div>
+
+      <div class="hr"></div>
+
+      <!-- Inline CTA -->
+      <div class="icta fi d4">
+        <p class="t"><b>유사한 사건으로 고민 중이신가요?</b> 신세계로가 도와드립니다.</p>
+        <a href="#">무료상담</a>
+      </div>
+
+      <!-- Prev/Next -->
+      <div class="pn">
+        <a href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          <div>
+            <div class="lbl">이전 사례</div>
+            <div class="ttl">해외장기 면접교섭 확보한 이혼조정승소사례</div>
+          </div>
+        </a>
+        <a href="#" class="nx">
+          <div>
+            <div class="lbl">다음 사례</div>
+            <div class="ttl">복잡한 주택지분을 현금 8억 정산받는 것으로 조정성립</div>
+          </div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+      </div>
+
+      <!-- Related -->
+      <div class="rel">
+        <h3>관련 승소사례</h3>
+        <p class="sub">같은 분야의 다른 승소사례</p>
+        <div class="rel-list">
+          <a href="#" class="ri">
+            <div class="rc">재산분할</div>
+            <div class="rt">사실혼파탄으로 위자료 2천만원 인정, 의뢰인 부동산을 재산분할에 제외시켜 압도적으로 승소한 사례</div>
+            <div class="rm">조인섭 변호사 · 2025.08.15</div>
+          </a>
+          <a href="#" class="ri">
+            <div class="rc">이혼 · 재산분할</div>
+            <div class="rt">유책배우자임에도 혼인 5년자 전업주부 재산분할 40% 인정받은 사례</div>
+            <div class="rm">이준헌 변호사 · 2025.08.01</div>
+          </a>
+          <a href="#" class="ri">
+            <div class="rc">양육권</div>
+            <div class="rt">별거중 상대방이 아이를 돌려보내지 않아, 화해권고결정으로 양육권을 되찾은 사례</div>
+            <div class="rm">조용국 변호사 · 2025.07.20</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile CTA -->
+      <div class="mcta">
+        <div class="mcta-in">
+          <p class="t"><span>02-585-0101</span> · 24시간 무료</p>
+          <a href="#">상담 신청</a>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="side">
+      <div class="side-in">
+
+        <div class="sc">
+          <p class="sc-t">담당 변호사</p>
+          <a href="#" class="sl">
+            <div class="sl-av"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt=""></div>
+            <div><div class="sl-nm">조인섭</div><div class="sl-rl">대표변호사 · 이혼소송 총괄</div></div>
+          </a>
+          <a href="#" class="sl">
+            <div class="sl-av"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80" alt=""></div>
+            <div><div class="sl-nm">이준헌</div><div class="sl-rl">수석변호사 · 보전처분팀장</div></div>
+          </a>
+        </div>
+
+        <div class="sc ss">
+          <p class="sc-t">사건 요약</p>
+          <div class="row"><span class="k">사건 유형</span><span class="v">항소심 이혼</span></div>
+          <div class="row"><span class="k">재산분할금</span><span class="v ac">2억 6,800만원</span></div>
+          <div class="row"><span class="k">결과</span><span class="v ac">승소 (판결)</span></div>
+          <div class="row"><span class="k">승소일</span><span class="v">2025.09.01</span></div>
+          <div class="row"><span class="k">조회수</span><span class="v">242</span></div>
+          <div class="phone-row">
+            <a href="tel:02-585-0101">02-585-0101</a>
+            <p class="ph-sub">24시간 접수 · 비밀보장</p>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<div class="ft">&copy; 2025 법무법인 신세계로</div>
+</body>
+</html>

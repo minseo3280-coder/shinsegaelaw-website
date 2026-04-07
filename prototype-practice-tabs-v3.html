@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PracticeTabs v3 — G스타일 1단 라인색 비교</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Pretendard Variable', sans-serif; background: #f5f5f3; }
+
+  .label { max-width: 960px; margin: 48px auto 8px; padding: 0 24px; font-size: 11px; color: #9B2335; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
+  .desc { max-width: 960px; margin: 0 auto 16px; padding: 0 24px; font-size: 13px; color: #888; line-height: 1.6; }
+  .spacer { height: 50px; }
+  .fake-banner { height: 140px; background: linear-gradient(135deg, #0a0a14, #1a0a10); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 16px; }
+  .fake-banner span { color: rgba(255,255,255,0.35); font-size: 11px; letter-spacing: 0.15em; }
+
+  /* 2단 공통 */
+  .row2 { background: #fff; border-bottom: 1px solid #e5e5e5; }
+  .row2-inner { max-width: 960px; margin: 0 auto; padding: 0 24px; display: flex; overflow-x: auto; }
+  .row2-inner::-webkit-scrollbar { display: none; }
+  .r2 { padding: 13px 16px; font-size: 14px; color: #aaa; white-space: nowrap; border: none; border-bottom: 2px solid transparent; background: none; cursor: pointer; transition: all 0.2s; }
+  .r2:hover { color: #666; }
+  .r2.active { color: #7B2D3B; font-weight: 600; border-bottom-color: #7B2D3B; }
+
+  /* 1단 공통 */
+  .row1 { background: #fff; border-bottom: 1px solid #f0f0ee; }
+  .row1-inner { max-width: 960px; margin: 0 auto; padding: 0 24px; display: flex; align-items: stretch; }
+  .g-btn {
+    position: relative; padding: 14px 20px; font-size: 14px; color: #bbb;
+    white-space: nowrap; border: none; background: none; cursor: pointer;
+    transition: all 0.2s; font-weight: 400;
+  }
+  .g-btn:hover { color: #666; }
+  .g-btn:hover .g-en { color: #bbb; }
+  .g-btn.active { color: #1A1A2E; font-weight: 700; }
+  .g-en {
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    margin-right: 6px; color: #d0d0d0; transition: color 0.2s;
+  }
+
+
+  /* ─── G1: 골드 라인 ─── */
+  .g1.active::after { content:''; position:absolute; bottom:0; left:20px; right:20px; height:2px; background: linear-gradient(to right, #D4AF37, #C9A84C); }
+  .g1.active .g-en { color: #C9A84C; }
+
+  /* ─── G2: 네이비 라인 ─── */
+  .g2.active::after { content:''; position:absolute; bottom:0; left:20px; right:20px; height:2px; background: #1A1A2E; }
+  .g2.active .g-en { color: #C9A84C; }
+
+  /* ─── G3: 버건디→골드 그라데이션 라인 ─── */
+  .g3.active::after { content:''; position:absolute; bottom:0; left:20px; right:20px; height:2px; background: linear-gradient(to right, #9B2335, #D4AF37); }
+  .g3.active .g-en { color: #C9A84C; }
+
+  /* ─── G4: 골드 라인 + 골드 도트 ─── */
+  .g4.active::after { content:''; position:absolute; bottom:0; left:20px; right:20px; height:2px; background: #C9A84C; }
+  .g4.active .g-en { color: #C9A84C; }
+  .g4 .g-dot { display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: #C9A84C; margin-right: 8px; opacity: 0; transition: opacity 0.2s; vertical-align: middle; }
+  .g4.active .g-dot { opacity: 1; }
+
+  /* ─── G5: 라인 없음, 배경 틴트 ─── */
+  .g5 { padding: 0 20px !important; }
+  .g5-wrap { display: flex; align-items: center; padding: 10px 16px; border-radius: 8px; transition: all 0.2s; }
+  .g5.active .g5-wrap { background: rgba(123,45,59,0.05); }
+  .g5.active .g-en { color: #C9A84C; }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ G1: 골드 라인 ═══════════════ -->
+<p class="label">G-1 — 1단: 골드 라인 / 2단: 버건디 라인</p>
+<p class="desc">1단 하단 라인이 골드. 2단은 기존 버건디. 두 단의 역할이 색으로 명확히 구분됨.</p>
+<div class="fake-banner"><span>BANNER</span></div>
+<div class="row1">
+  <div class="row1-inner">
+    <button class="g-btn g1 active"><span class="g-en">Divorce</span>이혼소송</button>
+    <button class="g-btn g1"><span class="g-en">Adultery</span>상간자소송</button>
+    <button class="g-btn g1"><span class="g-en">Criminal</span>가사관련 형사소송</button>
+  </div>
+</div>
+<div class="row2"><div class="row2-inner">
+  <button class="r2 active">이혼준비 가이드</button><button class="r2">협의이혼</button><button class="r2">재판이혼</button><button class="r2">위자료</button><button class="r2">재산분할</button><button class="r2">자녀문제</button><button class="r2">부정행위</button><button class="r2">가정폭력</button><button class="r2">가족관계</button><button class="r2">국제이혼</button>
+</div></div>
+
+<div class="spacer"></div>
+
+<!-- ═══════════════ G2: 네이비 라인 ═══════════════ -->
+<p class="label">G-2 — 1단: 네이비 라인 / 2단: 버건디 라인</p>
+<p class="desc">1단 하단 라인이 네이비(#1A1A2E). 무게감 있고 차분. 영문은 골드 유지.</p>
+<div class="fake-banner"><span>BANNER</span></div>
+<div class="row1">
+  <div class="row1-inner">
+    <button class="g-btn g2 active"><span class="g-en">Divorce</span>이혼소송</button>
+    <button class="g-btn g2"><span class="g-en">Adultery</span>상간자소송</button>
+    <button class="g-btn g2"><span class="g-en">Criminal</span>가사관련 형사소송</button>
+  </div>
+</div>
+<div class="row2"><div class="row2-inner">
+  <button class="r2 active">이혼준비 가이드</button><button class="r2">협의이혼</button><button class="r2">재판이혼</button><button class="r2">위자료</button><button class="r2">재산분할</button><button class="r2">자녀문제</button><button class="r2">부정행위</button><button class="r2">가정폭력</button><button class="r2">가족관계</button><button class="r2">국제이혼</button>
+</div></div>
+
+<div class="spacer"></div>
+
+<!-- ═══════════════ G3: 버건디→골드 그라데이션 ═══════════════ -->
+<p class="label">G-3 — 1단: 버건디→골드 그라데이션 라인 / 2단: 버건디</p>
+<p class="desc">1단 하단 라인이 버건디에서 골드로 전환. 사이트 곳곳에서 쓰이는 시그니처 그라데이션.</p>
+<div class="fake-banner"><span>BANNER</span></div>
+<div class="row1">
+  <div class="row1-inner">
+    <button class="g-btn g3 active"><span class="g-en">Divorce</span>이혼소송</button>
+    <button class="g-btn g3"><span class="g-en">Adultery</span>상간자소송</button>
+    <button class="g-btn g3"><span class="g-en">Criminal</span>가사관련 형사소송</button>
+  </div>
+</div>
+<div class="row2"><div class="row2-inner">
+  <button class="r2 active">이혼준비 가이드</button><button class="r2">협의이혼</button><button class="r2">재판이혼</button><button class="r2">위자료</button><button class="r2">재산분할</button><button class="r2">자녀문제</button><button class="r2">부정행위</button><button class="r2">가정폭력</button><button class="r2">가족관계</button><button class="r2">국제이혼</button>
+</div></div>
+
+<div class="spacer"></div>
+
+<!-- ═══════════════ G4: 골드 라인 + 골드 도트 ═══════════════ -->
+<p class="label">G-4 — 1단: 골드 라인 + 골드 도트 / 2단: 버건디</p>
+<p class="desc">골드 라인에 추가로 활성 탭 앞에 작은 골드 도트. 한 눈에 어디인지 포인트.</p>
+<div class="fake-banner"><span>BANNER</span></div>
+<div class="row1">
+  <div class="row1-inner">
+    <button class="g-btn g4 active"><span class="g-dot"></span><span class="g-en">Divorce</span>이혼소송</button>
+    <button class="g-btn g4"><span class="g-dot"></span><span class="g-en">Adultery</span>상간자소송</button>
+    <button class="g-btn g4"><span class="g-dot"></span><span class="g-en">Criminal</span>가사관련 형사소송</button>
+  </div>
+</div>
+<div class="row2"><div class="row2-inner">
+  <button class="r2 active">이혼준비 가이드</button><button class="r2">협의이혼</button><button class="r2">재판이혼</button><button class="r2">위자료</button><button class="r2">재산분할</button><button class="r2">자녀문제</button><button class="r2">부정행위</button><button class="r2">가정폭력</button><button class="r2">가족관계</button><button class="r2">국제이혼</button>
+</div></div>
+
+<div class="spacer"></div>
+
+<!-- ═══════════════ G5: 라인 없음, 배경 틴트 ═══════════════ -->
+<p class="label">G-5 — 1단: 라인 없이 배경 틴트 / 2단: 버건디</p>
+<p class="desc">1단 활성 탭에 버건디 틴트 배경(라운드). 라인 대신 면적으로 구분. 부드러운 느낌.</p>
+<div class="fake-banner"><span>BANNER</span></div>
+<div class="row1">
+  <div class="row1-inner">
+    <button class="g-btn g5 active"><div class="g5-wrap"><span class="g-en">Divorce</span>이혼소송</div></button>
+    <button class="g-btn g5"><div class="g5-wrap"><span class="g-en">Adultery</span>상간자소송</div></button>
+    <button class="g-btn g5"><div class="g5-wrap"><span class="g-en">Criminal</span>가사관련 형사소송</div></button>
+  </div>
+</div>
+<div class="row2"><div class="row2-inner">
+  <button class="r2 active">이혼준비 가이드</button><button class="r2">협의이혼</button><button class="r2">재판이혼</button><button class="r2">위자료</button><button class="r2">재산분할</button><button class="r2">자녀문제</button><button class="r2">부정행위</button><button class="r2">가정폭력</button><button class="r2">가족관계</button><button class="r2">국제이혼</button>
+</div></div>
+
+<div class="spacer"></div>
+<div class="spacer"></div>
+
+</body>
+</html>

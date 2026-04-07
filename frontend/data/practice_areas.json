@@ -1,0 +1,104 @@
+{
+  "practice_areas": [
+    {
+      "id": 1,
+      "name": "이혼소송",
+      "name_en": "Divorce Litigation",
+      "icon": "gavel",
+      "description": "20년 넘게 오직 이혼에만 집중해온 법률그룹으로서 최선의 결과를 만들어 드립니다.",
+      "subcategories": [
+        {
+          "name": "협의이혼",
+          "description": "원만한 합의를 통한 이혼 절차 진행"
+        },
+        {
+          "name": "재판이혼",
+          "description": "법원 판결을 통한 이혼 소송 대리"
+        },
+        {
+          "name": "위자료청구",
+          "description": "정신적 피해에 대한 적정 위자료 산정 및 청구"
+        },
+        {
+          "name": "재산분할",
+          "description": "혼인 중 형성된 재산의 공정한 분할"
+        },
+        {
+          "name": "자녀문제",
+          "description": "양육권, 양육비, 면접교섭권 관련 법률 서비스"
+        },
+        {
+          "name": "부정행위",
+          "description": "배우자의 부정행위에 대한 법적 대응"
+        },
+        {
+          "name": "가정폭력",
+          "description": "가정폭력 피해자 보호 및 법률 지원"
+        },
+        {
+          "name": "국제이혼",
+          "description": "외국인 배우자 또는 해외 거주자 이혼 전문"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "상간자소송",
+      "name_en": "Adultery Lawsuit",
+      "icon": "shield",
+      "description": "상간자에 대한 위자료 청구 및 소송 전략을 수립합니다.",
+      "subcategories": [
+        {
+          "name": "상간자 위자료 청구",
+          "description": "제3자의 부정행위에 대한 손해배상 청구"
+        },
+        {
+          "name": "상간자소송 절차 및 전략",
+          "description": "효과적인 소송 전략 수립 및 진행"
+        },
+        {
+          "name": "상간자소송 시효관리",
+          "description": "소멸시효 관리 및 적시 소송 제기"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "가사관련 형사소송",
+      "name_en": "Family Criminal Litigation",
+      "icon": "balance-scale",
+      "description": "가정폭력, 명예훼손 등 가사 관련 형사사건을 전문적으로 처리합니다.",
+      "subcategories": [
+        {
+          "name": "가정폭력 형사사건",
+          "description": "가정폭력 관련 형사 고소 및 대응"
+        },
+        {
+          "name": "가족관계 형사사건",
+          "description": "가족 간 발생한 형사 문제 해결"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "상속",
+      "name_en": "Inheritance Law",
+      "icon": "landmark",
+      "description": "23인 변호사 전부가 이혼·상속만 진행하는 전문 법률 서비스를 제공합니다.",
+      "subcategories": [
+        {
+          "name": "상속분쟁",
+          "description": "상속 재산을 둘러싼 분쟁 해결"
+        },
+        {
+          "name": "유류분청구",
+          "description": "법정 상속분에 미달하는 경우 유류분 반환 청구"
+        },
+        {
+          "name": "유언신탁",
+          "description": "하나은행 업무협약을 통한 유언신탁 서비스"
+        }
+      ]
+    }
+  ]
+}

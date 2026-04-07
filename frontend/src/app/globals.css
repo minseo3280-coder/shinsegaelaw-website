@@ -1,0 +1,301 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global typography — tight tracking like premium Korean law firms */
+body {
+  letter-spacing: -0.03em;
+  word-break: keep-all;
+  font-weight: 500;
+}
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.04em;
+}
+
+/* Hide scrollbar for tab containers */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Scroll reveal animations — embrain-style dramatic */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+[data-reveal].reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-reveal-delay="1"] { transition-delay: 0.2s; }
+[data-reveal-delay="2"] { transition-delay: 0.4s; }
+[data-reveal-delay="3"] { transition-delay: 0.6s; }
+
+[data-step] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+[data-step].reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-step="1"].reveal-visible { transition-delay: 0.15s; }
+[data-step="2"].reveal-visible { transition-delay: 0.35s; }
+[data-step="3"].reveal-visible { transition-delay: 0.55s; }
+
+/* Count pulse */
+@keyframes countPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+.count-pulse { animation: countPulse 0.4s ease-out; }
+
+/* Headline underline */
+@keyframes underlineGrow {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.headline-underline { position: relative; display: inline; }
+.headline-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  background: #7B2D3B;
+  width: 0;
+}
+[data-reveal].reveal-visible .headline-underline::after {
+  animation: underlineGrow 0.8s ease-out 0.5s forwards;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  [data-step] { opacity: 1; transform: none; transition: none; }
+  .headline-underline::after { animation: none; width: 100%; }
+  .count-pulse { animation: none; }
+}
+
+/* Pretendard loaded via CDN variable subset in layout.tsx <head> */
+
+@keyframes badgeFadeIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* Hero text entrance */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Clip-path reveal (embrain style) */
+@keyframes clipReveal {
+  from {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.clip-reveal-visible {
+  animation: clipReveal 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+/* Scroll line indicator */
+@keyframes scrollLine {
+  0% { transform: translateY(-100%); }
+  50% { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* ─── Burgundy Theme ─── */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+
+    --primary: 351 66% 37%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 349 10% 95%;
+    --secondary-foreground: 351 66% 37%;
+
+    --muted: 349 10% 96%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 43 72% 52%;
+    --accent-foreground: 0 0% 7%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 91%;
+    --input: 0 0% 91%;
+    --ring: 351 66% 37%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+    font-family: "Pretendard", system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ─── Typography Scale ─── */
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  }
+  h3 {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+  h4 {
+    @apply text-lg md:text-xl font-semibold;
+  }
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+/* ─── Custom Utility Classes ─── */
+@layer components {
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 md:px-8;
+  }
+
+  .section-header {
+    @apply text-center mb-16 md:mb-20;
+  }
+
+  .section-subtitle {
+    @apply text-sm font-semibold tracking-widest uppercase text-burgundy-500 mb-3;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-navy-900 mb-4;
+  }
+
+  .section-description {
+    @apply text-base md:text-lg text-muted-foreground max-w-2xl mx-auto;
+  }
+
+  /* Burgundy Gradient Backgrounds */
+  .bg-burgundy-gradient {
+    @apply bg-gradient-to-br from-burgundy-700 via-burgundy-600 to-burgundy-800;
+  }
+
+  .bg-navy-gradient {
+    @apply bg-gradient-to-br from-navy-800 via-navy-900 to-navy-800;
+  }
+
+  /* Gold Accent Underline */
+  .gold-underline {
+    @apply relative inline-block;
+  }
+  .gold-underline::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-full h-[3px] bg-gold-400 rounded-full;
+  }
+
+  /* Card Hover Effect */
+  .card-hover {
+    @apply transition-all duration-500 ease-out hover:shadow-xl hover:-translate-y-1.5;
+  }
+}
+
+/* ─── Selection Color ─── */
+::selection {
+  background-color: #9B2335;
+  color: white;
+}
+
+/* ─── Scrollbar Styling ─── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8f8f8;
+}
+::-webkit-scrollbar-thumb {
+  background: #9B2335;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7B2D3B;
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─── Print Styles ─── */
+@media print {
+  body { background: white !important; -webkit-print-color-adjust: exact; }
+  header, footer, .floating-cta, .scroll-to-top, .dot-navigation { display: none !important; }
+  .print\:hidden { display: none !important; }
+  .print\:block { display: block !important; }
+  .print\:px-0 { padding-left: 0 !important; padding-right: 0 !important; }
+  .print\:py-6 { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+  .print\:max-w-none { max-width: none !important; }
+
+  @page {
+    margin: 1.5cm;
+    size: A4;
+  }
+}
+
+/* ─── Hide native video controls ─── */
+video::-webkit-media-controls { display: none !important; }
+video { pointer-events: none; }

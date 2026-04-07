@@ -1,0 +1,605 @@
+{
+  "meta": {
+    "source": "https://xn--kj4b38iiva.com/case-wins/",
+    "total_cases": 30,
+    "pages_crawled": 8,
+    "categories": {
+      "상속": 5,
+      "상간자소송": 9,
+      "이혼": 16
+    },
+    "crawled_at": "2026-04-01"
+  },
+  "cases": [
+    {
+      "post_id": 2616,
+      "title": "재혼임에도 배우자의 상속재산에 대해 기여분 25% 인정받아 승소",
+      "category": "상속",
+      "subcategory": "상속재산분할",
+      "subtitle": "상속 · 상속재산분할",
+      "categories_raw": [
+        "inheritance",
+        "94"
+      ],
+      "content": "청구인의 기여분을 25%로 정한다",
+      "result": "청구인의 기여분을 25%로 정한다",
+      "result_items": [],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/case-wins__inheritance_01.webp",
+      "image_filename": "case-wins__inheritance_01.webp",
+      "source": "category_inheritance"
+    },
+    {
+      "post_id": 12261,
+      "title": "이혼 준비중 알게된 배우자의 외도, 상간자 위자료 2천만원 인정",
+      "category": "상간자소송",
+      "subcategory": "상간자소송",
+      "subtitle": "상간 · 상간자소송",
+      "categories_raw": [
+        "adultery",
+        "115"
+      ],
+      "content": "부정행위에 대한 위자료 2천만원 인정",
+      "result": "부정행위에 대한 위자료 2천만원 인정",
+      "result_items": [],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/case-wins__adultery_0003.webp",
+      "image_filename": "case-wins__adultery_0003.webp",
+      "source": "main_page_1"
+    },
+    {
+      "post_id": 12282,
+      "title": "비교적 짧은 부정행위기간과 기혼관계 인지를 부정함에도 불구하고 상간 위자료 1200만원 승소",
+      "category": "상간자소송",
+      "subcategory": "상간자소송",
+      "subtitle": "상간 · 상간자소송",
+      "categories_raw": [
+        "adultery",
+        "115"
+      ],
+      "content": "위자료 1200만원 인정",
+      "result": "위자료 1200만원 인정",
+      "result_items": [],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/case-wins__adultery_0010.webp",
+      "image_filename": "case-wins__adultery_0010.webp",
+      "source": "main_page_4"
+    },
+    {
+      "post_id": 12285,
+      "title": "상간자를 특정하기까지 1년6개월동안 집요하게 노력하여 상간자의 인적사항을 확보하였고 위자료 3천만원 전액 인정 받은 사건",
+      "category": "상간자소송",
+      "subcategory": "상간자소송",
+      "subtitle": "상간 · 상간자소송",
+      "categories_raw": [
+        "adultery",
+        "115"
+      ],
+      "content": "1. 위자료 3천만원 전액 인정\n2. 소송비용 피고 부담",
+      "result": "위자료 3천만원 전액 인정; 소송비용 피고 부담",
+      "result_items": [
+        "위자료 3천만원 전액 인정",
+        "소송비용 피고 부담"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/01/case-wins__adultery_0005.webp",
+      "image_filename": "case-wins__adultery_0005.webp",
+      "source": "main_page_5"
+    },
+    {
+      "post_id": 12286,
+      "title": "혼인관계 파탄이후 만났다고 주장하는 상대방에게 위자료 2800만원 판결",
+      "category": "상간자소송",
+      "subcategory": "상간자소송",
+      "subtitle": "상간 · 상간자소송",
+      "categories_raw": [
+        "adultery",
+        "115"
+      ],
+      "content": "1. 위자료 2800만원\n2. 소송비용 피고 전부 부담하는 것으로 판결",
+      "result": "위자료 2800만원; 소송비용 피고 전부 부담하는 것으로 판결",
+      "result_items": [
+        "위자료 2800만원",
+        "소송비용 피고 전부 부담하는 것으로 판결"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/case-wins__adultery_0009.webp",
+      "image_filename": "case-wins__adultery_0009.webp",
+      "source": "main_page_4"
+    },
+    {
+      "post_id": 12287,
+      "title": "짧은기간의 부정행위였고,상대방이 직장내 성추행이라고 반박했으나 1500만원 위자료를 인정받은 사례",
+      "category": "상간자소송",
+      "subcategory": "상간자소송",
+      "subtitle": "상간 · 상간자소송",
+      "categories_raw": [
+        "adultery",
+        "115"
+      ],
+      "content": "위자료 1500만원",
+      "result": "위자료 1500만원",
+      "result_items": [],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/case-wins__adultery_0008.webp",
+      "image_filename": "case-wins__adultery_0008.webp",
+      "source": "main_page_3"
+    },
+    {
+      "post_id": 12288,
+      "title": "이혼후 상간녀위자료 재소송으로 위자료 5천만원 전액 인정",
+      "category": "상간자소송",
+      "subcategory": "상간녀위자료청구",
+      "subtitle": "상간 · 상간녀위자료청구",
+      "categories_raw": [
+        "adultery",
+        "80"
+      ],
+      "content": "1. 상대방에 대한 위자료 청구 각하 (이혼조정 부제소합의에 의한)\n2. 상간자가 의뢰인에게 위자료 5천만원을 지급하라",
+      "result": "상대방에 대한 위자료 청구 각하 (이혼조정 부제소합의에 의한); 상간자가 의뢰인에게 위자료 5천만원을 지급하라",
+      "result_items": [
+        "상대방에 대한 위자료 청구 각하 (이혼조정 부제소합의에 의한)",
+        "상간자가 의뢰인에게 위자료 5천만원을 지급하라"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/case-wins__adultery_0007.webp",
+      "image_filename": "case-wins__adultery_0007.webp",
+      "source": "main_page_3"
+    },
+    {
+      "post_id": 12298,
+      "title": "상간자위자료 2500만원 인정사례(화해권고결정보다 증액)",
+      "category": "상간자소송",
+      "subcategory": "상간자소송",
+      "subtitle": "상간 · 상간자소송",
+      "categories_raw": [
+        "adultery",
+        "115"
+      ],
+      "content": "위자료 2500만원 인정 (화해권고결정보다 500만원 증액)",
+      "result": "위자료 2500만원 인정 (화해권고결정보다 500만원 증액)",
+      "result_items": [],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/case-wins__adultery_0006.webp",
+      "image_filename": "case-wins__adultery_0006.webp",
+      "source": "main_page_2"
+    },
+    {
+      "post_id": 12305,
+      "title": "상속재산분할 항소심에서 기여분 20%를 인정받고 그중 부동산을 의뢰인이 단독으로 상속하는것으로 승소한 사례",
+      "category": "상속",
+      "subcategory": "상속재산분할",
+      "subtitle": "상속 · 상속재산분할",
+      "categories_raw": [
+        "inheritance",
+        "94"
+      ],
+      "content": "피상속인의 재산 중 별지목록의 부동산을 청구인이 소유하는 것으로, 그외 재산은 상대방에게 현금으로 청산하는 것으로.",
+      "result": "피상속인의 재산 중 별지목록의 부동산을 청구인이 소유하는 것으로, 그외 재산은 상대방에게 현금으로 청산하는 것으로.",
+      "result_items": [],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/case-wins__inheritance_0005.webp",
+      "image_filename": "case-wins__inheritance_0005.webp",
+      "source": "category_inheritance"
+    },
+    {
+      "post_id": 12307,
+      "title": "재혼임에도 배우자의 상속재산에 대해 기여분 25% 인정받아 승소",
+      "category": "상속",
+      "subcategory": "재혼상속재산",
+      "subtitle": "상속 · 재혼상속재산",
+      "categories_raw": [
+        "inheritance",
+        "126"
+      ],
+      "content": "청구인의 기여분을 25%로 정한다",
+      "result": "청구인의 기여분을 25%로 정한다",
+      "result_items": [],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/case-wins__inheritance_0006.webp",
+      "image_filename": "case-wins__inheritance_0006.webp",
+      "source": "category_inheritance"
+    },
+    {
+      "post_id": 12312,
+      "title": "상당한 특별수익 및 유증을 받은 피고에게 유류분반환청구하여 재판 2년만에 5억9300만원 가량 지급받는것으로 화해권고결정 승소",
+      "category": "상속",
+      "subcategory": "유류분반환청구",
+      "subtitle": "상속 · 유류분반환청구",
+      "categories_raw": [
+        "inheritance",
+        "125"
+      ],
+      "content": "확장한 청구취지금액인 608,769,923원의 97.5%에 해당하는 593,840,000원(= 563,840,000원 + 약 30,0000,000원) 으로 화해권고결정 성립",
+      "result": "확장한 청구취지금액인 608,769,923원의 97.5%에 해당하는 593,840,000원(= 563,840,000원 + 약 30,0000,000원) 으로 화해권고결정 성립",
+      "result_items": [],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/case-wins__inheritance_0007.webp",
+      "image_filename": "case-wins__inheritance_0007.webp",
+      "source": "category_inheritance"
+    },
+    {
+      "post_id": 12320,
+      "title": "상속분할 합의 무효, 특별수익 4억 인정으로 청구인 재산분할 승소",
+      "category": "상속",
+      "subcategory": "상속재산분할",
+      "subtitle": "상속 · 상속재산분할",
+      "categories_raw": [
+        "inheritance",
+        "94"
+      ],
+      "content": "1. 이전 상속재산합의 취소\n2. 상대방 특별수익 4억 1000만원 인정\n3. 총 상속재산 증가로 청구인 원하는 재산분할로 성공",
+      "result": "이전 상속재산합의 취소; 상대방 특별수익 4억 1000만원 인정; 총 상속재산 증가로 청구인 원하는 재산분할로 성공",
+      "result_items": [
+        "이전 상속재산합의 취소",
+        "상대방 특별수익 4억 1000만원 인정",
+        "총 상속재산 증가로 청구인 원하는 재산분할로 성공"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/case-wins__inheritance_0010.webp",
+      "image_filename": "case-wins__inheritance_0010.webp",
+      "source": "category_inheritance"
+    },
+    {
+      "post_id": 12331,
+      "title": "국제이혼 양육권다툼으로 이혼소송, 이혼및양육권 승소",
+      "category": "이혼",
+      "subcategory": "이혼",
+      "subtitle": "이혼 · 이혼",
+      "categories_raw": [
+        "divorce",
+        "120"
+      ],
+      "content": "1. 이혼\n2. 친권 양육권자로 의뢰인 지정\n3. 양육비는 자녀 1인당 80만원",
+      "result": "이혼; 친권 양육권자로 의뢰인 지정; 양육비는 자녀 1인당 80만원",
+      "result_items": [
+        "이혼",
+        "친권 양육권자로 의뢰인 지정",
+        "양육비는 자녀 1인당 80만원"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/01/case-wins__divorce_0010.webp",
+      "image_filename": "case-wins__divorce_0010.webp",
+      "source": "main_page_5"
+    },
+    {
+      "post_id": 12332,
+      "title": "부정행위 남편의 이혼 청구 기각, 의뢰인 청구 인정 및 위자료 2천만원",
+      "category": "이혼",
+      "subcategory": "외도이혼",
+      "subtitle": "이혼 · 외도이혼",
+      "categories_raw": [
+        "divorce",
+        "121"
+      ],
+      "content": "1. 이혼 판결: 상대방의 이혼 청구 기각, 의뢰인의 이혼 청구 인정\n2. 위자료: 반소 청구로 위자료 2,000만 원 인정\n3. 재산분할: 50% 인정 (상대방이 1억 5천만 원을 청구했으나, 3,600만 원만 지급하는 것으로 방어)\n4. 친권 및 양육권: 의뢰인에게 친권 및 양육권 지정\n5. 양육비: 과거 양육비 320만 원, 장래 양육비 월 90만 원씩 지급 (담보 제공으로 2,160만 원 공탁 명령)",
+      "result": "이혼 판결: 상대방의 이혼 청구 기각, 의뢰인의 이혼 청구 인정; 위자료: 반소 청구로 위자료 2,000만 원 인정; 재산분할: 50% 인정 (상대방이 1억 5천만 원을 청구했으나, 3,600만 원만 지급하는 것으로 방어); 친권 및 양육권: 의뢰인에게 친권 및 양육권 지정; 양육비: 과거 양육비 320만 원, 장래 양육비 월 90만 원씩 지급 (담보 제공으로 2,160만 원 공탁 명령)",
+      "result_items": [
+        "이혼 판결: 상대방의 이혼 청구 기각, 의뢰인의 이혼 청구 인정",
+        "위자료: 반소 청구로 위자료 2,000만 원 인정",
+        "재산분할: 50% 인정 (상대방이 1억 5천만 원을 청구했으나, 3,600만 원만 지급하는 것으로 방어)",
+        "친권 및 양육권: 의뢰인에게 친권 및 양육권 지정",
+        "양육비: 과거 양육비 320만 원, 장래 양육비 월 90만 원씩 지급 (담보 제공으로 2,160만 원 공탁 명령)"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2024/11/case-wins__divorce_0008.webp",
+      "image_filename": "case-wins__divorce_0008.webp",
+      "source": "main_page_5"
+    },
+    {
+      "post_id": 12333,
+      "title": "부정행위 입증으로 상대방 이혼청구 기각과 양육권 확보",
+      "category": "이혼",
+      "subcategory": "외도이혼",
+      "subtitle": "이혼 · 외도이혼",
+      "categories_raw": [
+        "divorce",
+        "121"
+      ],
+      "content": "1. 이혼 소송 승소: 상대방 이혼 청구 기각, 의뢰인 청구 인용\n2. 위자료 지급 판결: 배우자와 상간자로부터 위자료 3,000만 원을 지급\n3. 재산분할 방어: 상대방이 청구한 2억 4천만 원 중 9,300만 원만 인정되어, 의뢰인의 재산적 손실을 최소화\n4. 양육권 및 친권 확보: 아빠임에도 불구하고 자녀의 친권과 양육권을 의뢰인이 확보\n5. 자녀 양육비는 연령에 따라 월 80만 원에서 140만 원까지 차등 적용하기로 결정",
+      "result": "이혼 소송 승소: 상대방 이혼 청구 기각, 의뢰인 청구 인용; 위자료 지급 판결: 배우자와 상간자로부터 위자료 3,000만 원을 지급; 재산분할 방어: 상대방이 청구한 2억 4천만 원 중 9,300만 원만 인정되어, 의뢰인의 재산적 손실을 최소화; 양육권 및 친권 확보: 아빠임에도 불구하고 자녀의 친권과 양육권을 의뢰인이 확보; 자녀 양육비는 연령에 따라 월 80만 원에서 140만 원까지 차등 적용하기로 결정",
+      "result_items": [
+        "이혼 소송 승소: 상대방 이혼 청구 기각, 의뢰인 청구 인용",
+        "위자료 지급 판결: 배우자와 상간자로부터 위자료 3,000만 원을 지급",
+        "재산분할 방어: 상대방이 청구한 2억 4천만 원 중 9,300만 원만 인정되어, 의뢰인의 재산적 손실을 최소화",
+        "양육권 및 친권 확보: 아빠임에도 불구하고 자녀의 친권과 양육권을 의뢰인이 확보",
+        "자녀 양육비는 연령에 따라 월 80만 원에서 140만 원까지 차등 적용하기로 결정"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2024/11/case-wins__divorce_0007.webp",
+      "image_filename": "case-wins__divorce_0007.webp",
+      "source": "main_page_5"
+    },
+    {
+      "post_id": 12334,
+      "title": "짧은 결혼, 위자료 전액, 상대방의 특유재산 기여도 30% 인정받은 사례",
+      "category": "이혼",
+      "subcategory": "단기간 혼인 이혼",
+      "subtitle": "이혼 · 단기간 혼인 이혼",
+      "categories_raw": [
+        "divorce",
+        "90"
+      ],
+      "content": "1. 이혼\n2. 위자료 2,500만원 인정\n3. 재산분할 30% 인정\n4. 친권 양육권자로 의뢰인 지정\n5. 과거양육비 500만원과 장래양육비 매월 150만원 지급받음",
+      "result": "이혼; 위자료 2,500만원 인정; 재산분할 30% 인정; 친권 양육권자로 의뢰인 지정; 과거양육비 500만원과 장래양육비 매월 150만원 지급받음",
+      "result_items": [
+        "이혼",
+        "위자료 2,500만원 인정",
+        "재산분할 30% 인정",
+        "친권 양육권자로 의뢰인 지정",
+        "과거양육비 500만원과 장래양육비 매월 150만원 지급받음"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/06/case-wins__divorce_0014.webp",
+      "image_filename": "case-wins__divorce_0014.webp",
+      "source": "main_page_2"
+    },
+    {
+      "post_id": 12336,
+      "title": "황혼이혼, 재산분할 예상보다 2억 더 받고 조정성립한 사례",
+      "category": "이혼",
+      "subcategory": "조정이혼",
+      "subtitle": "이혼 · 조정이혼",
+      "categories_raw": [
+        "divorce",
+        "124"
+      ],
+      "content": "1. 피고는 원고에게 재산분할로 307,000,000원을 지급하라 (재산분할 50%인정금액)\n2. 부동산 매각시 발생하는 세금은 각각 부담\n3. 원고가 퇴거할 시 가지고 나갈 물건 특정\n4. 서로 분할연금청구권 행사 허용",
+      "result": "피고는 원고에게 재산분할로 307,000,000원을 지급하라 (재산분할 50%인정금액); 부동산 매각시 발생하는 세금은 각각 부담; 원고가 퇴거할 시 가지고 나갈 물건 특정; 서로 분할연금청구권 행사 허용",
+      "result_items": [
+        "피고는 원고에게 재산분할로 307,000,000원을 지급하라 (재산분할 50%인정금액)",
+        "부동산 매각시 발생하는 세금은 각각 부담",
+        "원고가 퇴거할 시 가지고 나갈 물건 특정",
+        "서로 분할연금청구권 행사 허용"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/04/case-wins__divorce_0013.webp",
+      "image_filename": "case-wins__divorce_0013.webp",
+      "source": "main_page_2"
+    },
+    {
+      "post_id": 12337,
+      "title": "성격차이 이혼, 재산분할 50% 인정받은 사례",
+      "category": "이혼",
+      "subcategory": "성격차이이혼",
+      "subtitle": "이혼 · 성격차이이혼",
+      "categories_raw": [
+        "divorce",
+        "119"
+      ],
+      "content": "1. 이혼\n2. 재산분할 4억 인정 (50%) 해당\n3. 의뢰인에게 친권 양육권자 지정\n4. 양육비 매월 60만원(1인당) 인정",
+      "result": "이혼; 재산분할 4억 인정 (50%) 해당; 의뢰인에게 친권 양육권자 지정; 양육비 매월 60만원(1인당) 인정",
+      "result_items": [
+        "이혼",
+        "재산분할 4억 인정 (50%) 해당",
+        "의뢰인에게 친권 양육권자 지정",
+        "양육비 매월 60만원(1인당) 인정"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/case-wins__divorce_0016.webp",
+      "image_filename": "case-wins__divorce_0016.webp",
+      "source": "main_page_2"
+    },
+    {
+      "post_id": 12338,
+      "title": "오랜 별거중 상대방이 이혼청구했으나 1,2심 모두 기각시킨 사례",
+      "category": "이혼",
+      "subcategory": "별거 후 재산분할",
+      "subtitle": "이혼 · 별거 후 재산분할",
+      "categories_raw": [
+        "divorce",
+        "118"
+      ],
+      "content": "1심 이혼기각 판결\n2심 이혼기각 판결",
+      "result": "1심 이혼기각 판결\n2심 이혼기각 판결",
+      "result_items": [],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/07/case-wins__divorce_0015.webp",
+      "image_filename": "case-wins__divorce_0015.webp",
+      "source": "main_page_3"
+    },
+    {
+      "post_id": 12339,
+      "title": "배우자의 과도한 채무로 조정신청하여 3개월만에 이혼성립",
+      "category": "이혼",
+      "subcategory": "조정이혼",
+      "subtitle": "이혼 · 조정이혼",
+      "categories_raw": [
+        "divorce",
+        "124"
+      ],
+      "content": "1. 이혼\n2. 각자 명의 재산 각자에게 귀속\n3. 국민연금분할수급청구권 서로 포기\n4. 추후 위자료 및 재산분할 청구권 포기(부제소합의)하는 것으로 조정성립",
+      "result": "이혼; 각자 명의 재산 각자에게 귀속; 국민연금분할수급청구권 서로 포기; 추후 위자료 및 재산분할 청구권 포기(부제소합의)하는 것으로 조정성립",
+      "result_items": [
+        "이혼",
+        "각자 명의 재산 각자에게 귀속",
+        "국민연금분할수급청구권 서로 포기",
+        "추후 위자료 및 재산분할 청구권 포기(부제소합의)하는 것으로 조정성립"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/01/case-wins__divorce_0011.webp",
+      "image_filename": "case-wins__divorce_0011.webp",
+      "source": "main_page_4"
+    },
+    {
+      "post_id": 12340,
+      "title": "상대방의 유책사유로 조정이혼신청하여 빠르게 이혼성립",
+      "category": "이혼",
+      "subcategory": "유책사유 이혼",
+      "subtitle": "이혼 · 유책사유 이혼",
+      "categories_raw": [
+        "divorce",
+        "122"
+      ],
+      "content": "1. 이혼\n2. 위자료 및 재산분할 조정\n3. 양육비 연령별로 증액해서 지급받는 것으로 조정",
+      "result": "이혼; 위자료 및 재산분할 조정; 양육비 연령별로 증액해서 지급받는 것으로 조정",
+      "result_items": [
+        "이혼",
+        "위자료 및 재산분할 조정",
+        "양육비 연령별로 증액해서 지급받는 것으로 조정"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/02/case-wins__divorce_0012.webp",
+      "image_filename": "case-wins__divorce_0012.webp",
+      "source": "main_page_4"
+    },
+    {
+      "post_id": 12342,
+      "title": "폭력적 배우자에 맞선 승소, 재산분할 50% 이상으로 공정한 판결",
+      "category": "이혼",
+      "subcategory": "성격차이이혼",
+      "subtitle": "이혼 · 성격차이이혼",
+      "categories_raw": [
+        "divorce",
+        "119"
+      ],
+      "content": "1. 위자료 지급: 의뢰인에게 위자료 1,500만 원 지급\n2. 재산분할: 재산의 50%에 해당하는 322,400,000원을 의뢰인에게 지급",
+      "result": "위자료 지급: 의뢰인에게 위자료 1,500만 원 지급; 재산분할: 재산의 50%에 해당하는 322,400,000원을 의뢰인에게 지급",
+      "result_items": [
+        "위자료 지급: 의뢰인에게 위자료 1,500만 원 지급",
+        "재산분할: 재산의 50%에 해당하는 322,400,000원을 의뢰인에게 지급"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2024/12/case-wins__divorce_0009.webp",
+      "image_filename": "case-wins__divorce_0009.webp",
+      "source": "main_page_5"
+    },
+    {
+      "post_id": 12430,
+      "title": "별거중 상대방이 아이를 돌려보내지 않아, 화해권고결정으로 양육권을 되찾은사례",
+      "category": "이혼",
+      "subcategory": "별거 후 재산분할",
+      "subtitle": "이혼 · 별거 후 재산분할",
+      "categories_raw": [
+        "divorce",
+        "118"
+      ],
+      "content": "1. 이혼\n2. 피고는 원고에게 재산분할 5천만원 지급하고 원고는 재산분할금을 지급받은 날로부터 2주 내로 사건본인을 피고에게 인도한다.\n3. 친권 양육권자로 피고(의뢰인)을 지정한다",
+      "result": "이혼; 피고는 원고에게 재산분할 5천만원 지급하고 원고는 재산분할금을 지급받은 날로부터 2주 내로 사건본인을 피고에게 인도한다.; 친권 양육권자로 피고(의뢰인)을 지정한다",
+      "result_items": [
+        "이혼",
+        "피고는 원고에게 재산분할 5천만원 지급하고 원고는 재산분할금을 지급받은 날로부터 2주 내로 사건본인을 피고에게 인도한다.",
+        "친권 양육권자로 피고(의뢰인)을 지정한다"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/case-wins__divorce_0022.webp",
+      "image_filename": "case-wins__divorce_0022.webp",
+      "source": "main_page_1"
+    },
+    {
+      "post_id": 12432,
+      "title": "배우자의 극심한 알콜문제, 양육권을 확보하고 지급할 재산분할 비율을 낮춰서 조정",
+      "category": "이혼",
+      "subcategory": "별거 후 재산분할",
+      "subtitle": "이혼 · 별거 후 재산분할",
+      "categories_raw": [
+        "divorce",
+        "118"
+      ],
+      "content": "1. 이혼\n2. 재산분할 2억2천 지급 (총 재산의 25%만 지급하는것으로 )\n3. 의뢰인으로 양육권자 지정",
+      "result": "이혼; 재산분할 2억2천 지급 (총 재산의 25%만 지급하는것으로 ); 의뢰인으로 양육권자 지정",
+      "result_items": [
+        "이혼",
+        "재산분할 2억2천 지급 (총 재산의 25%만 지급하는것으로 )",
+        "의뢰인으로 양육권자 지정"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/case-wins__divorce_0021.webp",
+      "image_filename": "case-wins__divorce_0021.webp",
+      "source": "main_page_1"
+    },
+    {
+      "post_id": 12436,
+      "title": "파혼으로 위자료 및 원상회복으로 1억7천만원 인정 승소",
+      "category": "이혼",
+      "subcategory": "고부갈등 이혼",
+      "subtitle": "이혼 · 고부갈등 이혼",
+      "categories_raw": [
+        "divorce",
+        "89"
+      ],
+      "content": "피고는 원고에게 위자료 500만원을 포함한 원상회복 내지 손해배상으로 171,580,724을 원고에게 지급하라",
+      "result": "피고는 원고에게 위자료 500만원을 포함한 원상회복 내지 손해배상으로 171,580,724을 원고에게 지급하라",
+      "result_items": [],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/case-wins__divorce_0020.webp",
+      "image_filename": "case-wins__divorce_0020.webp",
+      "source": "main_page_1"
+    },
+    {
+      "post_id": 12439,
+      "title": "유리한 조건으로 이혼하지 않는 조정성립, 상간녀위자료 2500만원 판결승소",
+      "category": "상간자소송",
+      "subcategory": "상간녀위자료청구",
+      "subtitle": "상간 · 상간녀위자료청구",
+      "categories_raw": [
+        "adultery",
+        "80"
+      ],
+      "content": "1. 원고와 피고1은 이혼하지 아니한다.\n2. 피고1은 원고에게 공동명의 지분 1/2을 이전하였음을 확인한다/li&gt;\n    가정의 경제권은 원고가 관리한다.\n3. 피고1은 원고에게 일상생활을 공유한다 등\n4. 피고 2는 원고에게 위자료 2500만원을 지급한다.",
+      "result": "원고와 피고1은 이혼하지 아니한다.; 피고1은 원고에게 공동명의 지분 1/2을 이전하였음을 확인한다/li&gt;\n    가정의 경제권은 원고가 관리한다.; 피고1은 원고에게 일상생활을 공유한다 등; 피고 2는 원고에게 위자료 2500만원을 지급한다.",
+      "result_items": [
+        "원고와 피고1은 이혼하지 아니한다.",
+        "피고1은 원고에게 공동명의 지분 1/2을 이전하였음을 확인한다/li&gt;\n    가정의 경제권은 원고가 관리한다.",
+        "피고1은 원고에게 일상생활을 공유한다 등",
+        "피고 2는 원고에게 위자료 2500만원을 지급한다."
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/08/case-wins__adultery_0004.webp",
+      "image_filename": "case-wins__adultery_0004.webp",
+      "source": "main_page_1"
+    },
+    {
+      "post_id": 12445,
+      "title": "전업주부 재산분할 기여도 50% 인정 승소",
+      "category": "이혼",
+      "subcategory": "이혼",
+      "subtitle": "이혼 · 이혼",
+      "categories_raw": [
+        "divorce",
+        "120"
+      ],
+      "content": "1. 양쪽 모두 위자료 청구 기각\n2. 재산분할 50% 인정\n3. 양육권은 상대방으로 지정, 양육비 매달 70만원 부담",
+      "result": "양쪽 모두 위자료 청구 기각; 재산분할 50% 인정; 양육권은 상대방으로 지정, 양육비 매달 70만원 부담",
+      "result_items": [
+        "양쪽 모두 위자료 청구 기각",
+        "재산분할 50% 인정",
+        "양육권은 상대방으로 지정, 양육비 매달 70만원 부담"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/case-wins__divorce_0019.webp",
+      "image_filename": "case-wins__divorce_0019.webp",
+      "source": "main_page_2"
+    },
+    {
+      "post_id": 12447,
+      "title": "사업체감정평가로 재산분할 청구금액을 상향조정, 기여도 40%인정받은 사례",
+      "category": "이혼",
+      "subcategory": "고부갈등 이혼",
+      "subtitle": "이혼 · 고부갈등 이혼",
+      "categories_raw": [
+        "divorce",
+        "89"
+      ],
+      "content": "1. 재산분할 40% 인정\n2. 양육권 의뢰인 지정, 양육비 매월 120만원 확보",
+      "result": "재산분할 40% 인정; 양육권 의뢰인 지정, 양육비 매월 120만원 확보",
+      "result_items": [
+        "재산분할 40% 인정",
+        "양육권 의뢰인 지정, 양육비 매월 120만원 확보"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/case-wins__divorce_0018.webp",
+      "image_filename": "case-wins__divorce_0018.webp",
+      "source": "main_page_3"
+    },
+    {
+      "post_id": 12449,
+      "title": "헤이그협약에 따른 아동반환사건 기각시킨 사례",
+      "category": "이혼",
+      "subcategory": "외도이혼",
+      "subtitle": "이혼 · 외도이혼",
+      "categories_raw": [
+        "divorce",
+        "121"
+      ],
+      "content": "상대방의 심판청구 기각",
+      "result": "상대방의 심판청구 기각",
+      "result_items": [],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/09/case-wins__divorce_0017.webp",
+      "image_filename": "case-wins__divorce_0017.webp",
+      "source": "main_page_3"
+    },
+    {
+      "post_id": 12482,
+      "title": "상간자를 특정하기까지 1년6개월동안 집요하게 노력하여 상간자의 인적사항을 확보하였고 위자료 3천만원 전액 인정 받은 사건",
+      "category": "상간자소송",
+      "subcategory": "손해배상청구",
+      "subtitle": "상간 · 손해배상청구",
+      "categories_raw": [
+        "adultery",
+        "117"
+      ],
+      "content": "1. 위자료 3천만원 전액 인정\n2. 소송비용 피고 부담",
+      "result": "위자료 3천만원 전액 인정; 소송비용 피고 부담",
+      "result_items": [
+        "위자료 3천만원 전액 인정",
+        "소송비용 피고 부담"
+      ],
+      "image_url": "https://xn--kj4b38iiva.com/wp-content/uploads/2025/04/case-wins__adultery_0012.webp",
+      "image_filename": "case-wins__adultery_0012.webp",
+      "source": "main_page_4"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "main_navigation": [
+    {
+      "id": 1,
+      "label": "신세계로 소개",
+      "label_en": "About",
+      "path": "/about",
+      "children": [
+        { "label": "인사말", "path": "/about/greeting" },
+        { "label": "52년 전통", "path": "/about/history" },
+        { "label": "전문팀 소개", "path": "/about/teams" },
+        { "label": "변호사 소개", "path": "/about/lawyers" },
+        { "label": "오시는 길", "path": "/about/location" }
+      ]
+    },
+    {
+      "id": 2,
+      "label": "전문분야",
+      "label_en": "Practice Areas",
+      "path": "/practice",
+      "children": [
+        { "label": "이혼소송", "path": "/practice/divorce" },
+        { "label": "상간자소송", "path": "/practice/adultery" },
+        { "label": "가사 형사소송", "path": "/practice/criminal" },
+        { "label": "상속", "path": "/practice/inheritance" }
+      ]
+    },
+    {
+      "id": 3,
+      "label": "승소사례",
+      "label_en": "Cases",
+      "path": "/cases"
+    },
+    {
+      "id": 4,
+      "label": "의뢰인 후기",
+      "label_en": "Reviews",
+      "path": "/reviews"
+    },
+    {
+      "id": 5,
+      "label": "뉴스·미디어",
+      "label_en": "News",
+      "path": "/news"
+    },
+    {
+      "id": 6,
+      "label": "법률상담",
+      "label_en": "Consultation",
+      "path": "/consultation"
+    }
+  ],
+  "footer_links": [
+    { "label": "개인정보처리방침", "path": "/privacy" },
+    { "label": "이용약관", "path": "/terms" }
+  ]
+}

@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>신세계로 모바일 개선안 프로토타입</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --burgundy: #9B2335;
+    --burgundy-dark: #7B2D3B;
+    --gold: #C9A84C;
+    --gold-light: #D4AF37;
+    --dark: #2C2028;
+    --body: #4A3F45;
+    --muted: #8A7E84;
+    --cream: #F8F4EE;
+    --pink-light: #FDF2F4;
+    --white: #FFFFFF;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Pretendard Variable', -apple-system, sans-serif;
+    background: #fff;
+    color: var(--dark);
+    max-width: 430px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .serif { font-family: 'Gowun Batang', serif; }
+
+  /* ═══════════════════════════════════════
+     PROPOSAL BADGE (remove in production)
+     ═══════════════════════════════════════ */
+  .proposal-badge {
+    position: fixed; top:0; left:0; right:0; z-index:9999;
+    background: linear-gradient(135deg, var(--burgundy), #6B1D2A);
+    color:#fff; text-align:center;
+    padding: 10px 16px;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.1em;
+    max-width: 430px; margin: 0 auto;
+  }
+  .proposal-badge span { color: var(--gold); }
+
+  /* ═══════════════════════════════════════
+     SECTION LABELS (for prototype only)
+     ═══════════════════════════════════════ */
+  .section-label {
+    background: var(--burgundy);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    display: inline-block;
+    border-radius: 0 0 8px 8px;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 10;
+  }
+  .section-label.improve { background: #D97706; }
+  .section-label.new { background: #059669; }
+
+  /* ═══════════════════════════════════════
+     1. HEADER (모바일 최적화)
+     ═══════════════════════════════════════ */
+  .header {
+    position: sticky; top: 36px; z-index: 100;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 0 20px;
+    height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .header-logo {
+    font-size: 17px; font-weight: 800; color: var(--dark);
+    letter-spacing: -0.02em;
+  }
+  .header-logo em { font-style: normal; color: var(--burgundy); }
+  .header-actions { display: flex; gap: 6px; align-items: center; }
+  .header-btn {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: none; background: transparent;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); cursor: pointer;
+  }
+  .header-cta {
+    background: var(--burgundy); color: #fff;
+    border: none; border-radius: 20px;
+    padding: 8px 16px; font-size: 13px; font-weight: 700;
+    cursor: pointer;
+  }
+
+  /* ═══════════════════════════════════════
+     2. HERO (모바일 최적화 — 높이 축소)
+     ═══════════════════════════════════════ */
+  .hero {
+    position: relative;
+    height: 520px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%),
+                url('frontend/public/images/office/slide-01.jpg') center/cover;
+    display: flex; flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 24px 40px;
+  }
+  .hero-label {
+    font-size: 11px; letter-spacing: 0.3em; color: rgba(255,255,255,0.5);
+    text-transform: uppercase; font-weight: 600; margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-family: 'Gowun Batang', serif;
+    font-size: 28px; font-weight: 700; color: #fff;
+    line-height: 1.35; margin-bottom: 10px;
+  }
+  .hero-sub {
+    font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--burgundy); color: #fff;
+    border: none; border-radius: 28px;
+    padding: 14px 28px; font-size: 15px; font-weight: 700;
+    cursor: pointer; width: fit-content;
+  }
+  .hero-cta svg { width: 16px; height: 16px; }
+
+  /* ═══════════════════════════════════════
+     3. TRUST INDICATORS (모바일: 2x2 컴팩트)
+     ═══════════════════════════════════════ */
+  .trust {
+    margin: -28px 16px 0;
+    position: relative; z-index: 20;
+    background: #181820;
+    border-radius: 16px;
+    padding: 24px 20px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .trust-item { text-align: center; }
+  .trust-label {
+    font-size: 12px; color: rgba(255,255,255,0.5);
+    margin-bottom: 6px; letter-spacing: 0.02em;
+  }
+  .trust-value {
+    font-size: 36px; font-weight: 800; color: var(--gold);
+    line-height: 1; letter-spacing: -0.02em;
+  }
+  .trust-suffix {
+    font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.4); margin-left: 2px;
+  }
+
+  /* ═══════════════════════════════════════
+     4. PRESS LOGOS (모바일: 한 줄 스크롤)
+     ═══════════════════════════════════════ */
+  .press-logos {
+    padding: 20px 0;
+    overflow-x: auto;
+    display: flex; gap: 24px; align-items: center;
+    padding-left: 24px; padding-right: 24px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .press-logos::-webkit-scrollbar { display: none; }
+  .press-logo-item {
+    flex-shrink: 0;
+    font-size: 14px; font-weight: 700; color: #bbb;
+    opacity: 0.5;
+  }
+
+  /* ═══════════════════════════════════════
+     5. CEO SECTION (모바일 최적화)
+     ═══════════════════════════════════════ */
+  .ceo {
+    padding: 48px 24px;
+    background: var(--cream);
+  }
+  .ceo-photo {
+    width: 100%; aspect-ratio: 1/1;
+    border-radius: 16px;
+    background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.4)),
+                url('frontend/public/images/attorneys/cho-inseop.jpg') center/cover;
+    margin-bottom: 24px;
+    position: relative; overflow: hidden;
+  }
+  .ceo-photo-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  }
+  .ceo-photo-name {
+    font-size: 20px; font-weight: 700; color: #fff;
+  }
+  .ceo-photo-title {
+    font-size: 13px; color: rgba(255,255,255,0.7);
+  }
+  .ceo-eng {
+    font-size: 11px; letter-spacing: 0.3em; color: var(--burgundy);
+    text-transform: uppercase; font-weight: 700; margin-bottom: 12px;
+  }
+  .ceo h2 {
+    font-family: 'Gowun Batang', serif;
+    font-size: 24px; font-weight: 700; color: var(--dark);
+    line-height: 1.4; margin-bottom: 16px;
+  }
+  .ceo-quote {
+    font-family: 'Gowun Batang', serif;
+    font-size: 16px; color: var(--body);
+    line-height: 1.8; padding-left: 16px;
+    border-left: 2px solid var(--gold);
+    margin-bottom: 20px;
+  }
+  .ceo-credentials {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .ceo-cred {
+    font-size: 12px; color: var(--burgundy);
+    background: rgba(155,35,53,0.06);
+    padding: 6px 12px; border-radius: 20px;
+    font-weight: 600;
+  }
+
+  /* ═══════════════════════════════════════
+     6. PRACTICE AREAS (모바일: 2x2 그리드)
+     ═══════════════════════════════════════ */
+  .practice {
+    padding: 48px 24px;
+  }
+  .section-eng {
+    font-size: 11px; letter-spacing: 0.3em; color: var(--muted);
+    text-transform: uppercase; font-weight: 700; margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Gowun Batang', serif;
+    font-size: 24px; font-weight: 700; color: var(--dark);
+    line-height: 1.35; margin-bottom: 8px;
+  }
+  .section-gold-line {
+    width: 32px; height: 2px; background: var(--gold);
+    margin-bottom: 12px;
+  }
+  .section-desc {
+    font-size: 14px; color: var(--muted); line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .practice-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .practice-card {
+    background: var(--white);
+    border: 1px solid #eee;
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .practice-card:first-child {
+    border-color: var(--burgundy);
+    background: var(--pink-light);
+  }
+  .practice-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 12px; font-size: 20px;
+  }
+  .practice-card:first-child .practice-icon {
+    background: rgba(155,35,53,0.08);
+  }
+  .practice-name {
+    font-size: 15px; font-weight: 700; color: var(--dark);
+    margin-bottom: 4px;
+  }
+  .practice-count {
+    font-size: 12px; color: var(--muted);
+  }
+
+  /* ═══════════════════════════════════════
+     7. CASES (모바일: 카드 스와이프)
+     ═══════════════════════════════════════ */
+  .cases {
+    padding: 48px 0;
+    background: var(--cream);
+  }
+  .cases-header { padding: 0 24px; margin-bottom: 24px; }
+  .cases-scroll {
+    display: flex; gap: 14px;
+    overflow-x: auto;
+    padding: 0 24px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+  }
+  .cases-scroll::-webkit-scrollbar { display: none; }
+  .case-card {
+    flex-shrink: 0;
+    width: 280px;
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    scroll-snap-align: start;
+  }
+  .case-img {
+    width: 100%; height: 160px;
+    background: #ddd; object-fit: cover;
+  }
+  .case-body { padding: 18px; }
+  .case-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 11px; font-weight: 700; color: var(--burgundy);
+    background: var(--pink-light);
+    padding: 4px 10px; border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .case-amount {
+    font-size: 22px; font-weight: 800; color: var(--burgundy);
+    margin-bottom: 6px; letter-spacing: -0.02em;
+  }
+  .case-title {
+    font-size: 15px; font-weight: 600; color: var(--dark);
+    line-height: 1.45;
+    display: -webkit-box; -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .case-meta {
+    font-size: 12px; color: var(--muted);
+    display: flex; gap: 8px; align-items: center;
+  }
+  .case-stamp {
+    width: 48px; height: 48px;
+    border: 2px solid var(--burgundy);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800; color: var(--burgundy);
+    position: absolute; top: 12px; right: 12px;
+    background: rgba(255,255,255,0.9);
+    transform: rotate(-12deg);
+  }
+  .case-card { position: relative; }
+
+  /* ═══════════════════════════════════════
+     8. LAWYERS (모바일: 가로 스크롤)
+     ═══════════════════════════════════════ */
+  .lawyers {
+    padding: 48px 0;
+  }
+  .lawyers-header { padding: 0 24px; margin-bottom: 24px; }
+  .lawyers-scroll {
+    display: flex; gap: 14px;
+    overflow-x: auto; padding: 0 24px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+  }
+  .lawyers-scroll::-webkit-scrollbar { display: none; }
+  .lawyer-card {
+    flex-shrink: 0; width: 150px;
+    text-align: center;
+    scroll-snap-align: start;
+  }
+  .lawyer-photo {
+    width: 150px; height: 190px;
+    border-radius: 14px;
+    background: #e5e0da center/cover;
+    margin-bottom: 12px;
+    position: relative; overflow: hidden;
+  }
+  .lawyer-position-badge {
+    position: absolute; top: 8px; left: 8px;
+    font-size: 10px; font-weight: 700;
+    color: var(--gold); background: rgba(0,0,0,0.6);
+    padding: 3px 8px; border-radius: 10px;
+  }
+  .lawyer-name {
+    font-size: 16px; font-weight: 700; color: var(--dark);
+    margin-bottom: 2px;
+  }
+  .lawyer-title {
+    font-size: 12px; color: var(--muted);
+  }
+
+  /* ═══════════════════════════════════════
+     9. REVIEWS (모바일: 풀와이드 카드)
+     ═══════════════════════════════════════ */
+  .reviews {
+    padding: 48px 24px;
+    background: var(--cream);
+  }
+  .review-card {
+    background: var(--white);
+    border-radius: 16px; border: 1px solid #eee;
+    padding: 24px;
+    margin-bottom: 14px;
+  }
+  .review-result {
+    font-size: 13px; font-weight: 700; color: var(--burgundy);
+    background: var(--pink-light);
+    display: inline-block;
+    padding: 4px 12px; border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .review-content {
+    font-size: 15px; color: var(--body); line-height: 1.7;
+    display: -webkit-box; -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .review-info {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .review-lawyer {
+    font-size: 13px; color: var(--muted); font-weight: 500;
+  }
+  .review-date {
+    font-size: 12px; color: #bbb;
+  }
+
+  /* ═══════════════════════════════════════
+     10. OFFICES (모바일: 수직 카드)
+     ═══════════════════════════════════════ */
+  .offices {
+    padding: 48px 24px;
+  }
+  .office-card {
+    background: var(--white);
+    border: 1px solid #eee;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 12px;
+    display: flex; gap: 16px; align-items: center;
+  }
+  .office-card.hq {
+    border-color: var(--burgundy);
+    background: var(--pink-light);
+  }
+  .office-icon {
+    width: 50px; height: 50px; border-radius: 14px;
+    background: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 20px;
+  }
+  .office-card.hq .office-icon {
+    background: rgba(155,35,53,0.08);
+  }
+  .office-name {
+    font-size: 17px; font-weight: 700; color: var(--dark);
+    margin-bottom: 2px;
+  }
+  .office-phone {
+    font-size: 16px; font-weight: 700; color: var(--burgundy);
+    margin-bottom: 2px;
+  }
+  .office-address {
+    font-size: 13px; color: var(--muted); line-height: 1.5;
+  }
+
+  /* ═══════════════════════════════════════
+     11. CONTACT CTA (모바일 최적화)
+     ═══════════════════════════════════════ */
+  .contact-cta {
+    padding: 48px 24px 120px;
+    background: var(--cream);
+    text-align: center;
+  }
+  .contact-phone {
+    font-size: 32px; font-weight: 800; color: var(--dark);
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+  .contact-phone a {
+    color: inherit; text-decoration: none;
+  }
+  .contact-phone a:active { color: var(--burgundy); }
+  .contact-sub {
+    font-size: 14px; color: var(--muted); margin-bottom: 24px;
+  }
+  .contact-badges {
+    display: flex; justify-content: center; gap: 8px;
+    flex-wrap: wrap;
+  }
+  .contact-badge {
+    font-size: 12px; color: var(--body);
+    background: var(--white);
+    border: 1px solid #eee;
+    padding: 8px 14px; border-radius: 20px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .contact-badge svg { width: 14px; height: 14px; color: var(--burgundy); }
+
+  /* ═══════════════════════════════════════
+     12. BOTTOM NAV BAR *** 핵심 신규 ***
+     ═══════════════════════════════════════ */
+  .bottom-nav {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    max-width: 430px; margin: 0 auto;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    z-index: 200;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .bottom-nav-btn {
+    flex: 1;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 4px;
+    padding: 10px 0 8px;
+    border: none; background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    min-height: 56px;
+  }
+  .bottom-nav-btn svg { width: 22px; height: 22px; color: var(--muted); }
+  .bottom-nav-btn span { font-size: 10px; color: var(--muted); font-weight: 600; }
+  .bottom-nav-btn.primary {
+    background: var(--burgundy);
+    border-radius: 0;
+  }
+  .bottom-nav-btn.primary svg { color: #fff; }
+  .bottom-nav-btn.primary span { color: #fff; }
+  .bottom-nav-btn.kakao { background: #FEE500; }
+  .bottom-nav-btn.kakao svg { color: #3C1E1E; }
+  .bottom-nav-btn.kakao span { color: #3C1E1E; }
+
+  /* ═══════════════════════════════════════
+     COMPARISON NOTES (prototype only)
+     ═══════════════════════════════════════ */
+  .compare-note {
+    margin: 0 16px 16px;
+    background: #FFF7ED;
+    border: 1px solid #FED7AA;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 13px;
+    color: #92400E;
+    line-height: 1.6;
+  }
+  .compare-note strong { color: #78350F; }
+  .compare-note .tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 700;
+    padding: 2px 8px; border-radius: 10px;
+    margin-right: 4px;
+  }
+  .compare-note .tag.before { background: #FEE2E2; color: #991B1B; }
+  .compare-note .tag.after { background: #D1FAE5; color: #065F46; }
+
+  .section-divider {
+    height: 8px; background: #f5f3f0;
+  }
+
+  /* Scroll indicator */
+  .scroll-hint {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--muted);
+    padding: 0 24px; margin-top: 12px;
+  }
+  .scroll-hint::after {
+    content: '';
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, #ccc, transparent);
+  }
+
+  /* "더보기" button */
+  .more-btn {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    width: calc(100% - 48px);
+    margin: 16px auto 0;
+    padding: 14px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    background: var(--white);
+    font-size: 14px; font-weight: 600; color: var(--body);
+    cursor: pointer;
+  }
+
+  /* 서브페이지 개선: 아코디언 */
+  .accordion { margin: 0 24px; }
+  .accordion-item {
+    border-bottom: 1px solid #eee;
+  }
+  .accordion-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 0;
+    font-size: 15px; font-weight: 600; color: var(--dark);
+    cursor: pointer; background: transparent; border: none; width: 100%;
+    text-align: left;
+  }
+  .accordion-header svg {
+    width: 20px; height: 20px; color: var(--muted);
+    transition: transform 0.3s;
+  }
+  .accordion-header.open svg { transform: rotate(180deg); }
+  .accordion-body {
+    padding: 0 0 18px;
+    font-size: 14px; color: var(--body); line-height: 1.7;
+    display: none;
+  }
+  .accordion-body.show { display: block; }
+
+  /* 서브페이지 개선: 탭 필터 */
+  .tab-filter {
+    display: flex; gap: 8px;
+    overflow-x: auto;
+    padding: 0 24px 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .tab-filter::-webkit-scrollbar { display: none; }
+  .tab-pill {
+    flex-shrink: 0;
+    padding: 8px 18px;
+    border-radius: 24px;
+    border: 1px solid #e5e0da;
+    background: var(--white);
+    font-size: 13px; font-weight: 600; color: var(--body);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .tab-pill.active {
+    background: var(--burgundy);
+    color: #fff; border-color: var(--burgundy);
+  }
+</style>
+</head>
+<body>
+
+<!-- Proposal Badge -->
+<div class="proposal-badge">
+  <span>MOBILE UX</span> IMPROVEMENT PROPOSAL v1
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HEADER
+     ═══════════════════════════════════════════ -->
+<header class="header">
+  <div class="header-logo">
+    <em>신세계로</em> 법무법인
+  </div>
+  <div class="header-actions">
+    <button class="header-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+      </svg>
+    </button>
+    <button class="header-cta">상담신청</button>
+    <button class="header-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     COMPARE NOTE: Header
+     ═══════════════════════════════════════════ -->
+<div class="compare-note">
+  <strong>Header 개선</strong><br>
+  <span class="tag before">BEFORE</span> 높이 80px, 상담신청 버튼 없음 (모바일)<br>
+  <span class="tag after">AFTER</span> 높이 60px로 축소, CTA 버튼 상시 노출.<br>
+  대륜/YK 모두 모바일 헤더에 CTA 있음. 우리만 없었음.
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════ -->
+<div class="section-label improve">HERO — 모바일 최적화</div>
+<section class="hero">
+  <div class="hero-label">Since 1970 &middot; Family Law Specialists</div>
+  <h1>52년 법조 전통,<br>19인의 전문가가<br>새로운 시작을 함께합니다</h1>
+  <p class="hero-sub">이혼·상속 전문 법무법인</p>
+  <button class="hero-cta">
+    무료 상담 신청
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </button>
+</section>
+
+<div class="compare-note">
+  <strong>Hero 개선</strong><br>
+  <span class="tag before">BEFORE</span> 헤드라인 32px (모바일에서 3줄+), min-h 과도<br>
+  <span class="tag after">AFTER</span> 헤드라인 28px, 하단 정렬, CTA 버튼 눈에 띄게
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TRUST INDICATORS
+     ═══════════════════════════════════════════ -->
+<section class="trust">
+  <div class="trust-item">
+    <p class="trust-label">법조 전통</p>
+    <p class="trust-value">52<span class="trust-suffix">년</span></p>
+  </div>
+  <div class="trust-item">
+    <p class="trust-label">전문가</p>
+    <p class="trust-value">19<span class="trust-suffix">인</span></p>
+  </div>
+  <div class="trust-item">
+    <p class="trust-label">누적 승소사례</p>
+    <p class="trust-value">1,053<span class="trust-suffix">건+</span></p>
+  </div>
+  <div class="trust-item">
+    <p class="trust-label">전문팀</p>
+    <p class="trust-value">7<span class="trust-suffix">개</span></p>
+  </div>
+</section>
+
+<div class="compare-note" style="margin-top: 20px;">
+  <strong>Trust 개선</strong><br>
+  <span class="tag before">BEFORE</span> 숫자 40~56px, 아이콘 34px 차지<br>
+  <span class="tag after">AFTER</span> 숫자 36px, 아이콘 제거. 모바일에서 핵심 숫자만 집중.
+  <br>라벨은 위, 숫자는 아래 — 시선 흐름 자연스럽게.
+</div>
+
+<!-- PRESS LOGOS -->
+<div class="press-logos">
+  <span class="press-logo-item">KBS</span>
+  <span class="press-logo-item">SBS</span>
+  <span class="press-logo-item">MBC</span>
+  <span class="press-logo-item">JTBC</span>
+  <span class="press-logo-item">YTN</span>
+  <span class="press-logo-item">MBN</span>
+  <span class="press-logo-item">TV조선</span>
+  <span class="press-logo-item">외 70+ 매체</span>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     CEO SECTION
+     ═══════════════════════════════════════════ -->
+<div class="section-label improve">CEO — 모바일 최적화</div>
+<section class="ceo">
+  <div class="ceo-photo">
+    <div class="ceo-photo-overlay">
+      <p class="ceo-photo-name">조인섭 대표변호사</p>
+      <p class="ceo-photo-title">법무법인 신세계로 대표</p>
+    </div>
+  </div>
+  <p class="ceo-eng">Representative Lawyer</p>
+  <h2>법은 감정의 언어를<br>이해하지 않습니다.</h2>
+  <blockquote class="ceo-quote">
+    소장의 한 문단, 준비서면의 한 줄,<br>
+    답변서의 작은 누락이<br>
+    인생을 바꿉니다.
+  </blockquote>
+  <div class="ceo-credentials">
+    <span class="ceo-cred">조두순 사건 담당</span>
+    <span class="ceo-cred">여가부 장관 표창</span>
+    <span class="ceo-cred">YTN 라디오 고정</span>
+  </div>
+</section>
+
+<div class="compare-note">
+  <strong>CEO 개선</strong><br>
+  <span class="tag before">BEFORE</span> 사진 aspect-[3/4](세로 길게), 헤드라인 40px, 인용문 22px<br>
+  <span class="tag after">AFTER</span> 사진 1:1 정사각형(모바일 화면 비율 최적), 헤드라인 24px, 인용문 16px.<br>
+  경력 뱃지를 pill로 한눈에 보이게.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     PRACTICE AREAS
+     ═══════════════════════════════════════════ -->
+<section class="practice">
+  <p class="section-eng">Practice Areas</p>
+  <h2 class="section-title">전문 업무분야</h2>
+  <div class="section-gold-line"></div>
+  <p class="section-desc">52년간 이혼·상속만 집중한 7개 전문팀</p>
+  <div class="practice-grid">
+    <div class="practice-card">
+      <div class="practice-icon">&#9878;</div>
+      <p class="practice-name">이혼소송</p>
+      <p class="practice-count">555건 승소</p>
+    </div>
+    <div class="practice-card">
+      <div class="practice-icon">&#128176;</div>
+      <p class="practice-name">재산분할</p>
+      <p class="practice-count">261건 승소</p>
+    </div>
+    <div class="practice-card">
+      <div class="practice-icon">&#128101;</div>
+      <p class="practice-name">양육권</p>
+      <p class="practice-count">88건 승소</p>
+    </div>
+    <div class="practice-card">
+      <div class="practice-icon">&#9888;</div>
+      <p class="practice-name">상간자소송</p>
+      <p class="practice-count">112건 승소</p>
+    </div>
+  </div>
+  <button class="more-btn">
+    전체 업무분야 보기
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     CASES
+     ═══════════════════════════════════════════ -->
+<div class="section-label">CASES — 가로 스와이프</div>
+<section class="cases">
+  <div class="cases-header">
+    <p class="section-eng">Winning Cases</p>
+    <h2 class="section-title">성과는 기록으로<br>증명됩니다.</h2>
+    <div class="section-gold-line"></div>
+  </div>
+
+  <!-- 가로 스크롤 필터 -->
+  <div class="tab-filter">
+    <span class="tab-pill active">전체 1,053</span>
+    <span class="tab-pill">이혼 555</span>
+    <span class="tab-pill">재산분할 261</span>
+    <span class="tab-pill">상간 112</span>
+    <span class="tab-pill">양육권 88</span>
+    <span class="tab-pill">상속 37</span>
+  </div>
+
+  <div class="cases-scroll">
+    <div class="case-card">
+      <div class="case-stamp">승소</div>
+      <div class="case-img" style="background: linear-gradient(135deg, #e8d5d8, #d4c0b8);"></div>
+      <div class="case-body">
+        <span class="case-badge">&#10003; 이혼</span>
+        <p class="case-amount">위자료 5,000만원</p>
+        <p class="case-title">상대방의 외도 증거 확보 후 위자료 대폭 인상 판결</p>
+        <div class="case-meta">
+          <span>김미루 변호사</span>
+          <span>&middot;</span>
+          <span>2024.11</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-stamp">조정</div>
+      <div class="case-img" style="background: linear-gradient(135deg, #d8dce8, #b8c4d4);"></div>
+      <div class="case-body">
+        <span class="case-badge">&#10003; 재산분할</span>
+        <p class="case-amount">재산분할 3.2억</p>
+        <p class="case-title">은닉 재산 추적으로 분할 비율 40%→62% 확보</p>
+        <div class="case-meta">
+          <span>류현주 변호사</span>
+          <span>&middot;</span>
+          <span>2024.09</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-img" style="background: linear-gradient(135deg, #e0d8d0, #c8bfb4);"></div>
+      <div class="case-body">
+        <span class="case-badge">&#10003; 양육권</span>
+        <p class="case-amount">양육권 확보</p>
+        <p class="case-title">해외 거주 배우자 상대 양육권 전면 승소</p>
+        <div class="case-meta">
+          <span>박경내 변호사</span>
+          <span>&middot;</span>
+          <span>2024.08</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="scroll-hint">좌우로 스와이프 &rarr;</p>
+  <button class="more-btn">전체 승소사례 1,053건 보기</button>
+</section>
+
+<div class="compare-note">
+  <strong>Cases 개선</strong><br>
+  <span class="tag before">BEFORE</span> 필터 pill 줄바꿈, slidesPerView 1.2 (다음 카드 살짝 보임)<br>
+  <span class="tag after">AFTER</span> 필터 수평 스크롤, 카드 280px 고정너비 스와이프, "좌우로 스와이프" 힌트 추가.<br>
+  대륜/YK 모두 모바일에서 수평 스와이프 패턴 사용.
+</div>
+
+<!-- ═══════════════════════════════════════════
+     LAWYERS
+     ═══════════════════════════════════════════ -->
+<section class="lawyers">
+  <div class="lawyers-header">
+    <p class="section-eng">Our Lawyers</p>
+    <h2 class="section-title">19인의 전문가</h2>
+    <div class="section-gold-line"></div>
+  </div>
+  <div class="lawyers-scroll">
+    <div class="lawyer-card">
+      <div class="lawyer-photo" style="background-image: url('frontend/public/images/attorneys/cho-inseop.jpg');">
+        <span class="lawyer-position-badge">대표</span>
+      </div>
+      <p class="lawyer-name">조인섭</p>
+      <p class="lawyer-title">대표변호사</p>
+    </div>
+    <div class="lawyer-card">
+      <div class="lawyer-photo" style="background-image: url('frontend/public/images/attorneys/cho-yoonyong.jpg');">
+        <span class="lawyer-position-badge">대표</span>
+      </div>
+      <p class="lawyer-name">조윤용</p>
+      <p class="lawyer-title">대표변호사</p>
+    </div>
+    <div class="lawyer-card">
+      <div class="lawyer-photo" style="background-color: #d4cdc6;">
+        <span class="lawyer-position-badge">팀장</span>
+      </div>
+      <p class="lawyer-name">김미루</p>
+      <p class="lawyer-title">서울본부장</p>
+    </div>
+    <div class="lawyer-card">
+      <div class="lawyer-photo" style="background-color: #c8c0b8;">
+        <span class="lawyer-position-badge">팀장</span>
+      </div>
+      <p class="lawyer-name">류현주</p>
+      <p class="lawyer-title">대전본부장</p>
+    </div>
+    <div class="lawyer-card">
+      <div class="lawyer-photo" style="background-color: #bfb8b0;">
+        <span class="lawyer-position-badge">팀장</span>
+      </div>
+      <p class="lawyer-name">신진희</p>
+      <p class="lawyer-title">수원본부장</p>
+    </div>
+    <div class="lawyer-card">
+      <div class="lawyer-photo" style="background-color: #c2bbb4;"></div>
+      <p class="lawyer-name">이명인</p>
+      <p class="lawyer-title">수석변호사</p>
+    </div>
+  </div>
+  <p class="scroll-hint">좌우로 스와이프 &rarr;</p>
+  <button class="more-btn">전체 변호사 19명 보기</button>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     REVIEWS
+     ═══════════════════════════════════════════ -->
+<section class="reviews">
+  <p class="section-eng">Client Reviews</p>
+  <h2 class="section-title">의뢰인 후기</h2>
+  <div class="section-gold-line"></div>
+  <p class="section-desc" style="margin-bottom: 24px;">실제 의뢰인의 이야기입니다.</p>
+
+  <div class="review-card">
+    <span class="review-result">&#10003; 위자료 4,000만원 + 재산분할 2.1억</span>
+    <p class="review-content">
+      처음 상담부터 마지막 판결까지 정말 든든했습니다. 혼자서는 절대 이런 결과를 얻지 못했을 것입니다. 감사합니다.
+    </p>
+    <div class="review-info">
+      <span class="review-lawyer">김미루 변호사 &middot; 이혼</span>
+      <span class="review-date">2024.10</span>
+    </div>
+  </div>
+
+  <div class="review-card">
+    <span class="review-result">&#10003; 양육권 확보 + 양육비 월 200만원</span>
+    <p class="review-content">
+      아이를 지키겠다는 마음 하나로 찾아갔는데, 변호사님이 끝까지 함께해 주셔서 가능했습니다.
+    </p>
+    <div class="review-info">
+      <span class="review-lawyer">박경내 변호사 &middot; 양육권</span>
+      <span class="review-date">2024.09</span>
+    </div>
+  </div>
+
+  <button class="more-btn">전체 후기 90건 보기</button>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     OFFICES
+     ═══════════════════════════════════════════ -->
+<section class="offices">
+  <p class="section-eng">Our Offices</p>
+  <h2 class="section-title">전국 3개 사무소</h2>
+  <div class="section-gold-line"></div>
+  <p class="section-desc" style="margin-bottom: 24px;">어디서든 동일한 전문 서비스</p>
+
+  <div class="office-card hq">
+    <div class="office-icon">&#127970;</div>
+    <div>
+      <p class="office-name">서울본사</p>
+      <p class="office-phone">02-594-2800</p>
+      <p class="office-address">서울시 서초구 법원로 16, 207호</p>
+    </div>
+  </div>
+  <div class="office-card">
+    <div class="office-icon">&#127970;</div>
+    <div>
+      <p class="office-name">대전지사</p>
+      <p class="office-phone">042-471-2833</p>
+      <p class="office-address">대전 서구 둔산로123번길 43, 201호</p>
+    </div>
+  </div>
+  <div class="office-card">
+    <div class="office-icon">&#127970;</div>
+    <div>
+      <p class="office-name">수원지사</p>
+      <p class="office-phone">031-202-2833</p>
+      <p class="office-address">수원시 영통구 봉영로 1605, 208호</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     CONTACT CTA
+     ═══════════════════════════════════════════ -->
+<section class="contact-cta">
+  <p class="section-eng">Contact Us</p>
+  <h2 class="section-title" style="margin-bottom:20px;">신뢰할 수 있는 이름,<br>신세계로.</h2>
+  <p class="contact-phone"><a href="tel:1555-5961">1555-5961</a></p>
+  <p class="contact-sub">평일 09:00 ~ 18:00 &middot; 토요일 09:00 ~ 13:00</p>
+  <div class="contact-badges">
+    <span class="contact-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      비밀보장
+    </span>
+    <span class="contact-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      24시간 접수
+    </span>
+    <span class="contact-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      무료 초회상담
+    </span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     서브페이지 개선안
+     ═══════════════════════════════════════════ -->
+<div style="background: var(--burgundy); padding: 48px 24px; text-align: center;">
+  <p style="font-size: 11px; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; font-weight: 700; margin-bottom: 12px;">Sub-Page Improvements</p>
+  <h2 style="font-family: 'Gowun Batang', serif; font-size: 24px; color: #fff; line-height: 1.4;">
+    서브페이지<br>스크롤 길이 해결 방안
+  </h2>
+</div>
+
+<!-- 서브페이지 개선 1: 아코디언 -->
+<div class="section-label new">방안 1 — 긴 콘텐츠 아코디언 접기</div>
+<div style="padding: 32px 0;">
+  <div style="padding: 0 24px; margin-bottom: 20px;">
+    <p class="section-eng">Greeting</p>
+    <h3 class="section-title" style="font-size: 20px;">인사말 페이지 (현재 10,000px+)</h3>
+    <p class="section-desc">긴 텍스트 → 핵심만 보여주고 접기/펼치기</p>
+  </div>
+  <div class="accordion">
+    <div class="accordion-item">
+      <button class="accordion-header open" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('show');">
+        조인섭 대표변호사 인사말
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="accordion-body show">
+        이혼이라는 단어를 입에 담기조차 어려워했던 시절이 있었습니다. 당시에 이혼은 개인의 실패이자 가족의 치부였으니까요. 우리가 진짜로 원하는 건 단지 '이기는 것'이 아닙니다...
+        <br><br>
+        <a href="#" style="color: var(--burgundy); font-weight: 600; font-size: 14px;">전체 인사말 읽기 &rarr;</a>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-header" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('show');">
+        조윤용 대표변호사 인사말
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="accordion-body">
+        열정과 전문성으로 당신의 권리를 지켜드리겠습니다...
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-header" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('show');">
+        Core Values (전문성 / 신뢰 / 존엄)
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="accordion-body">
+        3개의 핵심 가치를 카드가 아닌 간결한 리스트로 표시.<br>
+        모바일에서 카드 3장 세로 나열 → 아코디언 1줄로 압축.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="compare-note">
+  <strong>효과</strong><br>
+  <span class="tag before">BEFORE</span> 인사말 10,000px+ 스크롤<br>
+  <span class="tag after">AFTER</span> ~2,000px. <strong>80% 스크롤 감소.</strong><br>
+  YK의 "펼쳐보기" 패턴 참고. 긴 콘텐츠는 접어두고 사용자 선택으로 펼침.
+</div>
+
+<!-- 서브페이지 개선 2: 변호사 리스트 -->
+<div class="section-label new">방안 2 — 변호사 페이지 2열 컴팩트</div>
+<div style="padding: 32px 24px;">
+  <p class="section-eng">Lawyers</p>
+  <h3 class="section-title" style="font-size: 20px;">변호사 소개 (현재 8,000px+)</h3>
+  <p class="section-desc" style="margin-bottom: 20px;">대형 프로필 카드 → 컴팩트 2열 그리드</p>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+    <div style="text-align: center;">
+      <div style="width: 100%; aspect-ratio: 3/4; background: #d4cdc6; border-radius: 14px; margin-bottom: 10px; position: relative;">
+        <span style="position: absolute; top: 8px; left: 8px; font-size: 10px; font-weight: 700; color: var(--gold); background: rgba(0,0,0,0.6); padding: 3px 8px; border-radius: 10px;">대표</span>
+      </div>
+      <p style="font-size: 16px; font-weight: 700;">조인섭</p>
+      <p style="font-size: 12px; color: var(--muted);">대표변호사</p>
+    </div>
+    <div style="text-align: center;">
+      <div style="width: 100%; aspect-ratio: 3/4; background: #c8c0b8; border-radius: 14px; margin-bottom: 10px; position: relative;">
+        <span style="position: absolute; top: 8px; left: 8px; font-size: 10px; font-weight: 700; color: var(--gold); background: rgba(0,0,0,0.6); padding: 3px 8px; border-radius: 10px;">대표</span>
+      </div>
+      <p style="font-size: 16px; font-weight: 700;">조윤용</p>
+      <p style="font-size: 12px; color: var(--muted);">대표변호사</p>
+    </div>
+    <div style="text-align: center;">
+      <div style="width: 100%; aspect-ratio: 3/4; background: #bfb8b0; border-radius: 14px; margin-bottom: 10px;"></div>
+      <p style="font-size: 16px; font-weight: 700;">김미루</p>
+      <p style="font-size: 12px; color: var(--muted);">서울본부장</p>
+    </div>
+    <div style="text-align: center;">
+      <div style="width: 100%; aspect-ratio: 3/4; background: #c2bbb4; border-radius: 14px; margin-bottom: 10px;"></div>
+      <p style="font-size: 16px; font-weight: 700;">류현주</p>
+      <p style="font-size: 12px; color: var(--muted);">대전본부장</p>
+    </div>
+  </div>
+  <button class="more-btn">전체 19명 보기</button>
+</div>
+
+<div class="compare-note">
+  <strong>효과</strong><br>
+  <span class="tag before">BEFORE</span> 변호사 1명당 ~400px 높이 (사진+이름+경력+전문분야)<br>
+  <span class="tag after">AFTER</span> 2열 그리드, 1명당 ~220px. <strong>45% 공간 절약.</strong><br>
+  대륜 방식: 사진+이름+직책만 표시, 탭 시 상세.
+</div>
+
+<!-- 서브페이지 개선 3: 하단 네비 -->
+<div class="section-label new">방안 3 — 하단 고정 네비게이션 바</div>
+<div style="padding: 32px 24px;">
+  <p class="section-desc">
+    대륜: 3버튼 (온라인상담 / 카톡 / 전화)<br>
+    YK: 4버튼 토글 패널<br><br>
+    <strong>신세계로 제안:</strong> 4버튼 고정 바<br>
+    전화 / 카카오톡 / 온라인상담 / SMS
+  </p>
+  <p class="section-desc" style="margin-top: 16px;">
+    현재 FloatingCTA는 <strong>마우스 호버로 펼쳐지는 구조</strong>라<br>
+    모바일에서 터치가 안 되는 치명적 문제가 있음.<br>
+    → 하단 고정 바로 교체하면 해결.
+  </p>
+</div>
+
+<div class="compare-note">
+  <strong>FloatingCTA 치명적 버그</strong><br>
+  <span class="tag before">BEFORE</span> onMouseEnter/Leave로 펼침 → iOS 터치 불가<br>
+  <span class="tag after">AFTER</span> 하단 고정 바 4버튼 상시 노출. 터치 100% 가능.<br>
+  <strong>이것만 바꿔도 모바일 전환율 크게 개선될 것.</strong>
+</div>
+
+<!-- 서브페이지 개선 4: 글꼴 가이드 -->
+<div class="section-label new">방안 4 — 모바일 타이포 가이드</div>
+<div style="padding: 32px 24px;">
+  <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+    <thead>
+      <tr style="border-bottom: 2px solid var(--dark);">
+        <th style="text-align: left; padding: 10px 0; color: var(--dark);">용도</th>
+        <th style="text-align: center; padding: 10px 0; color: #991B1B;">현재</th>
+        <th style="text-align: center; padding: 10px 0; color: #065F46;">제안</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 10px 0;">섹션 헤드라인</td>
+        <td style="text-align: center; color: #991B1B; font-weight: 700;">38~48px</td>
+        <td style="text-align: center; color: #065F46; font-weight: 700;">24~28px</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 10px 0;">서브 헤드라인</td>
+        <td style="text-align: center; color: #991B1B; font-weight: 700;">28~32px</td>
+        <td style="text-align: center; color: #065F46; font-weight: 700;">20~22px</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 10px 0;">본문</td>
+        <td style="text-align: center; color: #991B1B; font-weight: 700;">18~21px</td>
+        <td style="text-align: center; color: #065F46; font-weight: 700;">15~16px</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 10px 0;">전화번호 CTA</td>
+        <td style="text-align: center; color: #991B1B; font-weight: 700;">44~56px</td>
+        <td style="text-align: center; color: #065F46; font-weight: 700;">28~32px</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 10px 0;">카운트업 숫자</td>
+        <td style="text-align: center; color: #991B1B; font-weight: 700;">40~56px</td>
+        <td style="text-align: center; color: #065F46; font-weight: 700;">32~36px</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px 0;">라벨/캡션</td>
+        <td style="text-align: center; color: var(--muted);">11~12px</td>
+        <td style="text-align: center; color: var(--muted);">12~13px</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 서브페이지 개선 5: 배너 높이 -->
+<div class="section-label new">방안 5 — 서브페이지 배너 축소</div>
+<div style="padding: 32px 24px;">
+  <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+    <div style="flex: 1;">
+      <div style="height: 160px; background: linear-gradient(var(--burgundy), var(--burgundy-dark)); border-radius: 12px; display: flex; align-items: flex-end; padding: 16px;">
+        <div>
+          <p style="font-size: 10px; color: rgba(255,255,255,0.5);">홈 > 신세계로 > 인사말</p>
+          <p style="font-size: 18px; font-weight: 700; color: #fff; margin-top: 4px;">인사말</p>
+        </div>
+      </div>
+      <p style="text-align: center; font-size: 12px; color: #065F46; font-weight: 600; margin-top: 8px;">제안: 160px</p>
+    </div>
+    <div style="flex: 1;">
+      <div style="height: 220px; background: linear-gradient(#666, #333); border-radius: 12px; display: flex; align-items: flex-end; padding: 16px;">
+        <div>
+          <p style="font-size: 10px; color: rgba(255,255,255,0.5);">홈 > 신세계로 > 인사말</p>
+          <p style="font-size: 18px; font-weight: 700; color: #fff; margin-top: 4px;">인사말</p>
+        </div>
+      </div>
+      <p style="text-align: center; font-size: 12px; color: #991B1B; font-weight: 600; margin-top: 8px;">현재: 220px</p>
+    </div>
+  </div>
+  <p style="font-size: 14px; color: var(--body); line-height: 1.6;">
+    모바일에서 220px 배너는 화면의 <strong>40%</strong>를 차지.<br>
+    160px로 줄이면 본 콘텐츠 즉시 노출.
+  </p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PRIORITY MATRIX
+     ═══════════════════════════════════════════ -->
+<div style="background: #1A1A2E; padding: 48px 24px;">
+  <p style="font-size: 11px; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; font-weight: 700; margin-bottom: 16px;">Priority Matrix</p>
+  <h2 style="font-family: 'Gowun Batang', serif; font-size: 22px; color: #fff; line-height: 1.4; margin-bottom: 28px;">
+    모바일 개선<br>우선순위 매트릭스
+  </h2>
+
+  <!-- P0 -->
+  <div style="background: rgba(220,38,38,0.12); border: 1px solid rgba(220,38,38,0.2); border-radius: 14px; padding: 20px; margin-bottom: 14px;">
+    <p style="font-size: 11px; font-weight: 800; color: #FCA5A5; letter-spacing: 0.1em; margin-bottom: 8px;">P0 — 즉시 (이번 주)</p>
+    <p style="font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.7;">
+      1. FloatingCTA → 하단 고정 바 교체 (iOS 터치 불가 해결)<br>
+      2. 모바일 글꼴 크기 전면 조정 (38px→24px 등)<br>
+      3. 터치 타겟 44px 이상 보장
+    </p>
+  </div>
+
+  <!-- P1 -->
+  <div style="background: rgba(217,119,6,0.12); border: 1px solid rgba(217,119,6,0.2); border-radius: 14px; padding: 20px; margin-bottom: 14px;">
+    <p style="font-size: 11px; font-weight: 800; color: #FCD34D; letter-spacing: 0.1em; margin-bottom: 8px;">P1 — 이번 주 내</p>
+    <p style="font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.7;">
+      4. 서브페이지 배너 높이 220→160px<br>
+      5. 인사말/변호사 페이지 아코디언/2열 구조<br>
+      6. 헤더 모바일 CTA 버튼 추가
+    </p>
+  </div>
+
+  <!-- P2 -->
+  <div style="background: rgba(5,150,105,0.12); border: 1px solid rgba(5,150,105,0.2); border-radius: 14px; padding: 20px;">
+    <p style="font-size: 11px; font-weight: 800; color: #6EE7B7; letter-spacing: 0.1em; margin-bottom: 8px;">P2 — 다음 주</p>
+    <p style="font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.7;">
+      7. 필터 pill 수평 스크롤 전환<br>
+      8. 승소사례 카드 스와이프 힌트<br>
+      9. 이미지 모바일 전용 최적화<br>
+      10. 검색바 모바일 풀스크린 오버레이
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     BOTTOM NAVIGATION BAR (핵심 신규 제안)
+     ═══════════════════════════════════════════ -->
+<div class="bottom-nav">
+  <a href="tel:1555-5961" class="bottom-nav-btn primary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    <span>전화상담</span>
+  </a>
+  <a href="https://pf.kakao.com/_ExcxoAu/chat" class="bottom-nav-btn kakao">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 3C6.48 3 2 6.58 2 10.9c0 2.78 1.86 5.21 4.65 6.6-.14.53-.92 3.42-.95 3.63 0 0-.02.16.08.22.1.06.22.01.22.01.29-.04 3.37-2.2 3.9-2.57.68.1 1.38.15 2.1.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z"/></svg>
+    <span>카카오톡</span>
+  </a>
+  <a href="/consultation" class="bottom-nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    <span>온라인상담</span>
+  </a>
+  <a href="sms:1555-5961" class="bottom-nav-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+    <span>SMS</span>
+  </a>
+</div>
+
+</body>
+</html>
