@@ -67,7 +67,7 @@ export default function CEOSection() {
                 />
               </div>
               <div className="pt-1">
-                <p className="text-[12px] tracking-[0.2em] text-burgundy-500/60 font-bold uppercase mb-1">가족법전문 제1호 변호사</p>
+                <p className="text-[14px] tracking-[0.2em] text-burgundy-500/60 font-bold uppercase mb-1">가족법전문 제1호 변호사</p>
                 <p className="text-[22px] font-bold text-[#2C2028] tracking-tight leading-tight">{ceo.name}</p>
                 <p className="text-[14px] text-[#666666] mt-1">{ceo.position}</p>
               </div>

@@ -16,7 +16,7 @@ export default function News() {
   if (sortedNews.length === 0) {
     return (
       <section id="media" className="relative bg-[#faf9f7] py-20 md:py-28">
-        <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10 text-center py-16">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 text-center py-16">
           <p className="text-[17px] text-gray-400">소식이 없습니다.</p>
         </div>
       </section>
@@ -34,7 +34,7 @@ export default function News() {
         }}
       />
 
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
         {/* Section Header */}
         <ScrollReveal className="text-center mb-10 md:mb-14">
           <p className="text-[14px] tracking-[0.3em] text-burgundy-500 uppercase mb-2">
@@ -67,7 +67,7 @@ export default function News() {
                 ) : (
                   <div className="w-full h-full min-h-[200px] bg-[#e8e5df]" />
                 )}
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-burgundy-500 text-white text-[11px] font-bold">
+                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-burgundy-500 text-white text-[15px] font-bold">
                   최신
                 </div>
               </div>
@@ -118,7 +118,7 @@ export default function News() {
                     ) : (
                       <div className="w-full h-full bg-[#e8e5df]" />
                     )}
-                    <div className="absolute top-1 left-1 px-2 py-[2px] rounded-full bg-burgundy-500 text-white text-[9px] font-bold">
+                    <div className="absolute top-1 left-1 px-2 py-[2px] rounded-full bg-burgundy-500 text-white text-[15px] font-bold">
                       {item.year}
                     </div>
                   </div>

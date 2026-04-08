@@ -51,7 +51,7 @@ export default function LawyerDetailPage() {
 
   if (!lawyer) {
     return (
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10 py-20 text-center">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-20 text-center">
         <p className="text-[18px] font-bold text-gray-900 mb-4">변호사를 찾을 수 없습니다.</p>
         <Link href="/about/lawyers" className="text-[15px] text-[#9B2335]">&larr; 변호사 목록으로</Link>
       </div>
@@ -134,7 +134,7 @@ export default function LawyerDetailPage() {
                     {lawyer.specialty.map((s: string) => (
                       <span
                         key={s}
-                        className="px-3 md:px-4 py-1 md:py-1.5 text-[13px] md:text-[16px] text-[#2C2028] font-semibold border border-[#B5AFA8] rounded-full"
+                        className="px-3 md:px-4 py-1 md:py-1.5 text-[15px] md:text-[16px] text-[#2C2028] font-semibold border border-[#B5AFA8] rounded-full"
                       >
                         {s}
                       </span>
@@ -193,7 +193,7 @@ export default function LawyerDetailPage() {
       )}
 
       {/* ═══ 학력 + 경력 ═══ */}
-      <section className="bg-[#F0EDE8] py-10 md:py-24" data-reveal>
+      <section className="bg-[#F0EDE8] py-14 md:py-20" data-reveal>
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {/* 학력 카드 */}
@@ -213,7 +213,7 @@ export default function LawyerDetailPage() {
                     </p>
                   ))
                 ) : (
-                  <p className="text-[13px] md:text-[17px] text-[#333333]">학력 정보가 준비 중입니다.</p>
+                  <p className="text-[15px] md:text-[17px] text-[#333333]">학력 정보가 준비 중입니다.</p>
                 )}
               </div>
             </div>
@@ -250,7 +250,7 @@ export default function LawyerDetailPage() {
 
       {/* ═══ 승소사례 ═══ */}
       {matchedCases.length > 0 && (
-        <section className="bg-white py-10 md:py-24" data-reveal>
+        <section className="bg-white py-14 md:py-20" data-reveal>
           <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
             <div className="flex items-center justify-between mb-6 md:mb-10">
               <div className="flex items-center gap-3 md:gap-4">
@@ -276,7 +276,7 @@ export default function LawyerDetailPage() {
                   >
                     <div className="h-[3px] bg-[#9B2335] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                     <div className="flex flex-col flex-1 p-4 md:p-7">
-                      <span className="inline-block self-start px-2.5 py-0.5 text-[12px] md:text-[14px] font-bold text-[#9B2335] bg-[#9B2335]/8 rounded-full mb-2.5 md:mb-4">
+                      <span className="inline-block self-start px-2.5 py-0.5 text-[14px] md:text-[16px] font-bold text-[#9B2335] bg-[#9B2335]/8 rounded-full mb-2.5 md:mb-4">
                         {c.category}
                       </span>
                       <p className="text-[15px] md:text-[19px] font-bold text-[#1A1A1A] group-hover:text-[#9B2335] transition-colors leading-[1.5] mb-3 md:mb-4 line-clamp-2 flex-1" style={{ wordBreak: "keep-all" }}>
@@ -317,7 +317,7 @@ export default function LawyerDetailPage() {
 
       {/* ═══ 의뢰인 후기 ═══ */}
       {matchedReviews.length > 0 && (
-        <section className="bg-[#F8F4EE] py-10 md:py-24" data-reveal>
+        <section className="bg-[#F8F4EE] py-14 md:py-20" data-reveal>
           <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
             <div className="flex items-center justify-between mb-6 md:mb-10">
               <div className="flex items-center gap-3 md:gap-4">
@@ -340,7 +340,7 @@ export default function LawyerDetailPage() {
                 >
                   <div className="p-4 md:p-6">
                     {r.result && (
-                      <div className="inline-block px-2.5 py-0.5 text-[11px] md:text-[14px] font-bold text-[#9B2335] bg-[#9B2335]/8 rounded-full mb-3 md:mb-4">
+                      <div className="inline-block px-2.5 py-0.5 text-[15px] md:text-[16px] font-bold text-[#9B2335] bg-[#9B2335]/8 rounded-full mb-3 md:mb-4">
                         {r.result}
                       </div>
                     )}
@@ -348,8 +348,8 @@ export default function LawyerDetailPage() {
                       {r.title}
                     </p>
                     <div className="flex items-center justify-between pt-3 md:pt-4 border-t border-[#F0EDE8]">
-                      <span className="text-[13px] md:text-[16px] text-[#333333]">{r.case_type}</span>
-                      <span className="text-[12px] md:text-[15px] text-[#444444]">{r.date}</span>
+                      <span className="text-[15px] md:text-[16px] text-[#333333]">{r.case_type}</span>
+                      <span className="text-[14px] md:text-[15px] text-[#444444]">{r.date}</span>
                     </div>
                   </div>
                 </Link>
@@ -372,9 +372,9 @@ export default function LawyerDetailPage() {
       )}
 
       {/* ═══ 다른 변호사 ═══ */}
-      <section className="bg-white py-10 md:py-24 border-t border-[#E8E4DE]" data-reveal>
+      <section className="bg-white py-14 md:py-20 border-t border-[#E8E4DE]" data-reveal>
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
-          <h2 className="text-[12px] md:text-[15px] text-[#C9A84C] font-bold tracking-[0.2em] uppercase mb-2 md:mb-3 text-center">
+          <h2 className="text-[14px] md:text-[15px] text-[#C9A84C] font-bold tracking-[0.2em] uppercase mb-2 md:mb-3 text-center">
             OUR TEAM
           </h2>
           <h3 className="text-[20px] md:text-[32px] font-bold text-[#2C2028] mb-6 md:mb-10 text-center font-sans">
@@ -398,8 +398,8 @@ export default function LawyerDetailPage() {
                     </div>
                   )}
                 </div>
-                <p className="text-[13px] md:text-[18px] font-bold text-[#2C2028] group-hover:text-[#9B2335] transition-colors">{l.name}</p>
-                <p className="text-[11px] md:text-[15px] text-[#333333]">{l.position}</p>
+                <p className="text-[15px] md:text-[18px] font-bold text-[#2C2028] group-hover:text-[#9B2335] transition-colors">{l.name}</p>
+                <p className="text-[15px] md:text-[15px] text-[#333333]">{l.position}</p>
               </Link>
             ))}
           </div>
@@ -412,7 +412,7 @@ export default function LawyerDetailPage() {
       </section>
 
       {/* ═══ CTA ═══ */}
-      <section className="bg-[#F8F4EE] py-10 md:py-20" data-reveal>
+      <section className="bg-[#F8F4EE] py-14 md:py-20" data-reveal>
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 text-center">
           <p className="text-[15px] md:text-[18px] text-[#333333] mb-4 md:mb-5">
             {lawyer.name} 변호사에게 상담을 원하시나요?

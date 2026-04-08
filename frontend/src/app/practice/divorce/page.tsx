@@ -38,15 +38,14 @@ export default function DivorcePracticePage() {
 
       <PracticeRevealWrapper>
         {/* ═══════════ SECTION 1 : HERO HEADLINE ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Left — Text */}
               <div data-reveal>
                 <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500 mb-4">
                   DIVORCE PREPARATION GUIDE
                 </p>
-                <div className="w-12 h-[2px] bg-burgundy-500 mb-8" />
                 <h2 className="font-sans text-[24px] md:text-[42px] lg:text-[48px] leading-[1.3] font-bold text-[#2C2028] mb-6">
                   이혼, 어떻게<br />
                   준비해야 할까요?
@@ -102,8 +101,8 @@ export default function DivorcePracticePage() {
         </section>
 
         {/* ═══════════ SECTION 2 : CRITICAL 30 DAYS ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             {/* Header */}
             <div className="text-center mb-14 md:mb-18" data-reveal>
               <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
@@ -158,7 +157,7 @@ export default function DivorcePracticePage() {
                   <h4 className="text-[15px] md:text-[17px] font-bold text-[#2C2028] mb-2 md:mb-3">
                     {card.title}
                   </h4>
-                  <p className="text-[13px] md:text-[15px] leading-[1.6] text-[#3A3238]">
+                  <p className="text-[15px] md:text-[15px] leading-[1.6] text-[#3A3238]">
                     {card.desc}
                   </p>
                 </div>
@@ -176,8 +175,8 @@ export default function DivorcePracticePage() {
         </section>
 
         {/* ═══════════ SECTION 3 : PREPARATION CHECKLIST ═══════════ */}
-        <section className="bg-[#F3EDE4] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F3EDE4] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-6" data-reveal>
               <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 PREPARATION CHECKLIST
@@ -253,8 +252,8 @@ export default function DivorcePracticePage() {
         </section>
 
         {/* ═══════════ SECTION 4 : TYPES OF DIVORCE ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             {/* Header */}
             <div className="text-center mb-14 md:mb-18" data-reveal>
               <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
@@ -370,8 +369,8 @@ export default function DivorcePracticePage() {
         </section>
 
         {/* ═══════════ SECTION 5 : 재판상 이혼 상세 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
               {/* Left */}
               <div data-reveal>
@@ -449,7 +448,7 @@ export default function DivorcePracticePage() {
             />
             <div className="absolute inset-0 bg-black/60" />
           </div>
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 text-center">
+          <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 text-center">
             <p className="text-[18px] md:text-[22px] lg:text-[24px] leading-[1.7] text-white/90 italic">
               &ldquo;이혼은 끝이 아닌 새로운 시작입니다.<br className="hidden md:block" />
               52년간 가족법만을 다뤄온 전문가들이<br className="hidden md:block" />
@@ -462,8 +461,8 @@ export default function DivorcePracticePage() {
         </section>
 
         {/* ═══════════ SECTION 7 : RELATED AREAS ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 RELATED PRACTICE AREAS
@@ -500,8 +499,8 @@ export default function DivorcePracticePage() {
         </section>
 
         {/* ═══════════ SECTION 8 : TEAM LINK ═══════════ */}
-        <section className="bg-[#F8F4EE] py-14 md:py-18" data-reveal>
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20" data-reveal>
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-5">
                 <div className="w-14 h-14 rounded-full bg-burgundy-500 flex items-center justify-center text-white flex-shrink-0">
@@ -523,8 +522,8 @@ export default function DivorcePracticePage() {
         </section>
 
         {/* ═══════════ SECTION 9 : CONSULTATION CTA ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center" data-reveal>
               <h2 className="font-sans text-[28px] md:text-[36px] lg:text-[42px] leading-[1.35] font-bold text-[#2C2028] mb-5">
                 당신의 존엄한 선택,<br />끝까지 함께하겠습니다.

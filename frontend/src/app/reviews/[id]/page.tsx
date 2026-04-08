@@ -196,7 +196,7 @@ export default function ReviewDetailPage() {
 
   if (!review) {
     return (
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10 py-20 text-center">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-20 text-center">
         <p className="text-[22px] font-bold text-gray-900 mb-4">후기를 찾을 수 없습니다.</p>
         <Link href="/reviews" className="text-[17px] text-[#9B2335] hover:text-[#7B2D3B]">
           ← 후기 목록으로 돌아가기
@@ -365,7 +365,7 @@ export default function ReviewDetailPage() {
       {review.content && review.content.length > 10 && (
         <ScrollReveal y={30}>
         <section className="bg-[#FAFAFA] border-b border-gray-100">
-          <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-8 md:py-16">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-14 md:py-20">
             <div className="flex items-center gap-2.5 mb-6 md:mb-8">
               <Quote size={20} className="text-[#9B2335]" />
               <h3 className="font-sans text-[18px] md:text-[24px] font-bold text-[#1A1A2E]">
@@ -409,7 +409,7 @@ export default function ReviewDetailPage() {
       {allImages.length > 0 && (
         <ScrollReveal y={30}>
         <section className="bg-white border-b border-gray-100">
-          <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-8 md:py-16">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-14 md:py-20">
             <div className="flex items-center gap-2.5 mb-6">
               <CheckCircle2 size={20} className="text-[#9B2335]" />
               <h3 className="font-sans text-[18px] md:text-[24px] font-bold text-[#1A1A2E]">
@@ -459,7 +459,7 @@ export default function ReviewDetailPage() {
       {review.reply && (
         <ScrollReveal delay={100}>
         <section className="bg-[#F8F4EE] border-b border-gray-200/50">
-          <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-8 md:py-16">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-14 md:py-20">
             <div className="flex items-center gap-2.5 mb-6 md:mb-8">
               <CheckCircle2 size={20} className="text-[#9B2335]" />
               <h3 className="font-sans text-[18px] md:text-[24px] font-bold text-[#1A1A2E]">
@@ -507,7 +507,7 @@ export default function ReviewDetailPage() {
       {lawyerList.length > 0 && (
         <ScrollReveal delay={100}>
         <section className="bg-[#F8F4EE] border-b border-[#e8e3d9]">
-          <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-8 md:py-14">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-14 md:py-20">
             <div className="flex items-center gap-2.5 mb-5 md:mb-7">
               <CheckCircle2 size={20} className="text-[#9B2335]" />
               <h3 className="font-sans text-[18px] md:text-[24px] font-bold text-[#1A1A2E]">
@@ -570,7 +570,7 @@ export default function ReviewDetailPage() {
           BOTTOM — Disclaimer, CTA, Prev/Next
           ═══════════════════════════════════════════════════ */}
       <ScrollReveal y={30}>
-      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-8 md:py-14">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-14 md:py-20">
         {/* Disclaimer */}
         <div className="flex items-start gap-2.5 py-4 mb-8 md:mb-10 border-t border-gray-100">
           <Info size={15} className="text-stone-300 flex-shrink-0 mt-[2px]" />

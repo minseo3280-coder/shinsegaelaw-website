@@ -162,7 +162,7 @@ function HighlightCard({ caseItem, index }: { caseItem: CaseItem; index: number 
 
           {/* BEST label + Date */}
           <div className="flex items-center justify-between mb-6 pr-20">
-            <span className="text-[13px] font-extrabold tracking-[0.2em] text-[#C9A84C] uppercase flex items-center gap-1.5">
+            <span className="text-[15px] font-extrabold tracking-[0.2em] text-[#C9A84C] uppercase flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" />
               Best Case
             </span>
@@ -187,7 +187,7 @@ function HighlightCard({ caseItem, index }: { caseItem: CaseItem; index: number 
           {/* Bottom meta */}
           <div className="flex items-center justify-between mt-7 pt-5 border-t border-gray-100">
             <div className="flex items-center gap-3">
-              <span className="text-[13px] font-bold px-3 py-1 rounded-full bg-burgundy-50 text-burgundy-600">
+              <span className="text-[15px] font-bold px-3 py-1 rounded-full bg-burgundy-50 text-burgundy-600">
                 {caseItem.category}
               </span>
               <span className="text-[15px] text-[#333333] font-semibold">
@@ -231,10 +231,10 @@ function CaseCard({ caseItem, index }: { caseItem: CaseItem; index: number }) {
 
           {/* Category pill + Date */}
           <div className="flex items-center justify-between mb-4 pr-16">
-            <span className="text-[13px] font-bold px-3 py-1 rounded-full bg-burgundy-50 text-burgundy-600">
+            <span className="text-[15px] font-bold px-3 py-1 rounded-full bg-burgundy-50 text-burgundy-600">
               {caseItem.category}
             </span>
-            <span className="text-[13px] text-[#333333] font-semibold">
+            <span className="text-[15px] text-[#333333] font-semibold">
               {caseItem.winDate}
             </span>
           </div>
@@ -408,21 +408,20 @@ function CasesContent() {
           priority
         />
         <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-8 lg:px-10 h-full flex flex-col justify-end pb-10">
-          <nav className="flex items-center gap-2 text-[13px] text-white/40 mb-4" aria-label="breadcrumb">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 h-full flex flex-col justify-end pb-10">
+          <nav className="flex items-center gap-2 text-[15px] text-white/40 mb-4" aria-label="breadcrumb">
             <Link href="/" className="hover:text-white/60 transition-colors duration-200">홈</Link>
             <ChevronRight size={12} className="text-white/20" />
             <Link href="/cases" className="hover:text-white/60 transition-colors duration-200">해결사례</Link>
             <ChevronRight size={12} className="text-white/20" />
             <span className="text-white/70 font-semibold">승소사례</span>
           </nav>
-          <p className="text-[12px] tracking-[0.3em] text-[#C9A84C]/70 uppercase font-semibold mb-2">
+          <p className="text-[14px] tracking-[0.3em] text-[#C9A84C]/70 uppercase font-semibold mb-2">
             Winning Cases
           </p>
           <h1 className="font-sans text-[22px] md:text-[38px] font-extrabold text-white tracking-tight">
             승소사례
           </h1>
-          <div className="w-12 h-[2px] bg-[#C9A84C] mt-4 rounded-full" />
         </div>
       </section>
 
@@ -430,12 +429,11 @@ function CasesContent() {
       <CasesTabs />
 
       {/* ─── Intro Heading ─── */}
-      <section className="bg-white py-10 md:py-28 lg:py-32">
+      <section className="bg-white py-14 md:py-20">
         <ScrollReveal y={40}>
           <div className="max-w-[1400px] mx-auto px-5 md:px-10">
-            <div className="flex items-center gap-3 mb-4 md:mb-6">
-              <div className="w-8 md:w-10 h-[2px] bg-burgundy-500" />
-              <p className="text-[13px] md:text-[14px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
+            <div className="mb-4 md:mb-6">
+              <p className="text-[15px] md:text-[16px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                 승소사례
               </p>
             </div>
@@ -464,14 +462,14 @@ function CasesContent() {
               <button
                 key={cat.key}
                 onClick={() => handleCategoryChange(cat.key)}
-                className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-[13px] md:text-[14px] font-semibold border transition-all duration-200 whitespace-nowrap flex-shrink-0 min-h-[44px] ${
+                className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-[15px] md:text-[16px] font-semibold border transition-all duration-200 whitespace-nowrap flex-shrink-0 min-h-[44px] ${
                   activeCategory === cat.key
                     ? "bg-burgundy-500 text-white border-burgundy-500 shadow-sm"
                     : "bg-white text-[#333333] border-gray-200 hover:border-burgundy-300 hover:text-burgundy-600"
                 }`}
               >
                 {cat.label}
-                <span className={`text-[13px] ${
+                <span className={`text-[15px] ${
                   activeCategory === cat.key ? "text-white/70" : "text-[#444444]"
                 }`}>
                   {categoryCounts[cat.key]?.toLocaleString()}
@@ -541,7 +539,7 @@ function CasesContent() {
 
       {/* ─── Cases Content ─── */}
       <div className="bg-[#F8F4EE] border-t border-[#e8e3d9]">
-        <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-8 md:py-14">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-14 md:py-20">
 
           {/* Highlight Cards (1페이지, 2개 가로형) */}
           {highlightCases.length > 0 && (
@@ -555,7 +553,7 @@ function CasesContent() {
               {/* Divider */}
               <div className="flex items-center gap-4 mb-10">
                 <div className="flex-1 h-px bg-[#ddd6cc]" />
-                <span className="text-[13px] tracking-[0.2em] text-[#444444] font-semibold uppercase">
+                <span className="text-[15px] tracking-[0.2em] text-[#444444] font-semibold uppercase">
                   All Cases
                 </span>
                 <div className="flex-1 h-px bg-[#ddd6cc]" />
@@ -633,8 +631,8 @@ function CasesContent() {
       {/* ─── Bottom CTA ─── */}
       <div className="bg-white border-t border-gray-100">
         <ScrollReveal y={40}>
-          <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-14 md:py-28 text-center">
-            <p className="text-[13px] md:text-[14px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3 md:mb-4">Consultation</p>
+          <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-20 md:py-28 text-center">
+            <p className="text-[15px] md:text-[16px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3 md:mb-4">Consultation</p>
             <h3 className="text-[24px] md:text-[36px] lg:text-[40px] font-bold text-[#2C2028] mb-3 md:mb-4 leading-tight">
               다음 승소사례의 주인공은
               <br />

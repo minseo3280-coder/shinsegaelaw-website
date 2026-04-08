@@ -19,7 +19,7 @@ export default function AboutTabs({ activeTab }: AboutTabsProps) {
 
   return (
     <div className="bg-white border-b border-gray-200 sticky top-[80px] z-20 font-sans">
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
         {/* Mobile: dropdown */}
         <div className="md:hidden py-3">
           <div className="relative">
@@ -48,7 +48,7 @@ export default function AboutTabs({ activeTab }: AboutTabsProps) {
               role="tab"
               aria-selected={activeTab === i}
               onClick={() => router.push(tab.href)}
-              className={`px-5 py-4 text-[17px] whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 ${
+              className={`px-5 py-4 text-[16px] whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 ${
                 activeTab === i
                   ? "text-burgundy-600 font-bold border-burgundy-500"
                   : "text-[#444444] font-semibold border-transparent hover:text-[#1A1A2E] cursor-pointer"

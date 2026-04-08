@@ -16,7 +16,7 @@ export default function PracticeAreas() {
 
   return (
     <section id="practice" className="py-20 md:py-28 lg:py-36 bg-white">
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
         {/* Header */}
         <ScrollReveal className="mb-16 md:mb-20">
           <p className="text-xs tracking-[0.3em] text-burgundy-500 font-semibold uppercase mb-4">

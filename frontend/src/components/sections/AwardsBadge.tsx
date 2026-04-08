@@ -12,10 +12,10 @@ export default function AwardsBadge() {
   );
 
   return (
-    <section className="py-10 md:py-14 bg-[#faf9f7] border-b border-[#e8e6e0]" id="awards">
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+    <section className="py-14 md:py-14 bg-[#faf9f7] border-b border-[#e8e6e0]" id="awards">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
         {/* Section label */}
-        <p className="text-center text-[13px] tracking-[0.3em] text-[#C9A84C] font-semibold uppercase mb-6 md:mb-8">
+        <p className="text-center text-[15px] tracking-[0.3em] text-[#C9A84C] font-semibold uppercase mb-6 md:mb-8">
           Awards & Recognition
         </p>
 
@@ -39,7 +39,7 @@ export default function AwardsBadge() {
                       {award.title}
                     </span>
                     {award.year && (
-                      <span className="text-[13px] text-[#7B2D3B]/40 font-semibold">
+                      <span className="text-[15px] text-[#7B2D3B]/40 font-semibold">
                         {award.year}
                       </span>
                     )}

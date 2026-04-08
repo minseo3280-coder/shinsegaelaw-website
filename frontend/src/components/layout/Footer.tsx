@@ -26,7 +26,7 @@ export default function Footer() {
               height={48}
               className="h-[32px] w-auto opacity-60 mx-auto mb-5"
             />
-            <p className="text-[12px] tracking-[0.15em] text-white/35 uppercase mb-1">
+            <p className="text-[14px] tracking-[0.15em] text-white/35 uppercase mb-1">
               Contact Us
             </p>
             <a
@@ -55,7 +55,7 @@ export default function Footer() {
                 className="w-10 h-10 rounded-md border border-white/10 flex items-center justify-center hover:border-white/25 hover:bg-white/[0.04] transition-all"
                 aria-label="네이버 블로그"
               >
-                <span className="text-[11px] font-bold text-white/45 leading-none">blog</span>
+                <span className="text-[15px] font-bold text-white/45 leading-none">blog</span>
               </a>
               <a
                 href="https://www.youtube.com/@divorce_story"
@@ -92,7 +92,7 @@ export default function Footer() {
                 <button
                   key={o.name}
                   onClick={() => setActiveOffice(i)}
-                  className={`px-3 py-1.5 text-[13px] rounded-sm transition-all duration-200 ${
+                  className={`px-3 py-1.5 text-[15px] rounded-sm transition-all duration-200 ${
                     activeOffice === i
                       ? "bg-white/10 text-white font-semibold"
                       : "text-white/40 hover:text-white/60"
@@ -102,7 +102,7 @@ export default function Footer() {
                 </button>
               ))}
             </div>
-            <div className="text-center space-y-1 text-[13px] text-white/40 leading-relaxed">
+            <div className="text-center space-y-1 text-[15px] text-white/40 leading-relaxed">
               <p className="text-white/55">{office.address}</p>
               <p>
                 TEL.{" "}
@@ -115,7 +115,7 @@ export default function Footer() {
           </div>
 
           {/* 법적 정보 */}
-          <div className="border-t border-white/[0.06] pt-5 text-center space-y-1 text-[12px] text-white/30">
+          <div className="border-t border-white/[0.06] pt-5 text-center space-y-1 text-[14px] text-white/30">
             <p>
               <span className="text-white/45">대표변호사</span> 조인섭 · <span className="text-white/45">광고책임변호사</span> {firmData.ad_responsible}
             </p>
@@ -237,7 +237,7 @@ export default function Footer() {
 
           {/* Right: 대표번호 + 소셜 아이콘 */}
           <div className="flex flex-col items-end">
-            <p className="text-[13px] tracking-[0.15em] text-white/35 uppercase mb-1.5">
+            <p className="text-[15px] tracking-[0.15em] text-white/35 uppercase mb-1.5">
               Contact Us
             </p>
             <a
@@ -266,7 +266,7 @@ export default function Footer() {
                 className="w-11 h-11 rounded-md border border-white/10 flex items-center justify-center hover:border-white/25 hover:bg-white/[0.04] transition-all"
                 aria-label="네이버 블로그"
               >
-                <span className="text-[12px] font-bold text-white/45 leading-none">blog</span>
+                <span className="text-[14px] font-bold text-white/45 leading-none">blog</span>
               </a>
               <a
                 href="https://www.youtube.com/@divorce_story"
@@ -299,7 +299,7 @@ export default function Footer() {
 
         {/* ─── Bottom bar ─── */}
         <div className="py-5 md:py-6 border-t border-white/[0.06] text-center">
-          <p className="text-[12px] md:text-[13px] text-white/20">
+          <p className="text-[14px] md:text-[15px] text-white/20">
             © {new Date().getFullYear()} {firmData.firm_name}. All Rights Reserved.
           </p>
         </div>

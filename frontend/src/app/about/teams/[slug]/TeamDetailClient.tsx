@@ -98,7 +98,7 @@ export default function TeamDetailClient({ slug }: { slug: string }) {
 
   if (!team) {
     return (
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10 py-20 text-center">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-20 text-center">
         <p className="text-[18px] font-bold text-gray-900 mb-4">팀 정보를 찾을 수 없습니다.</p>
         <Link href="/about/lawyers" className="text-[15px] text-[#9B2335]">&larr; 변호사 목록으로</Link>
       </div>
@@ -127,7 +127,7 @@ export default function TeamDetailClient({ slug }: { slug: string }) {
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
           <div className="flex items-center gap-3 mb-4 md:mb-6">
             <div className="w-10 h-[2px] bg-burgundy-500" />
-            <p className="text-[12px] md:text-[14px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
+            <p className="text-[14px] md:text-[16px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
               {engLabel}
             </p>
           </div>
@@ -171,7 +171,7 @@ export default function TeamDetailClient({ slug }: { slug: string }) {
               </div>
 
               <div className="flex flex-col justify-center">
-                <p className="text-[13px] md:text-[14px] text-[#9B2335] font-bold tracking-[0.15em] uppercase mb-2 md:mb-3">
+                <p className="text-[15px] md:text-[16px] text-[#9B2335] font-bold tracking-[0.15em] uppercase mb-2 md:mb-3">
                   {team.name.replace("팀", "")} 팀장 / 파트너 변호사
                 </p>
 
@@ -276,7 +276,7 @@ export default function TeamDetailClient({ slug }: { slug: string }) {
       {/* 4. CORE EXPERTISE */}
       <section className="bg-white py-8 md:py-24" data-reveal>
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
-          <p className="text-[12px] md:text-[13px] text-[#9B2335] font-bold tracking-[0.2em] uppercase text-center mb-2 md:mb-3">
+          <p className="text-[14px] md:text-[15px] text-[#9B2335] font-bold tracking-[0.2em] uppercase text-center mb-2 md:mb-3">
             OUR CORE EXPERTISE
           </p>
           <h2 className="text-[22px] md:text-[36px] font-bold text-[#1A1A1A] text-center mb-8 md:mb-12 font-sans">
@@ -291,7 +291,7 @@ export default function TeamDetailClient({ slug }: { slug: string }) {
                 className="bg-[#FAFAF8] rounded-xl p-4 md:p-6 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group border border-[#F0EDE8]"
               >
                 <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg border border-[#E8E4DE] flex items-center justify-center mb-3 md:mb-5 mx-auto group-hover:border-[#9B2335]/30 group-hover:bg-[#9B2335]/5 transition-all">
-                  <span className="text-[13px] md:text-[15px] font-bold text-[#9B2335]">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="text-[15px] md:text-[17px] font-bold text-[#9B2335]">{String(i + 1).padStart(2, "0")}</span>
                 </div>
                 <h4 className="text-[14px] md:text-[18px] font-bold text-[#1A1A1A] leading-[1.5] text-center font-sans" style={{ wordBreak: "keep-all" }}>
                   {spec}
@@ -306,7 +306,7 @@ export default function TeamDetailClient({ slug }: { slug: string }) {
       {team.process && team.process.length > 0 && (
         <section className="bg-[#F8F4EE] py-8 md:py-24" data-reveal>
           <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
-            <p className="text-[12px] md:text-[13px] text-[#9B2335] font-bold tracking-[0.2em] uppercase text-center mb-2 md:mb-3">
+            <p className="text-[14px] md:text-[15px] text-[#9B2335] font-bold tracking-[0.2em] uppercase text-center mb-2 md:mb-3">
               STRATEGIC SYSTEM
             </p>
             <h2 className="text-[22px] md:text-[36px] font-bold text-[#1A1A1A] text-center mb-8 md:mb-12 font-sans">
@@ -318,13 +318,14 @@ export default function TeamDetailClient({ slug }: { slug: string }) {
                 const stepName = typeof step === "string" ? step : step.name;
                 const stepDesc = typeof step === "string" ? "" : step.desc;
                 return (
-                  <div key={i} data-step={i} className="text-center">
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-[#9B2335]/20 flex items-center justify-center mx-auto mb-3 md:mb-5 relative">
+                  <div key={i} data-step={i} className="text-center relative">
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-[#9B2335]/20 flex items-center justify-center mx-auto mb-3 md:mb-5 relative z-[1] bg-[#F8F4EE]">
                       <span className="text-[14px] md:text-[18px] font-bold text-[#9B2335]">{String(i + 1).padStart(2, "0")}</span>
-                      {i < (team.process?.length || 0) - 1 && (
-                        <div className="hidden lg:block absolute left-full top-1/2 w-[calc(100%-4px)] h-[1px] bg-[#D5CFC8] -translate-y-1/2" style={{ width: "calc(100% - 16px)", marginLeft: "8px" }} />
-                      )}
                     </div>
+                    {/* 연결선: 원 오른쪽부터 다음 칸 원 왼쪽까지 */}
+                    {i < (team.process?.length || 0) - 1 && (
+                      <div className="hidden lg:block absolute top-6 md:top-8 left-[calc(50%+24px)] md:left-[calc(50%+32px)] right-[calc(-50%+24px)] md:right-[calc(-50%+32px)] h-[1px] bg-[#D5CFC8]" />
+                    )}
                     <h4 className="text-[15px] md:text-[18px] font-bold text-[#1A1A1A] mb-1 md:mb-2 font-sans" style={{ wordBreak: "keep-all" }}>
                       {stepName}
                     </h4>
@@ -347,7 +348,7 @@ export default function TeamDetailClient({ slug }: { slug: string }) {
           <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
             <div className="flex items-center justify-between mb-8 md:mb-12">
               <div>
-                <p className="text-[12px] md:text-[13px] text-[#9B2335] font-bold tracking-[0.2em] uppercase mb-1 md:mb-2">
+                <p className="text-[14px] md:text-[15px] text-[#9B2335] font-bold tracking-[0.2em] uppercase mb-1 md:mb-2">
                   CASE STUDY
                 </p>
                 <h2 className="text-[22px] md:text-[36px] font-bold text-[#1A1A1A] font-sans">
@@ -370,7 +371,7 @@ export default function TeamDetailClient({ slug }: { slug: string }) {
                   className="bg-[#FAFAF8] rounded-2xl overflow-hidden border border-[#E8E4DE] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-300"
                 >
                   <div className="p-5 md:p-7 border-b border-[#E8E4DE]">
-                    <span className="inline-block px-3 py-1 text-[12px] md:text-[12px] font-bold text-[#9B2335] bg-[#9B2335]/8 rounded-full mb-3 md:mb-4">
+                    <span className="inline-block px-3 py-1 text-[14px] md:text-[16px] font-bold text-[#9B2335] bg-[#9B2335]/8 rounded-full mb-3 md:mb-4">
                       CASE {String(i + 1).padStart(2, "0")}. {c.title.includes("재산") ? "재산분할" : c.title.includes("양육") || c.title.includes("친권") ? "양육권" : c.title.includes("위자료") || c.title.includes("상간") ? "위자료" : team.name.replace("팀", "")}
                     </span>
                     <h4 className="text-[16px] md:text-[20px] font-bold text-[#1A1A1A] leading-[1.5] mb-3 md:mb-4 font-sans" style={{ wordBreak: "keep-all" }}>
@@ -379,13 +380,13 @@ export default function TeamDetailClient({ slug }: { slug: string }) {
 
                     {c.desc && (
                       <div className="mb-3">
-                        <p className="text-[12px] md:text-[12px] font-bold text-[#333333] tracking-[0.1em] uppercase mb-1">ISSUE</p>
+                        <p className="text-[14px] md:text-[16px] font-bold text-[#333333] tracking-[0.1em] uppercase mb-1">ISSUE</p>
                         <p className="text-[15px] md:text-[17px] text-[#333333] leading-[1.7]" style={{ wordBreak: "keep-all" }}>{c.desc}</p>
                       </div>
                     )}
 
                     <div className="bg-white rounded-xl px-4 md:px-5 py-3 md:py-4 border border-[#E8E4DE] mt-3 md:mt-4">
-                      <p className="text-[12px] md:text-[12px] font-bold text-[#333333] tracking-[0.1em] uppercase mb-1">RESULT</p>
+                      <p className="text-[14px] md:text-[16px] font-bold text-[#333333] tracking-[0.1em] uppercase mb-1">RESULT</p>
                       <p className="text-[18px] md:text-[22px] font-extrabold text-[#9B2335]">
                         {c.result}
                       </p>
@@ -397,7 +398,7 @@ export default function TeamDetailClient({ slug }: { slug: string }) {
                       <div className="space-y-3 md:space-y-4">
                         {c.details.slice(0, 3).map((detail, j) => (
                           <div key={j} className="flex items-start gap-2 md:gap-3">
-                            <span className="text-[12px] md:text-[12px] font-bold text-[#9B2335] tracking-[0.05em] uppercase mt-0.5 flex-shrink-0 w-[70px] md:w-[80px]">
+                            <span className="text-[14px] md:text-[16px] font-bold text-[#9B2335] tracking-[0.05em] uppercase mt-0.5 flex-shrink-0 w-[70px] md:w-[80px]">
                               STRATEGY {String(j + 1).padStart(2, "0")}
                             </span>
                             <p className="text-[15px] md:text-[17px] text-[#2C2028] font-semibold leading-[1.7] flex-1" style={{ wordBreak: "keep-all" }}>
@@ -436,7 +437,7 @@ export default function TeamDetailClient({ slug }: { slug: string }) {
           </p>
           <div className="flex items-center justify-center gap-3 md:gap-4">
             <div className="w-8 md:w-10 h-[1px] bg-[#D5CFC8]" />
-            <p className="text-[12px] md:text-[14px] text-[#333333] tracking-[0.1em] uppercase font-semibold">
+            <p className="text-[14px] md:text-[16px] text-[#333333] tracking-[0.1em] uppercase font-semibold">
               CLIENT, {team.name.replace("팀", "")} CASE WINNER
             </p>
             <div className="w-8 md:w-10 h-[1px] bg-[#D5CFC8]" />
@@ -444,10 +445,10 @@ export default function TeamDetailClient({ slug }: { slug: string }) {
         </div>
       </section>
 
-      {/* 8. OTHER TEAMS */}
-      <section className="bg-white py-8 md:py-24" data-reveal>
+      {/* 8. OTHER TEAMS — 데스크톱만 표시 */}
+      <section className="bg-white py-8 md:py-24 hidden md:block" data-reveal>
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
-          <p className="text-[12px] md:text-[13px] text-[#9B2335] font-bold tracking-[0.2em] uppercase text-center mb-2">
+          <p className="text-[14px] md:text-[15px] text-[#9B2335] font-bold tracking-[0.2em] uppercase text-center mb-2">
             OTHER TEAMS
           </p>
           <h2 className="text-[22px] md:text-[36px] font-bold text-[#1A1A1A] mb-8 md:mb-10 text-center font-sans">
@@ -486,7 +487,7 @@ export default function TeamDetailClient({ slug }: { slug: string }) {
                       <p className="text-[16px] md:text-[17px] font-bold text-[#1A1A1A] group-hover:text-[#9B2335] transition-colors">
                         {t.name}
                       </p>
-                      <p className="text-[13px] text-[#333333]">{t.leader} 팀장</p>
+                      <p className="text-[15px] text-[#333333]">{t.leader} 팀장</p>
                     </div>
                   </div>
                   <p className="text-[15px] md:text-[16px] text-[#333333] leading-[1.7] line-clamp-2 mb-3 md:mb-4" style={{ wordBreak: "keep-all" }}>
@@ -506,10 +507,12 @@ export default function TeamDetailClient({ slug }: { slug: string }) {
       <section className="bg-[#F8F4EE] py-8 md:py-24" data-reveal>
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
           <div className="bg-white rounded-2xl p-6 md:p-14 text-center shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
-            <h2 className="text-[22px] md:text-[34px] font-bold text-[#1A1A1A] leading-[1.4] mb-3 md:mb-4 font-sans" style={{ wordBreak: "keep-all" }}>
-              {team.cta?.headline || `${team.name}에게 지금 상황을 말씀해 주세요.`}
+            <h2 className="text-[22px] md:text-[34px] font-bold text-[#1A1A1A] leading-[1.5] mb-3 md:mb-4 font-sans" style={{ wordBreak: "keep-all" as const }}>
+              {(team.cta?.headline || `${team.name}에게 지금 상황을 말씀해 주세요.`).split("\n").map((line: string, i: number, arr: string[]) => (
+                <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+              ))}
             </h2>
-            <p className="text-[16px] md:text-[18px] text-[#333333] mb-6 md:mb-8 max-w-[500px] mx-auto">
+            <p className="text-[15px] md:text-[18px] text-[#333333] mb-6 md:mb-8 mx-auto leading-[1.8]" style={{ wordBreak: "keep-all" as const }}>
               {team.cta?.description || team.shortDesc}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-5 md:mb-6">
@@ -528,7 +531,7 @@ export default function TeamDetailClient({ slug }: { slug: string }) {
                 {firmData.offices[0].phone}
               </a>
             </div>
-            <div className="flex items-center justify-center gap-4 md:gap-6 text-[13px] md:text-[14px] text-[#333333]">
+            <div className="flex items-center justify-center gap-4 md:gap-6 text-[15px] md:text-[16px] text-[#333333]">
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 size={14} className="text-[#C9A84C]" />
                 비밀 보장

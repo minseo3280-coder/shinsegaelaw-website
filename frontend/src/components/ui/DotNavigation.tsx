@@ -44,7 +44,7 @@ export default function DotNavigation() {
           className="group relative flex items-center justify-end"
           aria-label={label}
         >
-          <span className="absolute right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[11px] text-muted-foreground whitespace-nowrap bg-background/80 backdrop-blur-sm px-2 py-1 rounded">
+          <span className="absolute right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[13px] text-muted-foreground whitespace-nowrap bg-background/80 backdrop-blur-sm px-2 py-1 rounded">
             {label}
           </span>
           <div

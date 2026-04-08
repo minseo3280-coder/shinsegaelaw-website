@@ -32,16 +32,15 @@ export default function WhyUs() {
 
   return (
     <section id="whyus" className="py-12 md:py-28 lg:py-36 bg-[#faf9f7]">
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
         {/* Header */}
         <ScrollReveal className="mb-8 md:mb-16">
-          <p className="text-[13px] md:text-[14px] tracking-[0.3em] text-burgundy-500 font-semibold uppercase mb-3 md:mb-4">
+          <p className="text-[15px] md:text-[16px] tracking-[0.3em] text-burgundy-500 font-semibold uppercase mb-3 md:mb-4">
             Why Shinsegae Law
           </p>
           <h2 className="text-[24px] md:text-[44px] lg:text-[54px] font-bold text-foreground tracking-tight">
             신세계로를 선택하는 이유
           </h2>
-          <div className="w-10 md:w-12 h-[2px] bg-gold-500 mt-3 md:mt-4" />
         </ScrollReveal>
 
         {/* Carousel — Image-dominant overlay cards */}
@@ -72,7 +71,7 @@ export default function WhyUs() {
                         <span className="text-[42px] md:text-[72px] font-bold text-gold-400/30 leading-none select-none">
                           {panel.number}
                         </span>
-                        <p className="text-[12px] md:text-[14px] tracking-[0.2em] text-gold-400/70 font-semibold mt-[-4px]">
+                        <p className="text-[14px] md:text-[16px] tracking-[0.2em] text-gold-400/70 font-semibold mt-[-4px]">
                           {panel.label}
                         </p>
                       </div>
@@ -82,7 +81,6 @@ export default function WhyUs() {
                         <h3 className="text-[20px] md:text-[28px] font-bold text-white leading-snug mb-2 md:mb-3 drop-shadow-lg">
                           {panel.title}
                         </h3>
-                        <div className="w-8 md:w-10 h-[2px] bg-gold-500 mb-3 md:mb-4 transition-all duration-500 group-hover:w-16" />
                         <p className="text-[14px] md:text-[17px] text-white/80 leading-relaxed line-clamp-2 md:line-clamp-none transition-all duration-500 group-hover:text-white/95">
                           {panel.description}
                         </p>

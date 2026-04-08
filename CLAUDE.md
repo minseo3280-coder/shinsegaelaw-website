@@ -16,7 +16,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - 해외 로펌 디자인 참고: kirkland.com, quinnemanuel.com, wlrk.com, skadden.com
 
 
-### 현재 진행 상황 (2026-04-07 기준)
+### 현재 진행 상황 (2026-04-08 기준)
 
 #### 메인 페이지 (v18 — 7섹션 정제, embrain 스타일 애니메이션, 경쟁사 비교 기반 프리미엄 리디자인)
 Hero → TrustIndicators → CEOSection → Cases → Lawyers → Reviews → ContactCTA
@@ -53,7 +53,7 @@ Hero → TrustIndicators → CEOSection → Cases → Lawyers → Reviews → Co
 - ScrollReveal/StaggerContainer: SSR-safe IO 기반 스크롤 애니메이션
 - SubPageHero/SubPageLayout: 배너이미지 prop, 다크 fallback, 브레드크럼, afterBanner prop
 - SidebarCTA/MobileCTA: 다크bg+버건디/골드 빛번짐+골드버튼 공통 컴포넌트, firmData.offices[0].phone 데이터 소스 사용 (SidebarCTA는 서브페이지에서 제거, MobileCTA만 사용)
-- AboutTabs(4탭: 인사말/52년법조전통/신세계로시스템/오시는길), MediaTabs(3그룹: News+Channel+Column, 6탭, /media/* 경로), LawyerTabs(8탭: 변호사소개+7개팀), CasesTabs(승소사례+의뢰인후기 통합), PracticeTabs(2단: 그룹3개+세부항목14개), DotNavigation(7개: 홈/신뢰/대표/승소사례/변호사/후기/상담)
+- AboutTabs(4탭: 인사말/52년법조전통/신세계로시스템/오시는길), MediaTabs(3그룹: News+Channel+Column, 6탭, /media/* 경로), LawyerTabs(8탭: 변호사소개+7개팀), CasesTabs(승소사례+의뢰인후기 통합), ConsultationTabs(2탭: 법률상담게시판+온라인상담신청), PracticeTabs(2단: 그룹3개+세부항목14개), DotNavigation(7개: 홈/신뢰/대표/승소사례/변호사/후기/상담)
 
 #### 서브페이지 현황
 **실제 콘텐츠 (26개):**
@@ -561,6 +561,38 @@ Hero → TrustIndicators → CEOSection → Cases → Lawyers → Reviews → Co
 ##### 모바일 레이아웃 개선
 - **승소사례 상세 사건정보 위치 이동**: 맨 아래 → 담당변호사 후기 바로 위 (모바일에서 히어로 다음에 바로 사건정보 확인 가능)
 - **의뢰인후기 카드 높이 균일화**: motion.div에 h-full 추가, 제목 line-clamp-3 + min-h 고정, 변호사명 line-clamp-1 truncate
+
+#### v33 주요 변경 요약 (UI 디테일 개선 + 모바일 뒤로가기 + ConsultationTabs 신규)
+
+##### FloatingCTA 개선
+- **사이드바 텍스트 사이즈**: text-[13px] → text-[12px] (전체 4개 항목)
+- **사이드바 너비**: w-[82px] → w-[92px] (텍스트 줄바꿈 방지)
+- **"24시간 접수" 가운데 정렬**: text-center 추가
+
+##### Header 개선
+- **로고 버건디 색상 매칭**: CSS filter hue-rotate(335deg) → hue-rotate(328deg) brightness(87%), CTA 버튼 색상(#9B2335)과 근사 매칭(#9B1935)
+- **모바일 뒤로가기 버튼 추가**: 서브페이지(pathname !== "/")에서 검색 아이콘 옆에 ChevronLeft 뒤로가기 버튼 상시 표시, 스크롤 중에도 접근 가능 (sticky 헤더 내)
+
+##### 인사말 (/about/greeting) 리디자인
+- **경력 목록 제거**: 사법시험 43회 등 경력 리스트 삭제 (다른 페이지와 중복)
+- **크레덴셜 배지 + 골드 인용문 추가**: 비어보이는 공간을 자격 pill 배지 + 골드 보더 인용문으로 채움
+- **프로필 보기 링크**: 사진 하단 바로 옆에 위치, flex justify-between으로 좌우 균형
+- **모바일 간격 수정**: gap-6 md:gap-0 패턴으로 모바일 비좁음 해소
+
+##### 변호사 소개 (/about/lawyers) 개선
+- **빨간색 "대표변호사" 배지 제거**: 모바일 + PC 모두에서 사진 위 빨간 네모 배지 삭제
+
+##### 시스템 페이지 (/about/system) 모바일 수정
+- **조직도 박스 오버플로 수정**: 모바일 px-3→px-2, 영문 12→11px, 한글 15→14px
+
+##### ConsultationTabs 컴포넌트 신규
+- **2탭 구조**: "법률상담 게시판"(/consultation/board) + "온라인 상담신청"(/consultation)
+- **CasesTabs 패턴 동일**: 모바일 select 드롭다운 + 데스크톱 수평 탭 + 버건디 활성 보더
+- **경로 매핑**: /consultation/board, /consultation/write → 게시판 탭 활성 / /consultation → 상담신청 탭 활성
+- **적용 페이지 3개**: consultation/page.tsx, consultation/board/page.tsx, consultation/write/page.tsx
+
+##### 전체 레이아웃 통일
+- **max-w-[1600px] → max-w-[1400px]**: 다수 파일에서 컨테이너 최대 너비 축소 통일
 
 #### 예정 작업
 - [ ] 업무분야 서브페이지 리뉴얼 계속 (재산분할/자녀문제/부정행위/가정폭력/가족관계/국제이혼/상간자소송3개/형사소송1개 — 10개 남음)

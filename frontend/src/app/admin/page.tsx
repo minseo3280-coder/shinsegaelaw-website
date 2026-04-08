@@ -155,7 +155,7 @@ export default function AdminPage() {
               className="w-full px-4 py-3.5 rounded-xl border border-gray-200 text-[15px] focus:outline-none focus:border-burgundy-300"
               autoFocus
             />
-            {loginError && <p className="text-[13px] text-red-500">{loginError}</p>}
+            {loginError && <p className="text-[15px] text-red-500">{loginError}</p>}
             <button className="w-full py-3.5 rounded-xl bg-burgundy-500 text-white font-bold hover:bg-burgundy-600 transition-all">
               로그인
             </button>
@@ -176,7 +176,7 @@ export default function AdminPage() {
           </h1>
           <button
             onClick={() => { setToken(""); localStorage.removeItem("admin_token"); }}
-            className="flex items-center gap-1.5 text-[13px] text-[#888] hover:text-red-500 transition-colors"
+            className="flex items-center gap-1.5 text-[15px] text-[#888] hover:text-red-500 transition-colors"
           >
             <LogOut size={14} /> 로그아웃
           </button>
@@ -187,17 +187,17 @@ export default function AdminPage() {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4 mb-8">
           <div className="bg-white rounded-xl p-5 border">
-            <p className="text-[13px] text-[#888]">전체 상담</p>
+            <p className="text-[15px] text-[#888]">전체 상담</p>
             <p className="text-[28px] font-bold text-[#1a1a1a] mt-1">{pagination.total}</p>
           </div>
           <div className="bg-white rounded-xl p-5 border">
-            <p className="text-[13px] text-[#888] flex items-center gap-1"><Clock size={12} /> 대기중</p>
+            <p className="text-[15px] text-[#888] flex items-center gap-1"><Clock size={12} /> 대기중</p>
             <p className="text-[28px] font-bold text-amber-600 mt-1">
               {items.filter(i => i.status === "waiting").length}
             </p>
           </div>
           <div className="bg-white rounded-xl p-5 border">
-            <p className="text-[13px] text-[#888] flex items-center gap-1"><CheckCircle2 size={12} /> 답변완료</p>
+            <p className="text-[15px] text-[#888] flex items-center gap-1"><CheckCircle2 size={12} /> 답변완료</p>
             <p className="text-[28px] font-bold text-emerald-600 mt-1">
               {items.filter(i => i.status === "done").length}
             </p>
@@ -215,7 +215,7 @@ export default function AdminPage() {
               <button
                 key={f.key}
                 onClick={() => setStatusFilter(f.key)}
-                className={`px-4 py-2 rounded-lg text-[13px] font-semibold transition-all ${
+                className={`px-4 py-2 rounded-lg text-[15px] font-semibold transition-all ${
                   statusFilter === f.key
                     ? "bg-[#1a1a1a] text-white"
                     : "bg-white text-[#555] border border-gray-200 hover:bg-gray-50"
@@ -231,7 +231,7 @@ export default function AdminPage() {
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               placeholder="이름/전화번호 검색"
-              className="px-3 py-2 rounded-lg border border-gray-200 text-[13px] w-[200px] focus:outline-none focus:border-burgundy-300"
+              className="px-3 py-2 rounded-lg border border-gray-200 text-[15px] w-[200px] focus:outline-none focus:border-burgundy-300"
             />
             <button type="submit" className="px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">
               <Search size={14} />
@@ -259,7 +259,7 @@ export default function AdminPage() {
                 <tr key={item.id} className="border-b last:border-b-0 hover:bg-gray-50/50 transition-colors">
                   <td className="px-4 py-3 text-[#999]">{item.id}</td>
                   <td className="px-4 py-3">
-                    <span className="text-[12px] px-2 py-0.5 rounded bg-burgundy-50 text-burgundy-600 font-semibold">{item.category}</span>
+                    <span className="text-[14px] px-2 py-0.5 rounded bg-burgundy-50 text-burgundy-600 font-semibold">{item.category}</span>
                   </td>
                   <td className="px-4 py-3 font-medium text-[#1a1a1a] truncate max-w-[300px]">{item.title}</td>
                   <td className="px-4 py-3 text-[#555]">{item.name}</td>
@@ -267,7 +267,7 @@ export default function AdminPage() {
                   <td className="px-4 py-3">
                     <button
                       onClick={() => handleStatusChange(item.id, item.status === "done" ? "waiting" : "done")}
-                      className={`text-[11px] px-2 py-0.5 rounded-full font-semibold cursor-pointer ${
+                      className={`text-[15px] px-2 py-0.5 rounded-full font-semibold cursor-pointer ${
                         item.status === "done"
                           ? "bg-emerald-50 text-emerald-700"
                           : "bg-amber-50 text-amber-700"
@@ -276,7 +276,7 @@ export default function AdminPage() {
                       {item.status === "done" ? "답변완료" : "대기중"}
                     </button>
                   </td>
-                  <td className="px-4 py-3 text-[13px] text-[#888]">{formatDate(item.created_at)}</td>
+                  <td className="px-4 py-3 text-[15px] text-[#888]">{formatDate(item.created_at)}</td>
                   <td className="px-4 py-3 text-center">
                     <div className="flex items-center justify-center gap-1">
                       <button
@@ -313,7 +313,7 @@ export default function AdminPage() {
               <ChevronLeft size={14} />
             </button>
             {Array.from({ length: pagination.totalPages }, (_, i) => i + 1).slice(0, 10).map((p) => (
-              <button key={p} onClick={() => fetchData(p)} className={`w-9 h-9 rounded-lg text-[13px] font-medium border ${p === pagination.page ? "bg-[#1a1a1a] text-white border-[#1a1a1a]" : "text-[#555] hover:bg-gray-50"}`}>{p}</button>
+              <button key={p} onClick={() => fetchData(p)} className={`w-9 h-9 rounded-lg text-[15px] font-medium border ${p === pagination.page ? "bg-[#1a1a1a] text-white border-[#1a1a1a]" : "text-[#555] hover:bg-gray-50"}`}>{p}</button>
             ))}
             <button onClick={() => fetchData(pagination.page + 1)} disabled={pagination.page === pagination.totalPages} className="w-9 h-9 rounded-lg border flex items-center justify-center disabled:opacity-30">
               <ChevronRight size={14} />
@@ -327,11 +327,11 @@ export default function AdminPage() {
         <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/40" onClick={() => setDetailTarget(null)}>
           <div className="bg-white rounded-2xl max-w-[600px] w-full mx-4 max-h-[80vh] overflow-y-auto p-6 md:p-8" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-4">
-              <span className="text-[12px] px-2.5 py-1 rounded-full bg-burgundy-50 text-burgundy-600 font-semibold">{detailTarget.category}</span>
+              <span className="text-[14px] px-2.5 py-1 rounded-full bg-burgundy-50 text-burgundy-600 font-semibold">{detailTarget.category}</span>
               <button onClick={() => setDetailTarget(null)} className="text-[#999] hover:text-[#1a1a1a]">✕</button>
             </div>
             <h2 className="text-[18px] font-bold text-[#1a1a1a] mb-2">{detailTarget.title}</h2>
-            <p className="text-[13px] text-[#888] mb-4">{detailTarget.name} · {detailTarget.phone} · {formatDate(detailTarget.created_at)}</p>
+            <p className="text-[15px] text-[#888] mb-4">{detailTarget.name} · {detailTarget.phone} · {formatDate(detailTarget.created_at)}</p>
             <div className="bg-gray-50 rounded-xl p-5 text-[15px] text-[#333] leading-[1.9] whitespace-pre-wrap mb-4">
               {detailTarget.content}
             </div>
@@ -354,12 +354,12 @@ export default function AdminPage() {
               <button onClick={() => setReplyTarget(null)} className="text-[#999] hover:text-[#1a1a1a]">✕</button>
             </div>
             <div className="bg-gray-50 rounded-xl p-4 mb-4">
-              <p className="text-[13px] text-[#888] mb-1">{replyTarget.category} · {replyTarget.name}</p>
+              <p className="text-[15px] text-[#888] mb-1">{replyTarget.category} · {replyTarget.name}</p>
               <p className="text-[14px] font-medium text-[#1a1a1a]">{replyTarget.title}</p>
             </div>
             <div className="space-y-4">
               <div>
-                <label className="text-[13px] font-bold text-[#555] mb-1.5 block">답변자</label>
+                <label className="text-[15px] font-bold text-[#555] mb-1.5 block">답변자</label>
                 <input
                   type="text"
                   value={replyLawyer}
@@ -368,7 +368,7 @@ export default function AdminPage() {
                 />
               </div>
               <div>
-                <label className="text-[13px] font-bold text-[#555] mb-1.5 block">답변 내용</label>
+                <label className="text-[15px] font-bold text-[#555] mb-1.5 block">답변 내용</label>
                 <textarea
                   value={replyBody}
                   onChange={(e) => setReplyBody(e.target.value)}

@@ -140,11 +140,11 @@ function LocationContent() {
       <AboutTabs activeTab={3} />
 
       {/* ═══ Headline ═══ */}
-      <section className="bg-white pt-8 md:pt-20 pb-6 md:pb-12" data-reveal>
+      <section className="bg-white pt-14 md:pt-20 pb-6 md:pb-12" data-reveal>
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
           <div className="flex items-center gap-3 mb-4 md:mb-5">
             <div className="w-8 md:w-10 h-[2px] bg-burgundy-500" />
-            <p className="text-[13px] md:text-[14px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
+            <p className="text-[15px] md:text-[16px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
               오시는 길
             </p>
           </div>
@@ -208,7 +208,7 @@ function LocationContent() {
                 <h3 className="text-[18px] md:text-[24px] font-bold text-[#2C2028]">
                   {detail.label}
                 </h3>
-                <span className={`text-[12px] md:text-[12px] tracking-[0.1em] uppercase font-bold px-2 py-0.5 ${
+                <span className={`text-[14px] md:text-[16px] tracking-[0.1em] uppercase font-bold px-2 py-0.5 ${
                   activeTab === 0
                     ? "bg-burgundy-50 text-burgundy-600"
                     : "bg-gray-100 text-[#888]"
@@ -225,7 +225,7 @@ function LocationContent() {
                 </span>
                 <button
                   onClick={handleCopyAddress}
-                  className="flex items-center gap-1 text-[12px] text-gray-400 hover:text-burgundy-500 transition-colors shrink-0 ml-1 mt-0.5"
+                  className="flex items-center gap-1 text-[14px] text-gray-400 hover:text-burgundy-500 transition-colors shrink-0 ml-1 mt-0.5"
                 >
                   {copied ? <Check size={12} className="text-green-500" /> : <Copy size={12} />}
                   {copied ? "복사됨" : "복사"}
@@ -240,13 +240,13 @@ function LocationContent() {
                   aria-label={`전화 ${officeData.phone}`}
                 >
                   <Phone size={14} className="text-burgundy-500" />
-                  <span className="font-bold text-[12px] text-[#999]">TEL</span>
+                  <span className="font-bold text-[14px] text-[#999]">TEL</span>
                   <span className="font-bold">{officeData.phone}</span>
                 </a>
                 {officeData.fax && (
                   <span className="flex items-center gap-2 text-[15px] md:text-[17px] text-[#555]">
                     <Printer size={14} className="text-gray-400" />
-                    <span className="font-bold text-[12px] text-[#999]">FAX</span>
+                    <span className="font-bold text-[14px] text-[#999]">FAX</span>
                     {officeData.fax}
                   </span>
                 )}
@@ -290,11 +290,11 @@ function LocationContent() {
       </section>
 
       {/* ═══ 교통안내 ═══ */}
-      <section className="bg-[#F8F4EE] py-8 md:py-20" data-reveal>
+      <section className="bg-[#F8F4EE] py-14 md:py-20" data-reveal>
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
           <div className="flex items-center gap-3 mb-6 md:mb-8">
             <div className="w-8 md:w-10 h-[2px] bg-burgundy-500" />
-            <p className="text-[13px] md:text-[14px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
+            <p className="text-[15px] md:text-[16px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
               교통안내
             </p>
           </div>
@@ -311,7 +311,7 @@ function LocationContent() {
                 {detail.subway.map((s, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div
-                      className="w-7 h-7 text-white text-[12px] font-bold flex items-center justify-center shrink-0 mt-0.5"
+                      className="w-7 h-7 text-white text-[14px] font-bold flex items-center justify-center shrink-0 mt-0.5"
                       style={{ backgroundColor: s.color }}
                     >
                       {s.line}
@@ -350,7 +350,7 @@ function LocationContent() {
                     {detail.parking.map((p, i) => (
                       <div key={i} className="flex items-center justify-between text-[14px]">
                         <span className="text-[#555]">{i + 1}. {p.name}</span>
-                        <span className={`text-[12px] px-2 py-0.5 font-semibold ${
+                        <span className={`text-[14px] px-2 py-0.5 font-semibold ${
                           p.type.includes("무료")
                             ? "bg-green-50 text-green-700"
                             : "bg-amber-50 text-amber-700"
@@ -364,7 +364,7 @@ function LocationContent() {
               )}
 
               {detail.parkingNote && (
-                <p className="text-[13px] text-burgundy-500/70 flex items-start gap-1">
+                <p className="text-[15px] text-burgundy-500/70 flex items-start gap-1">
                   <span className="shrink-0">*</span>
                   {detail.parkingNote}
                 </p>
@@ -381,11 +381,11 @@ function LocationContent() {
       </section>
 
       {/* ═══ 전 사무소 연락처 ═══ */}
-      <section className="bg-white py-8 md:py-20" data-reveal>
+      <section className="bg-white py-14 md:py-20" data-reveal>
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
           <div className="flex items-center gap-3 mb-6 md:mb-8">
             <div className="w-8 md:w-10 h-[2px] bg-burgundy-500" />
-            <p className="text-[13px] md:text-[14px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
+            <p className="text-[15px] md:text-[16px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
               전국 사무소
             </p>
           </div>
@@ -409,7 +409,7 @@ function LocationContent() {
                 }`}
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <span className={`text-[10px] tracking-[0.1em] uppercase font-bold px-2 py-0.5 ${
+                  <span className={`text-[15px] tracking-[0.1em] uppercase font-bold px-2 py-0.5 ${
                     i === 0 ? "bg-burgundy-50 text-burgundy-600" : "bg-gray-100 text-[#888]"
                   }`}>
                     {i === 0 ? "본사" : "분사무소"}
@@ -418,7 +418,7 @@ function LocationContent() {
                 <h4 className="text-[16px] md:text-[18px] font-bold text-[#2C2028] mb-2">
                   {offices[i].shortLabel}
                 </h4>
-                <p className="text-[13px] md:text-[14px] text-[#888] leading-[1.6] mb-2" style={{ wordBreak: "keep-all" }}>
+                <p className="text-[15px] md:text-[16px] text-[#888] leading-[1.6] mb-2" style={{ wordBreak: "keep-all" }}>
                   {o.address}
                 </p>
                 <p className="text-[15px] md:text-[16px] font-bold text-[#2C2028]">

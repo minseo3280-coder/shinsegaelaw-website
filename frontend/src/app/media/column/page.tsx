@@ -117,11 +117,10 @@ export default function ColumnPage() {
 
       <MediaTabs activeTab={3} />
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-12 md:pt-16 pb-20 md:pb-28">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-10 pt-14 md:pt-20 pb-20 md:pb-28">
         {/* Section Header */}
         <div className="mb-10">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-[2px] bg-burgundy-500" />
+          <div className="mb-6">
             <p className="text-[14px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
               Expert Column
             </p>
@@ -136,8 +135,8 @@ export default function ColumnPage() {
         </div>
 
         {/* Centered Search Bar — 대륜 style, full-width bg */}
-        <div className="-mx-6 md:-mx-8 lg:-mx-10 mb-10">
-          <div className="bg-gradient-to-b from-[#FDF2F4] via-[#FDF2F4]/60 to-white px-6 md:px-8 lg:px-10 py-10 md:py-14">
+        <div className="-mx-5 md:-mx-8 lg:-mx-10 mb-10">
+          <div className="bg-gradient-to-b from-[#FDF2F4] via-[#FDF2F4]/60 to-white px-5 md:px-8 lg:px-10 py-10 md:py-14">
             <div className="max-w-3xl mx-auto">
               <form
                 onSubmit={(e) => { e.preventDefault(); handleSearch(); }}
@@ -188,7 +187,7 @@ export default function ColumnPage() {
               }`}
             >
               {key}
-              <span className={`ml-1.5 text-[13px] ${
+              <span className={`ml-1.5 text-[15px] ${
                 activeFilter === key ? "text-white/70" : "text-[#888888]"
               }`}>
                 {sourceCounts[key] || 0}
@@ -293,12 +292,12 @@ export default function ColumnPage() {
               <>
                 <button
                   onClick={() => goToPage(1)}
-                  className="w-9 h-9 rounded-lg flex items-center justify-center text-[13px] font-semibold border border-gray-200 text-[#444444] hover:border-burgundy-200 hover:text-burgundy-500 transition-all"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center text-[15px] font-semibold border border-gray-200 text-[#444444] hover:border-burgundy-200 hover:text-burgundy-500 transition-all"
                 >
                   1
                 </button>
                 {adjustedStart > 2 && (
-                  <span className="w-9 h-9 flex items-center justify-center text-gray-300 text-[13px]">…</span>
+                  <span className="w-9 h-9 flex items-center justify-center text-gray-300 text-[15px]">…</span>
                 )}
               </>
             )}
@@ -307,7 +306,7 @@ export default function ColumnPage() {
               <button
                 key={page}
                 onClick={() => goToPage(page)}
-                className={`w-9 h-9 rounded-lg flex items-center justify-center text-[13px] font-semibold border transition-all ${
+                className={`w-9 h-9 rounded-lg flex items-center justify-center text-[15px] font-semibold border transition-all ${
                   page === currentPage
                     ? "bg-burgundy-500 border-burgundy-500 text-white"
                     : "border-gray-200 text-[#444444] hover:border-burgundy-200 hover:text-burgundy-500"
@@ -320,11 +319,11 @@ export default function ColumnPage() {
             {endPage < totalPages && (
               <>
                 {endPage < totalPages - 1 && (
-                  <span className="w-9 h-9 flex items-center justify-center text-gray-300 text-[13px]">…</span>
+                  <span className="w-9 h-9 flex items-center justify-center text-gray-300 text-[15px]">…</span>
                 )}
                 <button
                   onClick={() => goToPage(totalPages)}
-                  className="w-9 h-9 rounded-lg flex items-center justify-center text-[13px] font-semibold border border-gray-200 text-[#444444] hover:border-burgundy-200 hover:text-burgundy-500 transition-all"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center text-[15px] font-semibold border border-gray-200 text-[#444444] hover:border-burgundy-200 hover:text-burgundy-500 transition-all"
                 >
                   {totalPages}
                 </button>

@@ -141,7 +141,7 @@ function ArticleCard({ article, index }: { article: PressArticle; index: number 
           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#F8F4EE] to-[#EDE8E0]">
             <div className="text-center">
               <Newspaper size={36} className="text-burgundy-200 mx-auto mb-2" />
-              <p className="text-[13px] font-semibold text-burgundy-300/60">{article.source}</p>
+              <p className="text-[15px] font-semibold text-burgundy-300/60">{article.source}</p>
             </div>
           </div>
         )}
@@ -153,10 +153,10 @@ function ArticleCard({ article, index }: { article: PressArticle; index: number 
       <div className="p-4 md:p-6 flex flex-col min-h-[180px] md:min-h-[220px]">
         {/* Category + Date row */}
         <div className="flex items-center gap-2.5 mb-3">
-          <span className={`px-2.5 py-1 rounded text-[12px] font-bold tracking-[0.03em] ${typeConfig.color} ${typeConfig.bgColor}`}>
+          <span className={`px-2.5 py-1 rounded text-[14px] font-bold tracking-[0.03em] ${typeConfig.color} ${typeConfig.bgColor}`}>
             {typeConfig.label}
           </span>
-          <span className="text-[13px] text-[#444444] flex items-center gap-1">
+          <span className="text-[15px] text-[#444444] flex items-center gap-1">
             <Calendar size={10} />
             {article.date}
           </span>
@@ -174,7 +174,7 @@ function ArticleCard({ article, index }: { article: PressArticle; index: number 
 
         {/* Bottom: Source + CTA */}
         <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
-          <span className="text-[13px] text-[#444444] font-semibold tracking-[0.02em]">
+          <span className="text-[15px] text-[#444444] font-semibold tracking-[0.02em]">
             SOURCE: {article.source}
           </span>
           <span className="text-[14px] font-bold text-burgundy-500 flex items-center gap-1 group-hover:gap-2 transition-all duration-300">
@@ -217,18 +217,18 @@ function Pagination({
         <>
           <button
             onClick={() => onPageChange(1)}
-            className="w-11 h-11 rounded-lg text-[13px] font-semibold border border-gray-200 text-[#444444] hover:border-burgundy-300 hover:text-burgundy-500 transition-all duration-200"
+            className="w-11 h-11 rounded-lg text-[15px] font-semibold border border-gray-200 text-[#444444] hover:border-burgundy-300 hover:text-burgundy-500 transition-all duration-200"
           >
             1
           </button>
-          {start > 2 && <span className="w-6 text-center text-gray-300 text-[13px]">···</span>}
+          {start > 2 && <span className="w-6 text-center text-gray-300 text-[15px]">···</span>}
         </>
       )}
       {pages.map((p) => (
         <button
           key={p}
           onClick={() => onPageChange(p)}
-          className={`w-11 h-11 rounded-lg text-[13px] font-semibold transition-all duration-200 ${
+          className={`w-11 h-11 rounded-lg text-[15px] font-semibold transition-all duration-200 ${
             p === currentPage
               ? "bg-burgundy-500 text-white shadow-md shadow-burgundy-500/20"
               : "border border-gray-200 text-[#444444] hover:border-burgundy-300 hover:text-burgundy-500"
@@ -239,10 +239,10 @@ function Pagination({
       ))}
       {end < totalPages && (
         <>
-          {end < totalPages - 1 && <span className="w-6 text-center text-gray-300 text-[13px]">···</span>}
+          {end < totalPages - 1 && <span className="w-6 text-center text-gray-300 text-[15px]">···</span>}
           <button
             onClick={() => onPageChange(totalPages)}
-            className="w-11 h-11 rounded-lg text-[13px] font-semibold border border-gray-200 text-[#444444] hover:border-burgundy-300 hover:text-burgundy-500 transition-all duration-200"
+            className="w-11 h-11 rounded-lg text-[15px] font-semibold border border-gray-200 text-[#444444] hover:border-burgundy-300 hover:text-burgundy-500 transition-all duration-200"
           >
             {totalPages}
           </button>
@@ -388,8 +388,8 @@ function PressContent() {
           priority
         />
         <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-8 lg:px-10 h-full flex flex-col justify-end pb-8">
-          <nav className="flex items-center gap-2 text-[13px] text-white/30 mb-3" aria-label="breadcrumb">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 h-full flex flex-col justify-end pb-8">
+          <nav className="flex items-center gap-2 text-[15px] text-white/30 mb-3" aria-label="breadcrumb">
             <Link href="/" className="hover:text-white/50 transition-colors duration-200">
               홈
             </Link>
@@ -401,7 +401,6 @@ function PressContent() {
             <span className="text-white/60">언론보도</span>
           </nav>
           <h1 className="font-sans text-2xl md:text-3xl font-bold text-white tracking-tight">언론보도</h1>
-          <div className="w-12 h-[2px] bg-gold-500/60 mt-3" />
         </div>
       </section>
 
@@ -409,12 +408,11 @@ function PressContent() {
       <MediaTabs activeTab={1} />
 
       {/* ══════════════ Hero Headline + Media Logos ══════════════ */}
-      <section className="bg-white pt-10 md:pt-20 pb-8 md:pb-14">
+      <section className="bg-white pt-14 md:pt-20 pb-8 md:pb-14">
         <div className="max-w-[1400px] mx-auto px-5 md:px-10">
           <div className="mb-8 md:mb-14" data-reveal>
-            <div className="flex items-center gap-3 mb-4 md:mb-6">
-              <div className="w-8 md:w-10 h-[2px] bg-burgundy-500" />
-              <p className="text-[13px] md:text-[14px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
+            <div className="mb-4 md:mb-6">
+              <p className="text-[15px] md:text-[16px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                 Press Coverage
               </p>
             </div>
@@ -451,8 +449,8 @@ function PressContent() {
       </section>
 
       {/* ══════════════ Filter + Grid Section ══════════════ */}
-      <section className="bg-[#F8F4EE] py-8 md:py-16">
-        <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+      <section className="bg-[#F8F4EE] py-14 md:py-20">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
           {/* ── Filters ── */}
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8" data-reveal>
             {/* Pills */}
@@ -461,14 +459,14 @@ function PressContent() {
                 <button
                   key={cat.key}
                   onClick={() => setFilter(cat.key)}
-                  className={`px-4 py-2.5 rounded-full text-[13px] font-semibold transition-all duration-200 whitespace-nowrap flex-shrink-0 min-h-[44px] snap-start ${
+                  className={`px-4 py-2.5 rounded-full text-[15px] font-semibold transition-all duration-200 whitespace-nowrap flex-shrink-0 min-h-[44px] snap-start ${
                     filter === cat.key
                       ? "bg-[#2C2028] text-white shadow-sm"
                       : "bg-white text-[#444444] hover:bg-white/80 hover:text-[#2C2028] border border-gray-200/60"
                   }`}
                 >
                   {cat.label}
-                  <span className={`ml-1.5 text-[12px] ${filter === cat.key ? "text-white/60" : "text-[#888888]"}`}>
+                  <span className={`ml-1.5 text-[14px] ${filter === cat.key ? "text-white/60" : "text-[#888888]"}`}>
                     {sourceCounts[cat.key] || 0}
                   </span>
                 </button>
@@ -481,7 +479,7 @@ function PressContent() {
               <div className="flex items-center bg-white rounded-full border border-gray-200/60 overflow-hidden">
                 <button
                   onClick={() => setSort("latest")}
-                  className={`px-3.5 py-2 text-[13px] font-semibold transition-all duration-200 ${
+                  className={`px-3.5 py-2 text-[15px] font-semibold transition-all duration-200 ${
                     sort === "latest" ? "bg-[#2C2028] text-white" : "text-[#888888] hover:text-[#333333]"
                   }`}
                 >
@@ -489,7 +487,7 @@ function PressContent() {
                 </button>
                 <button
                   onClick={() => setSort("views")}
-                  className={`px-3.5 py-2 text-[13px] font-semibold transition-all duration-200 ${
+                  className={`px-3.5 py-2 text-[15px] font-semibold transition-all duration-200 ${
                     sort === "views" ? "bg-[#2C2028] text-white" : "text-[#888888] hover:text-[#333333]"
                   }`}
                 >
@@ -536,7 +534,7 @@ function PressContent() {
                   setSearchInput("");
                   updateParams({ q: null, page: null });
                 }}
-                className="text-[13px] text-burgundy-500 hover:text-burgundy-700 transition-colors duration-200"
+                className="text-[15px] text-burgundy-500 hover:text-burgundy-700 transition-colors duration-200"
               >
                 검색 초기화 ×
               </button>
@@ -566,8 +564,8 @@ function PressContent() {
       </section>
 
       <section className="bg-white py-16 md:py-20" data-reveal>
-        <div className="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-10 text-center">
-          <p className="text-[12px] tracking-[0.3em] text-gold-500 uppercase font-bold mb-4">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 text-center">
+          <p className="text-[14px] tracking-[0.3em] text-gold-500 uppercase font-bold mb-4">
             Free Consultation
           </p>
           <h2 className="font-sans text-[24px] md:text-[32px] font-bold text-[#2C2028] leading-[1.4] mb-4">

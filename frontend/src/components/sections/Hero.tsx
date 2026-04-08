@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { Phone, ArrowRight } from "lucide-react";
+import { Phone, ArrowDown } from "lucide-react";
 import firmData from "@/../../data/firm_info.json";
 
 export default function Hero() {
@@ -55,17 +55,9 @@ export default function Hero() {
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-20">
         <div className="max-w-[720px]">
 
-          {/* Gold accent line */}
-          <div
-            className={`h-[2px] bg-[#C9A84C] mb-5 md:mb-8 transition-all duration-1000 ease-out ${
-              loaded ? "opacity-100 w-[40px] md:w-[60px]" : "opacity-0 w-0"
-            }`}
-            style={{ transitionDelay: "200ms" }}
-          />
-
           {/* Label */}
           <p
-            className={`text-[11px] md:text-[14px] tracking-[0.15em] md:tracking-[0.35em] text-white/50 uppercase font-semibold mb-4 md:mb-7 transition-all duration-1000 ${
+            className={`text-[15px] md:text-[16px] tracking-[0.15em] md:tracking-[0.35em] text-white/50 uppercase font-semibold mb-4 md:mb-7 transition-all duration-1000 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
             style={{ transitionDelay: "300ms" }}
@@ -75,7 +67,7 @@ export default function Hero() {
 
           {/* Main headline */}
           <h1
-            className={`text-[26px] md:text-[44px] lg:text-[58px] font-bold text-white leading-[1.3] md:leading-[1.25] tracking-tight mb-4 md:mb-7 transition-all duration-1000 ${
+            className={`text-[26px] md:text-[44px] lg:text-[58px] font-bold text-white leading-[1.3] md:leading-[1.25] tracking-tight mb-6 md:mb-10 transition-all duration-1000 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
             style={{
@@ -88,14 +80,6 @@ export default function Hero() {
             <span className="text-[#C9A84C]">가족법전문 1호</span><br />
             법무법인 신세계로
           </h1>
-
-          {/* Thin divider */}
-          <div
-            className={`w-8 md:w-10 h-[1px] bg-white/20 mb-4 md:mb-7 transition-all duration-1000 ${
-              loaded ? "opacity-100" : "opacity-0"
-            }`}
-            style={{ transitionDelay: "700ms" }}
-          />
 
           {/* Body copy — CEO 사이트 톤 */}
           <p
@@ -116,20 +100,20 @@ export default function Hero() {
 
           {/* CTA buttons — 모바일 세로, 데스크톱 가로 */}
           <div
-            className={`flex flex-col sm:flex-row items-stretch sm:items-center gap-3 transition-all duration-1000 ${
+            className={`flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 transition-all duration-1000 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
             style={{ transitionDelay: "1100ms" }}
           >
             <button
               onClick={() => {
-                const el = document.getElementById("contact");
+                const el = document.getElementById("consultation-form");
                 if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
               className="inline-flex items-center justify-center gap-2 px-6 md:px-8 py-3.5 md:py-4 bg-[#C9A84C] text-[#1A1A2E] text-[14px] md:text-[16px] font-bold tracking-wide hover:bg-[#D4AF37] hover:shadow-[0_8px_30px_rgba(201,168,76,0.3)] transition-all duration-300 cursor-pointer"
             >
               무료 사건 분석 신청
-              <ArrowRight size={15} strokeWidth={2.5} />
+              <ArrowDown size={15} strokeWidth={2.5} />
             </button>
             <a
               href={`tel:${firmData.main_phone}`}
@@ -151,7 +135,7 @@ export default function Hero() {
         style={{ transitionDelay: "1500ms" }}
       >
         <div className="flex flex-col items-center gap-3">
-          <span className="text-[10px] tracking-[0.3em] text-white/30 uppercase">
+          <span className="text-[15px] tracking-[0.3em] text-white/30 uppercase">
             Scroll
           </span>
           <div className="w-[1px] h-8 bg-white/20 relative overflow-hidden">

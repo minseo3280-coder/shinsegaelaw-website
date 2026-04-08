@@ -49,7 +49,7 @@ export default function CredentialProof() {
         {/* Header */}
         <ScrollReveal>
           <div className="text-center mb-8 md:mb-20">
-            <p className="text-[12px] md:text-[14px] font-bold tracking-[0.35em] uppercase text-burgundy-500/70 mb-3 md:mb-6">
+            <p className="text-[14px] md:text-[16px] font-bold tracking-[0.35em] uppercase text-burgundy-500/70 mb-3 md:mb-6">
               Credentials
             </p>
             <h2
@@ -117,7 +117,7 @@ export default function CredentialProof() {
                   />
 
                   {/* Year badge */}
-                  <span className="inline-block text-[12px] md:text-[13px] font-bold text-burgundy-500 bg-burgundy-50 px-2.5 md:px-3 py-0.5 md:py-1 rounded-full mb-2 md:mb-3">
+                  <span className="inline-block text-[14px] md:text-[15px] font-bold text-burgundy-500 bg-burgundy-50 px-2.5 md:px-3 py-0.5 md:py-1 rounded-full mb-2 md:mb-3">
                     {item.year}
                   </span>
 
@@ -131,7 +131,7 @@ export default function CredentialProof() {
 
                   {/* Description */}
                   <p
-                    className="text-[13px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#333333]"
+                    className="text-[15px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#333333]"
                     style={{ wordBreak: "keep-all" }}
                   >
                     {item.description}

@@ -1,52 +1,25 @@
 "use client";
 
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 
 const tabs = [
-  { label: "승소사례", href: "/cases" },
-  { label: "의뢰인 후기", href: "/reviews" },
+  { label: "법률상담 게시판", href: "/consultation/board" },
+  { label: "온라인 상담신청", href: "/consultation" },
 ];
 
-interface CasesTabsProps {
-  activeCategory?: string;
-}
-
-export default function CasesTabs({ activeCategory }: CasesTabsProps) {
+export default function ConsultationTabs() {
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
-  const isActive = (item: (typeof tabs)[number]) => {
-    const [itemPath, itemQuery] = item.href.split("?");
-
-    if (itemPath === "/reviews") {
-      if (pathname !== "/reviews") return false;
-      if (!itemQuery) {
-        const currentTab = searchParams.get("tab");
-        return !currentTab || currentTab === "0";
-      }
-      const params = new URLSearchParams(itemQuery);
-      return searchParams.get("tab") === params.get("tab");
+  const isTabHighlighted = (tab: (typeof tabs)[number]) => {
+    if (tab.href === "/consultation/board") {
+      return pathname.startsWith("/consultation/board") || pathname.startsWith("/consultation/write");
     }
-
-    if (itemPath === "/cases") {
-      if (!pathname.startsWith("/cases")) return false;
-      if (pathname !== "/cases") return false;
-      if (!itemQuery) {
-        return !activeCategory || activeCategory === "전체";
-      }
-      const params = new URLSearchParams(itemQuery);
-      return activeCategory === params.get("category");
+    if (tab.href === "/consultation") {
+      return pathname === "/consultation";
     }
-
     return false;
-  };
-
-  const isTabHighlighted = (item: (typeof tabs)[number]) => {
-    if (item.href === "/cases" && pathname.startsWith("/cases")) return true;
-    if (item.href === "/reviews" && pathname.startsWith("/reviews")) return true;
-    return isActive(item);
   };
 
   const activeIdx = tabs.findIndex((t) => isTabHighlighted(t));
@@ -74,7 +47,7 @@ export default function CasesTabs({ activeCategory }: CasesTabsProps) {
         <div
           className="hidden md:flex items-stretch overflow-x-auto scrollbar-hide"
           role="tablist"
-          aria-label="승소사례 · 의뢰인 후기 탭"
+          aria-label="법률상담 탭"
         >
           {tabs.map((tab, i) => {
             const active = isTabHighlighted(tab);

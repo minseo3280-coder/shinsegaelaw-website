@@ -240,7 +240,7 @@ export default function PressDetailPage() {
 
   if (!article) {
     return (
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10 py-20 text-center">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-20 text-center">
         <Newspaper size={48} className="text-gray-200 mx-auto mb-4" />
         <p className="text-[20px] font-bold text-gray-900 mb-4">기사를 찾을 수 없습니다.</p>
         <Link href="/press" className="text-[16px] text-burgundy-500 hover:text-burgundy-700 transition-colors duration-200">
@@ -268,7 +268,7 @@ export default function PressDetailPage() {
       <section className="relative h-[180px] md:h-[280px] bg-[#0f0f1a] overflow-hidden">
         <Image src="/images/office/banner-reviews.jpg" alt="언론보도" fill sizes="100vw" className="object-cover" priority />
         <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10 h-full flex flex-col justify-end pb-8">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 h-full flex flex-col justify-end pb-8">
           <nav className="flex items-center gap-2 text-[15px] text-white/30 mb-3" aria-label="breadcrumb">
             <Link href="/" className="hover:text-white/50 transition-colors duration-200">홈</Link>
             <ChevronRight size={12} className="text-white/20" />
@@ -287,7 +287,7 @@ export default function PressDetailPage() {
 
       {/* ══════════════ Article Content ══════════════ */}
       <article className="bg-white">
-        <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-8 md:py-16">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-14 md:py-20">
 
           {/* ── Header: Category + Date ── */}
           <div className="flex items-center justify-between mb-6" data-reveal>
@@ -296,7 +296,7 @@ export default function PressDetailPage() {
                 {typeConfig.enLabel}
               </span>
               {isRadioShow && (
-                <span className="px-2.5 py-1 rounded-full bg-gold-50 text-gold-700 text-[13px] font-bold flex items-center gap-1">
+                <span className="px-2.5 py-1 rounded-full bg-gold-50 text-gold-700 text-[15px] font-bold flex items-center gap-1">
                   <Radio size={12} />
                   조인섭 변호사의 상담소
                 </span>
@@ -505,7 +505,7 @@ export default function PressDetailPage() {
                       )}
                     </div>
                     <div className="p-4">
-                      <p className="text-[13px] font-semibold text-burgundy-500 mb-1.5">{a.source} · {a.date}</p>
+                      <p className="text-[15px] font-semibold text-burgundy-500 mb-1.5">{a.source} · {a.date}</p>
                       <p className="text-[16px] font-bold text-[#2C2028] line-clamp-2 leading-snug group-hover:text-burgundy-600 transition-colors duration-200">
                         {a.title}
                       </p>

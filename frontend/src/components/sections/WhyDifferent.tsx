@@ -27,7 +27,7 @@ export default function WhyDifferent() {
         {/* English label */}
         <ScrollReveal>
           <p
-            className="text-[12px] md:text-[14px] tracking-[0.35em] uppercase font-bold text-burgundy-500/70 mb-3 md:mb-6"
+            className="text-[14px] md:text-[16px] tracking-[0.35em] uppercase font-bold text-burgundy-500/70 mb-3 md:mb-6"
           >
             WHY SHINSEGAERO
           </p>
@@ -76,25 +76,27 @@ export default function WhyDifferent() {
         </ScrollReveal>
 
         {/* Three feature items */}
-        <div className="grid grid-cols-3 gap-4 md:gap-8 mt-10 md:mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-10 md:mt-16">
           {features.map((item, i) => (
             <ScrollReveal key={item.num} delay={400 + i * 120}>
-              <div className="text-center">
-                <span className="block text-[32px] md:text-[48px] font-bold leading-none text-burgundy-500 opacity-20">
+              <div className="flex md:block items-start gap-4 md:text-center text-left">
+                <span className="block text-[28px] md:text-[48px] font-bold leading-none text-burgundy-500 opacity-20 flex-shrink-0 md:mx-auto">
                   {item.num}
                 </span>
-                <h3
-                  className="text-[14px] md:text-[22px] font-bold text-[#2C2028] mt-2 md:mt-4 mb-1.5 md:mb-3"
-                  style={{ wordBreak: "keep-all" }}
-                >
-                  {item.title}
-                </h3>
-                <p
-                  className="text-[12px] md:text-[16px] text-[#333333] leading-[1.7] md:leading-[1.8]"
-                  style={{ wordBreak: "keep-all" }}
-                >
-                  {item.desc}
-                </p>
+                <div>
+                  <h3
+                    className="text-[16px] md:text-[22px] font-bold text-[#2C2028] md:mt-4 mb-1 md:mb-3"
+                    style={{ wordBreak: "keep-all" }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    className="text-[14px] md:text-[16px] text-[#333333] leading-[1.7] md:leading-[1.8]"
+                    style={{ wordBreak: "keep-all" }}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
               </div>
             </ScrollReveal>
           ))}

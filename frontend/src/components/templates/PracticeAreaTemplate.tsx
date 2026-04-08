@@ -55,7 +55,7 @@ export default function PracticeAreaTemplate({
             <Icon className="w-7 h-7 text-burgundy-500" />
           </div>
           <div>
-            <p className="text-[13px] tracking-[0.2em] text-burgundy-500 font-semibold uppercase">
+            <p className="text-[15px] tracking-[0.2em] text-burgundy-500 font-semibold uppercase">
               {area.name_en}
             </p>
             <h2 className="text-2xl font-bold text-navy-900">{area.name}</h2>
@@ -112,10 +112,10 @@ export default function PracticeAreaTemplate({
                 className="p-6 rounded-2xl border border-gray-100 bg-white hover:border-burgundy-100 hover:shadow-lg transition-all duration-500"
               >
                 <div className="flex items-center gap-2 mb-3">
-                  <Badge className="bg-burgundy-500 text-white text-[12px] px-3 py-0.5 rounded-full">
+                  <Badge className="bg-burgundy-500 text-white text-[14px] px-3 py-0.5 rounded-full">
                     {caseItem.category}
                   </Badge>
-                  <Badge variant="outline" className="text-[12px] px-3 py-0.5 rounded-full text-[#444444] border-gray-200">
+                  <Badge variant="outline" className="text-[14px] px-3 py-0.5 rounded-full text-[#444444] border-gray-200">
                     {caseItem.result_type}
                   </Badge>
                 </div>

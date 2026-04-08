@@ -64,7 +64,7 @@ export default function YoutubePage() {
                   <Play size={40} className="text-white" />
                 </div>
               </div>
-              <p className="text-[13px] font-semibold text-foreground mt-3 line-clamp-2">
+              <p className="text-[15px] font-semibold text-foreground mt-3 line-clamp-2">
                 이혼 법률 상담 #{i + 1}
               </p>
             </a>

@@ -197,7 +197,7 @@ export default function PracticePageLayout({
       {/* ═══ 1. 페이지 헤더 ═══ */}
       <div className="max-w-[860px] mx-auto px-6 md:px-10 pt-16 md:pt-24">
         {/* 영문 라벨 + 헤드라인 */}
-        <p className="text-[13px] text-burgundy-500/40 tracking-[0.25em] uppercase font-semibold mb-4">
+        <p className="text-[15px] text-burgundy-500/40 tracking-[0.25em] uppercase font-semibold mb-4">
           {titleEn}
         </p>
         <h2

@@ -90,7 +90,7 @@ const areas = [
 export default function PracticeAreasQuick() {
   return (
     <section id="practice" className="py-14 md:py-36 lg:py-44 bg-[#F8F4EE]">
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
         {/* Header */}
         <ScrollReveal>
           <div className="mb-8 md:mb-20">
@@ -130,7 +130,7 @@ export default function PracticeAreasQuick() {
                         className="text-burgundy-500 group-hover:text-white transition-colors duration-400 md:!w-[30px] md:!h-[30px]"
                       />
                     </div>
-                    <span className="text-[11px] md:text-[13px] font-bold text-burgundy-500/60 group-hover:text-white/60 tracking-wide transition-colors duration-400">
+                    <span className="text-[15px] md:text-[15px] font-bold text-burgundy-500/60 group-hover:text-white/60 tracking-wide transition-colors duration-400">
                       {area.count}
                     </span>
                   </div>
@@ -150,7 +150,7 @@ export default function PracticeAreasQuick() {
                     {area.tags.slice(0, 2).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-0.5 md:px-2.5 md:py-1 text-[10px] md:text-[12px] font-semibold rounded-full bg-burgundy-50/80 text-burgundy-600/80 group-hover:bg-white/15 group-hover:text-white/80 transition-colors duration-400"
+                        className="px-2 py-0.5 md:px-2.5 md:py-1 text-[15px] md:text-[16px] font-semibold rounded-full bg-burgundy-50/80 text-burgundy-600/80 group-hover:bg-white/15 group-hover:text-white/80 transition-colors duration-400"
                       >
                         {tag}
                       </span>
@@ -158,7 +158,7 @@ export default function PracticeAreasQuick() {
                     {area.tags.slice(2).map((tag) => (
                       <span
                         key={tag}
-                        className="hidden md:inline-block px-2.5 py-1 text-[12px] font-semibold rounded-full bg-burgundy-50/80 text-burgundy-600/80 group-hover:bg-white/15 group-hover:text-white/80 transition-colors duration-400"
+                        className="hidden md:inline-block px-2.5 py-1 text-[14px] font-semibold rounded-full bg-burgundy-50/80 text-burgundy-600/80 group-hover:bg-white/15 group-hover:text-white/80 transition-colors duration-400"
                       >
                         {tag}
                       </span>
@@ -166,7 +166,7 @@ export default function PracticeAreasQuick() {
                   </div>
 
                   {/* Arrow */}
-                  <div className="flex items-center gap-1 md:gap-1.5 text-[12px] md:text-[14px] text-burgundy-500 group-hover:text-white font-semibold md:opacity-0 group-hover:opacity-100 md:translate-x-[-8px] group-hover:translate-x-0 transition-all duration-400">
+                  <div className="flex items-center gap-1 md:gap-1.5 text-[14px] md:text-[16px] text-burgundy-500 group-hover:text-white font-semibold md:opacity-0 group-hover:opacity-100 md:translate-x-[-8px] group-hover:translate-x-0 transition-all duration-400">
                     자세히 보기 <ArrowRight size={12} className="md:!w-[14px] md:!h-[14px]" />
                   </div>
                 </div>

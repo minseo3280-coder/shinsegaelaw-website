@@ -36,11 +36,10 @@ export default function LitigationDivorcePage() {
 
       <PracticeRevealWrapper>
         {/* ═══════════ SECTION 1 : HERO HEADLINE ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-[2px] bg-burgundy-500" />
+              <div className="mb-6">
                 <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                   LITIGATED DIVORCE GUIDE
                 </p>
@@ -68,8 +67,8 @@ export default function LitigationDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 2 : LITIGATION PROCESS 4 CARDS ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 LITIGATION PROCESS
@@ -118,7 +117,7 @@ export default function LitigationDivorcePage() {
                   <h3 className="font-sans text-[15px] md:text-[17px] font-bold text-[#2C2028] mb-2 md:mb-3">
                     {card.num}. {card.title}
                   </h3>
-                  <p className="text-[13px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#3A3238] font-semibold">
+                  <p className="text-[15px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#3A3238] font-semibold">
                     {card.desc}
                   </p>
                 </div>
@@ -128,8 +127,8 @@ export default function LitigationDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 3 : 재판상 이혼이란 + 6가지 사유 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal className="mb-14">
               <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 GROUNDS FOR DIVORCE
@@ -185,7 +184,7 @@ export default function LitigationDivorcePage() {
                     <span className="text-[22px] md:text-[28px] font-bold text-burgundy-500/30 leading-none mb-2 md:mb-3">
                       {item.num}
                     </span>
-                    <p className="text-[13px] md:text-[16px] leading-[1.6] text-[#2C2028] font-semibold">
+                    <p className="text-[15px] md:text-[16px] leading-[1.6] text-[#2C2028] font-semibold">
                       {item.text}
                     </p>
                   </div>
@@ -215,8 +214,8 @@ export default function LitigationDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 4 : 유책배우자 + 조정전치주의 (2-col) ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-14">
               {/* Left — 유책배우자 */}
               <div data-reveal>
@@ -287,7 +286,7 @@ export default function LitigationDivorcePage() {
                         임의조정
                       </h4>
                     </div>
-                    <p className="text-[13px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#3A3238] font-semibold">
+                    <p className="text-[15px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#3A3238] font-semibold">
                       당사자 쌍방이 조정 조건에 합의하여 성립됩니다. 합의 즉시
                       확정판결과 동일한 효력이 발생하며, 이혼사유에 대한 엄격한
                       증거가 없더라도 성립할 수 있습니다.
@@ -302,7 +301,7 @@ export default function LitigationDivorcePage() {
                         강제조정
                       </h4>
                     </div>
-                    <p className="text-[13px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#3A3238] font-semibold">
+                    <p className="text-[15px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#3A3238] font-semibold">
                       당사자 간 합의가 이루어지지 않은 경우, 법원이 직권으로
                       조정 결정을 내립니다. 송달받은 날로부터{" "}
                       <strong className="text-[#2C2028]">
@@ -318,8 +317,8 @@ export default function LitigationDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 5 : 가사조사관 + 사전처분 (2-col) ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-14">
               {/* Left — 가사조사관 */}
               <div data-reveal>
@@ -384,7 +383,7 @@ export default function LitigationDivorcePage() {
                     <h4 className="font-sans text-[14px] md:text-[16px] font-bold text-[#2C2028] mb-2">
                       임시 생활비 · 양육비
                     </h4>
-                    <p className="text-[13px] md:text-[15px] leading-[1.8] text-[#3A3238] font-semibold">
+                    <p className="text-[15px] md:text-[15px] leading-[1.8] text-[#3A3238] font-semibold">
                       소송 기간 중 경제적 어려움에 처한 당사자는 상대방에게
                       매월 일정액의 생활비 또는 양육비 지급을 구하는
                       사전처분을 신청할 수 있습니다.
@@ -396,7 +395,7 @@ export default function LitigationDivorcePage() {
                     <h4 className="font-sans text-[14px] md:text-[16px] font-bold text-[#2C2028] mb-2">
                       접근금지 처분
                     </h4>
-                    <p className="text-[13px] md:text-[15px] leading-[1.8] text-[#3A3238] font-semibold">
+                    <p className="text-[15px] md:text-[15px] leading-[1.8] text-[#3A3238] font-semibold">
                       가정폭력 등으로 위해의 우려가 있는 경우, 상대방의
                       주거·직장 등 100미터 이내 접근을 금지하는 사전처분을
                       신청할 수 있습니다.
@@ -408,7 +407,7 @@ export default function LitigationDivorcePage() {
                     <h4 className="font-sans text-[14px] md:text-[16px] font-bold text-[#2C2028] mb-2">
                       면접교섭 사전처분
                     </h4>
-                    <p className="text-[13px] md:text-[15px] leading-[1.8] text-[#3A3238] font-semibold">
+                    <p className="text-[15px] md:text-[15px] leading-[1.8] text-[#3A3238] font-semibold">
                       상대방이 자녀와의 면접교섭을 거부하는 경우, 정기적으로
                       자녀를 만날 수 있는 권리를 확보하는 사전처분을 신청할
                       수 있습니다.
@@ -421,8 +420,8 @@ export default function LitigationDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 6 : 간통과 이혼 + 가정폭력 (2 Feature Cards) ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 SPECIAL ISSUES
@@ -513,7 +512,7 @@ export default function LitigationDivorcePage() {
             />
             <div className="absolute inset-0 bg-black/60" />
           </div>
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 text-center">
+          <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 text-center">
             <p className="text-[18px] md:text-[22px] lg:text-[24px] leading-[1.7] text-white/90 italic">
               &ldquo;유책배우자 해당 여부는 소송의 승패를 좌우하는
               <br className="hidden md:block" />
@@ -528,8 +527,8 @@ export default function LitigationDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 8 : TEAM LINK ═══════════ */}
-        <section className="bg-[#F8F4EE] py-14 md:py-18" data-reveal>
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20" data-reveal>
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-5">
                 <div className="w-14 h-14 rounded-full bg-burgundy-500 flex items-center justify-center text-white flex-shrink-0">
@@ -555,8 +554,8 @@ export default function LitigationDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 9 : CTA ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center" data-reveal>
               <h2 className="font-sans text-[28px] md:text-[36px] lg:text-[42px] leading-[1.35] font-bold text-[#2C2028] mb-5">
                 어려운 싸움,

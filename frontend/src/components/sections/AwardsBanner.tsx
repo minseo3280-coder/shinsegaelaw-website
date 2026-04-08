@@ -68,10 +68,10 @@ export default function AwardsBanner() {
     <section className="bg-white border-b border-gray-100 overflow-hidden">
       {/* 언론사 로고 배너 */}
       <div className="border-b border-gray-50">
-        <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-10 py-4 md:py-6">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-10 py-4 md:py-6">
           <div className="flex items-center justify-center gap-3 mb-3 md:mb-5">
             <div className="h-[1px] flex-1 max-w-[40px] md:max-w-[60px] bg-gray-200" />
-            <p className="text-[9px] md:text-[10px] text-[#666666] tracking-[0.2em] uppercase font-semibold">
+            <p className="text-[15px] md:text-[15px] text-[#666666] tracking-[0.2em] uppercase font-semibold">
               As Featured In
             </p>
             <div className="h-[1px] flex-1 max-w-[40px] md:max-w-[60px] bg-gray-200" />
@@ -109,7 +109,7 @@ export default function AwardsBanner() {
                 <div className="w-7 h-7 md:w-8 md:h-8 bg-burgundy-50 rounded-lg flex items-center justify-center">
                   <award.Icon className="w-3 h-3 md:w-3.5 md:h-3.5 text-burgundy-500" />
                 </div>
-                <span className="text-[12px] md:text-[14px] font-semibold text-[#2C2028] whitespace-nowrap">
+                <span className="text-[14px] md:text-[16px] font-semibold text-[#2C2028] whitespace-nowrap">
                   {award.label}
                 </span>
               </div>

@@ -28,7 +28,7 @@ const mediaStats = [
 export default function MediaAuthority() {
   return (
     <section id="media" className="hidden lg:block relative overflow-hidden bg-[#F8F4EE] py-24 md:py-36 lg:py-44">
-      <div className="relative z-10 max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16 items-center">
           {/* Left — YouTube embed */}
           <ScrollReveal>
@@ -70,7 +70,7 @@ export default function MediaAuthority() {
                       <stat.icon size={18} className="text-gold-500" />
                     </div>
                     <div>
-                      <p className="text-[13px] text-[#8A7E84] font-semibold tracking-wide mb-1">
+                      <p className="text-[15px] text-[#8A7E84] font-semibold tracking-wide mb-1">
                         {stat.label}
                       </p>
                       <p className="text-[16px] md:text-[17px] text-[#333333] leading-[1.5]">

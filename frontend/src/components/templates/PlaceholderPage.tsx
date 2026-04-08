@@ -44,7 +44,7 @@ export default function PlaceholderPage({ title, breadcrumb, bannerImage }: Plac
 
       {isPractice && <PracticeTabs />}
 
-      <div className="max-w-[1600px] mx-auto px-6 md:px-8 py-16 md:py-24">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-8 py-16 md:py-24">
         <div className="text-center max-w-lg mx-auto">
           <Construction size={48} className="text-burgundy-200 mx-auto mb-6" />
           <p className="text-xl font-semibold text-foreground mb-3">

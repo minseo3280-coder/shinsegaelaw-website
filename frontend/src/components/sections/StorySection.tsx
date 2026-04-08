@@ -11,7 +11,7 @@ export default function StorySection() {
       <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 text-center">
         {/* Main emotional copy */}
         <ScrollReveal>
-          <p className="text-[13px] tracking-[0.3em] text-gold-500/30 uppercase font-semibold mb-10">
+          <p className="text-[15px] tracking-[0.3em] text-gold-500/30 uppercase font-semibold mb-10">
             Our Philosophy
           </p>
         </ScrollReveal>

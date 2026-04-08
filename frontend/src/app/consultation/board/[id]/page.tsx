@@ -83,7 +83,7 @@ export default function ConsultationDetailPage() {
 
       {!verified ? (
         /* ══════════ Password Gate ══════════ */
-        <section className="bg-white py-16 md:py-24">
+        <section className="bg-white py-14 md:py-20">
           <div className="max-w-[400px] mx-auto px-6">
             {/* Icon */}
             <div className="flex justify-center mb-8">
@@ -94,7 +94,7 @@ export default function ConsultationDetailPage() {
 
             {/* Title */}
             <div className="text-center mb-8">
-              <p className="text-[12px] md:text-[12px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-2">
+              <p className="text-[14px] md:text-[16px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-2">
                 Verification Required
               </p>
               <h2 className="text-[22px] md:text-[26px] font-bold text-[#2C2028] mb-2">비밀번호 확인</h2>
@@ -127,7 +127,7 @@ export default function ConsultationDetailPage() {
             </form>
 
             {/* Trust */}
-            <div className="flex items-center justify-center gap-5 mt-8 text-[13px] text-[#aaa]">
+            <div className="flex items-center justify-center gap-5 mt-8 text-[15px] text-[#aaa]">
               <span className="flex items-center gap-1.5"><Shield size={12} className="text-[#C9A84C]" /> 비밀보장</span>
               <span className="flex items-center gap-1.5"><Lock size={12} className="text-[#C9A84C]" /> 암호화 보호</span>
             </div>
@@ -153,15 +153,15 @@ export default function ConsultationDetailPage() {
             <div className="mb-8 md:mb-10">
               {/* Status + Category */}
               <div className="flex items-center gap-2 mb-4">
-                <span className={`text-[12px] px-2.5 py-[3px] rounded font-bold ${CAT_STYLE[data.category] || CAT_STYLE["기타"]}`}>
+                <span className={`text-[14px] px-2.5 py-[3px] rounded font-bold ${CAT_STYLE[data.category] || CAT_STYLE["기타"]}`}>
                   {data.category}
                 </span>
                 {data.status === "done" ? (
-                  <span className="flex items-center gap-1 text-[12px] px-2.5 py-[3px] rounded bg-emerald-50 text-emerald-700 font-bold">
+                  <span className="flex items-center gap-1 text-[14px] px-2.5 py-[3px] rounded bg-emerald-50 text-emerald-700 font-bold">
                     <CheckCircle2 size={10} /> 답변완료
                   </span>
                 ) : (
-                  <span className="flex items-center gap-1 text-[12px] px-2.5 py-[3px] rounded bg-gray-100 text-[#888] font-bold">
+                  <span className="flex items-center gap-1 text-[14px] px-2.5 py-[3px] rounded bg-gray-100 text-[#888] font-bold">
                     <Clock size={10} /> 대기
                   </span>
                 )}
@@ -189,11 +189,11 @@ export default function ConsultationDetailPage() {
             {/* ── Replies ── */}
             <div className="mb-10 md:mb-14">
               <div className="flex items-center gap-2.5 mb-6">
-                <p className="text-[12px] md:text-[12px] tracking-[0.25em] text-[#C9A84C] uppercase font-bold">
+                <p className="text-[14px] md:text-[16px] tracking-[0.25em] text-[#C9A84C] uppercase font-bold">
                   변호사 답변
                 </p>
                 {data.replies.length > 0 && (
-                  <span className="text-[12px] px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold">
+                  <span className="text-[14px] px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold">
                     {data.replies.length}건
                   </span>
                 )}
@@ -213,9 +213,9 @@ export default function ConsultationDetailPage() {
                         </div>
                         <div className="flex-1">
                           <p className="text-[16px] md:text-[17px] font-bold text-[#2C2028]">{reply.lawyer_name}</p>
-                          <p className="text-[13px] text-[#aaa]">{formatDate(reply.created_at)}</p>
+                          <p className="text-[15px] text-[#aaa]">{formatDate(reply.created_at)}</p>
                         </div>
-                        <span className="px-2.5 py-1 bg-[#9B2335]/10 text-[#9B2335] text-[12px] font-bold rounded">
+                        <span className="px-2.5 py-1 bg-[#9B2335]/10 text-[#9B2335] text-[14px] font-bold rounded">
                           공식답변
                         </span>
                       </div>

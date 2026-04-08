@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Send, CheckCircle2, Shield, Clock, Lock, ChevronDown } from "lucide-react";
 import SubPageHero from "@/components/shared/SubPageHero";
+import ConsultationTabs from "@/components/shared/ConsultationTabs";
 
 const CATEGORIES = ["이혼", "재산분할", "양육권", "위자료", "상간자", "상속", "기타"];
 const OFFICES = ["서울 주사무소", "수원 분사무소", "대전 분사무소"];
@@ -97,8 +98,10 @@ export default function ConsultationWritePage() {
         breadcrumbs={[{ label: "법률상담", href: "/consultation/board" }, { label: "글쓰기" }]}
       />
 
+      <ConsultationTabs />
+
       {/* ─── Main ─── */}
-      <section className="bg-white py-10 md:py-16">
+      <section className="bg-white py-14 md:py-20">
         <div className="max-w-[720px] mx-auto px-5 md:px-8">
           {/* Back */}
           <Link href="/consultation/board" className="inline-flex items-center gap-1.5 text-[14px] text-[#999] hover:text-[#9B2335] transition-colors mb-8 md:mb-10">
@@ -107,7 +110,7 @@ export default function ConsultationWritePage() {
 
           {/* Header */}
           <div className="mb-8 md:mb-10">
-            <p className="text-[12px] md:text-[12px] tracking-[0.25em] text-[#C9A84C] uppercase font-bold mb-2">
+            <p className="text-[14px] md:text-[16px] tracking-[0.25em] text-[#C9A84C] uppercase font-bold mb-2">
               New Consultation
             </p>
             <h2
@@ -122,7 +125,7 @@ export default function ConsultationWritePage() {
           </div>
 
           {/* Trust badges */}
-          <div className="flex items-center gap-4 md:gap-6 px-5 py-3.5 bg-[#F8F4EE] mb-8 md:mb-10 text-[13px] md:text-[13px] text-[#555]">
+          <div className="flex items-center gap-4 md:gap-6 px-5 py-3.5 bg-[#F8F4EE] mb-8 md:mb-10 text-[15px] md:text-[15px] text-[#555]">
             <span className="flex items-center gap-1.5 whitespace-nowrap">
               <Shield size={13} className="text-[#C9A84C]" />
               비밀보장
@@ -209,7 +212,7 @@ export default function ConsultationWritePage() {
             {/* Email + Password */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-7">
               <div>
-                <label className="block text-[15px] font-bold text-[#2C2028] mb-2">이메일 <span className="text-[13px] text-[#bbb] font-normal">선택</span></label>
+                <label className="block text-[15px] font-bold text-[#2C2028] mb-2">이메일 <span className="text-[15px] text-[#bbb] font-normal">선택</span></label>
                 <input
                   type="email"
                   value={form.email}
@@ -228,7 +231,7 @@ export default function ConsultationWritePage() {
                   maxLength={4}
                   className="w-full px-4 py-3 border border-gray-200 text-[15px] text-[#2C2028] placeholder:text-[#ccc] focus:outline-none focus:border-[#9B2335]/40 transition-all bg-[#FAFAFA]"
                 />
-                <p className="text-[12px] text-[#aaa] mt-1.5">답변 확인 시 필요합니다.</p>
+                <p className="text-[14px] text-[#aaa] mt-1.5">답변 확인 시 필요합니다.</p>
               </div>
             </div>
 
@@ -269,7 +272,7 @@ export default function ConsultationWritePage() {
               />
               <span className="text-[14px] text-[#555] leading-[1.7]">
                 개인정보 수집·이용에 동의합니다.
-                <span className="block text-[13px] text-[#aaa] mt-0.5">수집된 정보는 상담 목적으로만 사용됩니다.</span>
+                <span className="block text-[15px] text-[#aaa] mt-0.5">수집된 정보는 상담 목적으로만 사용됩니다.</span>
               </span>
             </label>
 

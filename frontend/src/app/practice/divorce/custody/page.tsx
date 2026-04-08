@@ -35,11 +35,10 @@ export default function CustodyPage() {
 
       <PracticeRevealWrapper>
         {/* ═══════════ SECTION 1 : HERO HEADLINE ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-[2px] bg-burgundy-500" />
+              <div className="mb-6">
                 <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                   CHILD CUSTODY GUIDE
                 </p>
@@ -70,8 +69,8 @@ export default function CustodyPage() {
         </section>
 
         {/* ═══════════ SECTION 2 : LEGAL PROCESS 4 CARDS ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 LEGAL PROCESS
@@ -115,7 +114,7 @@ export default function CustodyPage() {
                   <h4 className="font-sans text-[15px] md:text-[17px] font-bold text-[#2C2028] mb-2 md:mb-3">
                     {item.title}
                   </h4>
-                  <p className="text-[13px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#3A3238] font-semibold">
+                  <p className="text-[15px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#3A3238] font-semibold">
                     {item.desc}
                   </p>
                 </div>
@@ -125,8 +124,8 @@ export default function CustodyPage() {
         </section>
 
         {/* ═══════════ SECTION 3 : 양육권 의의 + 결정기준 vs 면접교섭권 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             {/* 양육권 설명 */}
             <div className="mb-14" data-reveal>
               <h3 className="font-sans text-[28px] md:text-[34px] font-bold text-[#2C2028] mb-6 leading-tight">
@@ -179,7 +178,7 @@ export default function CustodyPage() {
                   ].map((item, i) => (
                     <div key={i}>
                       <div className="flex items-start gap-4">
-                        <span className="flex-shrink-0 w-7 h-7 rounded-md bg-burgundy-500 text-white text-[13px] font-bold flex items-center justify-center mt-0.5">
+                        <span className="flex-shrink-0 w-7 h-7 rounded-md bg-burgundy-500 text-white text-[15px] font-bold flex items-center justify-center mt-0.5">
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <div>
@@ -254,8 +253,8 @@ export default function CustodyPage() {
         </section>
 
         {/* ═══════════ SECTION 4 : 양육 실무 쟁점 (Left Title + Right Cards) ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-[280px_1fr] gap-12 lg:gap-16">
               {/* LEFT: Title */}
               <div data-reveal>
@@ -286,7 +285,7 @@ export default function CustodyPage() {
                 {/* 면접교섭 */}
                 <div className="bg-white rounded-xl p-4 md:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
                   <div className="flex items-center gap-2.5 mb-3">
-                    <span className="px-2.5 py-1 bg-burgundy-500 text-white text-[12px] font-bold rounded">
+                    <span className="px-2.5 py-1 bg-burgundy-500 text-white text-[14px] font-bold rounded">
                       면접교섭
                     </span>
                     <h4 className="font-sans text-[14px] md:text-[16px] font-bold text-[#2C2028]">
@@ -306,7 +305,7 @@ export default function CustodyPage() {
                 {/* 양육비 */}
                 <div className="bg-white rounded-xl p-4 md:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
                   <div className="flex items-center gap-2.5 mb-3">
-                    <span className="px-2.5 py-1 bg-burgundy-500 text-white text-[12px] font-bold rounded">
+                    <span className="px-2.5 py-1 bg-burgundy-500 text-white text-[14px] font-bold rounded">
                       양육비
                     </span>
                     <h4 className="font-sans text-[14px] md:text-[16px] font-bold text-[#2C2028]">
@@ -325,7 +324,7 @@ export default function CustodyPage() {
                 {/* 강제집행 */}
                 <div className="bg-white rounded-xl p-4 md:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
                   <div className="flex items-center gap-2.5 mb-3">
-                    <span className="px-2.5 py-1 bg-[#2C2028] text-white text-[12px] font-bold rounded">
+                    <span className="px-2.5 py-1 bg-[#2C2028] text-white text-[14px] font-bold rounded">
                       강제집행
                     </span>
                     <h4 className="font-sans text-[14px] md:text-[16px] font-bold text-[#2C2028]">
@@ -334,19 +333,19 @@ export default function CustodyPage() {
                   </div>
                   <div className="grid grid-cols-2 gap-3 md:gap-4 mt-4">
                     <div className="bg-[#F8F4EE] rounded-lg p-4">
-                      <p className="text-[13px] md:text-[15px] font-bold text-[#2C2028] mb-1">
+                      <p className="text-[15px] md:text-[15px] font-bold text-[#2C2028] mb-1">
                         직접지급명령
                       </p>
-                      <p className="text-[13px] md:text-[14px] text-[#3A3238] font-semibold leading-[1.6]">
+                      <p className="text-[15px] md:text-[16px] text-[#3A3238] font-semibold leading-[1.6]">
                         급여 소득자가 2회 이상 연체 시 직장에서 바로 원천징수
                         (가사소송법 제63조의2)
                       </p>
                     </div>
                     <div className="bg-[#F8F4EE] rounded-lg p-4">
-                      <p className="text-[13px] md:text-[15px] font-bold text-[#2C2028] mb-1">
+                      <p className="text-[15px] md:text-[15px] font-bold text-[#2C2028] mb-1">
                         이행명령 및 감치
                       </p>
-                      <p className="text-[13px] md:text-[14px] text-[#3A3238] font-semibold leading-[1.6]">
+                      <p className="text-[15px] md:text-[16px] text-[#3A3238] font-semibold leading-[1.6]">
                         정당한 이유 없이 미지급 시 1,000만 원 이하 과태료 또는
                         최대 30일 감치 (가사소송법 제64조)
                       </p>
@@ -359,8 +358,8 @@ export default function CustodyPage() {
         </section>
 
         {/* ═══════════ SECTION 5 : 양육비 미지급 CTA 배너 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div
               data-reveal
               className="bg-burgundy-50 rounded-2xl p-8 md:p-12 text-center border border-burgundy-100"
@@ -397,15 +396,13 @@ export default function CustodyPage() {
           }}
         >
           <div className="absolute inset-0 bg-[#1A1A2E]/85" />
-          <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10 text-center">
+          <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mb-6" />
               <p className="text-[20px] md:text-[26px] lg:text-[30px] text-white leading-[1.7] font-semibold">
                 &ldquo;아이의 미래를 지키는 전략,
                 <br className="hidden md:block" />
                 지금 상황을 말씀해 주세요.&rdquo;
               </p>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mt-6 mb-4" />
               <p className="text-[15px] text-[#C9A84C] tracking-wider">
                 친권·양육권팀 박경내 팀장
               </p>
@@ -414,8 +411,8 @@ export default function CustodyPage() {
         </section>
 
         {/* ═══════════ SECTION 7 : TEAM LINK ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
               <div className="bg-[#F8F4EE] rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
                 <div className="flex-1">
@@ -446,8 +443,8 @@ export default function CustodyPage() {
         </section>
 
         {/* ═══════════ SECTION 8 : CTA ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-5xl mx-auto px-6 md:px-10 text-center">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
               <h3 className="font-sans text-[28px] md:text-[36px] lg:text-[40px] font-bold text-[#2C2028] mb-4 leading-tight">
                 아이에게 가장 좋은 환경,

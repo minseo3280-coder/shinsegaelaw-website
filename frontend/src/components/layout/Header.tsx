@@ -3,9 +3,9 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, Search, X, Phone, ChevronDown } from "lucide-react";
+import { Menu, Search, X, Phone, ChevronDown, ChevronLeft } from "lucide-react";
 import SearchDropdown from "@/components/shared/SearchDropdown";
 import firmData from "@/../../data/firm_info.json";
 
@@ -103,6 +103,8 @@ export default function Header() {
   const [showSearch, setShowSearch] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<TabId | null>(null);
   const pathname = usePathname();
+  const router = useRouter();
+  const isSubPage = pathname !== "/";
   // White header always (YK style)
   const isTransparent = false;
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -225,7 +227,7 @@ export default function Header() {
         {/* ─── Top bar (80px) ─── */}
         <div
           ref={headerBarRef}
-          className="max-w-[1600px] mx-auto px-6 lg:px-10 flex items-center h-[80px]"
+          className="max-w-[1400px] mx-auto px-6 lg:px-10 flex items-center h-[80px]"
         >
           {/* Logo */}
           <Link href="/" className="shrink-0 mr-10">
@@ -239,7 +241,7 @@ export default function Header() {
               style={
                 isTransparent
                   ? undefined
-                  : { filter: "brightness(0) saturate(100%) invert(18%) sepia(60%) saturate(3000%) hue-rotate(335deg) brightness(85%) contrast(100%)" }
+                  : { filter: "brightness(0) saturate(100%) invert(18%) sepia(60%) saturate(3000%) hue-rotate(328deg) brightness(87%) contrast(100%)" }
               }
             />
           </Link>
@@ -265,7 +267,7 @@ export default function Header() {
                 >
                   <Link
                     href={tab.href}
-                    className={`relative flex items-center text-[18px] tracking-[0.02em] transition-colors duration-200 whitespace-nowrap ${
+                    className={`relative flex items-center text-[16px] tracking-[0.02em] transition-colors duration-200 whitespace-nowrap ${
                       hovered
                         ? "text-[#9B2335] font-semibold"
                         : active
@@ -290,8 +292,18 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Right utils: Search + CTA */}
-          <div className="flex items-center gap-2 lg:gap-3 shrink-0 ml-auto lg:ml-6">
+          {/* Right utils: Back + Search + CTA */}
+          <div className="flex items-center gap-1 lg:gap-3 shrink-0 ml-auto lg:ml-6">
+            {/* Mobile Back Button */}
+            {isSubPage && (
+              <button
+                onClick={() => router.back()}
+                className="lg:hidden w-11 h-11 flex items-center justify-center text-[#1A1A2E]/40 hover:text-[#1A1A2E]/70 active:bg-gray-50 rounded-full transition-colors"
+                aria-label="이전 페이지로 돌아가기"
+              >
+                <ChevronLeft size={22} strokeWidth={1.8} />
+              </button>
+            )}
             <div className="relative">
               <button
                 onClick={() => {
@@ -425,7 +437,7 @@ export default function Header() {
                         )
                       }
                     >
-                      <span className="text-[18px]">{tab.label}</span>
+                      <span className="text-[16px]">{tab.label}</span>
                       <ChevronDown
                         size={16}
                         className={`text-[#1A1A2E]/40 transition-transform duration-200 ${

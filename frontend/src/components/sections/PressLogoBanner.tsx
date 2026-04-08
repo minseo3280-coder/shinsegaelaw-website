@@ -72,12 +72,12 @@ const mediaLogos = [
 export default function PressLogoBanner() {
   return (
     <section className="hidden lg:block bg-[#F8F4EE] py-10 md:py-14 border-t border-[#E8E0D8]/60">
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
         <ScrollReveal>
           {/* Label */}
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-[1px] flex-1 max-w-[80px] bg-[#C9A84C]/30" />
-            <p className="text-[11px] md:text-[12px] text-[#444444] tracking-[0.25em] uppercase font-semibold">
+            <p className="text-[15px] md:text-[16px] text-[#444444] tracking-[0.25em] uppercase font-semibold">
               As Featured In
             </p>
             <div className="h-[1px] flex-1 max-w-[80px] bg-[#C9A84C]/30" />
@@ -98,11 +98,11 @@ export default function PressLogoBanner() {
 
           {/* Press count + YTN info */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 mt-8">
-            <span className="text-[13px] md:text-[14px] text-[#6B5E64] font-semibold">
+            <span className="text-[15px] md:text-[16px] text-[#6B5E64] font-semibold">
               총 <span className="text-burgundy-500 font-bold">1,010건</span> 이상의 언론보도
             </span>
             <span className="hidden md:inline text-[#C9A84C]/50">·</span>
-            <span className="text-[13px] md:text-[14px] text-[#6B5E64]">
+            <span className="text-[15px] md:text-[16px] text-[#6B5E64]">
               YTN 라디오 「조인섭 변호사의 상담소」 고정 출연
             </span>
           </div>

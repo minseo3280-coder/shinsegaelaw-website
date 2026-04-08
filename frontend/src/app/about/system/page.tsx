@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SubPageHero from "@/components/shared/SubPageHero";
@@ -8,47 +8,6 @@ import teamsData from "@/../../data/teams.json";
 import lawyersData from "@/../../data/lawyers.json";
 import AboutTabs from "@/components/shared/AboutTabs";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-
-/* ── CountUp hook ── */
-function useCountUp(target: number, duration: number = 1800) {
-  const [count, setCount] = useState(0);
-  const [started, setStarted] = useState(false);
-  const [done, setDone] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!ref.current) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !started) {
-          setStarted(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 }
-    );
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [started]);
-
-  useEffect(() => {
-    if (!started) return;
-    const startTime = performance.now();
-    const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
-    const animate = (now: number) => {
-      const progress = Math.min((now - startTime) / duration, 1);
-      setCount(Math.round(easeOut(progress) * target));
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        setDone(true);
-      }
-    };
-    requestAnimationFrame(animate);
-  }, [started, target, duration]);
-
-  return { count, ref, done };
-}
 
 /* ── Data ── */
 const teams = teamsData.teams;
@@ -59,20 +18,6 @@ const lawyers = lawyersData.lawyers;
 function getLeaderPhoto(leaderId: number): string {
   const lawyer = lawyers.find((l: { id: number; profile_image?: string }) => l.id === leaderId);
   return lawyer?.profile_image || "";
-}
-
-/* ── Stat Item ── */
-function StatItem({ value, suffix, label }: { value: number; suffix: string; label: string }) {
-  const { count, ref } = useCountUp(value);
-  return (
-    <div className="text-center" ref={ref}>
-      <p className="text-[28px] md:text-[48px] font-bold text-[#9B2335] leading-none tracking-tight" style={{ fontVariantNumeric: "tabular-nums" }}>
-        {count.toLocaleString()}
-        <span className="text-[14px] md:text-[20px] font-semibold text-[#2C2028] ml-0.5">{suffix}</span>
-      </p>
-      <p className="text-[11px] md:text-[14px] text-[#888888] mt-1.5 md:mt-2 tracking-wide">{label}</p>
-    </div>
-  );
 }
 
 /* ── Certifications ── */
@@ -107,164 +52,34 @@ export default function SystemPage() {
       {/* ══════════════════════════════════════════
           Section 1: Headline
       ══════════════════════════════════════════ */}
-      <section className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 pt-10 md:pt-20" data-reveal>
-        <div className="w-8 md:w-10 h-[2px] bg-[#9B2335] mb-4 md:mb-5" />
-        <p className="text-[11px] md:text-[12px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3">
+      <section className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 pt-14 md:pt-20" data-reveal>
+        <p className="text-[13px] md:text-[15px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3">
           Our System
         </p>
         <h2
           className="text-[22px] md:text-[44px] lg:text-[50px] font-bold text-[#2C2028] leading-[1.35] tracking-tight"
           style={{ wordBreak: "keep-all" as const }}
         >
-          뛰어난 개인이 아닌,<br />
-          <span className="text-[#9B2335]">완벽한 시스템</span>이 승리합니다.
+          수천 건의 판결 속에서<br />
+          <span className="text-[#9B2335]">전략을 체계화</span>해 왔습니다.
         </h2>
         <p className="text-[15px] md:text-[21px] text-[#333333] leading-[1.9] mt-3 md:mt-5 max-w-[900px]" style={{ wordBreak: "keep-all" as const }}>
-          신세계로는 대표변호사부터 전문직원까지 하나의 팀으로 움직입니다.<br />
-          52년간 쌓아온 시스템이 1,053건의 승소를 만들었습니다.
+          전문분야별 팀이 분업과 협업을 통해 체계적으로 대응하고,<br />
+          대표변호사가 직접 총괄하여 사건의 흐름을 빈틈없이 관리합니다.
         </p>
       </section>
 
 
-      {/* ══════════════════════════════════════════
-          Section 2: Stats Band
-      ══════════════════════════════════════════ */}
-      <div className="border-t border-b border-gray-200 py-8 md:py-10 mt-10 md:mt-14" data-reveal>
-        <div className="max-w-[600px] md:max-w-[900px] mx-auto px-5">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
-            <StatItem value={52} suffix="년" label="법조 전통" />
-            <StatItem value={22} suffix="인" label="전문 변호사" />
-            <StatItem value={1053} suffix="건+" label="누적 승소사례" />
-            <StatItem value={7} suffix="개" label="전문팀 운영" />
-          </div>
-        </div>
-      </div>
 
 
-      {/* ══════════════════════════════════════════
-          Section 3: 경험과 신뢰의 리더십
-      ══════════════════════════════════════════ */}
-      <section className="bg-white py-8 md:py-20" data-reveal>
-        <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
-          <div className="w-8 md:w-10 h-[2px] bg-[#9B2335] mb-4 md:mb-5" />
-          <p className="text-[11px] md:text-[12px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3">
-            Leadership
-          </p>
-          <h3
-            className="text-[20px] md:text-[38px] font-bold text-[#2C2028] leading-[1.35] tracking-tight mb-3 md:mb-4"
-            style={{ wordBreak: "keep-all" as const }}
-          >
-            신세계로를 이끈 <span className="text-[#9B2335]">경험과 신뢰</span>의 리더십
-          </h3>
-          <p className="text-[15px] md:text-[21px] text-[#333333] leading-[1.9] max-w-[800px] mb-10 md:mb-14">
-            2대에 걸쳐 사법시험을 합격한 법조 가문.<br />
-            시간만큼 깊어진 이해와 전문성은 의뢰인에게 최선의 결과를 가져다 드립니다.
-          </p>
-
-          {/* Two leaders */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            {/* 조인섭 */}
-            <div className="flex gap-4 md:gap-6">
-              <div className="relative w-[100px] md:w-[140px] h-[130px] md:h-[180px] flex-shrink-0 bg-[#F0EBE4] overflow-hidden">
-                <Image
-                  src="/images/attorneys/lawyer_profile_01.webp"
-                  alt="조인섭 대표변호사"
-                  fill
-                  className="object-cover object-top"
-                  sizes="140px"
-                />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-[11px] md:text-[12px] text-[#999999] tracking-wide mb-1">법무법인 신세계로 2대 (현) 대표</p>
-                <p className="text-[18px] md:text-[24px] font-bold text-[#2C2028] tracking-tight mb-3">
-                  조인섭 <span className="text-[14px] md:text-[16px] font-semibold text-[#555555]">대표변호사</span>
-                </p>
-                <div className="space-y-1">
-                  {[
-                    "사법시험 43회 합격",
-                    "사법연수원 33기 수료",
-                    "가족법 박사학위 취득",
-                    "대한변협 가족법 전문 제1호",
-                    "이화여대 로스쿨 겸임교수",
-                  ].map((item, i) => (
-                    <p key={i} className="text-[13px] md:text-[15px] text-[#333333] leading-[1.8]">
-                      {i < 2 ? (
-                        <span className="text-[#9B2335] font-semibold">{item}</span>
-                      ) : (
-                        <>· {item}</>
-                      )}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* 조용국 */}
-            <div className="flex gap-4 md:gap-6">
-              <div className="relative w-[100px] md:w-[140px] h-[130px] md:h-[180px] flex-shrink-0 bg-[#F0EBE4] overflow-hidden">
-                <Image
-                  src="/images/attorneys/lawyer_profile_02.webp"
-                  alt="조용국 변호사"
-                  fill
-                  className="object-cover object-top"
-                  sizes="140px"
-                />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-[11px] md:text-[12px] text-[#999999] tracking-wide mb-1">법무법인 신세계로 1대 대표</p>
-                <p className="text-[18px] md:text-[24px] font-bold text-[#2C2028] tracking-tight mb-3">
-                  조용국 <span className="text-[14px] md:text-[16px] font-semibold text-[#555555]">변호사</span>
-                </p>
-                <div className="space-y-1">
-                  {[
-                    "사법시험 12회 합격 (1970)",
-                    "사법연수원 2기 수료 (1972)",
-                    "서울중앙지검 특수 1,2,3부장",
-                    "부산동부지청장",
-                    "의정부지청장",
-                  ].map((item, i) => (
-                    <p key={i} className="text-[13px] md:text-[15px] text-[#333333] leading-[1.8]">
-                      {i < 2 ? (
-                        <span className="text-[#9B2335] font-semibold">{item}</span>
-                      ) : (
-                        <>· {item}</>
-                      )}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* ══════════════════════════════════════════
-          Section 4: Quote Band
-      ══════════════════════════════════════════ */}
-      <div className="bg-[#F8F4EE] py-10 md:py-14" data-reveal>
-        <div className="max-w-[560px] md:max-w-[900px] mx-auto px-8 md:px-10 text-center">
-          <div className="w-8 h-[1px] bg-[#C9A84C] mx-auto mb-5 md:mb-7" />
-          <p
-            className="text-[15px] md:text-[24px] text-[#2C2028] font-bold leading-[2] md:leading-[1.8]"
-            style={{ wordBreak: "keep-all" as const }}
-          >
-            이혼소송을 사건이 아닌 &lsquo;쟁점&rsquo;으로 나눕니다.<br />
-            분업화된 조직과 전략 총괄자가<br className="md:hidden" />
-            시스템으로 승리를 설계합니다.
-          </p>
-          <div className="w-8 h-[1px] bg-[#C9A84C] mx-auto mt-5 md:mt-7" />
-        </div>
-      </div>
 
 
       {/* ══════════════════════════════════════════
           Section 5: 이혼상속 집중 시스템 — 운영 구조
       ══════════════════════════════════════════ */}
-      <section className="bg-white py-8 md:py-20" data-reveal>
+      <section className="bg-white py-14 md:py-20" data-reveal>
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
-          <div className="w-8 md:w-10 h-[2px] bg-[#9B2335] mb-4 md:mb-5" />
-          <p className="text-[11px] md:text-[12px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3">
+            <p className="text-[15px] md:text-[16px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3">
             Operations
           </p>
           <h3
@@ -279,26 +94,26 @@ export default function SystemPage() {
 
           {/* Org structure */}
           <div className="bg-[#F8F4EE] py-8 md:py-10 px-5 md:px-10 mb-10 md:mb-14">
-            <p className="text-[11px] md:text-[12px] tracking-[0.2em] text-[#999999] uppercase font-bold mb-5 text-center">
+            <p className="text-[15px] md:text-[16px] tracking-[0.2em] text-[#999999] uppercase font-bold mb-5 text-center">
               Organizational Structure
             </p>
             <div className="flex flex-col items-center">
               {/* Center */}
               <div className="border-2 border-[#9B2335] bg-white px-6 py-3 text-center">
-                <span className="text-[9px] text-[#9B2335]/50 tracking-[0.1em] block">CENTER</span>
+                <span className="text-[15px] text-[#9B2335]/50 tracking-[0.1em] block">CENTER</span>
                 <span className="text-[15px] md:text-[17px] font-bold text-[#9B2335]">대표변호사</span>
               </div>
               <div className="w-[1px] h-4 bg-gray-300" />
               {/* Branches */}
-              <div className="grid grid-cols-3 gap-2 md:gap-4 w-full max-w-[400px]">
+              <div className="grid grid-cols-3 gap-2 md:gap-4 w-full max-w-[480px]">
                 {[
                   { role: "LEGAL", title: "전문변호사" },
-                  { role: "MANAGEMENT", title: "전문실장" },
+                  { role: "MGMT", title: "전문실장" },
                   { role: "SUPPORT", title: "전문직원" },
                 ].map((n) => (
                   <div key={n.role} className="py-2.5 px-2 md:px-5 border border-gray-200 bg-white text-center">
-                    <div className="text-[8px] md:text-[9px] text-[#999999] tracking-[0.05em]">{n.role}</div>
-                    <div className="text-[13px] md:text-[15px] text-[#2C2028] font-semibold mt-0.5">{n.title}</div>
+                    <div className="text-[11px] md:text-[14px] text-[#999999] tracking-[0.05em]">{n.role}</div>
+                    <div className="text-[14px] md:text-[17px] text-[#2C2028] font-semibold mt-0.5">{n.title}</div>
                   </div>
                 ))}
               </div>
@@ -319,13 +134,13 @@ export default function SystemPage() {
               ];
               return (
                 <div key={i} className="relative border border-gray-200 bg-white px-4 py-5 md:py-6 text-center">
-                  <p className="text-[12px] font-bold text-[#9B2335] mb-2">
+                  <p className="text-[14px] font-bold text-[#9B2335] mb-2">
                     {String(i + 1).padStart(2, "0")}
                   </p>
                   <p className="text-[15px] md:text-[16px] font-semibold text-[#2C2028] mb-1">{title}</p>
-                  <p className="text-[12px] md:text-[13px] text-[#555555] leading-[1.7] whitespace-pre-line">{descs[i]}</p>
+                  <p className="text-[14px] md:text-[15px] text-[#555555] leading-[1.7] whitespace-pre-line">{descs[i]}</p>
                   {i < 3 && (
-                    <div className="hidden md:block absolute right-[-8px] top-1/2 -translate-y-1/2 text-[10px] text-gray-300 z-10">→</div>
+                    <div className="hidden md:block absolute right-[-8px] top-1/2 -translate-y-1/2 text-[15px] text-gray-300 z-10">→</div>
                   )}
                 </div>
               );
@@ -347,10 +162,9 @@ export default function SystemPage() {
       {/* ══════════════════════════════════════════
           Section 6: 6-Step Operations Flow
       ══════════════════════════════════════════ */}
-      <section className="bg-[#F8F4EE] py-8 md:py-20" data-reveal>
+      <section className="bg-[#F8F4EE] py-14 md:py-20" data-reveal>
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
-          <div className="w-8 md:w-10 h-[2px] bg-[#9B2335] mb-4 md:mb-5" />
-          <p className="text-[11px] md:text-[12px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3">
+            <p className="text-[15px] md:text-[16px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3">
             Workflow
           </p>
           <h3
@@ -372,11 +186,11 @@ export default function SystemPage() {
                     ? "border-[#9B2335] text-[#9B2335]"
                     : "border-gray-200 text-[#2C2028]"
                 }`}>
-                  <p className="text-[11px] text-[#999999] tracking-wide mb-1">{String(i + 1).padStart(2, "0")}</p>
+                  <p className="text-[15px] text-[#999999] tracking-wide mb-1">{String(i + 1).padStart(2, "0")}</p>
                   <p className="text-[16px] font-semibold">{step}</p>
                 </div>
                 {i < system.flow.length - 1 && (
-                  <span className="w-5 text-center text-[11px] text-gray-300 flex-shrink-0">→</span>
+                  <span className="w-5 text-center text-[15px] text-gray-300 flex-shrink-0">→</span>
                 )}
               </div>
             ))}
@@ -390,8 +204,8 @@ export default function SystemPage() {
                   ? "border-[#9B2335] text-[#9B2335] bg-white"
                   : "border-gray-200 text-[#2C2028] bg-white"
               }`}>
-                <p className="text-[9px] text-[#999999] tracking-wide mb-0.5">{String(i + 1).padStart(2, "0")}</p>
-                <p className="text-[13px] font-semibold">{step}</p>
+                <p className="text-[15px] text-[#999999] tracking-wide mb-0.5">{String(i + 1).padStart(2, "0")}</p>
+                <p className="text-[15px] font-semibold">{step}</p>
               </div>
             ))}
           </div>
@@ -401,11 +215,11 @@ export default function SystemPage() {
             <p className="text-[15px] md:text-[18px] font-bold text-[#2C2028] mb-5">팀 운영방안</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {system.operations.map((op, i) => (
-                <div key={i} className="flex items-start gap-3 bg-white py-4 px-5 border border-gray-200">
-                  <span className="text-[12px] font-bold text-[#9B2335] mt-0.5 flex-shrink-0">
+                <div key={i} className="flex items-center gap-3 bg-white py-4 px-5 border border-gray-200">
+                  <span className="text-[15px] font-bold text-[#9B2335] flex-shrink-0">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="text-[14px] md:text-[16px] text-[#333333] leading-[1.9]">{op}</p>
+                  <p className="text-[14px] md:text-[16px] text-[#333333] leading-[1.7]">{op}</p>
                 </div>
               ))}
             </div>
@@ -417,10 +231,9 @@ export default function SystemPage() {
       {/* ══════════════════════════════════════════
           Section 7: 7개 전문팀
       ══════════════════════════════════════════ */}
-      <section className="bg-white py-8 md:py-20" data-reveal>
+      <section className="bg-white py-14 md:py-20" data-reveal>
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
-          <div className="w-8 md:w-10 h-[2px] bg-[#9B2335] mb-4 md:mb-5" />
-          <p className="text-[11px] md:text-[12px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3">
+            <p className="text-[15px] md:text-[16px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3">
             Specialized Teams
           </p>
           <h3
@@ -462,10 +275,10 @@ export default function SystemPage() {
                     )}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-[11px] font-bold text-[#9B2335]">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="text-[15px] font-bold text-[#9B2335]">{String(i + 1).padStart(2, "0")}</span>
                         <p className="text-[17px] md:text-[19px] font-bold text-[#2C2028]">{team.name}</p>
                       </div>
-                      <p className="text-[12px] md:text-[13px] text-[#888888] mb-2">팀장 {team.leader} 변호사</p>
+                      <p className="text-[14px] md:text-[15px] text-[#888888] mb-2">팀장 {team.leader} 변호사</p>
                       <p className="text-[14px] md:text-[15px] text-[#333333] leading-[1.7] line-clamp-2">{team.tagline}</p>
                     </div>
                   </div>
@@ -473,8 +286,8 @@ export default function SystemPage() {
                   {/* Specialties */}
                   <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-gray-100">
                     {team.specialties.slice(0, 3).map((s, si) => (
-                      <span key={si} className="text-[11px] md:text-[12px] py-[2px] px-2 bg-[#F8F4EE] text-[#555555]">
-                        {s.length > 14 ? s.slice(0, 14) + "…" : s}
+                      <span key={si} className="text-[15px] md:text-[16px] py-[2px] px-2 bg-[#F8F4EE] text-[#555555] whitespace-nowrap">
+                        {s}
                       </span>
                     ))}
                   </div>
@@ -491,7 +304,6 @@ export default function SystemPage() {
       ══════════════════════════════════════════ */}
       <div className="bg-[#F8F4EE] py-10 md:py-14" data-reveal>
         <div className="max-w-[560px] md:max-w-[900px] mx-auto px-8 md:px-10 text-center">
-          <div className="w-8 h-[1px] bg-[#C9A84C] mx-auto mb-5 md:mb-7" />
           <p
             className="text-[15px] md:text-[24px] text-[#2C2028] font-bold leading-[2] md:leading-[1.8]"
             style={{ wordBreak: "keep-all" as const }}
@@ -499,7 +311,6 @@ export default function SystemPage() {
             22년의 깊이에서 나오는 차별성,<br />
             그것은 쉽게 따라올 수 없는 전문성입니다.
           </p>
-          <div className="w-8 h-[1px] bg-[#C9A84C] mx-auto mt-5 md:mt-7" />
         </div>
       </div>
 
@@ -507,10 +318,9 @@ export default function SystemPage() {
       {/* ══════════════════════════════════════════
           Section 9: 전문분야 인증 변호사
       ══════════════════════════════════════════ */}
-      <section className="bg-white py-8 md:py-20" data-reveal>
+      <section className="bg-white py-14 md:py-20" data-reveal>
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
-          <div className="w-8 md:w-10 h-[2px] bg-[#9B2335] mb-4 md:mb-5" />
-          <p className="text-[11px] md:text-[12px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3">
+            <p className="text-[15px] md:text-[16px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3">
             Certified Attorneys
           </p>
           <h3
@@ -538,34 +348,14 @@ export default function SystemPage() {
                   />
                 </div>
                 <p className="text-[15px] md:text-[17px] font-bold text-[#2C2028]">{lawyer.name}</p>
-                <p className="text-[12px] md:text-[13px] text-[#888888] mt-0.5">{lawyer.position}</p>
-                <p className="text-[12px] md:text-[13px] text-[#9B2335] font-semibold mt-1.5">
+                <p className="text-[14px] md:text-[15px] text-[#888888] mt-0.5">{lawyer.position}</p>
+                <p className="text-[14px] md:text-[15px] text-[#9B2335] font-semibold mt-1.5">
                   {lawyer.specialty} 전문
                 </p>
               </div>
             ))}
           </div>
 
-          {/* Certificate gallery hint */}
-          <div className="mt-8 md:mt-10 pt-6 border-t border-gray-200">
-            <p className="text-[13px] md:text-[15px] text-[#333333] font-semibold mb-1">전문분야 등록증서</p>
-            <p className="text-[12px] md:text-[14px] text-[#888888] leading-[1.7] mb-4">
-              대한변호사협회 전문분야 등록 — 이혼, 가사법, 상속, 가족법
-            </p>
-            <div className="flex gap-3 md:gap-4">
-              {["/images/ihon-site/certificates/certificate_10.webp", "/images/ihon-site/certificates/certificate_01.webp", "/images/ihon-site/certificates/certificate_03.webp"].map((src, i) => (
-                <div key={i} className="relative w-[70px] md:w-[90px] aspect-[3/4] bg-[#F0EBE4] overflow-hidden border border-gray-100">
-                  <Image
-                    src={src}
-                    alt="전문분야 등록증서"
-                    fill
-                    className="object-cover"
-                    sizes="90px"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -573,10 +363,9 @@ export default function SystemPage() {
       {/* ══════════════════════════════════════════
           Section 10: 언론이 인정한 전문성
       ══════════════════════════════════════════ */}
-      <section className="bg-[#F8F4EE] py-8 md:py-20" data-reveal>
+      <section className="bg-[#F8F4EE] py-14 md:py-20" data-reveal>
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
-          <div className="w-8 md:w-10 h-[2px] bg-[#9B2335] mb-4 md:mb-5" />
-          <p className="text-[11px] md:text-[12px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3">
+            <p className="text-[15px] md:text-[16px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3">
             Media Recognition
           </p>
           <h3
@@ -625,9 +414,9 @@ export default function SystemPage() {
               },
             ].map((item, i) => (
               <div key={i} className="bg-white border border-gray-200 p-5 md:p-6">
-                <p className="text-[12px] font-bold text-[#C9A84C] mb-2">{item.year}</p>
+                <p className="text-[14px] font-bold text-[#C9A84C] mb-2">{item.year}</p>
                 <p className="text-[15px] md:text-[17px] font-bold text-[#2C2028] mb-2">{item.title}</p>
-                <p className="text-[13px] md:text-[14px] text-[#555555] leading-[1.8]">{item.desc}</p>
+                <p className="text-[15px] md:text-[16px] text-[#555555] leading-[1.8]">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -638,9 +427,8 @@ export default function SystemPage() {
       {/* ══════════════════════════════════════════
           Section 11: CTA
       ══════════════════════════════════════════ */}
-      <section className="bg-white py-8 md:py-20" data-reveal>
+      <section className="bg-white py-14 md:py-20" data-reveal>
         <div className="max-w-[600px] mx-auto px-5 text-center">
-          <div className="w-8 h-[1px] bg-[#C9A84C] mx-auto mb-6" />
           <p
             className="text-[18px] md:text-[28px] font-bold text-[#2C2028] leading-[1.6] mb-4"
             style={{ wordBreak: "keep-all" as const }}
@@ -666,7 +454,6 @@ export default function SystemPage() {
               1555-5961
             </a>
           </div>
-          <div className="w-8 h-[1px] bg-[#C9A84C] mx-auto mt-8" />
         </div>
       </section>
 

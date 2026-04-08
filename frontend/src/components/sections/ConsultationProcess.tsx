@@ -54,7 +54,7 @@ export default function ConsultationProcess() {
 
   return (
     <section className="py-20 md:py-28 lg:py-36 bg-stone-50">
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
         {/* Header */}
         <ScrollReveal className="text-center mb-16 md:mb-20">
           <p className="text-xs tracking-[0.3em] text-burgundy-500 font-semibold uppercase mb-4">
@@ -84,7 +84,7 @@ export default function ConsultationProcess() {
                 style={activated ? { animationDelay: `${i * 300}ms`, animationFillMode: "both" } : undefined}
               >
                 <step.icon className="w-7 h-7 text-burgundy-500 mb-1" />
-                <span className="text-[10px] tracking-wider text-gold-600 font-semibold">
+                <span className="text-[15px] tracking-wider text-gold-600 font-semibold">
                   STEP {step.number}
                 </span>
               </div>

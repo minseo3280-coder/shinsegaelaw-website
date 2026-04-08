@@ -230,7 +230,7 @@ export default function SearchDropdown({ isOpen, onClose }: SearchDropdownProps)
         {/* No query → popular tags */}
         {!debouncedQuery.trim() && (
           <div className="p-4">
-            <p className="text-[12px] tracking-[0.15em] text-[#444444] uppercase font-semibold mb-3">
+            <p className="text-[14px] tracking-[0.15em] text-[#444444] uppercase font-semibold mb-3">
               인기 검색어
             </p>
             <div className="flex flex-wrap gap-2">
@@ -238,14 +238,14 @@ export default function SearchDropdown({ isOpen, onClose }: SearchDropdownProps)
                 <button
                   key={tag}
                   onClick={() => handleTagClick(tag)}
-                  className="px-3.5 py-1.5 rounded-full bg-[#F8F4EE] border border-gray-200 text-[13px] text-[#333333] hover:text-[#9B2335] hover:border-[#9B2335]/20 hover:bg-[#FDF2F4] transition-all duration-200"
+                  className="px-3.5 py-1.5 rounded-full bg-[#F8F4EE] border border-gray-200 text-[15px] text-[#333333] hover:text-[#9B2335] hover:border-[#9B2335]/20 hover:bg-[#FDF2F4] transition-all duration-200"
                 >
                   {tag}
                 </button>
               ))}
             </div>
             <div className="mt-5 pt-4 border-t border-gray-100">
-              <p className="text-[12px] tracking-[0.15em] text-[#444444] uppercase font-semibold mb-3">
+              <p className="text-[14px] tracking-[0.15em] text-[#444444] uppercase font-semibold mb-3">
                 바로가기
               </p>
               <div className="space-y-0.5">
@@ -276,7 +276,7 @@ export default function SearchDropdown({ isOpen, onClose }: SearchDropdownProps)
             <p className="text-[15px] text-[#333333] mb-1">
               &ldquo;{debouncedQuery}&rdquo;에 대한 검색결과가 없습니다
             </p>
-            <p className="text-[13px] text-[#444444]">
+            <p className="text-[15px] text-[#444444]">
               다른 검색어로 시도해보세요
             </p>
           </div>
@@ -289,10 +289,10 @@ export default function SearchDropdown({ isOpen, onClose }: SearchDropdownProps)
               <div key={type}>
                 <div className="flex items-center gap-2 px-4 py-2">
                   {getTypeIcon(type)}
-                  <span className="text-[12px] tracking-[0.1em] text-[#444444] uppercase font-semibold">
+                  <span className="text-[14px] tracking-[0.1em] text-[#444444] uppercase font-semibold">
                     {getTypeLabel(type)}
                   </span>
-                  <span className="text-[12px] text-[#C9A84C] font-semibold ml-1">
+                  <span className="text-[14px] text-[#C9A84C] font-semibold ml-1">
                     {items.length}건
                   </span>
                 </div>
@@ -316,7 +316,7 @@ export default function SearchDropdown({ isOpen, onClose }: SearchDropdownProps)
                       <p className="text-[14px] text-[#2C2028] font-semibold leading-snug line-clamp-1 group-hover:text-[#9B2335] transition-colors">
                         <HighlightMatch text={item.title} query={debouncedQuery} />
                       </p>
-                      <p className="text-[12px] text-[#444444] mt-0.5 line-clamp-1">
+                      <p className="text-[14px] text-[#444444] mt-0.5 line-clamp-1">
                         <HighlightMatch text={item.sub} query={debouncedQuery} />
                       </p>
                     </div>
@@ -326,7 +326,7 @@ export default function SearchDropdown({ isOpen, onClose }: SearchDropdownProps)
               </div>
             ))}
             <div className="px-4 py-3 border-t border-gray-100">
-              <p className="text-center text-[13px] text-[#444444]">
+              <p className="text-center text-[15px] text-[#444444]">
                 총 <span className="text-[#9B2335] font-semibold">{results.length}</span>건의 결과
               </p>
             </div>

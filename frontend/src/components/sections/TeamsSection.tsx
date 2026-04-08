@@ -19,11 +19,11 @@ export default function TeamsSection() {
 
   return (
     <section id="teams" className="py-20 md:py-28 lg:py-36 bg-white">
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
         <ScrollReveal>
           {/* Section header */}
           <div className="mb-14 md:mb-20">
-            <p className="text-[12px] tracking-[0.25em] text-[#9B2335]/50 font-semibold uppercase mb-4">
+            <p className="text-[14px] tracking-[0.25em] text-[#9B2335]/50 font-semibold uppercase mb-4">
               Expert Teams
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] text-[#2C2028] leading-[1.3] font-semibold">
@@ -67,12 +67,12 @@ export default function TeamsSection() {
                   </span>
 
                   {/* Tagline — visible on hover (desktop) */}
-                  <span className="hidden lg:block text-[13px] text-[#444444] mr-6 max-w-[300px] truncate opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="hidden lg:block text-[15px] text-[#444444] mr-6 max-w-[300px] truncate opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {team.tagline}
                   </span>
 
                   {/* Leader name */}
-                  <span className="text-[13px] md:text-[14px] text-[#444444] mr-4 shrink-0">
+                  <span className="text-[15px] md:text-[16px] text-[#444444] mr-4 shrink-0">
                     {team.leader}
                   </span>
 

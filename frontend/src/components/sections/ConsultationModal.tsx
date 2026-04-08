@@ -49,7 +49,7 @@ export default function ConsultationModal() {
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b">
                 <div>
-                  <p className="text-[10px] tracking-[0.3em] text-burgundy-500 font-semibold uppercase">
+                  <p className="text-[15px] tracking-[0.3em] text-burgundy-500 font-semibold uppercase">
                     Consultation
                   </p>
                   <h3 className="text-xl font-bold text-navy-900">

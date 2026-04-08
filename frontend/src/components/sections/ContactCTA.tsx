@@ -98,7 +98,7 @@ export default function ContactCTA() {
             {/* Storytelling Headline */}
             <ScrollReveal>
               <div className="max-w-[700px] mb-8 md:mb-16">
-                <p className="text-[12px] md:text-[14px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3 md:mb-5">
+                <p className="text-[14px] md:text-[16px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3 md:mb-5">
                   Our Process
                 </p>
                 <h2
@@ -108,7 +108,6 @@ export default function ContactCTA() {
                   이혼 사건,<br />
                   쟁점마다 <span className="text-burgundy-500">전략</span>이 다릅니다.
                 </h2>
-                <div className="w-8 md:w-10 h-[2px] bg-[#C9A84C] mb-4 md:mb-6" />
                 <p
                   className="text-[14px] md:text-[17px] text-[#555] leading-[1.85] md:leading-[2]"
                   style={{ wordBreak: "keep-all" }}
@@ -137,7 +136,7 @@ export default function ContactCTA() {
                       {/* Left: Number + Vertical Line */}
                       <div className="flex flex-col items-center flex-shrink-0">
                         <div className="w-9 h-9 rounded-full bg-[#F8F4EE] border border-[#C9A84C]/20 flex items-center justify-center">
-                          <span className="text-[12px] font-bold text-[#C9A84C]">
+                          <span className="text-[14px] font-bold text-[#C9A84C]">
                             {step.num.replace("#", "")}
                           </span>
                         </div>
@@ -152,15 +151,15 @@ export default function ContactCTA() {
                           {step.title}
                         </h3>
                         <p
-                          className="text-[13px] text-[#555] leading-[1.7] mb-2.5 whitespace-pre-line"
+                          className="text-[15px] text-[#555] leading-[1.7] mb-2.5 whitespace-pre-line"
                           style={{ wordBreak: "keep-all" }}
                         >
                           {step.desc}
                         </p>
                         <ol className="space-y-1">
                           {step.points.map((point, j) => (
-                            <li key={j} className="flex gap-1.5 text-[12px] text-[#444] leading-[1.55]">
-                              <span className="text-[11px] font-bold text-[#2C2028] mt-[1px] flex-shrink-0">
+                            <li key={j} className="flex gap-1.5 text-[14px] text-[#444] leading-[1.55]">
+                              <span className="text-[15px] font-bold text-[#2C2028] mt-[1px] flex-shrink-0">
                                 {j + 1}.
                               </span>
                               <span style={{ wordBreak: "keep-all" }}>{point}</span>
@@ -205,7 +204,7 @@ export default function ContactCTA() {
                       <ol className="space-y-2 text-left w-full">
                         {step.points.map((point, j) => (
                           <li key={j} className="flex gap-2.5 text-[14px] text-[#444] leading-[1.6]">
-                            <span className="text-[12px] font-bold text-[#2C2028] mt-[1px] flex-shrink-0">
+                            <span className="text-[14px] font-bold text-[#2C2028] mt-[1px] flex-shrink-0">
                               {j + 1}.
                             </span>
                             <span style={{ wordBreak: "keep-all" }}>{point}</span>
@@ -223,7 +222,7 @@ export default function ContactCTA() {
         <div className="h-[2px] bg-gradient-to-r from-transparent via-[#C9A84C]/50 to-transparent" />
 
         {/* ═══ PART 2 — Form Section ═══ */}
-        <div className="bg-[#F8F4EE] py-10 md:py-20 lg:py-24">
+        <div id="consultation-form" className="bg-[#F8F4EE] py-14 md:py-20 lg:py-24">
           <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
 
             <ScrollReveal>
@@ -231,7 +230,7 @@ export default function ContactCTA() {
 
                 {/* ── Left: Info Column ── */}
                 <div>
-                  <p className="text-[12px] md:text-[14px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3 md:mb-4">
+                  <p className="text-[14px] md:text-[16px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3 md:mb-4">
                     Confidential Consultation
                   </p>
                   <h3
@@ -268,7 +267,7 @@ export default function ContactCTA() {
                   <div className="bg-white rounded-xl border border-gray-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.04)] overflow-hidden">
                     {/* 전화번호 영역 */}
                     <div className="px-5 md:px-6 py-5 md:py-6 border-b border-gray-100">
-                      <p className="text-[12px] md:text-[12px] tracking-[0.2em] text-[#C9A84C] uppercase font-bold mb-2">
+                      <p className="text-[14px] md:text-[16px] tracking-[0.2em] text-[#C9A84C] uppercase font-bold mb-2">
                         대표번호
                       </p>
                       <a href={`tel:${firmData.main_phone}`} className="inline-block">
@@ -276,7 +275,7 @@ export default function ContactCTA() {
                           {firmData.main_phone}
                         </span>
                       </a>
-                      <p className="text-[13px] md:text-[14px] text-[#888] mt-1">
+                      <p className="text-[15px] md:text-[16px] text-[#888] mt-1">
                         평일 09:00 – 18:00 · 주말/공휴일 상담접수 가능
                       </p>
                     </div>
@@ -310,7 +309,7 @@ export default function ContactCTA() {
                       ].map((badge, i) => (
                         <div key={i} className="flex items-center gap-1.5">
                           <badge.icon className="w-3.5 h-3.5 text-[#C9A84C]" />
-                          <span className="text-[12px] md:text-[13px] text-[#666] font-medium">{badge.text}</span>
+                          <span className="text-[14px] md:text-[15px] text-[#666] font-medium">{badge.text}</span>
                         </div>
                       ))}
                     </div>
@@ -319,10 +318,10 @@ export default function ContactCTA() {
 
                 {/* ── Right: Form Card ── */}
                 <div className="bg-white rounded-xl md:rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.06)] border border-gray-100 p-5 md:p-8">
-                  <p className="text-[13px] md:text-[14px] tracking-[0.15em] text-[#C9A84C] uppercase font-bold mb-1">
+                  <p className="text-[15px] md:text-[16px] tracking-[0.15em] text-[#C9A84C] uppercase font-bold mb-1">
                     간편 상담 신청
                   </p>
-                  <p className="text-[13px] md:text-[14px] text-[#999] mb-5 md:mb-6">
+                  <p className="text-[15px] md:text-[16px] text-[#999] mb-5 md:mb-6">
                     아래 양식을 작성해 주시면, 담당 변호사가 연락드리겠습니다.
                   </p>
 
@@ -408,7 +407,7 @@ export default function ContactCTA() {
                       {/* 문의 내용 */}
                       <div>
                         <label className="block text-[14px] font-bold text-[#2C2028] mb-1.5">
-                          문의 내용 <span className="text-[#999] font-normal text-[13px]">(선택)</span>
+                          문의 내용 <span className="text-[#999] font-normal text-[15px]">(선택)</span>
                         </label>
                         <textarea
                           placeholder="문의하실 내용을 간단하게 입력해주세요."
@@ -436,7 +435,7 @@ export default function ContactCTA() {
                         >
                           비밀 상담 신청하기
                         </button>
-                        <p className="text-[12px] text-[#999] mt-3 text-center">
+                        <p className="text-[14px] text-[#999] mt-3 text-center">
                           개인정보는 상담 목적으로만 사용됩니다.
                         </p>
                       </div>

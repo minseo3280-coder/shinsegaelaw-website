@@ -26,7 +26,7 @@ const YT_PER_PAGE = 3;
 const SHORTS_PER_PAGE = 4;
 
 /* ─── 공통 컨테이너 (YK 스타일 넓은 레이아웃) ─── */
-const CONTAINER = "max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10";
+const CONTAINER = "max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10";
 
 export default function ChannelPage() {
   const revealRef = useScrollReveal();
@@ -65,10 +65,9 @@ export default function ChannelPage() {
       {/* ═══════════════════════════════════════════
           헤드라인 섹션
       ═══════════════════════════════════════════ */}
-      <section className="bg-white pt-8 pb-8 md:pt-24 md:pb-16">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10" data-reveal>
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-[2px] bg-burgundy-500" />
+      <section className="bg-white py-14 md:py-20">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10" data-reveal>
+          <div className="mb-6">
             <p className="text-[14px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
               Media Channels
             </p>
@@ -129,7 +128,7 @@ export default function ChannelPage() {
       </div>
 
       {/* YouTube Grid */}
-      <section className="bg-white pt-8 pb-10 md:pt-16 md:pb-20">
+      <section className="bg-white py-14 md:py-20">
         <div className={CONTAINER}>
           <div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
@@ -180,7 +179,7 @@ export default function ChannelPage() {
       {/* ═══════════════════════════════════════════
           ZONE 2 — Shorts
       ═══════════════════════════════════════════ */}
-      <section className="bg-white pt-8 pb-10 md:pt-16 md:pb-20">
+      <section className="bg-white py-14 md:py-20">
         <div className={CONTAINER}>
           {/* Header */}
           <div className="flex items-center justify-between mb-10" data-reveal>
@@ -227,7 +226,7 @@ export default function ChannelPage() {
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
                   />
-                  <span className="absolute top-3 left-3 inline-flex items-center gap-1 px-3 py-1.5 rounded bg-red-600/90 text-white text-[13px] font-bold backdrop-blur-sm">
+                  <span className="absolute top-3 left-3 inline-flex items-center gap-1 px-3 py-1.5 rounded bg-red-600/90 text-white text-[15px] font-bold backdrop-blur-sm">
                     <Play size={11} fill="currentColor" />
                     Shorts
                   </span>
@@ -262,7 +261,7 @@ export default function ChannelPage() {
       {/* ═══════════════════════════════════════════
           ZONE 3 — 인스타 웹툰
       ═══════════════════════════════════════════ */}
-      <section className="bg-white pt-8 pb-10 md:pt-16 md:pb-24">
+      <section className="bg-white py-14 md:py-20">
         <div className={CONTAINER}>
           {/* Header */}
           <div className="flex items-center justify-between mb-10" data-reveal>
@@ -324,7 +323,7 @@ export default function ChannelPage() {
                     sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 20vw"
                     className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
                   />
-                  <span className="absolute top-3 left-3 px-3 py-1.5 rounded bg-[#9B2335]/90 text-white text-[13px] font-bold">
+                  <span className="absolute top-3 left-3 px-3 py-1.5 rounded bg-[#9B2335]/90 text-white text-[15px] font-bold">
                     EP.{String(ep.id).padStart(2, "0")}
                   </span>
                 </div>

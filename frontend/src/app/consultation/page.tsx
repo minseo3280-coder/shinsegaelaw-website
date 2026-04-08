@@ -18,6 +18,7 @@ import {
   Phone,
 } from "lucide-react";
 import SubPageHero from "@/components/shared/SubPageHero";
+import ConsultationTabs from "@/components/shared/ConsultationTabs";
 import ScrollReveal from "@/components/ScrollReveal";
 import firmData from "@/../../data/firm_info.json";
 import privacyRaw from "@/../../data/competitor_crawl_pages.json";
@@ -114,14 +115,16 @@ export default function ConsultationPage() {
         bannerImage="/images/office/banner-consultation.jpg"
       />
 
+      <ConsultationTabs />
+
       {/* ═══ SECTION 1 — Intro + Process ═══ */}
-      <section className="bg-white py-12 md:py-20 lg:py-24">
+      <section className="bg-white py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
 
           {/* Intro */}
           <ScrollReveal y={40}>
           <div className="mb-10 md:mb-16">
-            <p className="text-[12px] md:text-[13px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-2 md:mb-3">
+            <p className="text-[14px] md:text-[15px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-2 md:mb-3">
               Free Legal Consultation
             </p>
             <h2
@@ -131,7 +134,6 @@ export default function ConsultationPage() {
               혼자 고민하지 마세요,<br />
               <span className="text-[#9B2335]">신세계로</span>가 길을 열어드립니다.
             </h2>
-            <div className="w-8 md:w-10 h-[2px] bg-[#C9A84C] mb-3 md:mb-5" />
             <p
               className="text-[15px] md:text-[17px] text-[#555] leading-[1.85] md:leading-[2]"
               style={{ wordBreak: "keep-all" }}
@@ -145,7 +147,7 @@ export default function ConsultationPage() {
           {/* 4 Step Process — 가로 라인 연결형 */}
           <ScrollReveal delay={100} y={40}>
           <div className="mb-10 md:mb-16">
-            <p className="text-[12px] md:text-[12px] tracking-[0.25em] text-[#C9A84C] uppercase font-bold mb-6 md:mb-8">
+            <p className="text-[14px] md:text-[16px] tracking-[0.25em] text-[#C9A84C] uppercase font-bold mb-6 md:mb-8">
               상담 진행 절차
             </p>
 
@@ -168,7 +170,7 @@ export default function ConsultationPage() {
                     <h4 className="text-[16px] md:text-[19px] font-bold text-[#2C2028] mb-1.5 md:mb-2">
                       {step.title}
                     </h4>
-                    <p className="text-[13px] md:text-[14px] text-[#888] leading-[1.7]">
+                    <p className="text-[15px] md:text-[16px] text-[#888] leading-[1.7]">
                       {step.desc}
                     </p>
                   </div>
@@ -183,7 +185,7 @@ export default function ConsultationPage() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 px-5 py-4 bg-[#F8F4EE]">
             <div className="flex items-center gap-2.5">
               <MessageSquare size={16} className="text-[#C9A84C]" />
-              <p className="text-[14px] md:text-[14px] text-[#555]">
+              <p className="text-[14px] md:text-[16px] text-[#555]">
                 비밀이 보장되는 <strong className="text-[#2C2028]">1:1 법률상담 게시판</strong>을 이용해보세요.
               </p>
             </div>
@@ -199,7 +201,7 @@ export default function ConsultationPage() {
       </section>
 
       {/* ═══ SECTION 2 — Form ═══ */}
-      <section className="bg-[#F8F4EE] py-12 md:py-20 lg:py-24">
+      <section className="bg-[#F8F4EE] py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
 
           <ScrollReveal delay={100} y={40}>
@@ -207,7 +209,7 @@ export default function ConsultationPage() {
 
             {/* ── Left: Info ── */}
             <div>
-              <p className="text-[12px] md:text-[13px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-2 md:mb-3">
+              <p className="text-[14px] md:text-[15px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-2 md:mb-3">
                 Online Consultation
               </p>
               <h3
@@ -237,14 +239,14 @@ export default function ConsultationPage() {
                 ].map((item) => (
                   <div key={item.text} className="flex items-center gap-3">
                     <item.icon size={15} className="text-[#C9A84C] flex-shrink-0" />
-                    <span className="text-[14px] md:text-[14px] text-[#555]">{item.text}</span>
+                    <span className="text-[14px] md:text-[16px] text-[#555]">{item.text}</span>
                   </div>
                 ))}
               </div>
 
               {/* Phone CTA */}
               <div className="hidden lg:block">
-                <p className="text-[12px] tracking-[0.2em] text-[#C9A84C] uppercase font-bold mb-2">
+                <p className="text-[14px] tracking-[0.2em] text-[#C9A84C] uppercase font-bold mb-2">
                   전화 상담
                 </p>
                 <a href={`tel:${firmData.main_phone}`} className="inline-block">
@@ -252,7 +254,7 @@ export default function ConsultationPage() {
                     {firmData.main_phone}
                   </span>
                 </a>
-                <p className="text-[13px] text-[#aaa] mt-1">
+                <p className="text-[15px] text-[#aaa] mt-1">
                   평일 09:00 – 18:00
                 </p>
               </div>
@@ -281,10 +283,10 @@ export default function ConsultationPage() {
                 <form onSubmit={handleSubmit}>
                   {/* Form header */}
                   <div className="px-5 md:px-7 py-4 md:py-5 border-b border-gray-100 bg-[#FAFAF8]">
-                    <p className="text-[13px] md:text-[13px] tracking-[0.15em] text-[#C9A84C] uppercase font-bold mb-0.5">
+                    <p className="text-[15px] md:text-[15px] tracking-[0.15em] text-[#C9A84C] uppercase font-bold mb-0.5">
                       온라인 상담 신청
                     </p>
-                    <p className="text-[13px] text-[#aaa]">
+                    <p className="text-[15px] text-[#aaa]">
                       아래 양식을 작성해 주시면 담당 변호사가 연락드립니다.
                     </p>
                   </div>
@@ -403,7 +405,7 @@ export default function ConsultationPage() {
                     >
                       {submitting ? "접수 중..." : "비밀 상담 신청하기"}
                     </button>
-                    <p className="text-[12px] text-[#aaa] text-center">
+                    <p className="text-[14px] text-[#aaa] text-center">
                       개인정보는 상담 목적으로만 사용됩니다.
                     </p>
                   </div>
@@ -417,8 +419,8 @@ export default function ConsultationPage() {
           <ScrollReveal delay={200} y={40}>
           <div className="lg:hidden mt-8 flex items-center justify-between px-5 py-4 bg-white border border-gray-200/80">
             <div>
-              <p className="text-[12px] tracking-[0.15em] text-[#C9A84C] uppercase font-bold mb-0.5">전화 상담</p>
-              <p className="text-[13px] text-[#aaa]">평일 09:00 – 18:00</p>
+              <p className="text-[14px] tracking-[0.15em] text-[#C9A84C] uppercase font-bold mb-0.5">전화 상담</p>
+              <p className="text-[15px] text-[#aaa]">평일 09:00 – 18:00</p>
             </div>
             <a
               href={`tel:${firmData.main_phone}`}

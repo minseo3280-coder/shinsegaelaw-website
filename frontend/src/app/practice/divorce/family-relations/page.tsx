@@ -37,11 +37,10 @@ export default function FamilyRelationsPage() {
 
       <PracticeRevealWrapper>
         {/* ═══════════ SECTION 1 : HERO HEADLINE ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-[2px] bg-burgundy-500" />
+              <div className="mb-6">
                 <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                   FAMILY RELATIONSHIP &amp; PATERNITY GUIDE
                 </p>
@@ -73,8 +72,8 @@ export default function FamilyRelationsPage() {
         </section>
 
         {/* ═══════════ SECTION 2 : 4가지 대응 카드 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 LEGAL SOLUTIONS
@@ -118,7 +117,7 @@ export default function FamilyRelationsPage() {
                   <h4 className="font-sans text-[15px] md:text-[17px] font-bold text-[#2C2028] mb-2 md:mb-3">
                     {item.title}
                   </h4>
-                  <p className="text-[13px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#444444]">
+                  <p className="text-[15px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#444444]">
                     {item.desc}
                   </p>
                 </div>
@@ -128,8 +127,8 @@ export default function FamilyRelationsPage() {
         </section>
 
         {/* ═══════════ SECTION 3 : 친생자관계존부확인의 소 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="mb-14" data-reveal>
               <h3 className="font-sans text-[28px] md:text-[34px] font-bold text-[#2C2028] mb-6 leading-tight">
                 친생자관계존부확인의 소
@@ -248,8 +247,8 @@ export default function FamilyRelationsPage() {
         </section>
 
         {/* ═══════════ SECTION 4 : 친생부인의 소 + 부를 정하는 소 / 인지 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
               {/* LEFT: 친생부인의 소 */}
               <div data-reveal>
@@ -422,8 +421,8 @@ export default function FamilyRelationsPage() {
         </section>
 
         {/* ═══════════ SECTION 5 : 핵심 체크포인트 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <h3 className="font-sans text-[28px] md:text-[34px] font-bold text-[#2C2028] leading-tight mb-4">
                 친자소송 핵심 체크포인트
@@ -468,7 +467,7 @@ export default function FamilyRelationsPage() {
                   <h4 className="text-[15px] md:text-[18px] font-bold text-[#2C2028] mb-2 md:mb-3">
                     {item.title}
                   </h4>
-                  <p className="text-[13px] md:text-[15px] leading-[1.6] text-[#3A3238]">
+                  <p className="text-[15px] md:text-[15px] leading-[1.6] text-[#3A3238]">
                     {item.desc}
                   </p>
                 </div>
@@ -509,9 +508,8 @@ export default function FamilyRelationsPage() {
           }}
         >
           <div className="absolute inset-0 bg-[#1A1A2E]/85" />
-          <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10 text-center">
+          <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mb-6" />
               <p className="text-[20px] md:text-[26px] lg:text-[30px] text-white leading-[1.7] font-semibold">
                 &ldquo;가족관계의 진실은
                 <br className="hidden md:block" />
@@ -519,7 +517,6 @@ export default function FamilyRelationsPage() {
                 <br className="hidden md:block" />
                 법적 정체성은 모든 권리의 출발점입니다.&rdquo;
               </p>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mt-6 mb-4" />
               <p className="text-[15px] text-[#C9A84C] tracking-wider">
                 가족관계(친자)팀 조윤용 팀장
               </p>
@@ -528,8 +525,8 @@ export default function FamilyRelationsPage() {
         </section>
 
         {/* ═══════════ SECTION 7 : TEAM LINK ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
               <div className="bg-[#F8F4EE] rounded-2xl p-5 md:p-12 flex flex-col md:flex-row items-center gap-5 md:gap-8">
                 <div className="flex-1">
@@ -560,8 +557,8 @@ export default function FamilyRelationsPage() {
         </section>
 
         {/* ═══════════ SECTION 8 : CTA ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-5xl mx-auto px-6 md:px-10 text-center">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
               <h3 className="font-sans text-[28px] md:text-[36px] lg:text-[40px] font-bold text-[#2C2028] mb-4 leading-tight">
                 엇갈린 가족관계, 지금 바로잡을 수 있습니다

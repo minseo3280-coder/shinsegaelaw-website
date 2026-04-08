@@ -43,7 +43,7 @@ export default function ShortsPage() {
       <div className="max-w-7xl mx-auto px-6 md:px-8 pt-12 md:pt-16 pb-20 md:pb-28">
         {/* Section Header */}
         <div className="mb-10">
-          <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-burgundy-500 mb-3">
+          <p className="text-[15px] font-semibold tracking-[0.3em] uppercase text-burgundy-500 mb-3">
             YouTube Shorts
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight">
@@ -52,13 +52,12 @@ export default function ShortsPage() {
           <p className="text-[15px] text-[#444444] leading-relaxed mt-3 max-w-[600px]">
             복잡한 법률 이야기를 짧고 핵심만 담은 쇼츠로 빠르게 확인하세요.
           </p>
-          <div className="w-12 h-[2px] bg-gold-500 mt-4" />
         </div>
 
         {/* Count Badge */}
         {totalCount > 0 && (
           <div className="flex items-center gap-2 mb-8">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-burgundy-50 text-burgundy-600 text-[13px] font-semibold">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-burgundy-50 text-burgundy-600 text-[15px] font-semibold">
               <Play size={12} fill="currentColor" />
               총 {totalCount}개 쇼츠
             </span>
@@ -85,17 +84,17 @@ export default function ShortsPage() {
                     className="object-cover"
                   />
                   {/* Shorts Badge */}
-                  <span className="absolute top-3 left-3 inline-flex items-center gap-1 px-2 py-0.5 rounded bg-red-600/90 text-white text-[11px] font-bold">
+                  <span className="absolute top-3 left-3 inline-flex items-center gap-1 px-2 py-0.5 rounded bg-red-600/90 text-white text-[15px] font-bold">
                     <Play size={10} fill="currentColor" />
                     Shorts
                   </span>
                   {/* Bottom Gradient + Title + Date */}
                   <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                    <p className="text-[13px] font-semibold text-white leading-tight line-clamp-2">
+                    <p className="text-[15px] font-semibold text-white leading-tight line-clamp-2">
                       {video.title || "법률 상담 쇼츠"}
                     </p>
                     {(video as { date?: string | null }).date && (
-                      <p className="text-[11px] text-white/60 mt-1">
+                      <p className="text-[15px] text-white/60 mt-1">
                         {(video as { date?: string | null }).date}
                       </p>
                     )}
@@ -131,7 +130,7 @@ export default function ShortsPage() {
             </div>
             <div>
               <h4 className="text-[16px] font-bold text-gray-900">더 많은 쇼츠를 보고 싶다면?</h4>
-              <p className="text-[13px] text-[#444444]">조인섭 변호사 채널에서 매주 새로운 법률 쇼츠가 업로드됩니다</p>
+              <p className="text-[15px] text-[#444444]">조인섭 변호사 채널에서 매주 새로운 법률 쇼츠가 업로드됩니다</p>
             </div>
           </div>
           <a
@@ -154,7 +153,7 @@ export default function ShortsPage() {
           {/* 헤더 */}
           <div className="flex items-center justify-between mb-10">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#E1306C] to-[#C13584] text-white text-[12px] font-bold mb-4">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#E1306C] to-[#C13584] text-white text-[14px] font-bold mb-4">
                 <Instagram size={14} />
                 Instagram Webtoon
               </div>
@@ -199,7 +198,7 @@ export default function ShortsPage() {
                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
                     className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
                   />
-                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#9B2335] text-white text-[11px] font-bold">
+                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#9B2335] text-white text-[15px] font-bold">
                     EP.{String(item.ep).padStart(2, "0")}
                   </span>
                 </div>

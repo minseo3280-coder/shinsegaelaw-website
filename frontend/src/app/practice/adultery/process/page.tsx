@@ -52,11 +52,10 @@ export default function AdulteryProcessPage() {
 
       <PracticeRevealWrapper>
         {/* ═══════════ SECTION 1 : HERO HEADLINE ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal className="max-w-5xl">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-8 h-[2px] bg-burgundy-500" />
+              <div className="mb-5">
                 <p className="text-[14px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                   PROCEDURE & PRECAUTIONS
                 </p>
@@ -84,10 +83,10 @@ export default function AdulteryProcessPage() {
         </section>
 
         {/* ═══════════ SECTION 2 : 6단계 소송 절차 타임라인 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
-              <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
+              <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 LITIGATION PROCESS
               </p>
               <h3 className="font-sans text-[26px] md:text-[32px] font-bold text-[#2C2028] leading-tight mb-3">
@@ -160,7 +159,7 @@ export default function AdulteryProcessPage() {
                 >
                   <div className="flex items-center justify-between mb-3 md:mb-4">
                     <p
-                      className={`text-[11px] md:text-[13px] font-bold tracking-wider ${
+                      className={`text-[15px] md:text-[15px] font-bold tracking-wider ${
                         item.highlight
                           ? "text-burgundy-500"
                           : "text-[#C9A84C]"
@@ -168,7 +167,7 @@ export default function AdulteryProcessPage() {
                     >
                       {item.step}
                     </p>
-                    <span className="inline-flex items-center gap-1 text-[11px] md:text-[13px] font-semibold text-[#444444] bg-gray-50 px-2 md:px-2.5 py-0.5 md:py-1 rounded-full">
+                    <span className="inline-flex items-center gap-1 text-[15px] md:text-[15px] font-semibold text-[#444444] bg-gray-50 px-2 md:px-2.5 py-0.5 md:py-1 rounded-full">
                       <Timer size={12} />
                       {item.time}
                     </span>
@@ -179,7 +178,7 @@ export default function AdulteryProcessPage() {
                   <h4 className="font-sans text-[15px] md:text-[17px] font-bold text-[#2C2028] mb-2 md:mb-3">
                     {item.title}
                   </h4>
-                  <p className="text-[13px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#444444]">
+                  <p className="text-[15px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#444444]">
                     {item.desc}
                   </p>
                 </div>
@@ -204,12 +203,12 @@ export default function AdulteryProcessPage() {
         </section>
 
         {/* ═══════════ SECTION 3 : 인적사항 특정 (3가지 핵심 경로) ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
               {/* LEFT: 인적사항 특정 설명 */}
               <div data-reveal>
-                <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
+                <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                   IDENTIFICATION
                 </p>
                 <h3 className="font-sans text-[26px] md:text-[30px] font-bold text-[#2C2028] mb-6 leading-tight">
@@ -251,7 +250,7 @@ export default function AdulteryProcessPage() {
                         <PhoneCall size={18} />
                       </div>
                       <div>
-                        <p className="text-[12px] font-bold text-burgundy-500">
+                        <p className="text-[14px] font-bold text-burgundy-500">
                           경로 01
                         </p>
                         <h4 className="font-sans text-[16px] font-bold text-[#2C2028]">
@@ -290,7 +289,7 @@ export default function AdulteryProcessPage() {
                         <Landmark size={18} />
                       </div>
                       <div>
-                        <p className="text-[12px] font-bold text-burgundy-500">
+                        <p className="text-[14px] font-bold text-burgundy-500">
                           경로 02
                         </p>
                         <h4 className="font-sans text-[16px] font-bold text-[#2C2028]">
@@ -328,7 +327,7 @@ export default function AdulteryProcessPage() {
                         <Building2 size={18} />
                       </div>
                       <div>
-                        <p className="text-[12px] font-bold text-burgundy-500">
+                        <p className="text-[14px] font-bold text-burgundy-500">
                           경로 03
                         </p>
                         <h4 className="font-sans text-[16px] font-bold text-[#2C2028]">
@@ -365,8 +364,8 @@ export default function AdulteryProcessPage() {
         </section>
 
         {/* ═══════════ SECTION 4 : 별거 중 상간자 소송 주의 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
               {/* LEFT */}
               <div data-reveal>
@@ -430,10 +429,10 @@ export default function AdulteryProcessPage() {
         </section>
 
         {/* ═══════════ SECTION 5 : 기혼 사실 인지 여부 증명 (3카드) ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
-              <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-burgundy-500 mb-4">
+              <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500 mb-4">
                 핵심 요건
               </p>
               <h3 className="font-sans text-[26px] md:text-[32px] font-bold text-[#2C2028] leading-tight mb-3">
@@ -543,12 +542,12 @@ export default function AdulteryProcessPage() {
         </section>
 
         {/* ═══════════ SECTION 6 : 거짓말을 증거로 만드는 기술 + 실제 승소 판례 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
               {/* LEFT: 거짓말 → 증거 기술 */}
               <div data-reveal>
-                <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-burgundy-500 mb-4">
+                <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500 mb-4">
                   중요한 증거
                 </p>
                 <h3 className="font-sans text-[26px] md:text-[30px] font-bold text-[#2C2028] mb-6 leading-tight">
@@ -597,7 +596,7 @@ export default function AdulteryProcessPage() {
 
               {/* RIGHT: 실제 승소 판례 3카드 */}
               <div data-reveal>
-                <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
+                <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                   실제 승소 판례: 고의성 입증 사례
                 </p>
 
@@ -623,7 +622,7 @@ export default function AdulteryProcessPage() {
                       key={i}
                       className="bg-white rounded-xl p-6 shadow-[0_2px_12px_rgba(0,0,0,0.04)] border-l-[3px] border-burgundy-200"
                     >
-                      <span className="inline-block text-[12px] font-bold text-white bg-burgundy-500 px-2.5 py-1 rounded-full mb-3">
+                      <span className="inline-block text-[14px] font-bold text-white bg-burgundy-500 px-2.5 py-1 rounded-full mb-3">
                         {item.badge}
                       </span>
                       <h4 className="font-sans text-[16px] font-bold text-[#2C2028] mb-2">
@@ -641,8 +640,8 @@ export default function AdulteryProcessPage() {
         </section>
 
         {/* ═══════════ SECTION 7 : 고의성 입증 주의사항 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-5xl mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-5xl mx-auto px-5 md:px-10">
             <div data-reveal>
               <div className="bg-burgundy-50 rounded-2xl p-5 md:p-10 border border-burgundy-100">
                 <div className="flex items-center gap-3 mb-8">
@@ -712,11 +711,11 @@ export default function AdulteryProcessPage() {
         </section>
 
         {/* ═══════════ SECTION 8 : 기각/패소 사례 + 예방 조언 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             {/* 기각/패소 사례 */}
             <div className="text-center mb-14" data-reveal>
-              <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-burgundy-500 mb-4">
+              <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500 mb-4">
                 RISK ANALYSIS
               </p>
               <h3 className="font-sans text-[26px] md:text-[32px] font-bold text-[#2C2028] leading-tight mb-3">
@@ -806,7 +805,7 @@ export default function AdulteryProcessPage() {
                           {item.title}
                         </h4>
                       </div>
-                      <p className="text-[13px] md:text-[15px] leading-[1.7] text-[#3A3238] pl-9 md:pl-10">
+                      <p className="text-[15px] md:text-[15px] leading-[1.7] text-[#3A3238] pl-9 md:pl-10">
                         {item.desc}
                       </p>
                     </div>
@@ -857,10 +856,10 @@ export default function AdulteryProcessPage() {
         </section>
 
         {/* ═══════════ SECTION 9 : 판결금 확보 전략 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
-              <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
+              <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 ASSET RECOVERY
               </p>
               <h3 className="font-sans text-[26px] md:text-[32px] font-bold text-[#2C2028] leading-tight mb-3">
@@ -916,10 +915,10 @@ export default function AdulteryProcessPage() {
                   <h4 className="font-sans text-[14px] md:text-[16px] font-bold text-[#2C2028] mb-1.5 md:mb-2">
                     {item.title}
                   </h4>
-                  <p className="text-[12px] md:text-[14px] leading-[1.6] md:leading-[1.7] text-[#333333] mb-2 md:mb-3">
+                  <p className="text-[14px] md:text-[16px] leading-[1.6] md:leading-[1.7] text-[#333333] mb-2 md:mb-3">
                     {item.desc}
                   </p>
-                  <span className="inline-block text-[11px] md:text-[12px] text-burgundy-500 bg-burgundy-50 px-2 md:px-2.5 py-0.5 md:py-1 rounded-full font-semibold">
+                  <span className="inline-block text-[15px] md:text-[16px] text-burgundy-500 bg-burgundy-50 px-2 md:px-2.5 py-0.5 md:py-1 rounded-full font-semibold">
                     {item.note}
                   </span>
                 </div>
@@ -1016,12 +1015,12 @@ export default function AdulteryProcessPage() {
         </section>
 
         {/* ═══════════ SECTION 10 : 골든타임 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
               {/* LEFT: 골든타임 */}
               <div data-reveal>
-                <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-burgundy-500 mb-4">
+                <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500 mb-4">
                   GOLDEN TIME
                 </p>
                 <h3 className="font-sans text-[26px] md:text-[30px] font-bold text-[#2C2028] mb-6 leading-tight">
@@ -1076,7 +1075,7 @@ export default function AdulteryProcessPage() {
               {/* RIGHT: 왜 신세계로인가? */}
               <div data-reveal>
                 <div className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.06)] h-full flex flex-col justify-center">
-                  <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
+                  <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                     WHY SHINSEGAERO
                   </p>
                   <h4 className="font-sans text-[22px] md:text-[26px] font-bold text-[#2C2028] mb-8 leading-tight">
@@ -1136,9 +1135,8 @@ export default function AdulteryProcessPage() {
           }}
         >
           <div className="absolute inset-0 bg-[#1A1A2E]/85" />
-          <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10 text-center">
+          <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mb-6" />
               <p className="text-[20px] md:text-[26px] lg:text-[30px] text-white leading-[1.7] font-semibold">
                 &ldquo;상간자소송은 감정이 아닌
                 <br className="hidden md:block" />
@@ -1147,7 +1145,6 @@ export default function AdulteryProcessPage() {
                 치밀한 법률 전략만이 정당한 배상을
                 이끌어냅니다.&rdquo;
               </p>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mt-6 mb-4" />
               <p className="text-[15px] text-[#C9A84C] tracking-wider">
                 위자료팀 신진희 팀장
               </p>
@@ -1156,12 +1153,12 @@ export default function AdulteryProcessPage() {
         </section>
 
         {/* ═══════════ SECTION 12 : TEAM LINK ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
               <div className="bg-[#F8F4EE] rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
                 <div className="flex-1">
-                  <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-3">
+                  <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-3">
                     SPECIALIZED TEAM
                   </p>
                   <h3 className="font-sans text-[24px] md:text-[30px] font-bold text-[#2C2028] mb-3 leading-tight">
@@ -1188,8 +1185,8 @@ export default function AdulteryProcessPage() {
         </section>
 
         {/* ═══════════ SECTION 13 : CTA ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-5xl mx-auto px-6 md:px-10 text-center">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
               <h3 className="font-sans text-[28px] md:text-[36px] lg:text-[40px] font-bold text-[#2C2028] mb-4 leading-tight">
                 복잡한 절차와 주의사항,

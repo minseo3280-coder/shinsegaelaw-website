@@ -32,7 +32,7 @@ export default function WebtoonPage() {
       <div className="max-w-7xl mx-auto px-6 md:px-8 pt-12 md:pt-16 pb-20 md:pb-28">
         {/* Webtoon Hero */}
         <div className="bg-gradient-to-br from-burgundy-50 via-white to-burgundy-50 rounded-[20px] border border-burgundy-100 p-10 md:p-12 text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#E1306C] to-[#C13584] text-white text-[12px] font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#E1306C] to-[#C13584] text-white text-[14px] font-semibold mb-4">
             <Instagram size={14} />
             Instagram Webtoon
           </div>
@@ -64,14 +64,14 @@ export default function WebtoonPage() {
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
                   className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
                 />
-                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-burgundy-500 text-white text-[11px] font-bold">
+                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-burgundy-500 text-white text-[15px] font-bold">
                   EP.{String(item.ep).padStart(2, "0")}
                 </span>
               </div>
               <p className="text-[14px] font-semibold text-[#2C2028] mt-3 text-center">
                 이혼사건 다이어리 {item.ep}화
               </p>
-              <p className="text-[12px] text-[#888888] text-center mt-0.5">
+              <p className="text-[14px] text-[#888888] text-center mt-0.5">
                 조인섭 변호사
               </p>
             </a>

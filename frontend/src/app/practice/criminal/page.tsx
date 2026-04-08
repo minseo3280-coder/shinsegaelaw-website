@@ -42,11 +42,10 @@ export default function CriminalPage() {
 
       <PracticeRevealWrapper>
         {/* ═══════════ SECTION 1 : HERO HEADLINE ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal className="max-w-5xl">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-8 h-[2px] bg-burgundy-500" />
+              <div className="mb-5">
                 <p className="text-[14px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                   가사 및 형사 소송
                 </p>
@@ -80,8 +79,8 @@ export default function CriminalPage() {
         </section>
 
         {/* ═══════════ SECTION 2 : 4가지 핵심 형사 분야 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div
               className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6"
               data-reveal
@@ -119,7 +118,7 @@ export default function CriminalPage() {
                   <h4 className="font-sans text-[15px] md:text-[17px] font-bold text-[#2C2028] mb-2 md:mb-3">
                     {item.title}
                   </h4>
-                  <p className="text-[13px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#444444]">
+                  <p className="text-[15px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#444444]">
                     {item.desc}
                   </p>
                 </div>
@@ -129,10 +128,10 @@ export default function CriminalPage() {
         </section>
 
         {/* ═══════════ SECTION 3 : 이혼 소송 중 빈번한 형사 쟁점 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
-              <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
+              <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 FREQUENT ISSUES
               </p>
               <h3 className="font-sans text-[26px] md:text-[32px] font-bold text-[#2C2028] leading-tight mb-3">
@@ -182,8 +181,8 @@ export default function CriminalPage() {
         </section>
 
         {/* ═══════════ SECTION 4 : 불법 증거 수집 경고 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
               {/* LEFT: 경고 메시지 */}
               <div data-reveal>
@@ -285,7 +284,7 @@ export default function CriminalPage() {
                   <h4 className="font-sans text-[16px] font-bold text-[#2C2028] mb-4">
                     디지털 범죄 대응
                   </h4>
-                  <p className="text-[13px] text-[#444444] mb-4">
+                  <p className="text-[15px] text-[#444444] mb-4">
                     디지털 범죄 및 개인정보 보호법
                   </p>
                   <div className="space-y-3">
@@ -293,7 +292,7 @@ export default function CriminalPage() {
                       <p className="text-[14px] font-bold text-burgundy-600 mb-1">
                         개인정보보호법 위반
                       </p>
-                      <p className="text-[13px] leading-[1.7] text-[#333333]">
+                      <p className="text-[15px] leading-[1.7] text-[#333333]">
                         타인에게 배우자의 도촉 결과를 누구든 개인 정보를
                         금융정보 등 무단으로 조회 시 형사 책임을 지게 됩니다.
                       </p>
@@ -302,7 +301,7 @@ export default function CriminalPage() {
                       <p className="text-[14px] font-bold text-burgundy-600 mb-1">
                         정보통신망법 위반
                       </p>
-                      <p className="text-[13px] leading-[1.7] text-[#333333]">
+                      <p className="text-[15px] leading-[1.7] text-[#333333]">
                         잠금장치 된 핸드폰이나 컴퓨터에 접근하여 카톡 등의
                         내용을 확인하는 것만으로도 5년 이하의 징역 형량이
                         가능합니다.
@@ -316,10 +315,10 @@ export default function CriminalPage() {
         </section>
 
         {/* ═══════════ SECTION 5 : 7가지 형사소송 유형 상세 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
-              <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-burgundy-500 mb-4">
+              <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500 mb-4">
                 중점 대응 형사 사건
               </p>
               <h3 className="font-sans text-[26px] md:text-[32px] font-bold text-[#2C2028] leading-tight mb-3">
@@ -377,7 +376,7 @@ export default function CriminalPage() {
                     {item.details.map((d, j) => (
                       <li
                         key={j}
-                        className="flex items-start gap-2 text-[14px] md:text-[14px] text-[#444444]"
+                        className="flex items-start gap-2 text-[14px] md:text-[16px] text-[#444444]"
                       >
                         <CheckCircle2
                           size={14}
@@ -387,7 +386,7 @@ export default function CriminalPage() {
                       </li>
                     ))}
                   </ul>
-                  <p className="text-[11px] md:text-[13px] font-semibold text-burgundy-500">
+                  <p className="text-[15px] md:text-[15px] font-semibold text-burgundy-500">
                     FOCUS: {item.focus}
                   </p>
                 </div>
@@ -440,7 +439,7 @@ export default function CriminalPage() {
                     {item.details.map((d, j) => (
                       <li
                         key={j}
-                        className="flex items-start gap-2 text-[14px] md:text-[14px] text-[#444444]"
+                        className="flex items-start gap-2 text-[14px] md:text-[16px] text-[#444444]"
                       >
                         <CheckCircle2
                           size={14}
@@ -450,7 +449,7 @@ export default function CriminalPage() {
                       </li>
                     ))}
                   </ul>
-                  <p className="text-[11px] md:text-[13px] font-semibold text-burgundy-500">
+                  <p className="text-[15px] md:text-[15px] font-semibold text-burgundy-500">
                     FOCUS: {item.focus}
                   </p>
                 </div>
@@ -499,8 +498,8 @@ export default function CriminalPage() {
         </section>
 
         {/* ═══════════ SECTION 6 : 체계적인 형사 대응 서비스 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <h3 className="font-sans text-[26px] md:text-[32px] font-bold text-[#2C2028] leading-tight mb-3">
                 체계적인 형사 대응 서비스
@@ -548,8 +547,8 @@ export default function CriminalPage() {
         </section>
 
         {/* ═══════════ SECTION 7 : 왜 통합 대응이 필수인가 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <h3 className="font-sans text-[26px] md:text-[32px] font-bold text-[#2C2028] leading-tight mb-3">
                 왜 &lsquo;통합 대응&rsquo;이 필수적인가?
@@ -597,7 +596,7 @@ export default function CriminalPage() {
             {/* 원스톱 협업 체계 4단계 */}
             <div className="grid lg:grid-cols-2 gap-10 items-center" data-reveal>
               <div>
-                <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-burgundy-500 mb-4">
+                <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500 mb-4">
                   시너지 시스템
                 </p>
                 <h3 className="font-sans text-[24px] md:text-[28px] font-bold text-[#2C2028] mb-4 leading-tight">
@@ -644,7 +643,7 @@ export default function CriminalPage() {
                     <h4 className="text-[14px] md:text-[16px] font-bold text-[#2C2028] mb-1.5 md:mb-2">
                       {item.title}
                     </h4>
-                    <p className="text-[12px] md:text-[14px] leading-[1.6] text-[#3A3238]">
+                    <p className="text-[14px] md:text-[16px] leading-[1.6] text-[#3A3238]">
                       {item.desc}
                     </p>
                   </div>
@@ -655,8 +654,8 @@ export default function CriminalPage() {
         </section>
 
         {/* ═══════════ SECTION 8 : 주요 성공 사례 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <h3 className="font-sans text-[26px] md:text-[32px] font-bold text-[#2C2028] leading-tight mb-3">
                 주요 성공 사례
@@ -671,10 +670,10 @@ export default function CriminalPage() {
               {/* 사례 1 */}
               <div className="bg-white rounded-xl p-5 md:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
                 <div className="flex gap-2 mb-3 md:mb-4">
-                  <span className="text-[11px] md:text-[12px] font-bold text-white bg-burgundy-500 px-2.5 py-1 rounded-full">
+                  <span className="text-[15px] md:text-[16px] font-bold text-white bg-burgundy-500 px-2.5 py-1 rounded-full">
                     #아동학대무혐의
                   </span>
-                  <span className="text-[11px] md:text-[12px] font-bold text-burgundy-500 bg-burgundy-50 px-2.5 py-1 rounded-full">
+                  <span className="text-[15px] md:text-[16px] font-bold text-burgundy-500 bg-burgundy-50 px-2.5 py-1 rounded-full">
                     #양육권확보
                   </span>
                 </div>
@@ -693,10 +692,10 @@ export default function CriminalPage() {
               {/* 사례 2 */}
               <div className="bg-white rounded-xl p-5 md:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
                 <div className="flex gap-2 mb-3 md:mb-4">
-                  <span className="text-[11px] md:text-[12px] font-bold text-white bg-burgundy-500 px-2.5 py-1 rounded-full">
+                  <span className="text-[15px] md:text-[16px] font-bold text-white bg-burgundy-500 px-2.5 py-1 rounded-full">
                     #가정폭력방어
                   </span>
-                  <span className="text-[11px] md:text-[12px] font-bold text-burgundy-500 bg-burgundy-50 px-2.5 py-1 rounded-full">
+                  <span className="text-[15px] md:text-[16px] font-bold text-burgundy-500 bg-burgundy-50 px-2.5 py-1 rounded-full">
                     #위자료감액
                   </span>
                 </div>
@@ -716,8 +715,8 @@ export default function CriminalPage() {
         </section>
 
         {/* ═══════════ SECTION 9 : 3대 핵심 원칙 + 대응 타임라인 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
               {/* LEFT: 3대 핵심 원칙 */}
               <div data-reveal>
@@ -843,9 +842,8 @@ export default function CriminalPage() {
           }}
         >
           <div className="absolute inset-0 bg-[#1A1A2E]/85" />
-          <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10 text-center">
+          <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mb-6" />
               <p className="text-[20px] md:text-[26px] lg:text-[30px] text-white leading-[1.7] font-semibold">
                 &ldquo;가사분쟁에서 파생된 형사사건일수록,
                 <br className="hidden md:block" />
@@ -853,7 +851,6 @@ export default function CriminalPage() {
                 <br className="hidden md:block" />
                 전문적인 대응이 반드시 필요합니다.&rdquo;
               </p>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mt-6 mb-4" />
               <p className="text-[15px] text-[#C9A84C] tracking-wider">
                 형사사건팀 이명인 팀장
               </p>
@@ -862,12 +859,12 @@ export default function CriminalPage() {
         </section>
 
         {/* ═══════════ SECTION 11 : TEAM LINK ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
               <div className="bg-[#F8F4EE] rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
                 <div className="flex-1">
-                  <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-3">
+                  <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-3">
                     SPECIALIZED TEAM
                   </p>
                   <h3 className="font-sans text-[24px] md:text-[30px] font-bold text-[#2C2028] mb-3 leading-tight">
@@ -895,8 +892,8 @@ export default function CriminalPage() {
         </section>
 
         {/* ═══════════ SECTION 12 : CTA ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-5xl mx-auto px-6 md:px-10 text-center">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
               <h3 className="font-sans text-[28px] md:text-[36px] lg:text-[42px] font-bold text-[#2C2028] mb-4 leading-tight">
                 골든타임을 놓치지 마십시오.

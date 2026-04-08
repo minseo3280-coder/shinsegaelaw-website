@@ -117,7 +117,7 @@ function ReviewCard({ item, index }: { item: ReviewItem; index: number }) {
             <div className="flex items-center justify-between gap-2 mb-1">
               <span className="text-[14px] md:text-[15px] font-semibold text-[#2C2028]">{item.case_type}</span>
               {item.lawyer && (
-                <span className="text-[13px] md:text-[14px] text-[#333333] truncate max-w-[55%] text-right line-clamp-1">담당: {item.lawyer}</span>
+                <span className="text-[15px] md:text-[16px] text-[#333333] truncate max-w-[55%] text-right line-clamp-1">담당: {item.lawyer}</span>
               )}
             </div>
           </div>
@@ -233,21 +233,20 @@ function ReviewsContent() {
           priority
         />
         <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-8 lg:px-10 h-full flex flex-col justify-end pb-10">
-          <nav className="flex items-center gap-2 text-[13px] text-white/40 mb-4" aria-label="breadcrumb">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 h-full flex flex-col justify-end pb-10">
+          <nav className="flex items-center gap-2 text-[15px] text-white/40 mb-4" aria-label="breadcrumb">
             <Link href="/" className="hover:text-white/60 transition-colors duration-200">홈</Link>
             <ChevronRight size={12} className="text-white/20" />
             <Link href="/cases" className="hover:text-white/60 transition-colors duration-200">해결사례</Link>
             <ChevronRight size={12} className="text-white/20" />
             <span className="text-white/70 font-semibold">의뢰인 후기</span>
           </nav>
-          <p className="text-[12px] tracking-[0.3em] text-[#C9A84C]/70 uppercase font-semibold mb-2">
+          <p className="text-[14px] tracking-[0.3em] text-[#C9A84C]/70 uppercase font-semibold mb-2">
             Client Reviews
           </p>
           <h1 className="font-sans text-[22px] md:text-[38px] font-extrabold text-white tracking-tight">
             의뢰인 후기
           </h1>
-          <div className="w-12 h-[2px] bg-[#C9A84C] mt-4 rounded-full" />
         </div>
       </section>
 
@@ -255,12 +254,11 @@ function ReviewsContent() {
       <CasesTabs />
 
       {/* ─── Intro Heading ─── */}
-      <section className="bg-white py-10 md:py-28 lg:py-32">
+      <section className="bg-white py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-5 md:px-10">
           <ScrollReveal y={40}>
-            <div className="flex items-center gap-3 mb-4 md:mb-6">
-              <div className="w-8 md:w-10 h-[2px] bg-burgundy-500" />
-              <p className="text-[13px] md:text-[14px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
+            <div className="mb-4 md:mb-6">
+              <p className="text-[15px] md:text-[16px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                 의뢰인 후기
               </p>
             </div>
@@ -282,7 +280,7 @@ function ReviewsContent() {
           <>
             {/* ─── Filter Bar ─── */}
             <div className="bg-white pb-4 md:pb-10">
-              <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+              <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
                 <ScrollReveal y={40} delay={100}>
                   {/* Filter Pills */}
                   <div className="flex md:flex-wrap md:justify-center gap-2 mb-5 overflow-x-auto pb-2 md:pb-0 scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0">
@@ -290,14 +288,14 @@ function ReviewsContent() {
                       <button
                         key={cat.key}
                         onClick={() => handleCategoryChange(cat.key)}
-                        className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-[13px] md:text-[14px] font-semibold border transition-all duration-200 whitespace-nowrap flex-shrink-0 min-h-[44px] ${
+                        className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-[15px] md:text-[16px] font-semibold border transition-all duration-200 whitespace-nowrap flex-shrink-0 min-h-[44px] ${
                           activeCategory === cat.key
                             ? "bg-burgundy-500 text-white border-burgundy-500 shadow-sm"
                             : "bg-white text-[#333333] border-gray-200 hover:border-burgundy-300 hover:text-burgundy-600"
                         }`}
                       >
                         {cat.label}
-                        <span className={`text-[13px] ${
+                        <span className={`text-[15px] ${
                           activeCategory === cat.key ? "text-white/70" : "text-gray-400"
                         }`}>
                           {categoryCounts[cat.key] || 0}
@@ -350,7 +348,7 @@ function ReviewsContent() {
 
             {/* ─── Reviews Grid ─── */}
             <div className="bg-[#F8F4EE] border-t border-[#e8e3d9]">
-              <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10 py-8 md:py-16">
+              <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-14 md:py-20">
                 <ScrollReveal y={40} delay={200}>
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -418,7 +416,7 @@ function ReviewsContent() {
         )}
 
         {activeTab === 1 && (
-          <div className="max-w-[1600px] mx-auto px-6 md:px-8 lg:px-10 py-16 text-center">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-16 text-center">
             <p className="text-[17px] font-semibold text-gray-900 mb-2">준비 중입니다</p>
             <p className="text-[16px] text-[#333333] font-semibold">언론매체 콘텐츠는 빠른 시일 내에 업데이트됩니다.</p>
           </div>
@@ -426,9 +424,9 @@ function ReviewsContent() {
       </div>
 
       <div className="bg-white border-t border-gray-100">
-        <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-14 md:py-28 text-center">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-14 md:py-20 text-center">
           <ScrollReveal y={40}>
-            <p className="text-[13px] md:text-[14px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3 md:mb-4">Consultation</p>
+            <p className="text-[15px] md:text-[16px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-3 md:mb-4">Consultation</p>
             <h3 className="font-sans text-[24px] md:text-[36px] lg:text-[40px] font-bold text-[#2C2028] mb-3 md:mb-4 leading-tight">
               당신의 이야기도
               <br />

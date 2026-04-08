@@ -35,11 +35,10 @@ export default function InternationalDivorcePage() {
 
       <PracticeRevealWrapper>
         {/* ═══════════ SECTION 1 : HERO HEADLINE ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-[2px] bg-burgundy-500" />
+              <div className="mb-6">
                 <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                   국제 이혼 법률 가이드
                 </p>
@@ -70,8 +69,8 @@ export default function InternationalDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 2 : 준거법 3단계 (가로 카드) ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 적용 법률 흐름도
@@ -111,7 +110,7 @@ export default function InternationalDivorcePage() {
                   key={i}
                   className="bg-white rounded-xl p-4 md:p-7 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-lg hover:-translate-y-1 transition-all duration-500 relative"
                 >
-                  <p className="text-[13px] md:text-[14px] font-bold text-burgundy-500 mb-3">
+                  <p className="text-[15px] md:text-[16px] font-bold text-burgundy-500 mb-3">
                     {item.step}
                   </p>
                   <h4 className="font-sans text-[18px] md:text-[20px] font-bold text-[#2C2028] mb-3">
@@ -163,8 +162,8 @@ export default function InternationalDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 3 : 관할권 + 핵심 사례 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
               {/* LEFT: 관할권 설명 */}
               <div data-reveal>
@@ -232,7 +231,7 @@ export default function InternationalDivorcePage() {
 
                     <div className="space-y-7">
                       <div>
-                        <p className="text-[13px] font-bold text-burgundy-400 tracking-wider mb-2">
+                        <p className="text-[15px] font-bold text-burgundy-400 tracking-wider mb-2">
                           케이스 01
                         </p>
                         <p className="text-[16px] font-bold text-white mb-2">
@@ -245,7 +244,7 @@ export default function InternationalDivorcePage() {
                       </div>
 
                       <div>
-                        <p className="text-[13px] font-bold text-burgundy-400 tracking-wider mb-2">
+                        <p className="text-[15px] font-bold text-burgundy-400 tracking-wider mb-2">
                           케이스 02
                         </p>
                         <p className="text-[16px] font-bold text-white mb-2">
@@ -259,7 +258,7 @@ export default function InternationalDivorcePage() {
                       </div>
 
                       <div>
-                        <p className="text-[13px] font-bold text-burgundy-400 tracking-wider mb-2">
+                        <p className="text-[15px] font-bold text-burgundy-400 tracking-wider mb-2">
                           케이스 03
                         </p>
                         <p className="text-[16px] font-bold text-white mb-2">
@@ -280,8 +279,8 @@ export default function InternationalDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 4 : 준거법 결과 차이 + 외국 판결 국내 효력 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-8" data-reveal>
               {/* 준거법에 따른 결과 차이 */}
               <div className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
@@ -356,8 +355,8 @@ export default function InternationalDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 5 : 국제사법 37조 / 39조 + 서류 체크리스트 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             {/* 국제사법 핵심 정리 */}
             <div className="text-center mb-14" data-reveal>
               <h3 className="font-sans text-[26px] md:text-[32px] font-bold text-[#2C2028] leading-tight mb-4">
@@ -568,9 +567,8 @@ export default function InternationalDivorcePage() {
           }}
         >
           <div className="absolute inset-0 bg-[#1A1A2E]/85" />
-          <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10 text-center">
+          <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mb-6" />
               <p className="text-[20px] md:text-[26px] lg:text-[30px] text-white leading-[1.7] font-semibold">
                 &ldquo;국제이혼은 어느 나라의 법을
                 <br className="hidden md:block" />
@@ -578,7 +576,6 @@ export default function InternationalDivorcePage() {
                 <br className="hidden md:block" />그 판단이 곧 소송의
                 전략이 됩니다.&rdquo;
               </p>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mt-6 mb-4" />
               <p className="text-[15px] text-[#C9A84C] tracking-wider">
                 이혼소송총괄팀 김미루 팀장
               </p>
@@ -587,8 +584,8 @@ export default function InternationalDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 7 : TEAM LINK ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
               <div className="bg-[#F8F4EE] rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
                 <div className="flex-1">
@@ -619,8 +616,8 @@ export default function InternationalDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 8 : CTA ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-5xl mx-auto px-6 md:px-10 text-center">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
               <h3 className="font-sans text-[28px] md:text-[36px] lg:text-[40px] font-bold text-[#2C2028] mb-4 leading-tight">
                 국경을 넘는 이혼 소송,

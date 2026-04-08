@@ -40,7 +40,7 @@ function FAQItem({
         aria-expanded={isOpen}
       >
         {/* Number */}
-        <span className="text-[13px] text-[#C9A84C]/30 font-semibold tabular-nums shrink-0 w-6">
+        <span className="text-[15px] text-[#C9A84C]/30 font-semibold tabular-nums shrink-0 w-6">
           {String(index + 1).padStart(2, "0")}
         </span>
 
@@ -56,7 +56,7 @@ function FAQItem({
             {faq.question}
           </span>
           {faq.popular && (
-            <span className="shrink-0 px-2 py-0.5 rounded-full bg-[#C9A84C]/10 text-[10px] text-[#C9A84C] font-semibold">
+            <span className="shrink-0 px-2 py-0.5 rounded-full bg-[#C9A84C]/10 text-[15px] text-[#C9A84C] font-semibold">
               인기
             </span>
           )}
@@ -102,11 +102,11 @@ export default function FAQSection() {
 
   return (
     <section className="py-20 md:py-28 lg:py-36 bg-[#faf9f7]" id="faq">
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
         {/* Section header */}
         <ScrollReveal>
           <div className="text-center mb-12 md:mb-16">
-            <p className="text-[11px] tracking-[0.3em] text-[#C9A84C] font-semibold uppercase mb-4">
+            <p className="text-[15px] tracking-[0.3em] text-[#C9A84C] font-semibold uppercase mb-4">
               FAQ
             </p>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-5">
@@ -121,7 +121,7 @@ export default function FAQSection() {
           {/* Left: Category filter (desktop) */}
           <ScrollReveal className="hidden md:block">
             <div className="sticky top-32">
-              <p className="text-[11px] tracking-[0.15em] text-gray-400 uppercase font-semibold mb-4">
+              <p className="text-[15px] tracking-[0.15em] text-gray-400 uppercase font-semibold mb-4">
                 카테고리
               </p>
               <div className="space-y-1">
@@ -145,7 +145,7 @@ export default function FAQSection() {
                     >
                       {cat.label}
                       <span
-                        className={`text-[12px] ${
+                        className={`text-[14px] ${
                           activeCategory === cat.key
                             ? "text-[#7B2D3B]/50"
                             : "text-gray-300"
@@ -162,7 +162,7 @@ export default function FAQSection() {
               <div className="mt-8 p-5 rounded-[10px] bg-[#1A1A2E] relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#7B2D3B]/20 to-transparent pointer-events-none" />
                 <div className="relative">
-                  <p className="text-[12px] text-white/50 mb-2">
+                  <p className="text-[14px] text-white/50 mb-2">
                     더 궁금한 점이 있으시면
                   </p>
                   <a
@@ -175,7 +175,7 @@ export default function FAQSection() {
                   </a>
                   <Link
                     href="/consultation"
-                    className="flex items-center gap-1.5 text-[12px] text-white/50 hover:text-white/70 transition-colors"
+                    className="flex items-center gap-1.5 text-[14px] text-white/50 hover:text-white/70 transition-colors"
                   >
                     상담 신청
                     <ArrowRight size={12} />
@@ -192,7 +192,7 @@ export default function FAQSection() {
                 <button
                   key={cat.key}
                   onClick={() => setActiveCategory(cat.key)}
-                  className={`shrink-0 px-4 py-2 rounded-full text-[13px] font-semibold transition-all duration-200 ${
+                  className={`shrink-0 px-4 py-2 rounded-full text-[15px] font-semibold transition-all duration-200 ${
                     activeCategory === cat.key
                       ? "bg-[#7B2D3B] text-white"
                       : "bg-gray-100 text-[#444444] hover:bg-gray-200"

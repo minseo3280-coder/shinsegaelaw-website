@@ -34,11 +34,10 @@ export default function InfidelityDivorcePage() {
 
       <PracticeRevealWrapper>
         {/* ═══════════ SECTION 1 : HERO HEADLINE ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-[2px] bg-burgundy-500" />
+              <div className="mb-6">
                 <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                   INFIDELITY LEGAL GUIDE
                 </p>
@@ -71,8 +70,8 @@ export default function InfidelityDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 2 : KEY RESPONSE STRATEGIES 4 CARDS ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 KEY RESPONSE STRATEGIES
@@ -120,7 +119,7 @@ export default function InfidelityDivorcePage() {
                   <h4 className="font-sans text-[15px] md:text-[17px] font-bold text-[#2C2028] mb-2 md:mb-3">
                     {item.num}. {item.title}
                   </h4>
-                  <p className="text-[13px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#444444]">
+                  <p className="text-[15px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#444444]">
                     {item.desc}
                   </p>
                 </div>
@@ -130,8 +129,8 @@ export default function InfidelityDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 3 : 부정행위 개요 + 민법 제840조 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
               {/* LEFT: 부정행위 개요 */}
               <div data-reveal>
@@ -188,7 +187,7 @@ export default function InfidelityDivorcePage() {
 
                   <div className="space-y-5 mb-8">
                     <div>
-                      <p className="text-[13px] md:text-[15px] font-bold text-[#C9A84C] mb-2">
+                      <p className="text-[15px] md:text-[15px] font-bold text-[#C9A84C] mb-2">
                         ● 제1호: 배우자의 부정한 행위
                       </p>
                       <p className="text-[14px] md:text-[16px] leading-[1.7] text-white/70">
@@ -197,7 +196,7 @@ export default function InfidelityDivorcePage() {
                       </p>
                     </div>
                     <div>
-                      <p className="text-[13px] md:text-[15px] font-bold text-[#C9A84C] mb-2">
+                      <p className="text-[15px] md:text-[15px] font-bold text-[#C9A84C] mb-2">
                         ● 제6호: 기타 중대한 사유
                       </p>
                       <p className="text-[14px] md:text-[16px] leading-[1.7] text-white/70">
@@ -208,7 +207,7 @@ export default function InfidelityDivorcePage() {
                   </div>
 
                   <div className="border-t border-white/10 pt-5">
-                    <p className="text-[13px] md:text-[15px] font-bold text-white mb-2">
+                    <p className="text-[15px] md:text-[15px] font-bold text-white mb-2">
                       유책배우자 이혼청구 제한
                     </p>
                     <p className="text-[14px] md:text-[16px] leading-[1.7] text-white/60">
@@ -223,8 +222,8 @@ export default function InfidelityDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 4 : 위자료 산정 + 재산분할 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8" data-reveal>
               {/* LEFT: 위자료 산정 기준 */}
               <div className="bg-white rounded-2xl p-4 md:p-8">
@@ -255,7 +254,7 @@ export default function InfidelityDivorcePage() {
                 </div>
 
                 <div>
-                  <p className="text-[13px] md:text-[15px] font-bold text-[#2C2028] mb-3">
+                  <p className="text-[15px] md:text-[15px] font-bold text-[#2C2028] mb-3">
                     증액 및 결정 요인
                   </p>
                   <ul className="space-y-2">
@@ -267,7 +266,7 @@ export default function InfidelityDivorcePage() {
                     ].map((item, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-2 text-[13px] md:text-[15px] text-[#333333]"
+                        className="flex items-start gap-2 text-[15px] md:text-[15px] text-[#333333]"
                       >
                         <span className="text-[#444444] mt-1">•</span>
                         {item}
@@ -320,13 +319,12 @@ export default function InfidelityDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 5 : 친권·양육권 + 상간자 소송 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
               {/* LEFT: 친권 및 양육권 */}
               <div data-reveal>
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-8 h-[2px] bg-[#C9A84C]" />
+                <div className="mb-5">
                   <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C]">
                     PARENTAL RIGHTS &amp; SUPPORT
                   </p>
@@ -353,7 +351,7 @@ export default function InfidelityDivorcePage() {
                     },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-md bg-burgundy-500 text-white text-[13px] font-bold flex items-center justify-center mt-0.5">
+                      <span className="flex-shrink-0 w-7 h-7 rounded-md bg-burgundy-500 text-white text-[15px] font-bold flex items-center justify-center mt-0.5">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div>
@@ -392,7 +390,7 @@ export default function InfidelityDivorcePage() {
                           청구 금액 범위
                         </p>
                       </div>
-                      <p className="text-[13px] md:text-[15px] text-[#444444]">
+                      <p className="text-[15px] md:text-[15px] text-[#444444]">
                         통상 1,000만 원에서 3,000만 원 사이로 결정됩니다.
                       </p>
                     </div>
@@ -406,7 +404,7 @@ export default function InfidelityDivorcePage() {
                           성립 요건 (고의성)
                         </p>
                       </div>
-                      <p className="text-[13px] md:text-[15px] text-[#444444]">
+                      <p className="text-[15px] md:text-[15px] text-[#444444]">
                         상간자가 상대방이 기혼자임을 알고도 만남을
                         지속했다는 &lsquo;알지 사실&rsquo; 입증이 필수입니다.
                       </p>
@@ -432,15 +430,13 @@ export default function InfidelityDivorcePage() {
           }}
         >
           <div className="absolute inset-0 bg-[#1A1A2E]/85" />
-          <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10 text-center">
+          <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mb-6" />
               <p className="text-[20px] md:text-[26px] lg:text-[30px] text-white leading-[1.7] font-semibold">
                 &ldquo;부정행위의 증거는 시간이 지날수록 소멸됩니다.
                 <br className="hidden md:block" />
                 빠른 대응이 최선의 전략입니다.&rdquo;
               </p>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mt-6 mb-4" />
               <p className="text-[15px] text-[#C9A84C] tracking-wider">
                 위자료팀 신진희 팀장
               </p>
@@ -449,8 +445,8 @@ export default function InfidelityDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 7 : TEAM LINK ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
               <div className="bg-[#F8F4EE] rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-5 md:gap-8">
                 <div className="flex-1">
@@ -481,8 +477,8 @@ export default function InfidelityDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 8 : CTA ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-5xl mx-auto px-6 md:px-10 text-center">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
               <h3 className="font-sans text-[28px] md:text-[36px] lg:text-[40px] font-bold text-[#2C2028] mb-4 leading-tight">
                 배신의 고통, 법의 테두리 안에서

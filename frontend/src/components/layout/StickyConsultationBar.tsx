@@ -48,7 +48,7 @@ export default function StickyConsultationBar() {
                 <select
                   aria-label="사건영역"
                   defaultValue=""
-                  className="bg-white/[0.08] border border-white/[0.10] rounded-[6px] px-[10px] py-[6px] text-[11px] text-white/70 focus:border-gold-500/50 focus:outline-none transition-all duration-200 w-full appearance-none pr-6"
+                  className="bg-white/[0.08] border border-white/[0.10] rounded-[6px] px-[10px] py-[6px] text-[13px] text-white/70 focus:border-gold-500/50 focus:outline-none transition-all duration-200 w-full appearance-none pr-6"
                 >
                   <option value="" disabled className="text-gray-900">사건영역</option>
                   <option value="이혼소송" className="text-gray-900">이혼소송</option>
@@ -66,19 +66,19 @@ export default function StickyConsultationBar() {
                 type="text"
                 placeholder="성함(관계)"
                 aria-label="성함"
-                className="bg-white/[0.08] border border-white/[0.10] rounded-[6px] px-[10px] py-[6px] text-[11px] text-white placeholder:text-white/40 focus:border-gold-500/50 focus:outline-none transition-all duration-200 flex-1 min-w-[70px]"
+                className="bg-white/[0.08] border border-white/[0.10] rounded-[6px] px-[10px] py-[6px] text-[13px] text-white placeholder:text-white/40 focus:border-gold-500/50 focus:outline-none transition-all duration-200 flex-1 min-w-[70px]"
               />
 
               {/* Phone input (010 + number) */}
               <div className="flex items-center flex-1 min-w-[120px]">
-                <span className="bg-white/[0.08] border border-white/[0.10] rounded-l-[6px] px-[8px] py-[6px] text-[11px] text-white/50 whitespace-nowrap border-r-0">
+                <span className="bg-white/[0.08] border border-white/[0.10] rounded-l-[6px] px-[8px] py-[6px] text-[13px] text-white/50 whitespace-nowrap border-r-0">
                   010
                 </span>
                 <input
                   type="tel"
                   placeholder="연락처"
                   aria-label="연락처"
-                  className="bg-white/[0.08] border border-white/[0.10] rounded-r-[6px] px-[10px] py-[6px] text-[11px] text-white placeholder:text-white/40 focus:border-gold-500/50 focus:outline-none transition-all duration-200 flex-1 min-w-[60px]"
+                  className="bg-white/[0.08] border border-white/[0.10] rounded-r-[6px] px-[10px] py-[6px] text-[13px] text-white placeholder:text-white/40 focus:border-gold-500/50 focus:outline-none transition-all duration-200 flex-1 min-w-[60px]"
                 />
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function StickyConsultationBar() {
                   aria-label="개인정보 수집 동의"
                   className="w-[12px] h-[12px] rounded-[2px] border border-white/15 accent-gold-500"
                 />
-                <label htmlFor="sticky-privacy" className="text-[10px] text-white/45 whitespace-nowrap cursor-pointer">
+                <label htmlFor="sticky-privacy" className="text-[13px] text-white/45 whitespace-nowrap cursor-pointer">
                   개인정보 동의
                 </label>
               </div>
@@ -100,7 +100,7 @@ export default function StickyConsultationBar() {
               <button
                 type="submit"
                 aria-label="상담 신청"
-                className="px-[18px] py-[6px] rounded-[6px] bg-gold-500 hover:bg-gold-400 text-[#1A1A2E] text-[12px] font-semibold transition-all duration-300 whitespace-nowrap hover:shadow-[0_0_20px_rgba(201,168,76,0.15)]"
+                className="px-[18px] py-[6px] rounded-[6px] bg-gold-500 hover:bg-gold-400 text-[#1A1A2E] text-[14px] font-semibold transition-all duration-300 whitespace-nowrap hover:shadow-[0_0_20px_rgba(201,168,76,0.15)]"
               >
                 상담신청
               </button>

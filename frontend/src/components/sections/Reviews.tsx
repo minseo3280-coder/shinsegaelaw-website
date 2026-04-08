@@ -19,7 +19,7 @@ export default function Reviews() {
       <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
         {/* Header — 감성 카피 */}
         <ScrollReveal className="text-center mb-6 md:mb-20">
-          <p className="text-[12px] md:text-[15px] tracking-[0.35em] text-burgundy-500/70 font-bold uppercase mb-3 md:mb-6">
+          <p className="text-[14px] md:text-[15px] tracking-[0.35em] text-burgundy-500/70 font-bold uppercase mb-3 md:mb-6">
             Client Reviews
           </p>
           <h2
@@ -28,8 +28,7 @@ export default function Reviews() {
           >
             진심은 <span className="text-burgundy-600">결과</span>로 전해집니다.
           </h2>
-          <div className="w-12 md:w-16 h-[2px] bg-burgundy-500/30 mx-auto mb-3 md:mb-5" />
-          <p className="text-[15px] md:text-[19px] text-[#333333] leading-[1.8] md:leading-[1.9]" style={{ wordBreak: "keep-all" }}>
+          <p className="text-[15px] md:text-[19px] text-[#333333] leading-[1.8] md:leading-[1.9] mt-3 md:mt-5" style={{ wordBreak: "keep-all" }}>
             처음 상담부터 마지막까지,<br />
             한 사람의 삶에도 진심으로 다가섭니다.
           </p>
@@ -87,7 +86,7 @@ export default function Reviews() {
                         <div>
                           <p className="text-[14px] md:text-[15px] font-bold text-gray-900">{item.case_type}</p>
                           {item.lawyer && (
-                            <p className="text-[13px] md:text-[14px] text-[#444444] mt-0.5">담당: {item.lawyer}</p>
+                            <p className="text-[15px] md:text-[16px] text-[#444444] mt-0.5">담당: {item.lawyer}</p>
                           )}
                         </div>
                         <span className="text-[14px] text-burgundy-500 font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
@@ -100,7 +99,7 @@ export default function Reviews() {
               </SwiperSlide>
             ))}
           </Swiper>
-          <p className="lg:hidden flex items-center gap-2 text-[12px] text-gray-400 mt-4 pl-6">
+          <p className="lg:hidden flex items-center gap-2 text-[14px] text-gray-400 mt-4 pl-6">
             좌우로 스와이프
             <span className="flex-1 h-px bg-gradient-to-r from-gray-300 to-transparent" />
           </p>

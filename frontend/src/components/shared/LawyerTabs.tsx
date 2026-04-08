@@ -23,7 +23,7 @@ export default function LawyerTabs({ activeTab }: LawyerTabsProps) {
 
   return (
     <div className="font-sans bg-white border-b border-gray-200 sticky top-[80px] z-20">
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
         {/* Mobile: dropdown */}
         <div className="md:hidden py-3">
           <div className="relative">

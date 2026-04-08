@@ -15,7 +15,7 @@ export default function Error({
 
   return (
     <div className="min-h-[60vh] flex flex-col items-center justify-center px-6 text-center">
-      <p className="text-[11px] tracking-[0.2em] text-burgundy-500/40 uppercase mb-3">
+      <p className="text-[13px] tracking-[0.2em] text-burgundy-500/40 uppercase mb-3">
         Error
       </p>
       <h2 className="text-[20px] font-bold text-gray-900 mb-2">

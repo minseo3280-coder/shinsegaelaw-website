@@ -38,11 +38,10 @@ export default function DomesticViolencePage() {
 
       <PracticeRevealWrapper>
         {/* ═══════════ SECTION 1 : HERO HEADLINE ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-[2px] bg-burgundy-500" />
+              <div className="mb-6">
                 <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                   DOMESTIC VIOLENCE PROTECTION GUIDE
                 </p>
@@ -73,8 +72,8 @@ export default function DomesticViolencePage() {
         </section>
 
         {/* ═══════════ SECTION 2 : EMERGENCY ACTION 4 CARDS ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 EMERGENCY ACTION
@@ -118,7 +117,7 @@ export default function DomesticViolencePage() {
                   <h4 className="font-sans text-[15px] md:text-[17px] font-bold text-[#2C2028] mb-2 md:mb-3">
                     {item.title}
                   </h4>
-                  <p className="text-[13px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#444444]">
+                  <p className="text-[15px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#444444]">
                     {item.desc}
                   </p>
                 </div>
@@ -128,8 +127,8 @@ export default function DomesticViolencePage() {
         </section>
 
         {/* ═══════════ SECTION 3 : 가정폭력이란 + 가족구성원 범위 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="mb-14" data-reveal>
               <h3 className="font-sans text-[28px] md:text-[34px] font-bold text-[#2C2028] mb-6 leading-tight">
                 가정폭력이란?
@@ -179,7 +178,7 @@ export default function DomesticViolencePage() {
                       <div className="text-burgundy-500 mt-0.5 flex-shrink-0">
                         {item.icon}
                       </div>
-                      <p className="text-[13px] md:text-[16px] leading-[1.6] text-[#333333]">
+                      <p className="text-[15px] md:text-[16px] leading-[1.6] text-[#333333]">
                         {item.label}
                       </p>
                     </div>
@@ -191,8 +190,8 @@ export default function DomesticViolencePage() {
         </section>
 
         {/* ═══════════ SECTION 4 : 형사고소 특례 + 경찰 단계별 조치 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
               {/* LEFT: 형사고소 특례 + 이혼소송 연계 */}
               <div data-reveal>
@@ -298,8 +297,8 @@ export default function DomesticViolencePage() {
         </section>
 
         {/* ═══════════ SECTION 5 : 법원의 보호처분 8가지 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <h3 className="font-sans text-[28px] md:text-[34px] font-bold text-[#2C2028] leading-tight mb-4">
                 법원의 보호처분 (8가지 유형)
@@ -348,10 +347,10 @@ export default function DomesticViolencePage() {
                       : "border-gray-200 bg-white"
                   } hover:shadow-md transition-shadow duration-300`}
                 >
-                  <p className="text-[13px] md:text-[15px] font-bold text-burgundy-500 mb-2">
+                  <p className="text-[15px] md:text-[15px] font-bold text-burgundy-500 mb-2">
                     {item.num}
                   </p>
-                  <p className="text-[13px] md:text-[16px] leading-[1.6] text-[#333333]">
+                  <p className="text-[15px] md:text-[16px] leading-[1.6] text-[#333333]">
                     {item.label}
                   </p>
                 </div>
@@ -403,9 +402,8 @@ export default function DomesticViolencePage() {
           }}
         >
           <div className="absolute inset-0 bg-[#1A1A2E]/85" />
-          <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10 text-center">
+          <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mb-6" />
               <p className="text-[20px] md:text-[26px] lg:text-[30px] text-white leading-[1.7] font-semibold">
                 &ldquo;가정폭력은 반복됩니다.
                 <br className="hidden md:block" />
@@ -413,7 +411,6 @@ export default function DomesticViolencePage() {
                 <br className="hidden md:block" />
                 법원의 결정만이 피해자를 보호할 수 있습니다.&rdquo;
               </p>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mt-6 mb-4" />
               <p className="text-[15px] text-[#C9A84C] tracking-wider">
                 형사사건팀 이명인 팀장
               </p>
@@ -422,8 +419,8 @@ export default function DomesticViolencePage() {
         </section>
 
         {/* ═══════════ SECTION 7 : TEAM LINK ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
               <div className="bg-[#F8F4EE] rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
                 <div className="flex-1">
@@ -454,8 +451,8 @@ export default function DomesticViolencePage() {
         </section>
 
         {/* ═══════════ SECTION 8 : CTA ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-5xl mx-auto px-6 md:px-10 text-center">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
               <h3 className="font-sans text-[28px] md:text-[36px] lg:text-[40px] font-bold text-[#2C2028] mb-4 leading-tight">
                 공포 속에서 홀로 참지 마십시오

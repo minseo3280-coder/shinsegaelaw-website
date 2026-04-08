@@ -53,12 +53,12 @@ function NewsCarousel() {
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
-    <section className="bg-[#F8F4EE]">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-10 md:py-24">
+    <section className="bg-[#F8F4EE] overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-10 py-14 md:py-20">
         {/* 헤더 + 네비게이션 */}
         <div className="flex items-end justify-between mb-8 md:mb-10" data-reveal>
           <div>
-            <p className="text-[13px] font-bold tracking-[0.3em] uppercase text-burgundy-500 mb-2">
+            <p className="text-[15px] font-bold tracking-[0.3em] uppercase text-burgundy-500 mb-2">
               Professional Recognition
             </p>
             <h3
@@ -162,7 +162,7 @@ export default function NewsPage() {
   const containerRef = useScrollReveal();
 
   return (
-    <div ref={containerRef} className="">
+    <div ref={containerRef} className="overflow-x-hidden">
       <SubPageHero
         titleKo="신세계로 소식"
         breadcrumbs={[
@@ -178,11 +178,10 @@ export default function NewsPage() {
           섹션 1 — Featured 뉴스
       ═══════════════════════════════════════════ */}
       <section className="bg-white">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-8 md:pt-24 pb-10 md:pb-20">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10 pt-14 md:pt-20 pb-14 md:pb-20">
           {/* 헤드라인 */}
           <div className="mb-8 md:mb-14" data-reveal>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-[2px] bg-burgundy-500" />
+            <div className="mb-6">
               <p className="text-[14px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                 Shinsegae Law News
               </p>
@@ -220,7 +219,7 @@ export default function NewsPage() {
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/10 md:bg-gradient-to-l md:from-[#F8F4EE]/30 md:to-transparent" />
                   {/* FEATURED 라벨 */}
                   <div className="absolute top-5 left-5">
-                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-burgundy-500 text-white text-[12px] font-bold tracking-wide shadow-lg">
+                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-burgundy-500 text-white text-[14px] font-bold tracking-wide shadow-lg">
                       <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
                       FEATURED
                     </span>
@@ -230,7 +229,7 @@ export default function NewsPage() {
                 {/* 텍스트 */}
                 <div className="flex flex-col justify-center p-5 md:p-10 lg:p-14">
                   <div className="flex items-center gap-3 mb-5">
-                    <span className={`px-3 py-1 rounded-full text-[12px] font-bold ${CATEGORY_COLORS[featuredNews.category]?.bg || "bg-gray-100"} ${CATEGORY_COLORS[featuredNews.category]?.text || "text-[#333333]"}`}>
+                    <span className={`px-3 py-1 rounded-full text-[14px] font-bold ${CATEGORY_COLORS[featuredNews.category]?.bg || "bg-gray-100"} ${CATEGORY_COLORS[featuredNews.category]?.text || "text-[#333333]"}`}>
                       {featuredNews.category}
                     </span>
                     <span className="text-[15px] text-[#333333] font-semibold">
@@ -289,8 +288,8 @@ export default function NewsPage() {
             className="object-cover"
           />
           <div className="absolute inset-0 bg-black/65" />
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 text-center">
-            <p className="text-[13px] font-bold tracking-[0.3em] uppercase text-gold-400 mb-6">
+          <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 text-center">
+            <p className="text-[15px] font-bold tracking-[0.3em] uppercase text-gold-400 mb-6">
               Our Commitment
             </p>
             <blockquote
@@ -301,7 +300,6 @@ export default function NewsPage() {
               <br className="hidden md:block" />
               의뢰인에 대한 따뜻한 마음으로 이어집니다.&rdquo;
             </blockquote>
-            <div className="w-12 h-[2px] bg-gold-500 mt-8 mx-auto rounded-full" />
             <p className="text-[14px] md:text-[18px] text-white/75 mt-6 max-w-[560px] mx-auto leading-[1.8]">
               2012년 조두순 사건 국가배상 승소 변호사로서
               여성가족부 장관 표창을 받았습니다.
@@ -325,7 +323,7 @@ export default function NewsPage() {
           섹션 4 — YTN 라디오 + 홍보영상
       ═══════════════════════════════════════════ */}
       <section className="bg-white">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-10 md:py-24">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10 py-14 md:py-20">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* 홍보영상 */}
             <div data-reveal>
@@ -350,7 +348,7 @@ export default function NewsPage() {
                 <div className="w-11 h-11 rounded-full bg-burgundy-50 flex items-center justify-center">
                   <Mic size={20} className="text-burgundy-500" />
                 </div>
-                <span className="text-[13px] font-bold tracking-[0.2em] uppercase text-burgundy-500">
+                <span className="text-[15px] font-bold tracking-[0.2em] uppercase text-burgundy-500">
                   YTN Radio
                 </span>
               </div>
@@ -390,11 +388,11 @@ export default function NewsPage() {
           섹션 5 — 전문분야 인증 변호사
       ═══════════════════════════════════════════ */}
       <section className="bg-[#F8F4EE]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-10 md:py-24">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10 py-14 md:py-20">
           {/* Header: 좌정렬 + 우측 통계 */}
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12" data-reveal>
             <div>
-              <p className="text-[13px] font-bold tracking-[0.3em] uppercase text-burgundy-500 mb-3">
+              <p className="text-[15px] font-bold tracking-[0.3em] uppercase text-burgundy-500 mb-3">
                 Certified Specialists
               </p>
               <h2
@@ -413,11 +411,11 @@ export default function NewsPage() {
             <div className="flex gap-6 md:gap-8 flex-shrink-0">
               <div className="text-center">
                 <p className="text-[26px] md:text-[44px] font-bold text-burgundy-500 leading-none">8</p>
-                <p className="text-[13px] text-[#333333] mt-1 font-semibold">인증 변호사</p>
+                <p className="text-[15px] text-[#333333] mt-1 font-semibold">인증 변호사</p>
               </div>
               <div className="text-center">
                 <p className="text-[26px] md:text-[44px] font-bold text-burgundy-500 leading-none">5</p>
-                <p className="text-[13px] text-[#333333] mt-1 font-semibold">전문 분야</p>
+                <p className="text-[15px] text-[#333333] mt-1 font-semibold">전문 분야</p>
               </div>
             </div>
           </div>
@@ -439,7 +437,7 @@ export default function NewsPage() {
               >
                 {/* 좌: 순번 + 사진 */}
                 <div className="flex-shrink-0 relative">
-                  <span className="absolute -top-1 -left-1 z-10 w-6 h-6 rounded-full bg-burgundy-500 text-white text-[12px] font-bold flex items-center justify-center">
+                  <span className="absolute -top-1 -left-1 z-10 w-6 h-6 rounded-full bg-burgundy-500 text-white text-[14px] font-bold flex items-center justify-center">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="w-[72px] h-[72px] rounded-xl overflow-hidden bg-gray-100">
@@ -460,7 +458,7 @@ export default function NewsPage() {
                       {lawyer.name} <span className="font-medium text-[#333333]">변호사</span>
                     </h3>
                     {lawyer.role && (
-                      <span className="px-2 py-0.5 rounded bg-burgundy-50 text-burgundy-600 text-[12px] font-bold flex-shrink-0">
+                      <span className="px-2 py-0.5 rounded bg-burgundy-50 text-burgundy-600 text-[14px] font-bold flex-shrink-0">
                         {lawyer.role}
                       </span>
                     )}
@@ -470,7 +468,7 @@ export default function NewsPage() {
                     {lawyer.certifications.map((cert) => (
                       <span
                         key={cert}
-                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-white border border-gray-200 text-[12px] font-semibold text-[#333333] group-hover:border-burgundy-200 group-hover:text-burgundy-600 transition-colors"
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-white border border-gray-200 text-[14px] font-semibold text-[#333333] group-hover:border-burgundy-200 group-hover:text-burgundy-600 transition-colors"
                       >
                         <Award size={11} className="text-gold-500" />
                         {cert} 전문
@@ -482,7 +480,7 @@ export default function NewsPage() {
             ))}
           </div>
 
-          <p className="text-[13px] text-[#333333] text-center mt-8" data-reveal>
+          <p className="text-[15px] text-[#333333] text-center mt-8" data-reveal>
             * 대한변호사협회 전문분야 등록 변호사 기준
           </p>
         </div>
@@ -492,9 +490,9 @@ export default function NewsPage() {
           섹션 6 — 학위 · 수상 · 인증 갤러리
       ═══════════════════════════════════════════ */}
       <section className="bg-[#F8F4EE]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-10 md:py-24">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10 py-14 md:py-20">
           <div className="text-center mb-12" data-reveal>
-            <p className="text-[13px] font-bold tracking-[0.3em] uppercase text-[#333333] mb-4">
+            <p className="text-[15px] font-bold tracking-[0.3em] uppercase text-[#333333] mb-4">
               Degrees &amp; Awards
             </p>
             <h3
@@ -503,7 +501,7 @@ export default function NewsPage() {
             >
               학위와 수상으로 증명된 <span className="text-burgundy-500">전문성</span>
             </h3>
-            <p className="text-[13px] md:text-[16px] text-[#333333] mt-4 max-w-[480px] mx-auto leading-relaxed">
+            <p className="text-[15px] md:text-[16px] text-[#333333] mt-4 max-w-[480px] mx-auto leading-relaxed">
               대한변호사협회 전문분야 등록과 학위, 표창으로 검증된 역량입니다.
             </p>
           </div>
@@ -542,10 +540,10 @@ export default function NewsPage() {
                     className="object-contain p-1.5 md:p-3"
                   />
                 </div>
-                <h4 className="font-sans text-[12px] md:text-[16px] font-bold text-[#2C2028] mt-2 md:mt-4 mb-0.5 md:mb-1">
+                <h4 className="font-sans text-[14px] md:text-[16px] font-bold text-[#2C2028] mt-2 md:mt-4 mb-0.5 md:mb-1">
                   {item.label}
                 </h4>
-                <p className="text-[11px] md:text-[15px] text-[#333333] break-keep">{item.sub}</p>
+                <p className="text-[15px] md:text-[15px] text-[#333333] break-keep">{item.sub}</p>
               </div>
             ))}
           </div>

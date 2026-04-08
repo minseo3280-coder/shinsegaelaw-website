@@ -33,7 +33,7 @@ function StatItem({ icon: Icon, value, suffix, label, delay }: (typeof stats)[nu
         </p>
 
         {/* Label */}
-        <p className="text-[13px] md:text-[15px] text-[#666666] tracking-wide font-semibold">{label}</p>
+        <p className="text-[15px] md:text-[15px] text-[#666666] tracking-wide font-semibold">{label}</p>
       </div>
     </ScrollReveal>
   );
@@ -41,7 +41,7 @@ function StatItem({ icon: Icon, value, suffix, label, delay }: (typeof stats)[nu
 
 export default function TrustIndicators() {
   return (
-    <section id="trust" className="relative z-20 bg-white py-10 md:py-20 lg:py-24 border-b border-gray-100">
+    <section id="trust" className="relative z-20 bg-white py-14 md:py-20 lg:py-24 border-b border-gray-100">
       <div className="max-w-[1400px] mx-auto px-5 md:px-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-6">
           {stats.map((stat, i) => (

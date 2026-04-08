@@ -50,7 +50,7 @@ export default function WebtoonPage() {
                   className="object-cover group-hover:scale-[1.03] transition-transform duration-300"
                 />
               </div>
-              <p className="mt-2 text-[13px] text-muted-foreground text-center truncate">
+              <p className="mt-2 text-[15px] text-muted-foreground text-center truncate">
                 {ep.title}
               </p>
             </a>

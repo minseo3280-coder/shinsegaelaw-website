@@ -7,6 +7,7 @@ import {
   CheckCircle2, Phone, Eye, Clock, Scale, ShieldCheck,
 } from "lucide-react";
 import SubPageHero from "@/components/shared/SubPageHero";
+import ConsultationTabs from "@/components/shared/ConsultationTabs";
 import firmData from "@/../../data/firm_info.json";
 
 interface Consultation {
@@ -89,8 +90,10 @@ export default function ConsultationBoardPage() {
         breadcrumbs={[{ label: "법률상담", href: "/consultation" }, { label: "법률상담 게시판" }]}
       />
 
+      <ConsultationTabs />
+
       {/* ─── Main Content ─── */}
-      <section className="bg-white py-10 md:py-16">
+      <section className="bg-white py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
 
           {/* ── Section Header (승소사례 패턴 통일) ── */}
@@ -98,7 +101,7 @@ export default function ConsultationBoardPage() {
             <div>
               <div className="flex items-center gap-3 mb-4 md:mb-5">
                 <div className="w-8 md:w-10 h-[2px] bg-burgundy-500" />
-                <p className="text-[13px] md:text-[13px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
+                <p className="text-[15px] md:text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                   법률상담
                 </p>
               </div>
@@ -124,7 +127,7 @@ export default function ConsultationBoardPage() {
           </div>
 
           {/* ── Info Strip ── */}
-          <div className="grid grid-cols-2 md:flex md:items-center gap-x-4 gap-y-2 md:gap-8 px-5 py-3.5 bg-[#F8F4EE] mb-6 md:mb-8 text-[13px] md:text-[13px] text-[#555]">
+          <div className="grid grid-cols-2 md:flex md:items-center gap-x-4 gap-y-2 md:gap-8 px-5 py-3.5 bg-[#F8F4EE] mb-6 md:mb-8 text-[15px] md:text-[15px] text-[#555]">
             <span className="flex items-center gap-1.5 whitespace-nowrap">
               <Lock size={13} className="text-[#C9A84C] flex-shrink-0" />
               비밀보장
@@ -168,7 +171,7 @@ export default function ConsultationBoardPage() {
                 <button
                   key={cat}
                   onClick={() => setCategory(cat)}
-                  className={`flex-shrink-0 px-3.5 md:px-4 py-2 rounded-full text-[13px] md:text-[13px] font-semibold border whitespace-nowrap transition-all duration-200 min-h-[36px] md:min-h-[40px] ${
+                  className={`flex-shrink-0 px-3.5 md:px-4 py-2 rounded-full text-[15px] md:text-[15px] font-semibold border whitespace-nowrap transition-all duration-200 min-h-[36px] md:min-h-[40px] ${
                     category === cat
                       ? "bg-[#9B2335] text-white border-[#9B2335]"
                       : "bg-white text-[#555] border-gray-200 hover:border-[#9B2335]/30 hover:text-[#9B2335]"
@@ -182,7 +185,7 @@ export default function ConsultationBoardPage() {
 
           {/* ── Results Info ── */}
           <div className="flex items-center justify-between mb-3">
-            <p className="text-[14px] md:text-[14px] text-[#888]">
+            <p className="text-[14px] md:text-[16px] text-[#888]">
               총 <strong className="text-[#2C2028]">{pagination.total.toLocaleString()}</strong>건
             </p>
             {search && (
@@ -214,7 +217,7 @@ export default function ConsultationBoardPage() {
           ) : (
             <>
               {/* Table header — clean minimal */}
-              <div className="hidden md:grid grid-cols-[60px_80px_1fr_90px_100px_60px] items-center px-4 py-3 border-b border-gray-200 text-[13px] font-semibold text-[#888] uppercase tracking-wider">
+              <div className="hidden md:grid grid-cols-[60px_80px_1fr_90px_100px_60px] items-center px-4 py-3 border-b border-gray-200 text-[15px] font-semibold text-[#888] uppercase tracking-wider">
                 <span className="text-center">No.</span>
                 <span>분류</span>
                 <span className="pl-2">제목</span>
@@ -237,7 +240,7 @@ export default function ConsultationBoardPage() {
 
                   {/* Category */}
                   <span className="mr-2.5 md:mr-0">
-                    <span className={`inline-block text-[12px] px-2.5 py-[3px] rounded font-bold leading-none ${CAT_STYLE[item.category] || CAT_STYLE["기타"]}`}>
+                    <span className={`inline-block text-[14px] px-2.5 py-[3px] rounded font-bold leading-none ${CAT_STYLE[item.category] || CAT_STYLE["기타"]}`}>
                       {item.category}
                     </span>
                   </span>
@@ -248,13 +251,13 @@ export default function ConsultationBoardPage() {
                       <Lock size={13} className="text-[#ddd] flex-shrink-0" />
                       <span className="truncate">{item.title}</span>
                       {item.has_reply > 0 && (
-                        <span className="flex-shrink-0 inline-flex items-center gap-0.5 text-[12px] px-1.5 py-[2px] rounded bg-emerald-50 text-emerald-700 font-bold leading-none">
+                        <span className="flex-shrink-0 inline-flex items-center gap-0.5 text-[14px] px-1.5 py-[2px] rounded bg-emerald-50 text-emerald-700 font-bold leading-none">
                           <CheckCircle2 size={9} /> 답변
                         </span>
                       )}
                     </p>
                     {/* Mobile meta */}
-                    <p className="text-[12px] text-[#aaa] mt-1 md:hidden">
+                    <p className="text-[14px] text-[#aaa] mt-1 md:hidden">
                       {item.name} · {formatDate(item.created_at)}
                       {item.status === "done" && <span className="text-emerald-600 ml-2">답변완료</span>}
                     </p>
@@ -263,9 +266,9 @@ export default function ConsultationBoardPage() {
                   {/* Status — desktop */}
                   <span className="hidden md:flex justify-center">
                     {item.status === "done" ? (
-                      <span className="text-[12px] px-2.5 py-1 rounded bg-emerald-50 text-emerald-700 font-bold">답변완료</span>
+                      <span className="text-[14px] px-2.5 py-1 rounded bg-emerald-50 text-emerald-700 font-bold">답변완료</span>
                     ) : (
-                      <span className="text-[12px] px-2.5 py-1 rounded bg-gray-100 text-[#888] font-bold">대기</span>
+                      <span className="text-[14px] px-2.5 py-1 rounded bg-gray-100 text-[#888] font-bold">대기</span>
                     )}
                   </span>
 
@@ -275,7 +278,7 @@ export default function ConsultationBoardPage() {
                   </span>
 
                   {/* Views — desktop */}
-                  <span className="hidden md:flex items-center justify-center gap-1 text-[13px] text-[#bbb]">
+                  <span className="hidden md:flex items-center justify-center gap-1 text-[15px] text-[#bbb]">
                     <Eye size={12} />
                     {item.views}
                   </span>
@@ -307,7 +310,7 @@ export default function ConsultationBoardPage() {
                   <button
                     key={p}
                     onClick={() => fetchData(p)}
-                    className={`w-9 h-9 md:w-10 md:h-10 rounded-md text-[14px] md:text-[14px] font-medium border transition-all ${
+                    className={`w-9 h-9 md:w-10 md:h-10 rounded-md text-[14px] md:text-[16px] font-medium border transition-all ${
                       p === pagination.page
                         ? "bg-[#2C2028] border-[#2C2028] text-white"
                         : "bg-white border-gray-200 text-[#555] hover:border-[#9B2335]/40 hover:text-[#9B2335]"
@@ -334,7 +337,7 @@ export default function ConsultationBoardPage() {
           <div className="pt-10 md:pt-14 pb-4">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
               <div>
-                <p className="text-[12px] md:text-[12px] tracking-[0.25em] text-[#C9A84C] uppercase font-bold mb-2">
+                <p className="text-[14px] md:text-[16px] tracking-[0.25em] text-[#C9A84C] uppercase font-bold mb-2">
                   Direct Consultation
                 </p>
                 <p
@@ -343,7 +346,7 @@ export default function ConsultationBoardPage() {
                 >
                   전화 상담도 가능합니다.
                 </p>
-                <p className="text-[14px] md:text-[14px] text-[#888]">
+                <p className="text-[14px] md:text-[16px] text-[#888]">
                   평일 09:00 – 18:00 · 토요일 09:00 – 13:00
                 </p>
               </div>

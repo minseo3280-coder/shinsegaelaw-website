@@ -340,7 +340,7 @@ function CaseDetailContent() {
       <section className="relative h-[180px] md:h-[280px] overflow-hidden print:hidden">
         <Image src="/images/office/banner-cases.jpg" alt="승소사례" fill sizes="100vw" className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0f0f1a]/50 to-[#0f0f1a]/80" />
-        <div className="relative z-10 max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10 h-full flex flex-col justify-end pb-9">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 h-full flex flex-col justify-end pb-9">
           <nav className="flex items-center gap-1.5 text-[15px] text-white/30 mb-3">
             <Link href="/" className="hover:text-white/50 transition-colors">홈</Link>
             <ChevronRight size={12} className="text-white/20" />
@@ -367,7 +367,7 @@ function CaseDetailContent() {
         transition={{ duration: 0.5, ease: EASE }}
         className="bg-white border-b border-gray-100 print:border-0"
       >
-        <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 pt-10 md:pt-14 pb-10 md:pb-12">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 pt-14 md:pt-20 pb-10 md:pb-12">
           {/* Back + Share */}
           <div className="flex items-center justify-between mb-8 print:hidden">
             <Link href="/cases" className="inline-flex items-center gap-1.5 text-[16px] text-[#333333] hover:text-[#9B2335] transition-colors">
@@ -424,7 +424,7 @@ function CaseDetailContent() {
                       : "bg-white border border-gray-200"
                   }`}
                 >
-                  <p className={`text-[12px] md:text-[14px] tracking-[0.04em] font-semibold mb-1.5 md:mb-2 ${
+                  <p className={`text-[14px] md:text-[16px] tracking-[0.04em] font-semibold mb-1.5 md:mb-2 ${
                     card.highlight ? "text-[#9B2335]/60" : "text-gray-400"
                   }`}>
                     {card.label}
@@ -456,27 +456,27 @@ function CaseDetailContent() {
             <h3 className="font-sans text-[16px] font-bold text-gray-900 mb-3 pb-2.5 border-b border-gray-200">사건 정보</h3>
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <p className="text-[13px] font-semibold text-[#555] mb-0.5">사건 유형</p>
+                <p className="text-[15px] font-semibold text-[#555] mb-0.5">사건 유형</p>
                 <p className="text-[15px] font-semibold text-[#2C2028]">{caseItem.category}</p>
               </div>
               {amountInfo && (
                 <div>
-                  <p className="text-[13px] font-semibold text-[#555] mb-0.5">확보 금액</p>
+                  <p className="text-[15px] font-semibold text-[#555] mb-0.5">확보 금액</p>
                   <p className="text-[15px] font-bold text-[#9B2335]">{amountInfo.amount}{amountInfo.unit}</p>
                 </div>
               )}
               <div>
-                <p className="text-[13px] font-semibold text-[#555] mb-0.5">담당 변호사</p>
+                <p className="text-[15px] font-semibold text-[#555] mb-0.5">담당 변호사</p>
                 <p className="text-[15px] font-semibold text-[#2C2028]">{caseItem.lawyers.join(", ")}</p>
               </div>
               <div>
-                <p className="text-[13px] font-semibold text-[#555] mb-0.5">승소 날짜</p>
+                <p className="text-[15px] font-semibold text-[#555] mb-0.5">승소 날짜</p>
                 <p className="text-[15px] font-semibold text-[#2C2028]">{caseItem.winDate}</p>
               </div>
             </div>
             <div className="mt-4 pt-3 border-t border-gray-200 flex flex-wrap gap-1.5">
               {issuePills.map((pill) => (
-                <span key={pill} className="px-2 py-0.5 text-[13px] font-semibold text-[#333] bg-white rounded-md border border-gray-100">{pill}</span>
+                <span key={pill} className="px-2 py-0.5 text-[15px] font-semibold text-[#333] bg-white rounded-md border border-gray-100">{pill}</span>
               ))}
             </div>
           </div>
@@ -489,7 +489,7 @@ function CaseDetailContent() {
       {reviewSection && (
         <ScrollReveal delay={100} y={40}>
         <section className="bg-[#F8F4EE] border-b border-[#e8e3d9] print:bg-white">
-          <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-10 md:py-14">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-14 md:py-20">
             <div className="flex items-center gap-2.5 mb-7">
               <CheckCircle2 size={20} className="text-[#9B2335]" />
               <h3 className="font-sans text-[22px] md:text-[24px] font-bold text-[#1A1A2E]">
@@ -549,7 +549,7 @@ function CaseDetailContent() {
           BODY — Design 3 style (sidebar + main)
           ═══════════════════════════════════════════════════ */}
       <ScrollReveal delay={100} y={40}>
-      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-10 md:py-14 print:px-0 print:py-6">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-14 md:py-20 print:px-0 print:py-6">
         <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10 lg:gap-14 print:block">
 
           {/* ─── LEFT SIDEBAR: 사건 정보 ─── */}
@@ -622,7 +622,7 @@ function CaseDetailContent() {
               <div className="mb-12">
                 <h3 className="font-sans text-[18px] md:text-[20px] font-bold text-gray-900 mb-4 flex items-center gap-2">
                   <span className="w-1 h-5 bg-[#9B2335] rounded-sm" />판결문 원본
-                  <span className="text-[13px] text-gray-400 font-semibold ml-1">{caseItem.images.length}장</span>
+                  <span className="text-[15px] text-gray-400 font-semibold ml-1">{caseItem.images.length}장</span>
                 </h3>
                 <div className={`grid gap-2.5 ${caseItem.images.length === 1 ? "grid-cols-2" : caseItem.images.length === 2 ? "grid-cols-2" : "grid-cols-3 md:grid-cols-4"}`}>
                   {caseItem.images.map((img: string, i: number) => (

@@ -17,7 +17,7 @@ export default function OfficesSection() {
         {/* Header */}
         <ScrollReveal>
           <div className="text-center mb-16 md:mb-20">
-            <p className="text-[12px] md:text-[13px] tracking-[0.3em] text-[#9B2335]/50 font-bold uppercase mb-5">
+            <p className="text-[14px] md:text-[15px] tracking-[0.3em] text-[#9B2335]/50 font-bold uppercase mb-5">
               Our Offices
             </p>
             <h2
@@ -55,12 +55,12 @@ export default function OfficesSection() {
                 <div className="p-8 md:p-9 lg:p-10">
                   {/* Badge */}
                   {i === 0 ? (
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9B2335]/[0.07] text-[#9B2335] text-[11px] font-bold tracking-[0.12em] uppercase mb-5">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9B2335]/[0.07] text-[#9B2335] text-[15px] font-bold tracking-[0.12em] uppercase mb-5">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#9B2335]" />
                       Headquarters
                     </span>
                   ) : (
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 text-[#444444] text-[11px] font-bold tracking-[0.12em] uppercase mb-5">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 text-[#444444] text-[15px] font-bold tracking-[0.12em] uppercase mb-5">
                       <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
                       Branch
                     </span>
@@ -99,7 +99,7 @@ export default function OfficesSection() {
 
                   {/* View more link */}
                   <div className="mt-7 pt-5 border-t border-gray-100">
-                    <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#9B2335]/60 group-hover:text-[#9B2335] transition-colors duration-300">
+                    <span className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-[#9B2335]/60 group-hover:text-[#9B2335] transition-colors duration-300">
                       오시는 길 보기
                       <ChevronRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-300" />
                     </span>
@@ -113,7 +113,7 @@ export default function OfficesSection() {
         {/* Bottom representative number */}
         <ScrollReveal delay={300}>
           <div className="text-center mt-14 md:mt-18">
-            <p className="text-[13px] text-[#444444] mb-2">대표전화</p>
+            <p className="text-[15px] text-[#444444] mb-2">대표전화</p>
             <a
               href={`tel:${firmData.main_phone}`}
               aria-label={`대표전화 ${firmData.main_phone}`}

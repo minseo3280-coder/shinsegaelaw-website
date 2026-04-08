@@ -40,11 +40,10 @@ export default function PropertyPage() {
 
       <PracticeRevealWrapper>
         {/* ═══════════ SECTION 1 : HERO HEADLINE ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-[2px] bg-burgundy-500" />
+              <div className="mb-6">
                 <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                   PROPERTY DIVISION GUIDE
                 </p>
@@ -76,8 +75,8 @@ export default function PropertyPage() {
         </section>
 
         {/* ═══════════ SECTION 2 : ASSET CATEGORIES 4 CARDS ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 ASSET CATEGORIES
@@ -121,7 +120,7 @@ export default function PropertyPage() {
                   <h4 className="font-sans text-[15px] md:text-[17px] font-bold text-[#2C2028] mb-2 md:mb-3">
                     {item.title}
                   </h4>
-                  <p className="text-[13px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#3A3238] font-semibold">
+                  <p className="text-[15px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#3A3238] font-semibold">
                     {item.desc}
                   </p>
                 </div>
@@ -131,8 +130,8 @@ export default function PropertyPage() {
         </section>
 
         {/* ═══════════ SECTION 3 : 재산분할이란? + 분할대상 vs 제외대상 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             {/* 재산분할이란 설명 */}
             <div className="mb-16" data-reveal>
               <h3 className="font-sans text-[28px] md:text-[34px] font-bold text-[#2C2028] mb-6 leading-tight">
@@ -167,7 +166,7 @@ export default function PropertyPage() {
                     "의사·변호사 등 전문직 자격 취득 시 장래 수입 가능성",
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-md bg-burgundy-500 text-white text-[13px] font-bold flex items-center justify-center mt-0.5">
+                      <span className="flex-shrink-0 w-7 h-7 rounded-md bg-burgundy-500 text-white text-[15px] font-bold flex items-center justify-center mt-0.5">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <p className="text-[14px] md:text-[17px] leading-[1.7] text-[#2C2028] font-semibold">
@@ -196,7 +195,7 @@ export default function PropertyPage() {
                     "시부모·처부모 명의의 재산",
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-md bg-[#8A7E84] text-white text-[13px] font-bold flex items-center justify-center mt-0.5">
+                      <span className="flex-shrink-0 w-7 h-7 rounded-md bg-[#8A7E84] text-white text-[15px] font-bold flex items-center justify-center mt-0.5">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <p className="text-[14px] md:text-[17px] leading-[1.7] text-[#2C2028] font-semibold">
@@ -225,8 +224,8 @@ export default function PropertyPage() {
         </section>
 
         {/* ═══════════ SECTION 4 : 주요 법적 쟁점 (Left Title + Right 4 Cards) ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-[280px_1fr] gap-12 lg:gap-16">
               {/* LEFT: Title */}
               <div data-reveal>
@@ -283,8 +282,8 @@ export default function PropertyPage() {
         </section>
 
         {/* ═══════════ SECTION 6 : 은닉재산 추적 + 사해행위 취소 카드 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div
               data-reveal
               className="bg-[#F8F4EE] rounded-2xl p-8 md:p-12"
@@ -327,7 +326,7 @@ export default function PropertyPage() {
                     <p className="text-[14px] md:text-[16px] font-bold text-[#2C2028] mb-1">
                       {item.title}
                     </p>
-                    <p className="text-[13px] md:text-[14px] text-[#333333]">{item.desc}</p>
+                    <p className="text-[15px] md:text-[16px] text-[#333333]">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -343,9 +342,8 @@ export default function PropertyPage() {
           }}
         >
           <div className="absolute inset-0 bg-[#1A1A2E]/85" />
-          <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10 text-center">
+          <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mb-6" />
               <p className="text-[20px] md:text-[26px] lg:text-[30px] text-white leading-[1.7] font-semibold">
                 &ldquo;재산분할은 단순한 나눔이 아닙니다.
                 <br className="hidden md:block" />
@@ -353,7 +351,6 @@ export default function PropertyPage() {
                 <br className="hidden md:block" />
                 복잡한 자산을 전략적으로 배분합니다.&rdquo;
               </p>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mt-6 mb-4" />
               <p className="text-[15px] text-[#C9A84C] tracking-wider">
                 재산분할팀 류현주 팀장
               </p>
@@ -362,8 +359,8 @@ export default function PropertyPage() {
         </section>
 
         {/* ═══════════ SECTION 8 : TEAM LINK ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
               <div className="bg-[#F8F4EE] rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-5 md:gap-8">
                 <div className="flex-1">
@@ -394,8 +391,8 @@ export default function PropertyPage() {
         </section>
 
         {/* ═══════════ SECTION 9 : CTA ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-5xl mx-auto px-6 md:px-10 text-center">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
               <h3 className="font-sans text-[28px] md:text-[36px] lg:text-[40px] font-bold text-[#2C2028] mb-4 leading-tight">
                 당신의 기여, 수치로 증명해 드립니다

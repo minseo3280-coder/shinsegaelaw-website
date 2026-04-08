@@ -26,7 +26,7 @@ export default function Lawyers() {
         {/* Header */}
         <ScrollReveal className="mb-6 md:mb-20">
           <div className="text-center">
-            <p className="text-[12px] md:text-[15px] tracking-[0.35em] text-gold-600 font-bold uppercase mb-3 md:mb-6">
+            <p className="text-[14px] md:text-[15px] tracking-[0.35em] text-gold-600 font-bold uppercase mb-3 md:mb-6">
               Our Attorneys
             </p>
             <h2
@@ -36,8 +36,7 @@ export default function Lawyers() {
               오직 이혼과 상속,<br />
               한 길만 걸어온 <span className="text-burgundy-600">{allLawyers.length}인</span>의 전문가
             </h2>
-            <div className="w-12 md:w-16 h-[2px] bg-burgundy-500/30 mx-auto mb-3 md:mb-5" />
-            <p className="text-[15px] md:text-[19px] text-[#333333] leading-[1.8] md:leading-[1.9]" style={{ wordBreak: "keep-all" }}>
+            <p className="text-[15px] md:text-[19px] text-[#333333] leading-[1.8] md:leading-[1.9] mt-3 md:mt-5" style={{ wordBreak: "keep-all" }}>
               전문분야별 팀이 분업과 협업을 통해 체계적으로 대응하고,<br className="hidden md:inline" />
               대표변호사가 직접 총괄하여 사건의 흐름을 빈틈없이 관리합니다.
             </p>
@@ -65,20 +64,20 @@ export default function Lawyers() {
                     </div>
                     {/* Info */}
                     <div className="flex-1 p-4 md:p-8 flex flex-col justify-center">
-                      <span className="inline-flex items-center gap-1.5 text-[12px] md:text-[13px] font-bold tracking-[0.15em] md:tracking-[0.2em] text-[#C9A84C] uppercase mb-2 md:mb-4">
+                      <span className="inline-flex items-center gap-1.5 text-[14px] md:text-[15px] font-bold tracking-[0.15em] md:tracking-[0.2em] text-[#C9A84C] uppercase mb-2 md:mb-4">
                         <span className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-[#C9A84C]" />
                         {lawyer.label || "Representative"}
                       </span>
                       <h3 className="text-[18px] md:text-[32px] font-bold text-[#2C2028] tracking-tight mb-0.5 md:mb-1">
                         {lawyer.name}
                       </h3>
-                      <p className="text-[13px] md:text-[17px] text-[#333333] font-semibold mb-2 md:mb-4">
+                      <p className="text-[15px] md:text-[17px] text-[#333333] font-semibold mb-2 md:mb-4">
                         {lawyer.position}
                         {lawyer.role && <span className="text-burgundy-500 ml-1 md:ml-2">· {lawyer.role}</span>}
                       </p>
                       <div className="flex flex-wrap gap-1 md:gap-1.5 mb-3 md:mb-5">
                         {lawyer.specialty.slice(0, 3).map((s) => (
-                          <span key={s} className="text-[12px] md:text-[14px] px-2 md:px-3 py-0.5 md:py-1 rounded-full bg-burgundy-50 text-burgundy-600 font-semibold">
+                          <span key={s} className="text-[14px] md:text-[16px] px-2 md:px-3 py-0.5 md:py-1 rounded-full bg-burgundy-50 text-burgundy-600 font-semibold">
                             {s}
                           </span>
                         ))}
@@ -88,7 +87,7 @@ export default function Lawyers() {
                           {lawyer.description}
                         </p>
                       )}
-                      <span className="inline-flex items-center gap-1.5 text-[13px] md:text-[15px] text-burgundy-600 font-bold group-hover:gap-2.5 transition-all duration-300">
+                      <span className="inline-flex items-center gap-1.5 text-[15px] md:text-[15px] text-burgundy-600 font-bold group-hover:gap-2.5 transition-all duration-300">
                         프로필 보기 <ArrowRight size={12} className="md:!w-[14px] md:!h-[14px]" />
                       </span>
                     </div>
@@ -174,11 +173,11 @@ export default function Lawyers() {
                     <h4 className="text-[14px] md:text-[18px] font-bold text-[#2C2028] tracking-tight group-hover:text-burgundy-600 transition-colors duration-300">
                       {lawyer.name}
                     </h4>
-                    <p className="text-[12px] md:text-[15px] text-[#333333] font-semibold mt-0.5">
+                    <p className="text-[14px] md:text-[15px] text-[#333333] font-semibold mt-0.5">
                       {lawyer.position}
                     </p>
                     {lawyer.role && (
-                      <p className="text-[12px] md:text-[14px] text-burgundy-500 mt-0.5 font-semibold">
+                      <p className="text-[14px] md:text-[16px] text-burgundy-500 mt-0.5 font-semibold">
                         {lawyer.role}
                       </p>
                     )}
@@ -187,7 +186,7 @@ export default function Lawyers() {
               </SwiperSlide>
             ))}
           </Swiper>
-          <p className="lg:hidden flex items-center gap-2 text-[12px] text-gray-400 mt-4 pl-6">
+          <p className="lg:hidden flex items-center gap-2 text-[14px] text-gray-400 mt-4 pl-6">
             좌우로 스와이프
             <span className="flex-1 h-px bg-gradient-to-r from-gray-300 to-transparent" />
           </p>

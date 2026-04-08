@@ -29,11 +29,10 @@ export default function MutualDivorcePage() {
 
       <PracticeRevealWrapper>
         {/* ═══════════ SECTION 1 : HERO HEADLINE ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-[2px] bg-burgundy-500" />
+              <div className="mb-6">
                 <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                   MUTUAL CONSENT DIVORCE GUIDE
                 </p>
@@ -58,8 +57,8 @@ export default function MutualDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 2 : DIVORCE PROCESS 4단계 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 DIVORCE PROCESS
@@ -108,7 +107,7 @@ export default function MutualDivorcePage() {
                   <h3 className="font-sans text-[15px] md:text-[17px] font-bold text-[#2C2028] mb-2 md:mb-3">
                     {card.num}. {card.title}
                   </h3>
-                  <p className="text-[13px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#3A3238] font-semibold">{card.desc}</p>
+                  <p className="text-[15px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#3A3238] font-semibold">{card.desc}</p>
                 </div>
               ))}
             </div>
@@ -116,8 +115,8 @@ export default function MutualDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 3 : 절차 상세 (합의 → 숙려 → 신고) ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-6 md:gap-10 lg:gap-16 items-start">
               {/* Left */}
               <div data-reveal>
@@ -167,8 +166,8 @@ export default function MutualDivorcePage() {
                           <span className="text-[14px] font-bold text-white">{i + 1}</span>
                         </div>
                         <div>
-                          <p className="text-[13px] md:text-[14px] font-bold text-[#2C2028]">{item.doc}</p>
-                          <p className="text-[13px] md:text-[14px] text-[#333333] mt-0.5">{item.note}</p>
+                          <p className="text-[15px] md:text-[16px] font-bold text-[#2C2028]">{item.doc}</p>
+                          <p className="text-[15px] md:text-[16px] text-[#333333] mt-0.5">{item.note}</p>
                         </div>
                       </div>
                     ))}
@@ -183,8 +182,8 @@ export default function MutualDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 4 : IMPORTANT DETAILS ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-6 md:gap-10 lg:gap-16 items-start">
               {/* Left — Headline */}
               <div data-reveal>
@@ -267,7 +266,7 @@ export default function MutualDivorcePage() {
             />
             <div className="absolute inset-0 bg-black/60" />
           </div>
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 text-center">
+          <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 text-center">
             <p className="text-[18px] md:text-[22px] lg:text-[24px] leading-[1.7] text-white/90 italic">
               &ldquo;협의이혼은 절차의 간편함 이면에<br className="hidden md:block" />
               합의 조건의 불균형이라는 위험이 존재합니다.<br className="hidden md:block" />
@@ -280,8 +279,8 @@ export default function MutualDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 6 : TEAM LINK ═══════════ */}
-        <section className="bg-[#F8F4EE] py-14 md:py-18" data-reveal>
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20" data-reveal>
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-5">
                 <div className="w-14 h-14 rounded-full bg-burgundy-500 flex items-center justify-center text-white flex-shrink-0">
@@ -303,8 +302,8 @@ export default function MutualDivorcePage() {
         </section>
 
         {/* ═══════════ SECTION 7 : CTA ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center" data-reveal>
               <h2 className="font-sans text-[28px] md:text-[36px] lg:text-[42px] leading-[1.35] font-bold text-[#2C2028] mb-5">
                 협의이혼, 전문가의<br />검토가 필요합니다

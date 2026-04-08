@@ -35,11 +35,10 @@ export default function AlimonyPage() {
 
       <PracticeRevealWrapper>
         {/* ═══════════ SECTION 1 : HERO HEADLINE ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-[2px] bg-burgundy-500" />
+              <div className="mb-6">
                 <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                   ALIMONY &amp; DAMAGES GUIDE
                 </p>
@@ -71,8 +70,8 @@ export default function AlimonyPage() {
         </section>
 
         {/* ═══════════ SECTION 2 : ALIMONY PROCESS 4 CARDS ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 ALIMONY PROCESS
@@ -121,7 +120,7 @@ export default function AlimonyPage() {
                   <h3 className="font-sans text-[15px] md:text-[17px] font-bold text-[#2C2028] mb-2 md:mb-3">
                     {card.num}. {card.title}
                   </h3>
-                  <p className="text-[13px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#3A3238] font-semibold">
+                  <p className="text-[15px] md:text-[16px] leading-[1.7] md:leading-[1.8] text-[#3A3238] font-semibold">
                     {card.desc}
                   </p>
                 </div>
@@ -131,8 +130,8 @@ export default function AlimonyPage() {
         </section>
 
         {/* ═══════════ SECTION 3 : 위자료란 무엇인가요? ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal className="mb-16">
               <h2 className="font-sans text-[28px] md:text-[36px] lg:text-[42px] leading-[1.35] font-bold text-[#2C2028] mb-6">
                 위자료란 무엇인가요?
@@ -213,7 +212,7 @@ export default function AlimonyPage() {
             />
             <div className="absolute inset-0 bg-black/60" />
           </div>
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 text-center">
+          <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 text-center">
             <p className="text-[18px] md:text-[22px] lg:text-[24px] leading-[1.7] text-white/90 italic">
               &ldquo;상처를 법적 책임으로 바꾸는 일,
               <br className="hidden md:block" />
@@ -226,8 +225,8 @@ export default function AlimonyPage() {
         </section>
 
         {/* ═══════════ SECTION 5 : 위자료 청구 시효 + 증거 확보 전략 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-14">
               {/* Left — 위자료 청구 시효 */}
               <div data-reveal>
@@ -318,8 +317,8 @@ export default function AlimonyPage() {
         </section>
 
         {/* ═══════════ SECTION 6 : 위자료 청구 대상 + 결정적 증거 종류 (2-col) ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-14">
               {/* Left — 위자료 청구 대상 */}
               <div data-reveal>
@@ -347,7 +346,7 @@ export default function AlimonyPage() {
                       <h4 className="font-sans text-[14px] md:text-[16px] font-bold text-[#2C2028] mb-1.5">
                         상간자 (제3자 부정행위)
                       </h4>
-                      <p className="text-[13px] md:text-[15px] leading-[1.8] text-[#3A3238] font-semibold">
+                      <p className="text-[15px] md:text-[15px] leading-[1.8] text-[#3A3238] font-semibold">
                         배우자와 부정행위를 저지른 상간녀 혹은 상간남을 상대로
                         위자료 소송을 별도로 제기하거나 이혼 소송과 병행할 수
                         있습니다.
@@ -364,7 +363,7 @@ export default function AlimonyPage() {
                       <h4 className="font-sans text-[14px] md:text-[16px] font-bold text-[#2C2028] mb-1.5">
                         직계존속 (시부모·장서 갈등)
                       </h4>
-                      <p className="text-[13px] md:text-[15px] leading-[1.8] text-[#3A3238] font-semibold">
+                      <p className="text-[15px] md:text-[15px] leading-[1.8] text-[#3A3238] font-semibold">
                         시어머니, 시누이, 장인, 장모 등 배우자의 가족이 혼인
                         생활에 부당하게 간섭하거나 심한 모욕을 준 경우 그들을
                         상대로도 위자료 청구가 가능합니다.
@@ -433,7 +432,7 @@ export default function AlimonyPage() {
         </section>
 
         {/* ═══════════ SECTION 7 : TEAM LINK ═══════════ */}
-        <section className="bg-[#F8F4EE] py-10 md:py-18" data-reveal>
+        <section className="bg-[#F8F4EE] py-10 md:py-20" data-reveal>
           <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-5 md:gap-8">
               <div className="flex items-center gap-5">
@@ -460,8 +459,8 @@ export default function AlimonyPage() {
         </section>
 
         {/* ═══════════ SECTION 8 : CTA ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center" data-reveal>
               <h2 className="font-sans text-[28px] md:text-[36px] lg:text-[42px] leading-[1.35] font-bold text-[#2C2028] mb-5">
                 당신의 권리, 침묵하지 마세요

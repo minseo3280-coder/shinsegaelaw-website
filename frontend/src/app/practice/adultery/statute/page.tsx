@@ -60,15 +60,13 @@ export default function AdulteryStatutePage() {
 
       <PracticeRevealWrapper>
         {/* ═══════════ SECTION 1 : HERO HEADLINE ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal className="text-center max-w-5xl mx-auto">
-              <div className="flex items-center gap-3 mb-5 justify-center">
-                <div className="w-8 h-[2px] bg-burgundy-500" />
+              <div className="mb-5 justify-center">
                 <p className="text-[14px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                   공소시효 가이드
                 </p>
-                <div className="w-8 h-[2px] bg-burgundy-500" />
               </div>
               <h2 className="font-sans text-[24px] md:text-[42px] lg:text-[48px] leading-[1.3] font-bold text-[#2C2028] mb-6">
                 상간자소송 시효,
@@ -86,8 +84,8 @@ export default function AdulteryStatutePage() {
         </section>
 
         {/* ═══════════ SECTION 2 : 두 가지 법적 시효 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="text-center mb-14" data-reveal>
               <h3 className="font-sans text-[26px] md:text-[32px] font-bold text-[#2C2028] leading-tight mb-3">
                 반드시 지켜야 할 두 가지 법적 시효
@@ -158,10 +156,10 @@ export default function AdulteryStatutePage() {
         </section>
 
         {/* ═══════════ SECTION 3 : 시효 타임라인 시각화 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-5xl mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-5xl mx-auto px-5 md:px-10">
             <div className="text-center mb-12" data-reveal>
-              <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
+              <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                 TIMELINE VISUALIZATION
               </p>
               <h3 className="font-sans text-[24px] md:text-[30px] font-bold text-[#2C2028] leading-tight">
@@ -246,12 +244,12 @@ export default function AdulteryStatutePage() {
         </section>
 
         {/* ═══════════ SECTION 4 : '안 날'의 법적 기준 ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
               {/* LEFT */}
               <div data-reveal>
-                <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
+                <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-4">
                   LEGAL STANDARD
                 </p>
                 <h3 className="font-sans text-[26px] md:text-[30px] font-bold text-[#2C2028] mb-6 leading-tight">
@@ -275,7 +273,7 @@ export default function AdulteryStatutePage() {
 
               {/* RIGHT: 판례 기준 */}
               <div data-reveal>
-                <p className="text-[13px] md:text-[15px] font-bold text-[#2C2028] mb-5">
+                <p className="text-[15px] md:text-[15px] font-bold text-[#2C2028] mb-5">
                   시효 기산점 주요 판례 기준
                 </p>
                 <div className="space-y-3">
@@ -294,7 +292,7 @@ export default function AdulteryStatutePage() {
                         size={16}
                         className="text-burgundy-400 mt-0.5 flex-shrink-0"
                       />
-                      <p className="text-[13px] md:text-[14px] leading-[1.7] text-[#333333]">
+                      <p className="text-[15px] md:text-[16px] leading-[1.7] text-[#333333]">
                         {item}
                       </p>
                     </div>
@@ -306,12 +304,12 @@ export default function AdulteryStatutePage() {
         </section>
 
         {/* ═══════════ SECTION 5 : 망설이는 시간만큼 위자료 감소 ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
               {/* LEFT: 경고 메시지 */}
               <div data-reveal>
-                <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-burgundy-500 mb-4">
+                <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-burgundy-500 mb-4">
                   비판적 경고
                 </p>
                 <h3 className="font-sans text-[28px] md:text-[34px] font-bold text-[#2C2028] mb-6 leading-tight">
@@ -340,7 +338,7 @@ export default function AdulteryStatutePage() {
                       <p className="text-[14px] md:text-[16px] font-bold text-[#2C2028] mb-1">
                         정신적 고통의 희석
                       </p>
-                      <p className="text-[13px] md:text-[14px] leading-[1.7] text-[#444444]">
+                      <p className="text-[15px] md:text-[16px] leading-[1.7] text-[#444444]">
                         시간이 많이 흐른 뒤의 소송은 &ldquo;당시 입은 충격이
                         감내할 수준이었다&rdquo;는 피고측의 반격 빌미가
                         됩니다.
@@ -355,7 +353,7 @@ export default function AdulteryStatutePage() {
                       <p className="text-[14px] md:text-[16px] font-bold text-[#2C2028] mb-1">
                         묵인 또는 용서로 오해
                       </p>
-                      <p className="text-[13px] md:text-[14px] leading-[1.7] text-[#444444]">
+                      <p className="text-[15px] md:text-[16px] leading-[1.7] text-[#444444]">
                         긴 공백기는 원고가 부정행위를 묵인했거나 이미 용서한
                         것으로 비쳐져 위자료 액수 산정에 불리하게
                         작용합니다.
@@ -380,7 +378,7 @@ export default function AdulteryStatutePage() {
                   <div className="space-y-4">
                     {/* 최고의 시점 */}
                     <div className="bg-burgundy-500 rounded-xl p-4 md:p-5 text-center">
-                      <p className="text-[12px] md:text-[13px] text-white/70 mb-1">
+                      <p className="text-[14px] md:text-[15px] text-white/70 mb-1">
                         최고의 시점
                       </p>
                       <p className="text-[15px] md:text-[18px] font-bold text-white">
@@ -390,7 +388,7 @@ export default function AdulteryStatutePage() {
 
                     {/* 중의 */}
                     <div className="bg-white rounded-xl p-4 md:p-5 text-center border border-gray-200">
-                      <p className="text-[12px] md:text-[13px] text-[#444444] mb-1">
+                      <p className="text-[14px] md:text-[15px] text-[#444444] mb-1">
                         중의
                       </p>
                       <p className="text-[15px] md:text-[18px] font-bold text-[#2C2028]">
@@ -400,7 +398,7 @@ export default function AdulteryStatutePage() {
 
                     {/* 위험 */}
                     <div className="bg-white rounded-xl p-4 md:p-5 text-center border border-burgundy-200">
-                      <p className="text-[12px] md:text-[13px] text-burgundy-400 mb-1">
+                      <p className="text-[14px] md:text-[15px] text-burgundy-400 mb-1">
                         위험
                       </p>
                       <p className="text-[15px] md:text-[18px] font-bold text-[#444444]">
@@ -409,7 +407,7 @@ export default function AdulteryStatutePage() {
                     </div>
                   </div>
 
-                  <p className="text-[13px] text-[#444444] text-center mt-5">
+                  <p className="text-[15px] text-[#444444] text-center mt-5">
                     *위 도표는 일반적인 법관 경향성 배경으로 작성되었습니다.
                   </p>
                 </div>
@@ -445,7 +443,7 @@ export default function AdulteryStatutePage() {
                   <h4 className="font-sans text-[15px] md:text-[18px] font-bold text-[#2C2028] mb-3">
                     {item.title}
                   </h4>
-                  <p className="text-[13px] md:text-[14px] leading-[1.8] text-[#444444]">
+                  <p className="text-[15px] md:text-[16px] leading-[1.8] text-[#444444]">
                     {item.desc}
                   </p>
                 </div>
@@ -473,9 +471,8 @@ export default function AdulteryStatutePage() {
           }}
         >
           <div className="absolute inset-0 bg-[#1A1A2E]/85" />
-          <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10 text-center">
+          <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mb-6" />
               <p className="text-[20px] md:text-[26px] lg:text-[30px] text-white leading-[1.7] font-semibold">
                 &ldquo;시효는 기다려 주지 않습니다.
                 <br className="hidden md:block" />
@@ -483,7 +480,6 @@ export default function AdulteryStatutePage() {
                 <br className="hidden md:block" />
                 가장 빠른 시점이며, 가장 유리한 시점입니다.&rdquo;
               </p>
-              <div className="w-10 h-[1px] bg-[#C9A84C] mx-auto mt-6 mb-4" />
               <p className="text-[15px] text-[#C9A84C] tracking-wider">
                 위자료팀 신진희 팀장
               </p>
@@ -492,10 +488,10 @@ export default function AdulteryStatutePage() {
         </section>
 
         {/* ═══════════ SECTION 7 : Q&A ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-5xl mx-auto px-6 md:px-10">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-5xl mx-auto px-5 md:px-10">
             <div className="text-center mb-12" data-reveal>
-              <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-[#444444] mb-4">
+              <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#444444] mb-4">
                 자주 묻는 질문
               </p>
               <h3 className="font-sans text-[26px] md:text-[32px] font-bold text-[#2C2028] leading-tight">
@@ -521,12 +517,12 @@ export default function AdulteryStatutePage() {
         </section>
 
         {/* ═══════════ SECTION 8 : TEAM LINK ═══════════ */}
-        <section className="bg-[#F8F4EE] py-12 md:py-28 lg:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <section className="bg-[#F8F4EE] py-14 md:py-20">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-10">
             <div data-reveal>
               <div className="bg-white rounded-2xl p-5 md:p-12 flex flex-col md:flex-row items-center gap-5 md:gap-8 shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
                 <div className="flex-1">
-                  <p className="text-[13px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-3">
+                  <p className="text-[15px] tracking-[0.3em] uppercase font-bold text-[#C9A84C] mb-3">
                     SPECIALIZED TEAM
                   </p>
                   <h3 className="font-sans text-[20px] md:text-[30px] font-bold text-[#2C2028] mb-3 leading-tight">
@@ -554,8 +550,8 @@ export default function AdulteryStatutePage() {
         </section>
 
         {/* ═══════════ SECTION 9 : CTA ═══════════ */}
-        <section className="bg-white py-12 md:py-28 lg:py-32">
-          <div className="max-w-5xl mx-auto px-6 md:px-10 text-center">
+        <section className="bg-white py-14 md:py-20">
+          <div className="max-w-5xl mx-auto px-5 md:px-10 text-center">
             <div data-reveal>
               <h3 className="font-sans text-[28px] md:text-[36px] lg:text-[42px] font-bold text-[#2C2028] mb-4 leading-tight">
                 지금 이 순간에도

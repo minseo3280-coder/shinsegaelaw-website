@@ -37,7 +37,7 @@ export default function MediaTabs({ activeTab }: MediaTabsProps) {
 
   return (
     <div className="font-sans bg-white border-b border-gray-200 sticky top-[80px] z-20">
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
         {/* Mobile: dropdown */}
         <div className="md:hidden py-3">
           <div className="relative">
@@ -96,7 +96,7 @@ export default function MediaTabs({ activeTab }: MediaTabsProps) {
                       role="tab"
                       aria-selected={isActive}
                       onClick={() => router.push(item.href)}
-                      className={`px-4 py-4 text-[17px] whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 ${
+                      className={`px-4 py-4 text-[16px] whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 ${
                         isActive
                           ? "text-[#7B2D3B] font-bold border-[#7B2D3B]"
                           : "text-[#444444] font-semibold border-transparent hover:text-[#1A1A2E] cursor-pointer"

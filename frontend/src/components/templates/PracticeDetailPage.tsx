@@ -36,7 +36,7 @@ export default function PracticeDetailPage({
       <PracticeTabs />
 
       {/* Body */}
-      <div className="max-w-[1600px] mx-auto px-6 md:px-8 py-16 md:py-24">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-8 py-16 md:py-24">
         <div className="max-w-[1100px]">
           <h2 className="text-2xl font-bold text-foreground mb-6">{title}</h2>
           <div className="text-[16px] text-muted-foreground leading-relaxed mb-12 space-y-4">

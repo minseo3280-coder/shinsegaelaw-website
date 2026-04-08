@@ -35,7 +35,7 @@ export default function YoutubePage() {
       <div className="max-w-7xl mx-auto px-6 md:px-8 pt-12 md:pt-16 pb-20 md:pb-28">
         {/* Section Header */}
         <div className="mb-10">
-          <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-burgundy-500 mb-3">
+          <p className="text-[15px] font-semibold tracking-[0.3em] uppercase text-burgundy-500 mb-3">
             YouTube Channel
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight">
@@ -44,7 +44,6 @@ export default function YoutubePage() {
           <p className="text-[15px] text-[#444444] leading-relaxed mt-3 max-w-[600px]">
             이혼·상속 전문 조인섭 변호사가 법률 지식과 실무 경험을 영상으로 전해드립니다.
           </p>
-          <div className="w-12 h-[2px] bg-gold-500 mt-4" />
         </div>
 
         {/* Channel Cards */}
@@ -64,10 +63,10 @@ export default function YoutubePage() {
                 <h3 className="text-[16px] font-bold text-gray-900 group-hover:text-burgundy-600 transition-colors">
                   {ch.name}
                 </h3>
-                <p className="text-[13px] text-[#888888] mt-0.5">
+                <p className="text-[15px] text-[#888888] mt-0.5">
                   {(ch as { description?: string }).description || "법률 상담 채널"}
                 </p>
-                <p className="text-[12px] font-semibold text-burgundy-500 mt-1">{ch.handle}</p>
+                <p className="text-[14px] font-semibold text-burgundy-500 mt-1">{ch.handle}</p>
               </div>
             </a>
           ))}
@@ -92,7 +91,7 @@ export default function YoutubePage() {
             <h3 className="text-[18px] font-bold text-gray-900 leading-snug">
               {featured.title}
             </h3>
-            <p className="text-[13px] text-[#888888] mt-1">
+            <p className="text-[15px] text-[#888888] mt-1">
               법무법인 신세계로 대표변호사 · 제1호 가족법 전문변호사
             </p>
           </div>
@@ -110,7 +109,7 @@ export default function YoutubePage() {
               <p className="text-2xl md:text-3xl font-extrabold text-burgundy-500 tracking-tight">
                 {stat.num}
               </p>
-              <p className="text-[13px] text-[#444444] font-semibold mt-1">{stat.label}</p>
+              <p className="text-[15px] text-[#444444] font-semibold mt-1">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -119,9 +118,9 @@ export default function YoutubePage() {
         <div className="flex items-center justify-between mb-3">
           <div>
             <h3 className="text-xl font-bold text-gray-900">전체 영상</h3>
-            <p className="text-[13px] text-[#888888] mt-1">조인섭 변호사의 법률 상담 영상 총 {totalCount}개</p>
+            <p className="text-[15px] text-[#888888] mt-1">조인섭 변호사의 법률 상담 영상 총 {totalCount}개</p>
           </div>
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-burgundy-50 text-burgundy-600 text-[13px] font-semibold">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-burgundy-50 text-burgundy-600 text-[15px] font-semibold">
             <Video size={12} />
             {totalCount}개
           </span>
@@ -152,7 +151,7 @@ export default function YoutubePage() {
               <p className="text-[14px] font-semibold text-[#2C2028] mt-3 leading-snug line-clamp-2">
                 {video.title}
               </p>
-              <p className="text-[12px] text-[#888888] mt-1">
+              <p className="text-[14px] text-[#888888] mt-1">
                 {(video as unknown as { date?: string | null }).date || "조인섭 변호사"}
               </p>
             </a>
@@ -179,7 +178,7 @@ export default function YoutubePage() {
             </div>
             <div>
               <h4 className="text-[16px] font-bold text-gray-900">조인섭 변호사 채널 구독하기</h4>
-              <p className="text-[13px] text-[#444444]">이혼·상속 법률의 모든 것을 영상으로 만나보세요</p>
+              <p className="text-[15px] text-[#444444]">이혼·상속 법률의 모든 것을 영상으로 만나보세요</p>
             </div>
           </div>
           <a

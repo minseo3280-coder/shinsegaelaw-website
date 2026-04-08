@@ -105,7 +105,7 @@ export default function CaseWizard() {
               </p>
 
               <p
-                className="text-[12px] md:text-[15px] text-[#6B5E64] leading-[1.7] md:leading-[1.8]"
+                className="text-[14px] md:text-[15px] text-[#6B5E64] leading-[1.7] md:leading-[1.8]"
                 style={{ wordBreak: "keep-all" }}
               >
                 간단한 질문에 답하시면,<br />
@@ -123,7 +123,7 @@ export default function CaseWizard() {
                   <p className="text-[14px] md:text-[15px] text-burgundy-500 font-bold">
                     간단한 질문에 답변 해주세요.
                   </p>
-                  <span className="text-[13px] text-[#999] font-semibold">
+                  <span className="text-[15px] text-[#999] font-semibold">
                     <span className="text-burgundy-500">{step + 1}</span> / {TOTAL_STEPS}
                   </span>
                 </div>
@@ -201,7 +201,7 @@ export default function CaseWizard() {
                     <p className="text-[16px] md:text-[18px] font-bold text-[#2C2028] mb-2">
                       마지막으로, 연락처를 남겨주세요.
                     </p>
-                    <p className="text-[13px] text-[#999] mb-5">
+                    <p className="text-[15px] text-[#999] mb-5">
                       맞춤 분석 결과를 전달해 드립니다.
                     </p>
 
@@ -224,7 +224,7 @@ export default function CaseWizard() {
 
                     <div className="flex items-center gap-2 mt-4">
                       <input type="checkbox" id="wizard-privacy" required className="w-3.5 h-3.5 accent-burgundy-500" />
-                      <label htmlFor="wizard-privacy" className="text-[12px] text-[#999]">
+                      <label htmlFor="wizard-privacy" className="text-[14px] text-[#999]">
                         개인정보 수집 및 이용에 동의합니다.
                       </label>
                     </div>

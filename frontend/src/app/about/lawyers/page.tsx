@@ -35,13 +35,13 @@ export default function LawyersListPage() {
       {/* ═══════════════════════════════════════════════════
           SECTION 1 — 대표변호사 (풀와이드 프리미엄 영역)
           ═══════════════════════════════════════════════════ */}
-      <section className="bg-white py-10 md:py-20" data-reveal>
+      <section className="bg-white py-14 md:py-20" data-reveal>
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
           {/* Section header */}
           <div className="mb-8 md:mb-12">
             <div className="flex items-center gap-3 mb-4 md:mb-6">
               <div className="w-8 md:w-10 h-[2px] bg-burgundy-500" />
-              <p className="text-[13px] md:text-[14px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
+              <p className="text-[15px] md:text-[16px] tracking-[0.3em] uppercase font-bold text-burgundy-500">
                 Representative
               </p>
             </div>
@@ -78,14 +78,9 @@ export default function LawyersListPage() {
                     <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent" />
                     {/* Name overlay on photo */}
                     <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8">
-                      {lawyer.label && (
-                        <span className="inline-block px-2 py-0.5 md:px-3 md:py-1 bg-[#9B2335] text-white text-[9px] md:text-[10px] tracking-[0.15em] font-bold uppercase rounded mb-2 md:mb-3">
-                          {lawyer.label === "REPRESENTATIVE" ? "대표변호사" : "창립 대표변호사"}
-                        </span>
-                      )}
                       <h3 className="text-[18px] md:text-[38px] font-extrabold text-white leading-tight font-sans">
                         {lawyer.name}
-                        <span className="text-[13px] md:text-[20px] font-bold text-white/70 ml-1.5 md:ml-2">변호사</span>
+                        <span className="text-[15px] md:text-[20px] font-bold text-white/70 ml-1.5 md:ml-2">변호사</span>
                       </h3>
                     </div>
                   </div>
@@ -100,7 +95,7 @@ export default function LawyersListPage() {
                       {lawyer.career &&
                         lawyer.career.slice(0, 4).map((item: string | { text?: string }, i: number) => (
                           <p key={i} className="text-[16px] text-[#3A3238] leading-[1.7] flex items-start gap-2.5">
-                            <span className="text-[#C9A84C] mt-[3px] flex-shrink-0 text-[10px]">◆</span>
+                            <span className="text-[#C9A84C] mt-[3px] flex-shrink-0 text-[15px]">◆</span>
                             <span>{typeof item === "string" ? item : item.text || ""}</span>
                           </p>
                         ))}
@@ -112,7 +107,7 @@ export default function LawyersListPage() {
                   </div>
                   {/* Mobile: compact info */}
                   <div className="md:hidden px-3 py-2.5 bg-white">
-                    <p className="text-[13px] text-[#9B2335] font-bold leading-tight">
+                    <p className="text-[15px] text-[#9B2335] font-bold leading-tight">
                       {lawyer.specialty ? lawyer.specialty.slice(0, 2).join(" / ") : lawyer.description}
                     </p>
                   </div>
@@ -126,10 +121,10 @@ export default function LawyersListPage() {
       {/* ═══════════════════════════════════════════════════
           SECTION 2 — 총괄/팀장 변호사
           ═══════════════════════════════════════════════════ */}
-      <section className="bg-[#F8F6F3] py-10 md:py-20">
+      <section className="bg-[#F8F6F3] py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
           <div className="text-center mb-8 md:mb-12" data-reveal>
-            <p className="text-[12px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-2 md:mb-3">
+            <p className="text-[14px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-2 md:mb-3">
               Team Leaders
             </p>
             <h2 className="text-[22px] md:text-[32px] font-extrabold text-[#1A1A2E] leading-tight font-sans">
@@ -164,10 +159,10 @@ export default function LawyersListPage() {
                       <span className="text-[28px] text-gray-300 font-bold">{lawyer.name.charAt(0)}</span>
                     </div>
                   )}
-                  <span className="absolute top-2 left-2 text-[9px] font-bold text-[#C9A84C] bg-black/60 px-2 py-0.5 rounded">{lawyer.role.includes("총괄") ? "총괄" : "팀장"}</span>
+                  <span className="absolute top-2 left-2 text-[15px] font-bold text-[#C9A84C] bg-black/60 px-2 py-0.5 rounded">{lawyer.role.includes("총괄") ? "총괄" : "팀장"}</span>
                 </div>
                 <p className="text-[15px] font-bold text-[#1A1A2E]">{lawyer.name}</p>
-                <p className="text-[12px] text-[#333333]">{lawyer.position}</p>
+                <p className="text-[14px] text-[#333333]">{lawyer.position}</p>
               </Link>
             ))}
           </div>
@@ -203,7 +198,7 @@ export default function LawyersListPage() {
                     {lawyer.name}
                     <span className="text-[17px] font-bold text-[#333333] ml-1.5">변호사</span>
                   </h3>
-                  <p className="text-[13px] text-[#333333] mt-0.5 mb-1">{lawyer.role}</p>
+                  <p className="text-[15px] text-[#333333] mt-0.5 mb-1">{lawyer.role}</p>
                   <p className="text-[16px] text-[#9B2335] font-semibold mt-1 mb-4">
                     {lawyer.specialty ? lawyer.specialty.join(" / ") : lawyer.description} 전문
                   </p>
@@ -212,13 +207,13 @@ export default function LawyersListPage() {
                     {lawyer.career &&
                       lawyer.career.slice(0, 4).map((item: string | { text?: string }, i: number) => (
                         <p key={i} className="text-[16px] text-[#3A3238] leading-[1.7] flex items-start gap-2">
-                          <span className="text-[#C9A84C] mt-[2px] flex-shrink-0 text-[9px]">◆</span>
-                          <span className="line-clamp-1">{typeof item === "string" ? item : item.text || ""}</span>
+                          <span className="text-[#C9A84C] mt-[2px] flex-shrink-0 text-[15px]">◆</span>
+                          <span>{typeof item === "string" ? item : item.text || ""}</span>
                         </p>
                       ))}
                   </div>
                   <div className="flex justify-end mt-4">
-                    <span className="text-[13px] text-[#333333] group-hover:text-[#9B2335] flex items-center gap-1 transition-colors duration-300">
+                    <span className="text-[15px] text-[#333333] group-hover:text-[#9B2335] flex items-center gap-1 transition-colors duration-300">
                       <ArrowUpRight size={14} />
                     </span>
                   </div>
@@ -232,10 +227,10 @@ export default function LawyersListPage() {
       {/* ═══════════════════════════════════════════════════
           SECTION 3 — 전문 변호사
           ═══════════════════════════════════════════════════ */}
-      <section className="bg-white py-10 md:py-20">
+      <section className="bg-white py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
           <div className="text-center mb-8 md:mb-12" data-reveal>
-            <p className="text-[12px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-2 md:mb-3">
+            <p className="text-[14px] tracking-[0.3em] text-[#C9A84C] uppercase font-bold mb-2 md:mb-3">
               Professional Lawyers
             </p>
             <h2 className="text-[22px] md:text-[32px] font-extrabold text-[#1A1A2E] leading-tight font-sans">
@@ -271,7 +266,7 @@ export default function LawyersListPage() {
                   )}
                 </div>
                 <p className="text-[15px] font-bold text-[#1A1A2E]">{lawyer.name}</p>
-                <p className="text-[12px] text-[#333333]">{lawyer.position}</p>
+                <p className="text-[14px] text-[#333333]">{lawyer.position}</p>
               </Link>
             ))}
           </div>
@@ -315,13 +310,13 @@ export default function LawyersListPage() {
                     {lawyer.career &&
                       lawyer.career.slice(0, 4).map((item: string | { text?: string }, i: number) => (
                         <p key={i} className="text-[16px] text-[#3A3238] leading-[1.7] flex items-start gap-2">
-                          <span className="text-[#C9A84C] mt-[2px] flex-shrink-0 text-[9px]">◆</span>
-                          <span className="line-clamp-1">{typeof item === "string" ? item : item.text || ""}</span>
+                          <span className="text-[#C9A84C] mt-[2px] flex-shrink-0 text-[15px]">◆</span>
+                          <span>{typeof item === "string" ? item : item.text || ""}</span>
                         </p>
                       ))}
                   </div>
                   <div className="flex justify-end mt-4">
-                    <span className="text-[13px] text-[#333333] group-hover:text-[#9B2335] flex items-center gap-1 transition-colors duration-300">
+                    <span className="text-[15px] text-[#333333] group-hover:text-[#9B2335] flex items-center gap-1 transition-colors duration-300">
                       <ArrowUpRight size={14} />
                     </span>
                   </div>
@@ -335,7 +330,7 @@ export default function LawyersListPage() {
       {/* ═══════════════════════════════════════════════════
           BOTTOM CTA
           ═══════════════════════════════════════════════════ */}
-      <section className="bg-white py-10 md:py-16">
+      <section className="bg-white py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 text-center" data-reveal>
           <p className="text-[16px] md:text-[18px] text-[#333333] mb-3 md:mb-4">
             상담이 필요하시면 언제든 연락 주세요.

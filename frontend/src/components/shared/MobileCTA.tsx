@@ -8,18 +8,18 @@ const OFFICE_PHONE = firmData.offices[0].phone;
 export default function MobileCTA() {
   return (
     <div className="lg:hidden">
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10 py-8">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10 py-8">
         <div className="rounded-2xl overflow-hidden bg-[#0f0f1a] p-6 text-center relative">
           <div className="absolute top-[-40px] right-[-40px] w-[150px] h-[150px] bg-burgundy-500 opacity-[0.2] blur-[60px] rounded-full pointer-events-none" />
           <div className="absolute bottom-[-30px] left-[-30px] w-[100px] h-[100px] bg-gold-500 opacity-[0.08] blur-[40px] rounded-full pointer-events-none" />
           <div className="relative z-10">
-            <p className="text-[12px] tracking-[0.2em] text-gold-500/50 uppercase mb-1.5">
+            <p className="text-[14px] tracking-[0.2em] text-gold-500/50 uppercase mb-1.5">
               Consultation
             </p>
             <p className="text-[17px] font-bold text-white mb-[2px]">
               법률 상담
             </p>
-            <p className="text-[13px] text-white/35 mb-4">
+            <p className="text-[15px] text-white/35 mb-4">
               비밀보장 · 24시간 내 회신
             </p>
             <a

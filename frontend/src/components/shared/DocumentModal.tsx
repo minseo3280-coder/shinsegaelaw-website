@@ -55,7 +55,7 @@ export default function DocumentModal({ open, onClose }: Props) {
             </div>
             <div>
               <h3 className="text-[16px] font-bold text-gray-900">서류작성 도우미</h3>
-              <p className="text-[12px] text-gray-400">
+              <p className="text-[14px] text-gray-400">
                 {submitted ? "완료" : `단계 ${step}/2`}
               </p>
             </div>
@@ -129,7 +129,7 @@ export default function DocumentModal({ open, onClose }: Props) {
                       }`}>
                         {doc.label}
                       </p>
-                      <p className="text-[13px] text-gray-400 mt-0.5">{doc.desc}</p>
+                      <p className="text-[15px] text-gray-400 mt-0.5">{doc.desc}</p>
                     </div>
                   </button>
                 ))}
@@ -185,7 +185,7 @@ export default function DocumentModal({ open, onClose }: Props) {
 
                 <div className="flex items-start gap-2 mt-1">
                   <input type="checkbox" required className="mt-1 rounded border-gray-300" />
-                  <label className="text-[12px] text-gray-400 leading-relaxed">
+                  <label className="text-[14px] text-gray-400 leading-relaxed">
                     개인정보 수집 및 이용에 동의합니다.
                   </label>
                 </div>

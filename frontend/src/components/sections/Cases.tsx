@@ -82,7 +82,7 @@ export default function Cases() {
         {/* Header — 스토리텔링 */}
         <ScrollReveal>
           <div className="text-center mb-6 md:mb-20">
-            <p className="text-[12px] md:text-[15px] tracking-[0.35em] text-burgundy-500/70 font-bold uppercase mb-3 md:mb-6">
+            <p className="text-[14px] md:text-[15px] tracking-[0.35em] text-burgundy-500/70 font-bold uppercase mb-3 md:mb-6">
               Winning Cases
             </p>
             <h2
@@ -92,8 +92,7 @@ export default function Cases() {
               성과는 말로 꾸며지지 않습니다.<br />
               <span className="text-burgundy-600">성과는 기록</span>으로 남습니다.
             </h2>
-            <div className="w-12 md:w-16 h-[2px] bg-burgundy-500/30 mx-auto mb-3 md:mb-5" />
-            <p className="text-[15px] md:text-[19px] text-[#333333] leading-[1.8] md:leading-[1.9]" style={{ wordBreak: "keep-all" }}>
+            <p className="text-[15px] md:text-[19px] text-[#333333] leading-[1.8] md:leading-[1.9] mt-3 md:mt-5" style={{ wordBreak: "keep-all" }}>
               모든 성과는 비식별화된 판결문으로 검증됩니다.<br />
               광고 문구는 포장될 수 있어도,<br className="md:hidden" />
               법원의 기록은 결코 거짓을 말하지 않습니다.
@@ -118,14 +117,14 @@ export default function Cases() {
                 <button
                   key={cat}
                   onClick={() => setActiveFilter(cat)}
-                  className={`inline-flex items-center gap-1 md:gap-1.5 px-3 md:px-5 min-h-[36px] md:min-h-[44px] rounded-full text-[12px] md:text-[14px] font-semibold border transition-all duration-200 ${
+                  className={`inline-flex items-center gap-1 md:gap-1.5 px-3 md:px-5 min-h-[36px] md:min-h-[44px] rounded-full text-[14px] md:text-[16px] font-semibold border transition-all duration-200 ${
                     activeFilter === cat
                       ? "bg-burgundy-500 text-white border-burgundy-500 shadow-sm"
                       : "bg-white text-[#333333] border-gray-200 hover:border-burgundy-300 hover:text-burgundy-600"
                   }`}
                 >
                   {cat}
-                  <span className={`text-[12px] md:text-[13px] ${activeFilter === cat ? "text-white/70" : "text-gray-400"}`}>
+                  <span className={`text-[14px] md:text-[15px] ${activeFilter === cat ? "text-white/70" : "text-gray-400"}`}>
                     {count.toLocaleString()}
                   </span>
                 </button>
@@ -151,7 +150,7 @@ export default function Cases() {
                       <StampSeal result={caseItem.result} resultType={caseItem.result_type} size="sm" />
                     </div>
 
-                    <span className="inline-block px-2 py-0.5 md:px-3 md:py-1 rounded-full bg-burgundy-50 text-burgundy-600 text-[12px] md:text-[14px] font-bold tracking-wide mb-1.5 md:mb-3 self-start">
+                    <span className="inline-block px-2 py-0.5 md:px-3 md:py-1 rounded-full bg-burgundy-50 text-burgundy-600 text-[14px] md:text-[16px] font-bold tracking-wide mb-1.5 md:mb-3 self-start">
                       {caseItem.category}
                     </span>
                     <h4 className="text-[14px] md:text-[18px] font-bold text-gray-900 group-hover:text-burgundy-600 transition-colors leading-[1.45] md:leading-[1.5] mb-1 md:mb-3 line-clamp-2 pr-10 md:pr-14" style={{ wordBreak: "keep-all" }}>
@@ -163,7 +162,7 @@ export default function Cases() {
                   </div>
 
                   <div className="px-3 md:px-6 pb-3 md:pb-6 pt-2 md:pt-4 border-t border-gray-100 mt-auto">
-                    <span className="flex items-center gap-1 md:gap-1.5 text-[13px] md:text-[15px] font-bold text-burgundy-600">
+                    <span className="flex items-center gap-1 md:gap-1.5 text-[15px] md:text-[15px] font-bold text-burgundy-600">
                       <Check size={11} className="text-burgundy-500 shrink-0 md:!w-[14px] md:!h-[14px]" />
                       <span className="line-clamp-1">{shortResult(caseItem.result, caseItem.result_type)}</span>
                     </span>

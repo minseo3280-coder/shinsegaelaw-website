@@ -100,7 +100,7 @@ export default function PracticeTabs() {
       {/* ── Desktop: 2-row tabs ── */}
       {/* Row 1: Group tabs */}
       <div className="hidden md:block bg-white border-b border-gray-100">
-        <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
           <div className="flex items-stretch" role="tablist" aria-label="업무분야 그룹">
             {groups.map((group) => {
               const isActive = activeGroup.id === group.id;
@@ -123,7 +123,7 @@ export default function PracticeTabs() {
                   >
                     {group.labelEn}
                   </span>
-                  <span className="text-[17px]">{group.label}</span>
+                  <span className="text-[16px]">{group.label}</span>
                   {isActive && (
                     <div
                       className="absolute bottom-0 left-5 right-5 h-[2px]"
@@ -140,7 +140,7 @@ export default function PracticeTabs() {
       {/* Row 2: Sub-item tabs */}
       {activeGroup.items.length > 1 && (
         <div className="hidden md:block bg-white border-b border-gray-200">
-          <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-10">
+          <div className="max-w-[1400px] mx-auto px-5 md:px-8 lg:px-10">
             <div
               className="flex items-stretch overflow-x-auto scrollbar-hide"
               role="tablist"
@@ -154,7 +154,7 @@ export default function PracticeTabs() {
                     role="tab"
                     aria-selected={isItemActive}
                     onClick={() => router.push(item.href)}
-                    className={`px-5 py-4 text-[17px] whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 ${
+                    className={`px-5 py-4 text-[16px] whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 ${
                       isItemActive
                         ? "text-[#7B2D3B] font-bold border-[#7B2D3B]"
                         : "text-[#444444] font-semibold border-transparent hover:text-[#1A1A2E] cursor-pointer"
