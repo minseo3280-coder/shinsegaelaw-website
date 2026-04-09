@@ -66,55 +66,12 @@
 
 ## 🎬 서비스 시연
 
- [https://ssgl.blogcash.kr/](https://ssgl.blogcash.kr/) |
+**[👉 실제 사이트 들어가보기 ](https://ssgl.blogcash.kr/)**
 
 
----
-
-### 공통 UI 컴포넌트
-
-<p align="center">
-  <img src="docs/screenshots/megamenu.png" alt="메가메뉴" width="80%" /><br/>
-  <em>5탭 프리미엄 메가메뉴 — 글래스모피즘 + stagger 애니메이션</em>
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/search.png" alt="글로벌 검색" width="80%" /><br/>
-  <em>글로벌 검색 — 2,188건 실시간 검색 + 카테고리 그룹핑 + 인기 태그</em>
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/floating-cta.png" alt="FloatingCTA" width="80%" /><br/>
-  <em>FloatingCTA — 전화/카카오톡/상담/오시는길 4개 액션 사이드바</em>
-</p>
 
 ---
 
-### 모바일 반응형
-
-<p align="center">
-  <img src="docs/screenshots/mobile-hero.png" alt="모바일 히어로" width="24%" />
-  &nbsp;
-  <img src="docs/screenshots/mobile-cases.png" alt="모바일 승소사례" width="24%" />
-  &nbsp;
-  <img src="docs/screenshots/mobile-lawyers.png" alt="모바일 변호사" width="24%" />
-  &nbsp;
-  <img src="docs/screenshots/mobile-menu.png" alt="모바일 메뉴" width="24%" />
-</p>
-<p align="center"><em>모바일 — Hero / 승소사례 / 변호사 2열 그리드 / 풀스크린 메뉴</em></p>
-
-<p align="center">
-  <img src="docs/screenshots/mobile-practice.png" alt="모바일 업무분야" width="24%" />
-  &nbsp;
-  <img src="docs/screenshots/mobile-press.png" alt="모바일 언론보도" width="24%" />
-  &nbsp;
-  <img src="docs/screenshots/mobile-review.png" alt="모바일 후기" width="24%" />
-  &nbsp;
-  <img src="docs/screenshots/mobile-consultation.png" alt="모바일 상담" width="24%" />
-</p>
-<p align="center"><em>모바일 — 업무분야 / 언론보도 / 후기 상세 / 상담 + 하단 CTA 바</em></p>
-
----
 
 ## 🎯 프로젝트 배경 및 목표
 
