@@ -1,7 +1,7 @@
 # ⚖️ 법무법인 신세계로 — 프리미엄 로펌 웹사이트 리뉴얼
 
 <p align="center">
-  <img src="docs/screenshots/hero-desktop.png" alt="법무법인 신세계로 메인 히어로" width="100%" />
+  <img src="docs/screenshots/main-hero.png" alt="법무법인 신세계로 메인 히어로" width="100%" />
 </p>
 
 <p align="center">
@@ -27,6 +27,28 @@
 
 ---
 
+## 📑 목차
+
+| # | 섹션 | 설명 |
+|---|------|------|
+| 1 | [📋 프로젝트 정보](#-프로젝트-정보) | 개발 기간, 인원, 규모 |
+| 2 | [🎬 서비스 시연](#-서비스-시연) | 데스크톱/모바일 스크린샷 30장+ |
+| 3 | [🎯 프로젝트 배경](#-프로젝트-배경-및-목표) | 문제 정의, 솔루션, 레퍼런스 |
+| 4 | [🛠️ 기술 스택](#-기술-스택-tech-stack) | Frontend, UI, DevOps, Data |
+| 5 | [📌 주요 기능](#-주요-기능) | 14개 핵심 기능 테이블 |
+| 6 | [🔄 아키텍처](#-시스템-아키텍처) | 시스템 흐름도 |
+| 7 | [📁 프로젝트 구조](#-프로젝트-구조) | 디렉토리 트리 + 파일 설명 |
+| 8 | [🎨 디자인 시스템](#-디자인-시스템) | 컬러, 타이포, 애니메이션, 레이아웃 |
+| 9 | [📄 페이지 상세](#-페이지-상세) | 메인 7섹션 + 서브 26개 |
+| 10 | [📊 데이터 크롤링](#-데이터-크롤링-실적) | 4,300건 크롤링 + 정합성 검증 |
+| 11 | [🔄 경쟁사 분석](#-경쟁사-분석-및-차별화) | YK/대륜 비교표 |
+| 12 | [⚙️ 설치 및 실행](#-설치-및-실행) | 로컬 개발 환경 세팅 |
+| 13 | [🚀 배포](#-배포) | AWS EC2 구성 |
+| 14 | [📈 성과 지표](#-성과-지표) | 달성 현황 |
+| 15 | [💡 차별점](#-프로젝트-차별점) | 5가지 핵심 차별점 |
+
+---
+
 ## 📋 프로젝트 정보
 
 | 항목 | 내용 |
@@ -44,38 +66,206 @@
 
 ## 🎬 서비스 시연
 
-### 데스크톱
+### 메인 페이지
 
 <p align="center">
-  <img src="docs/screenshots/hero-desktop.png" alt="메인 히어로" width="80%" /><br/>
-  <em>시네마틱 영상 배경 + 골드 악센트 Hero 섹션</em>
+  <img src="docs/screenshots/main-hero.png" alt="메인 히어로" width="80%" /><br/>
+  <em>시네마틱 영상 배경 + 순차 텍스트 등장 + 골드 악센트 CTA</em>
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/cases-desktop.png" alt="승소사례 목록" width="80%" /><br/>
-  <em>승소사례 1,053건 — 금액 히어로 카드 + 필터 + 검색</em>
+  <img src="docs/screenshots/main-trust.png" alt="신뢰지표" width="80%" /><br/>
+  <em>52년 · 22인 · 1,053건+ · 7개팀 — 카운트업 애니메이션</em>
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/lawyers-desktop.png" alt="변호사 소개" width="80%" /><br/>
-  <em>22명 변호사 프로필 그리드 + 호버 인터랙션</em>
+  <img src="docs/screenshots/main-ceo.png" alt="대표변호사" width="80%" /><br/>
+  <em>CEO Section — clip-path reveal 애니메이션 + 감성 인용문</em>
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/practice-desktop.png" alt="업무분야" width="80%" /><br/>
-  <em>업무분야 14개 커스텀 랜딩 페이지</em>
+  <img src="docs/screenshots/main-cases.png" alt="승소사례 섹션" width="80%" /><br/>
+  <em>승소사례 Swiper 캐러셀 + 도장 씰 + 금액 강조</em>
 </p>
-
-### 모바일
 
 <p align="center">
-  <img src="docs/screenshots/mobile-hero.png" alt="모바일 히어로" width="30%" />
-  &nbsp;&nbsp;
-  <img src="docs/screenshots/mobile-cases.png" alt="모바일 승소사례" width="30%" />
-  &nbsp;&nbsp;
-  <img src="docs/screenshots/mobile-menu.png" alt="모바일 메뉴" width="30%" />
+  <img src="docs/screenshots/main-contact.png" alt="상담CTA" width="80%" /><br/>
+  <em>Contact CTA — 6-Step 프로세스 + 검색 태그 + 안심 뱃지</em>
 </p>
-<p align="center"><em>모바일 반응형 — Hero / 승소사례 / 풀스크린 메뉴</em></p>
+
+---
+
+### 서브페이지 — 신세계로 소개
+
+<p align="center">
+  <img src="docs/screenshots/about-greeting.png" alt="인사말" width="80%" /><br/>
+  <em>/about/greeting — 대표 2명 소개 + 크레덴셜 배지 + 골드 인용문</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/about-tradition.png" alt="52년 법조전통" width="80%" /><br/>
+  <em>/about/tradition — 세대별 카드 + 카운트업 72~88px + 기사 카드</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/about-system.png" alt="신세계로 시스템" width="80%" /><br/>
+  <em>/about/system — 4대 강점 탭 + 7개 전문팀 카드 그리드</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/about-location.png" alt="오시는 길" width="80%" /><br/>
+  <em>/about/location — Google Maps + 교통안내 + 전국 3개 사무소</em>
+</p>
+
+---
+
+### 서브페이지 — 변호사 & 전문팀
+
+<p align="center">
+  <img src="docs/screenshots/lawyers-list.png" alt="변호사 목록" width="80%" /><br/>
+  <em>/about/lawyers — 대표 2명 + 20명 4열 그리드 + 호버 오버레이</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/lawyer-detail.png" alt="변호사 상세" width="80%" /><br/>
+  <em>/about/lawyers/[id] — 프로필 히어로 + 4탭(활동/학력/승소사례/후기)</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/team-detail.png" alt="전문팀 상세" width="80%" /><br/>
+  <em>/about/teams/[slug] — 팀장 프로필 + 프로세스 + 대표사례 + 맞춤 CTA</em>
+</p>
+
+---
+
+### 서브페이지 — 승소사례 & 의뢰인 후기
+
+<p align="center">
+  <img src="docs/screenshots/cases-list.png" alt="승소사례 목록" width="80%" /><br/>
+  <em>/cases — BEST 하이라이트 + 3열 금액 히어로 카드 + 필터/검색/정렬</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/case-detail.png" alt="승소사례 상세" width="80%" /><br/>
+  <em>/cases/[id] — 결과 stat 카드 + 2컬럼 본문 + 라이트박스 + 공유/인쇄</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/reviews-list.png" alt="의뢰인 후기" width="80%" /><br/>
+  <em>/reviews — 3열 카드 그리드 + 결과 dot 강조 + 카테고리 필터</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/review-detail.png" alt="후기 상세" width="80%" /><br/>
+  <em>/reviews/[id] — 후기 본문 + 이미지 썸네일 + 법무법인 공식 답변</em>
+</p>
+
+---
+
+### 서브페이지 — 업무분야
+
+<p align="center">
+  <img src="docs/screenshots/practice-divorce.png" alt="이혼준비 가이드" width="80%" /><br/>
+  <em>/practice/divorce — 커스텀 9섹션 랜딩 (30일 체크리스트, 이혼 유형 카드)</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/practice-alimony.png" alt="위자료" width="80%" /><br/>
+  <em>/practice/divorce/alimony — 산정기준 9항목 그리드 + 증거 전략 + Quote Band</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/practice-litigation.png" alt="재판이혼" width="80%" /><br/>
+  <em>/practice/divorce/litigation — 민법 840조 + 유책배우자 + 특수쟁점 피처카드</em>
+</p>
+
+---
+
+### 서브페이지 — 미디어
+
+<p align="center">
+  <img src="docs/screenshots/news.png" alt="신세계로 소식" width="80%" /><br/>
+  <em>/news — Featured 카드 + 연혁 Swiper + 인증변호사 6명 + 인증서 갤러리</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/press-list.png" alt="언론보도 목록" width="80%" /><br/>
+  <em>/press — 3열 카드 + 매체별 필터(YTN 494/머니투데이 101/...) + YouTube 썸네일</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/press-detail.png" alt="언론보도 상세" width="80%" /><br/>
+  <em>/press/[id] — YouTube 임베드 + 변호사 인용문 자동 감지 + 프로필 카드</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/media-channel.png" alt="영상채널" width="80%" /><br/>
+  <em>/media/channel — YouTube 451개 + Shorts 553개 + 웹툰 5화 통합</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/column-list.png" alt="법률 칼럼" width="80%" /><br/>
+  <em>/media/column — 637건 칼럼 + 검색 + 소스 필터 + 인기 칼럼 사이드바</em>
+</p>
+
+---
+
+### 서브페이지 — 상담
+
+<p align="center">
+  <img src="docs/screenshots/consultation.png" alt="상담신청" width="80%" /><br/>
+  <em>/consultation — 6-Step 프로세스 + 상담 폼 + FAQ 아코디언 10개</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/consultation-board.png" alt="상담 게시판" width="80%" /><br/>
+  <em>/consultation/board — 카드형 리스트 + 잠금 아이콘 + 답변완료 뱃지</em>
+</p>
+
+---
+
+### 공통 UI 컴포넌트
+
+<p align="center">
+  <img src="docs/screenshots/megamenu.png" alt="메가메뉴" width="80%" /><br/>
+  <em>5탭 프리미엄 메가메뉴 — 글래스모피즘 + stagger 애니메이션</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/search.png" alt="글로벌 검색" width="80%" /><br/>
+  <em>글로벌 검색 — 2,188건 실시간 검색 + 카테고리 그룹핑 + 인기 태그</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/floating-cta.png" alt="FloatingCTA" width="80%" /><br/>
+  <em>FloatingCTA — 전화/카카오톡/상담/오시는길 4개 액션 사이드바</em>
+</p>
+
+---
+
+### 모바일 반응형
+
+<p align="center">
+  <img src="docs/screenshots/mobile-hero.png" alt="모바일 히어로" width="24%" />
+  &nbsp;
+  <img src="docs/screenshots/mobile-cases.png" alt="모바일 승소사례" width="24%" />
+  &nbsp;
+  <img src="docs/screenshots/mobile-lawyers.png" alt="모바일 변호사" width="24%" />
+  &nbsp;
+  <img src="docs/screenshots/mobile-menu.png" alt="모바일 메뉴" width="24%" />
+</p>
+<p align="center"><em>모바일 — Hero / 승소사례 / 변호사 2열 그리드 / 풀스크린 메뉴</em></p>
+
+<p align="center">
+  <img src="docs/screenshots/mobile-practice.png" alt="모바일 업무분야" width="24%" />
+  &nbsp;
+  <img src="docs/screenshots/mobile-press.png" alt="모바일 언론보도" width="24%" />
+  &nbsp;
+  <img src="docs/screenshots/mobile-review.png" alt="모바일 후기" width="24%" />
+  &nbsp;
+  <img src="docs/screenshots/mobile-consultation.png" alt="모바일 상담" width="24%" />
+</p>
+<p align="center"><em>모바일 — 업무분야 / 언론보도 / 후기 상세 / 상담 + 하단 CTA 바</em></p>
 
 ---
 
